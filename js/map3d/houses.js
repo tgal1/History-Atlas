@@ -8,6 +8,7 @@
 //   punic   courtyard houses, tall houses near the citadel, workshops
 //   mexica  calli (family compound round a patio), noble houses, reed huts
 //   levantine  stone courtyard houses, domed houses, covered markets
+//   tehran  courtyard houses, flats, shops, office blocks; the domed bazaar
 //
 // plus gardens. Other fabrics: "chinampa" (raised fields between canals,
 // lined with willows), "garden" (orchards and villas), "rubble" (a razed
@@ -35,6 +36,9 @@ const FLAT_ROOFS = ['#ddd3bf', '#d6cbb4', '#e2d9c6', '#d9cfba'];
 const WHITE = ['#f0ebe0', '#ece4d4', '#e6dccb', '#f3eee4'];
 const LIMESTONE = ['#ebe2cd', '#e4d9c1', '#efe8d7', '#ddd1b6', '#e8dec8', '#d9ccb0'];
 const STONE_ROOFS = ['#e2d8c3', '#dbd0b8', '#e7dfcc', '#d5c9ae'];
+const TEHRAN_BRICK = ['#c9a878', '#d2b388', '#bf9a6a', '#d8bf96', '#c4a27a'];
+const TEHRAN_CONCRETE = ['#d6d0c2', '#c7c1b3', '#bdb8ac', '#cfc6b2', '#b4b0a6'];
+const TEHRAN_ROOFS = ['#a7a299', '#b3ada2', '#9d988f', '#c2bba9'];
 
 // House types: plot size (m2), height, colours, roof thickness, and an
 // optional open courtyard (a hole in the roof) as a share of the plot.
@@ -57,6 +61,13 @@ const TYPES = {
   'levant-house': { area: [140, 360], h: (r, s) => Math.floor(between(r, 1, s ? 2.5 : 2.9)) * 3.4 + 0.5, walls: LIMESTONE, roofs: STONE_ROOFS, rt: 0.4, court: { min: 150, k: 0.34, p: 0.7 }, domes: 0.25 },
   'levant-domed': { area: [90, 220], h: (r) => Math.floor(between(r, 1, 2.6)) * 3.4 + 0.5, walls: LIMESTONE, roofs: STONE_ROOFS, rt: 0.4, domes: 1 },
   suq: { area: [110, 260], h: (r) => between(r, 5, 6.5), walls: ['#d8cbae', '#d1c3a4', '#dccfb3'], roofs: ['#cfc2a6', '#d6caae'], rt: 0.6 },
+  // Tehran in the 1970s: flat-roofed houses of yellow brick round a garden court, concrete flats and
+  // office blocks on the avenues, and the bazaar's lanes under rows of shallow brick domes.
+  'tehran-house': { area: [600, 1300], h: (r, s) => Math.floor(between(r, 2, s ? 3.6 : 4.8)) * 3.2 + 0.8, walls: TEHRAN_BRICK, roofs: TEHRAN_ROOFS, rt: 0.5, court: { min: 500, k: 0.42, p: 0.7, garden: true } },
+  'tehran-flats': { area: [800, 1500], h: (r) => Math.floor(between(r, 4, 6.9)) * 3.1 + 0.8, walls: TEHRAN_CONCRETE, roofs: TEHRAN_ROOFS, rt: 0.6 },
+  'tehran-shops': { area: [450, 900], h: (r) => Math.floor(between(r, 2, 3.9)) * 3.4 + 0.6, walls: [...TEHRAN_BRICK, ...TEHRAN_CONCRETE], roofs: TEHRAN_ROOFS, rt: 0.5 },
+  'tehran-office': { area: [1000, 2000], h: (r) => Math.floor(r() < 0.12 ? between(r, 11, 18) : between(r, 4, 9.9)) * 3.4 + 1, walls: TEHRAN_CONCRETE, roofs: ['#8f8c84', '#9a978e', '#a29d92'], rt: 0.8 },
+  bazaar: { area: [550, 1100], build: bazaarRow },
 };
 
 // Share of each type by setting. A fabric can override with "mix".
@@ -86,6 +97,11 @@ const STYLES = {
     hill: { 'levant-house': 0.6, 'levant-domed': 0.25, garden: 0.15 },
     outer: { 'levant-house': 0.5, 'levant-domed': 0.15, garden: 0.35 },
   },
+  tehran: {
+    centre: { 'tehran-house': 0.68, 'tehran-flats': 0.14, 'tehran-shops': 0.12, garden: 0.06 },
+    hill: { 'tehran-house': 0.6, 'tehran-flats': 0.2, garden: 0.2 },
+    outer: { 'tehran-house': 0.7, 'tehran-flats': 0.08, 'tehran-shops': 0.08, garden: 0.14 },
+  },
 };
 
 export const HOUSE_INFO = {
@@ -104,6 +120,11 @@ export const HOUSE_INFO = {
   'levant-house': 'A stone courtyard house: rooms of local limestone round a small open court, and a flat roof used for drying, sleeping and catching rain for the cistern below.',
   'levant-domed': 'A house roofed with stone vaults. In a land short of timber, a low dome over the main room was the usual roof.',
   suq: 'Vaulted market streets. The three parallel covered markets in the middle of the city date from crusader times; one, the Malquisinat, sold cooked food to pilgrims.',
+  'tehran-house': 'A Tehran family house: two to four storeys of yellow brick or concrete with a flat roof, built round a court with a pool and a tree.',
+  'tehran-flats': 'A block of flats. Oil money and migration from the countryside doubled Tehran in the 1960s and 70s, and blocks like this went up fast.',
+  'tehran-shops': 'Shops at street level with workshops or flats above.',
+  'tehran-office': 'An office block of the oil boom: ministries, banks, airline offices and hotels lined the main avenues.',
+  bazaar: 'The Grand Bazaar: lanes of shops under shallow brick domes. Its merchants funded the clergy, and their strikes in 1978 helped bring down the Shah.',
 };
 export const HOUSE_LABEL = {
   insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
@@ -111,6 +132,7 @@ export const HOUSE_LABEL = {
   calli: 'Calli (family compound)', noble: "Noble's house", rubble: 'Ruins',
   georgian: 'Georgian brick house', clapboard: 'Clapboard house', warehouse: 'Warehouse',
   'levant-house': 'Courtyard house', 'levant-domed': 'Domed house', suq: 'Covered market',
+  'tehran-house': 'Courtyard house', 'tehran-flats': 'Block of flats', 'tehran-shops': 'Shops', 'tehran-office': 'Office block', bazaar: 'Bazaar',
 };
 
 export async function generateHouses(city, frame) {
@@ -200,6 +222,7 @@ const TOWN_SPLIT = { min: 1500, max: 3500, gap: (depth) => (depth < 2 ? 7 : 4), 
 
 function house(lot, type, [t0, t1], suburb, r, extras) {
   const T = TYPES[type];
+  if (T.build) return T.build(lot, [t0, t1], r, extras);
   const A = Math.abs(area(lot));
   if (T.rubble) {
     if (r() < 0.35 || !isConvex(lot)) return null;
@@ -326,6 +349,32 @@ function roofDome(lot, holes, base, r, extras, t0, t1) {
     extras.parts.push(...g.parts);
     return;
   }
+}
+
+// A stretch of the Tehran bazaar: shops under a flat roof either side of a
+// lane roofed by a row of shallow brick domes. Now and then a timcheh, a
+// covered hall under one larger dome.
+function bazaarRow(lot, [t0, t1], r, extras) {
+  const box = obb(lot);
+  const H = round1(between(r, 5.5, 7));
+  const brick = ['#c49a6c', '#b98f62', '#cba57a'];
+  const g = { parts: [], flats: [] };
+  const cupola = (c, R, base) => {
+    const colour = brick[Math.floor(r() * brick.length)];
+    [[1, 0, 0.36], [0.62, 0.36, 0.62]].forEach(([k, b, h]) => part(g, circle(c, R * k, 12), base + R * b, base + R * h, colour));
+  };
+  if (Math.abs(area(lot)) > 700 && box.hw > 10 && r() < 0.18) {
+    const R = Math.min(box.hw, box.hl) * 0.62;
+    part(g, circle(box.c, R * 1.04, 16), H, H + 2.2, brick[0]);
+    cupola(box.c, R, H + 2.2);
+  } else {
+    const R = Math.min(box.hw * 0.62, 4.2);
+    const n = Math.floor((box.hl * 2) / (R * 2.3));
+    if (R > 1.5) for (let i = 0; i < n; i++) cupola(at(box, -box.hl + (box.hl * 2 * (i + 0.5)) / n, 0), R, H);
+  }
+  g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+  extras.parts.push(...g.parts);
+  return { rings: [lot], h: H, c: '#cdb08a', roof: '#c9ad85', rt: 0.4, type: 'bazaar', t0, t1 };
 }
 
 // ---------- Layouts ----------
