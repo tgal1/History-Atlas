@@ -7,6 +7,7 @@
 //   roman   insula (apartment block), taberna (shops), domus (town house)
 //   punic   courtyard houses, tall houses near the citadel, workshops
 //   mexica  calli (family compound round a patio), noble houses, reed huts
+//   levantine  stone courtyard houses, domed houses, covered markets
 //
 // plus gardens. Other fabrics: "chinampa" (raised fields between canals,
 // lined with willows), "garden" (orchards and villas), "rubble" (a razed
@@ -32,6 +33,8 @@ const SHINGLE = ['#6b5d4f', '#5e5348', '#74675a'];
 const ROMAN_ROOFS = ['#a9532f', '#b5603a', '#9e4b2b', '#ba6a43', '#a55a36', '#b2573a'];
 const FLAT_ROOFS = ['#ddd3bf', '#d6cbb4', '#e2d9c6', '#d9cfba'];
 const WHITE = ['#f0ebe0', '#ece4d4', '#e6dccb', '#f3eee4'];
+const LIMESTONE = ['#ebe2cd', '#e4d9c1', '#efe8d7', '#ddd1b6', '#e8dec8', '#d9ccb0'];
+const STONE_ROOFS = ['#e2d8c3', '#dbd0b8', '#e7dfcc', '#d5c9ae'];
 
 // House types: plot size (m2), height, colours, roof thickness, and an
 // optional open courtyard (a hole in the roof) as a share of the plot.
@@ -50,6 +53,10 @@ const TYPES = {
   clapboard: { area: [280, 620], h: (r) => between(r, 5.4, 6.8), walls: ['#e6dfd0', '#d8cdb8', '#c9b89a', '#b9c2c4', '#d9c7a1'], roofs: SHINGLE, rt: 0.05, pitched: true },
   warehouse: { area: [300, 700], h: (r) => Math.floor(between(r, 3, 4.7)) * 3 + 0.6, walls: ['#8f4a35', '#9a5a44', '#7d5a45'], roofs: SLATE, rt: 0.05, pitched: true },
   rubble: { area: [150, 500], rubble: true },
+  // The Levant (Jerusalem): pale limestone houses with flat roofs round small courts; a low dome over a vaulted room on some.
+  'levant-house': { area: [140, 360], h: (r, s) => Math.floor(between(r, 1, s ? 2.5 : 2.9)) * 3.4 + 0.5, walls: LIMESTONE, roofs: STONE_ROOFS, rt: 0.4, court: { min: 150, k: 0.34, p: 0.7 }, domes: 0.25 },
+  'levant-domed': { area: [90, 220], h: (r) => Math.floor(between(r, 1, 2.6)) * 3.4 + 0.5, walls: LIMESTONE, roofs: STONE_ROOFS, rt: 0.4, domes: 1 },
+  suq: { area: [110, 260], h: (r) => between(r, 5, 6.5), walls: ['#d8cbae', '#d1c3a4', '#dccfb3'], roofs: ['#cfc2a6', '#d6caae'], rt: 0.6 },
 };
 
 // Share of each type by setting. A fabric can override with "mix".
@@ -74,6 +81,11 @@ const STYLES = {
     hill: { calli: 0.74, noble: 0.12, garden: 0.08, hut: 0.06 },
     outer: { calli: 0.55, hut: 0.22, garden: 0.23 },
   },
+  levantine: {
+    centre: { 'levant-house': 0.58, 'levant-domed': 0.2, suq: 0.14, garden: 0.08 },
+    hill: { 'levant-house': 0.6, 'levant-domed': 0.25, garden: 0.15 },
+    outer: { 'levant-house': 0.5, 'levant-domed': 0.15, garden: 0.35 },
+  },
 };
 
 export const HOUSE_INFO = {
@@ -89,12 +101,16 @@ export const HOUSE_INFO = {
   georgian: 'A Georgian brick house: two or three storeys, sash windows, a slate or shingle roof. The merchant class built these.',
   clapboard: 'A timber-framed house clad in painted clapboard, the commonest home in a colonial town.',
   warehouse: 'A brick warehouse by the waterfront, where cargoes of rum, molasses, cloth and tea were stored.',
+  'levant-house': 'A stone courtyard house: rooms of local limestone round a small open court, and a flat roof used for drying, sleeping and catching rain for the cistern below.',
+  'levant-domed': 'A house roofed with stone vaults. In a land short of timber, a low dome over the main room was the usual roof.',
+  suq: 'Vaulted market streets. The three parallel covered markets in the middle of the city date from crusader times; one, the Malquisinat, sold cooked food to pilgrims.',
 };
 export const HOUSE_LABEL = {
   insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
   'punic-house': 'Courtyard house', 'punic-tall': 'Tall house', workshop: 'Workshops',
   calli: 'Calli (family compound)', noble: "Noble's house", rubble: 'Ruins',
   georgian: 'Georgian brick house', clapboard: 'Clapboard house', warehouse: 'Warehouse',
+  'levant-house': 'Courtyard house', 'levant-domed': 'Domed house', suq: 'Covered market',
 };
 
 export async function generateHouses(city, frame) {
@@ -247,6 +263,7 @@ function house(lot, type, [t0, t1], suburb, r, extras) {
       }
     }
   }
+  if (T.domes && r() < T.domes) roofDome(lot, holes, h + T.rt, r, extras, t0, t1);
   return {
     rings: [lot, ...holes],
     h: round1(h),
@@ -285,6 +302,29 @@ function orchard(g, plot, r) {
       const q = at(box, s + between(r, -1.5, 1.5), t + between(r, -1.5, 1.5));
       part(g, circle(q, between(r, 2, 2.8), 7), 0.8, between(r, 3.6, 4.8), '#7f915a');
     }
+  }
+}
+
+// A low dome over one vaulted room of a Levantine house, at one end of the
+// roof and clear of the courtyard.
+function roofDome(lot, holes, base, r, extras, t0, t1) {
+  const box = obb(lot);
+  const rad = Math.min(box.hw * 0.7, between(r, 2.2, 3.4));
+  if (rad < 1.6) return;
+  const end = box.hl - rad - 0.6;
+  for (const s of r() < 0.5 ? [end, -end] : [-end, end]) {
+    const c = at(box, s, between(r, -0.3, 0.3) * Math.max(0, box.hw - rad));
+    if (!inRing(c, lot) || holes.some((q) => inRing(c, q))) continue;
+    const g = { parts: [], flats: [] };
+    const rise = rad * 0.8;
+    for (let i = 0; i < 4; i++) {
+      const a0 = (i / 4) * (Math.PI / 2);
+      const a1 = ((i + 1) / 4) * (Math.PI / 2);
+      part(g, circle(c, rad * Math.cos((a0 + a1) / 2), 14), base + rise * Math.sin(a0), base + rise * Math.sin(a1), '#e9e1cf');
+    }
+    g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+    extras.parts.push(...g.parts);
+    return;
   }
 }
 

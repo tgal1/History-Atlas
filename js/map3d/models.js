@@ -10,7 +10,7 @@
 
 import {
   obb, at, rectIn, circle, ellipse, alongPath, strips, centroid, area, open, scaleRing,
-  isConvex, bearingVec, pathLength, rng, between, hashString, inRing,
+  isConvex, bearingVec, pathLength, rng, between, hashString, inRing, clipHalf,
 } from './geom.js';
 
 export const C = {
@@ -28,6 +28,7 @@ const STYLE = {
   punic: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   mexica: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   colonial: { wall: '#b9785a', hall: '#a8553d', roof: '#4f4a45', flatRoof: false },
+  levantine: { wall: '#e6dcc4', hall: '#ddd0b4', roof: '#d6cab0', flatRoof: true },
 };
 
 const DEFAULT_MODEL = {
@@ -860,6 +861,222 @@ const RECIPES = {
       }
     }
   },
+
+  // ---------- The Levant (Jerusalem) ----------
+  // A great raised platform over sloping ground (the Temple Mount): flat on
+  // top, its retaining walls showing where the hill falls away. MapLibre sets
+  // each solid on the ground under its middle, so the platform is cut into
+  // small cells and each is raised to the same level (see raiseToTerrace).
+  terrace(shape, m, out, ctx) {
+    const step = m.cell ?? 16;
+    for (const poly of shape.polys) {
+      const ring = poly[0];
+      const box = obb(ring);
+      for (let s = -box.hl; s < box.hl; s += step) {
+        for (let t = -box.hw; t < box.hw; t += step) {
+          const cell = rectIn(box, s, Math.min(s + step, box.hl), t, Math.min(t + step, box.hw));
+          let piece = ring;
+          for (let i = 0; i < 4 && piece; i++) {
+            const a = cell[i];
+            const b = cell[(i + 1) % 4];
+            piece = clipHalf(piece, a, [b[0] - a[0], b[1] - a[1]]);
+          }
+          if (piece && Math.abs(area(piece)) > 4) part(out, piece, 0, 0.05, m.colour ?? '#ddd0b2');
+        }
+      }
+    }
+    raiseToTerrace(out, m.terrace, ctx.toXY);
+  },
+
+  // The Dome of the Rock: an octagon faced with marble below and mosaic above,
+  // a drum, and the gilded dome, on its raised upper court.
+  'dome-rock'(shape, m, out, ctx) {
+    const ring = shape.main[0];
+    const c = centroid(ring);
+    const R = Math.max(...ring.map((q) => Math.hypot(q[0] - c[0], q[1] - c[1])));
+    const upper = m.upper ?? '#6b8f7d';
+    let pb = 0;
+    if (m.court) {
+      // [north-south, east-west] in metres
+      pb = 3;
+      part(out, rectIn({ c, u: [1, 0], v: [0, 1] }, -m.court[1] / 2, m.court[1] / 2, -m.court[0] / 2, m.court[0] / 2), 0, pb, '#ddd0b2');
+    }
+    part(out, ring, pb, pb + 5.5, C.marble);
+    part(out, ring, pb + 5.5, pb + 10.5, upper);
+    part(out, scaleRing(ring, 0.97), pb + 10.5, pb + 11.6, C.marbleShade);
+    const rd = R * 0.45;
+    part(out, circle(c, rd, 32), pb + 11.6, pb + 20, upper);
+    part(out, circle(c, rd * 1.03, 32), pb + 20, pb + 20.8, C.marble);
+    // Slightly pointed, so taller than a hemisphere.
+    dome(out, c, rd * 0.96, pb + 20.8, rd * 1.15, m.dome ?? '#d4a73a', 9);
+    finial(out, c, pb + 20.8 + rd * 1.15, m.finial);
+    raiseToTerrace(out, m.terrace, ctx.toXY);
+  },
+
+  // Al-Aqsa as the Fatimids rebuilt it: a wide hall of aisles, a raised
+  // central nave, and a dome before the mihrab at the south end.
+  aqsa(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, { facing: m.facing ?? 0 }, ctx); // +u = north, the entrance
+    const { hl, hw } = box;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, 9, C.stone);
+    part(out, rectIn(box, -hl, hl, -hw, hw), 9, 9.6, C.lead);
+    const nw = Math.min(hw * 0.2, 7);
+    const ds = hw * 0.72; // the square bay under the dome
+    part(out, rectIn(box, -hl + ds, hl, -nw, nw), 0, 13.5, C.stone);
+    gable(out, box, -hl + ds, hl + 0.3, nw + 0.4, 13.5, 2.6, C.lead, 3);
+    const dc = at(box, -hl + ds / 2, 0);
+    const dr = Math.min(ds / 2 - 1, 8);
+    part(out, rectIn(box, -hl, -hl + ds, -ds / 2, ds / 2), 0, 15, C.stone);
+    part(out, circle(dc, dr, 28), 15, 18, C.stone);
+    dome(out, dc, dr * 0.97, 18, dr * 0.95, m.dome ?? C.lead, 7);
+    finial(out, dc, 18 + dr * 0.95, m.finial);
+    raiseToTerrace(out, m.terrace, ctx.toXY);
+  },
+
+  // The Church of the Holy Sepulchre: the rotunda over the tomb at the west
+  // end under its open conical roof, and east of it either the court and
+  // chapels of the 1040s or ("crusader": true) the Romanesque church of 1149,
+  // with its crossing dome, apse and bell tower.
+  sepulchre(shape, m, out) {
+    const box = obb(shape.points);
+    if (box.u[0] < 0) { box.u = [-box.u[0], -box.u[1]]; box.v = [-box.v[0], -box.v[1]]; } // +u east, +v north
+    const { hl, hw } = box;
+    const R = Math.min(hw, m.r ?? 18);
+    const rc = at(box, -hl + R, 0);
+    part(out, circle(rc, R, 40), 0, 15, C.stone);
+    for (let k = 0; k < 5; k++) {
+      part(out, [circle(rc, R * (1.02 - k * 0.13), 40), circle(rc, R * 0.2, 20)], 15 + k * 2.4, 17.4 + k * 2.4, C.lead);
+    }
+    const e0 = -hl + 2 * R;
+    if (!m.crusader) {
+      flat(out, rectIn(box, e0, hl - 6, -hw * 0.75, hw * 0.75), C.paving);
+      part(out, rectIn(box, e0, e0 + 14, -hw, -hw * 0.5), 0, 10, C.stone); // Calvary
+      part(out, rectIn(box, e0, hl, hw * 0.75, hw), 0, 8, C.stone);
+      part(out, rectIn(box, hl - 6, hl, -hw * 0.75, hw * 0.75), 0, 8, C.stone);
+      return;
+    }
+    const cw = Math.min(hw * 0.62, 14);
+    const ar = cw * 0.85;
+    const s1 = hl - ar;
+    part(out, rectIn(box, e0 - 2, s1, -cw, cw), 0, 16, C.stone);
+    part(out, rectIn(box, e0 - 2, s1, -cw, cw), 16, 17, C.lead);
+    // Transept and crossing dome.
+    const xs = e0 + 9;
+    part(out, rectIn(box, xs - 7, xs + 7, -Math.min(hw, cw + 9), Math.min(hw, cw + 9)), 0, 16, C.stone);
+    const xc = at(box, xs, 0);
+    part(out, circle(xc, 6.5, 24), 16, 21, C.stone);
+    dome(out, xc, 6.3, 21, 6, C.lead, 6);
+    // Apse with its ambulatory of chapels.
+    const a = Math.atan2(box.v[1], box.v[0]);
+    part(out, circle(at(box, s1, 0), ar, 24, a - Math.PI, a), 0, 12, C.stone);
+    part(out, circle(at(box, s1, 0), ar * 0.7, 20, a - Math.PI, a), 12, 15, C.stone);
+    if (m.tower !== false) {
+      const tc = { c: at(box, -hl + R * 1.6, -(R * 0.95)), u: box.u, v: box.v };
+      part(out, rectIn(tc, -4.5, 4.5, -4.5, 4.5), 0, 30, C.stone);
+      part(out, rectIn(tc, -3.6, 3.6, -3.6, 3.6), 30, 33, C.stone);
+      for (let k = 0; k < 3; k++) part(out, rectIn(tc, -3 + k, 3 - k, -3 + k, 3 - k), 33 + k, 34 + k, C.lead);
+    }
+  },
+
+  // A citadel: a curtain wall round a court, towers along it, and a great keep
+  // at the north-east corner (the Tower of David stands on Herod's tower).
+  // "ruined": true leaves stumps.
+  citadel(shape, m, out) {
+    const ring = shape.main[0];
+    const R = Math.sqrt(Math.abs(area(ring)) / Math.PI);
+    const H = m.ruined ? 3 : m.h ?? 13;
+    const colour = m.ruined ? C.rubble : C.stone;
+    const inner = scaleRing(ring, Math.max(0.5, 1 - 5 / R));
+    part(out, [ring, inner], 0, H, colour);
+    flat(out, inner, C.paving);
+    for (const q of alongPath(ring, m.towers ?? 30, 8, 8, { closed: true })) part(out, q, 0, m.ruined ? 4 : H + 3, colour);
+    const box = obb(ring);
+    const ne = ring.reduce((p, q) => (q[0] + q[1] > p[0] + p[1] ? q : p));
+    const c = centroid(ring);
+    const d = Math.hypot(c[0] - ne[0], c[1] - ne[1]) || 1;
+    const keep = { c: [ne[0] + ((c[0] - ne[0]) / d) * 11, ne[1] + ((c[1] - ne[1]) / d) * 11], u: box.u, v: box.v };
+    part(out, rectIn(keep, -9, 9, -8, 8), 0, m.ruined ? 10 : 24, colour);
+    if (!m.ruined) part(out, rectIn(keep, -7.5, 7.5, -6.5, 6.5), 24, 27, colour);
+  },
+
+  // A city gate: two towers astride the road and the gatehouse over the
+  // arch. "angle" is the bearing of the wall. "sealed" makes a walled-up
+  // double gate with two domes (the Golden Gate).
+  gate(shape, m, out, ctx) {
+    const u = bearingVec(m.angle ?? 90);
+    const box = { c: shape.centre, u, v: [-u[1], u[0]] };
+    const H = m.h ?? 14;
+    if (m.sealed) {
+      part(out, rectIn(box, -11, 11, -8, 8), 0, H - 2, C.stone);
+      for (const s of [-5.5, 5.5]) dome(out, at(box, s, 0), 4, H - 2, 3.5, C.stone, 5);
+    } else {
+      part(out, rectIn(box, -9.6, -2.6, -4.5, 4.5), 0, H, C.stone);
+      part(out, rectIn(box, 2.6, 9.6, -4.5, 4.5), 0, H, C.stone);
+      part(out, rectIn(box, -2.6, 2.6, -3.8, 3.8), 6.5, H - 1.5, C.stone);
+    }
+    raiseToTerrace(out, m.terrace, ctx.toXY);
+  },
+
+  // A crusader church: aisles and a taller nave under flat stone roofs, an
+  // apse at the east end, and a dome over the crossing on some.
+  // "apse": false and "dome": true make a small domed mosque.
+  chapel(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, { facing: m.facing ?? 90 }, ctx); // +u = east
+    const H = m.h ?? 16;
+    const { hl, hw } = box;
+    const ar = m.apse === false ? 0 : hw * 0.45;
+    const s1 = hl - ar;
+    part(out, rectIn(box, -hl, s1, -hw, hw), 0, H * 0.62, C.stone);
+    part(out, rectIn(box, -hl, s1, -hw * 0.4, hw * 0.4), 0, H * 0.8, C.stone);
+    part(out, rectIn(box, -hl, s1, -hw * 0.4, hw * 0.4), H * 0.8, H * 0.84, ctx.S.roof);
+    if (ar) {
+      const a = Math.atan2(box.v[1], box.v[0]);
+      part(out, circle(at(box, s1, 0), ar, 20, a - Math.PI, a), 0, H * 0.7, C.stone);
+    }
+    if (m.dome) {
+      const dc = at(box, ar ? s1 - hw * 0.45 : 0, 0);
+      const dr = Math.min(hw * 0.38, 7);
+      part(out, circle(dc, dr, 24), H * 0.8, H, C.stone);
+      dome(out, dc, dr * 0.96, H, dr * 0.9, m.domeColour ?? C.lead, 6);
+      finial(out, dc, H + dr * 0.9, m.finial);
+    }
+  },
+
+  // A siege camp: tents scattered round a pavilion and banner, or round a
+  // siege tower ("tower": true).
+  camp(shape, m, out, ctx) {
+    const c = shape.centre;
+    const R = shape.radius;
+    const r = ctx.r;
+    const cloths = m.colours ?? ['#efe6d2', '#e2d3b0', '#d8c49b', '#c9b48a'];
+    const n = Math.round((R * R) / 45);
+    for (let i = 0; i < n; i++) {
+      const a = r() * Math.PI * 2;
+      const d = Math.sqrt(between(r, 0.12, 1)) * R * 0.92;
+      const q = [c[0] + Math.cos(a) * d, c[1] + Math.sin(a) * d];
+      const t = r() * Math.PI;
+      const box = { c: q, u: [Math.cos(t), Math.sin(t)], v: [-Math.sin(t), Math.cos(t)] };
+      const cloth = cloths[Math.floor(r() * cloths.length)];
+      part(out, rectIn(box, -2, 2, -1.5, 1.5), 0, 1.1, cloth);
+      gable(out, box, -2, 2, 1.6, 1.1, 1.4, cloth, 3);
+    }
+    if (m.tower) {
+      // A siege tower of timber, hides hung on the upper storeys.
+      const u = bearingVec(m.facing ?? 180);
+      const box = { c, u, v: [-u[1], u[0]] };
+      const H = m.h ?? 18;
+      for (let k = 0; k < 6; k++) {
+        const w = 4 - k * 0.2;
+        part(out, rectIn(box, -w, w, -w, w), (H * k) / 6, (H * (k + 1)) / 6, k > 3 ? '#8a5a3a' : C.wood);
+      }
+      part(out, rectIn(box, 3.4, 8, -1.5, 1.5), H * 0.82, H * 0.82 + 0.4, C.wood);
+      return;
+    }
+    part(out, circle(c, 3.5, 12), 0, 2.6, cloths[0]);
+    for (let k = 0; k < 3; k++) part(out, circle(c, 3.8 * (1 - k / 3.2), 12), 2.6 + k * 0.9, 3.5 + k * 0.9, cloths[0]);
+    part(out, circle([c[0] + 4.5, c[1]], 0.15, 5), 0, 9, C.wood);
+    part(out, rectIn({ c: [c[0] + 5.6, c[1]], u: [1, 0], v: [0, 1] }, -1.1, 1.1, -0.05, 0.05), 7.4, 8.9, m.flag ?? C.red);
+  },
 };
 
 function isConvexish(ring) {
@@ -885,5 +1102,49 @@ export function tree(out, q, r) {
     part(out, circle(q, between(r, 3.5, 5.5), 9), h, h + between(r, 2.5, 3.5), C.pine);
   } else {
     part(out, circle(q, between(r, 1.1, 1.6), 7), 0, between(r, 10, 15), C.cypress);
+  }
+}
+
+// A cross (a church) or a crescent (a mosque) on top of a dome.
+function finial(out, c, top, kind) {
+  if (!kind) return;
+  const box = { c, u: [1, 0], v: [0, 1] };
+  const gold = '#c9a13b';
+  part(out, circle(c, 0.25, 6), top, top + (kind === 'cross' ? 4 : 2.6), gold);
+  if (kind === 'cross') part(out, rectIn(box, -1.2, 1.2, -0.2, 0.2), top + 2.4, top + 2.9, gold);
+  else part(out, circle(c, 0.9, 10), top + 2.6, top + 3.4, gold);
+}
+
+// MapLibre sets each solid on the ground under the average of its points,
+// with the terrain exaggerated as in city3d.js. Parts standing on a terrace
+// are raised so that they all share its level:
+//   "terrace": { "top": 746, "h": 1, "dem": { "sw": [lng, lat], "ne": [lng, lat], "n": [cols, rows], "z": [...] } }
+// "top" is the terrace level in metres above sea level, "h" its paving above
+// that, and "dem" the ground sampled on a grid from the south-west corner,
+// row by row (tools/terrace_dem.py fills it in).
+const TERRAIN_EXAGGERATION = 1.3;
+function raiseToTerrace(out, t, toXY) {
+  if (!t?.dem) return;
+  const { sw, ne, n: [nx, ny], z } = t.dem;
+  const [x0, y0] = toXY(sw);
+  const [x1, y1] = toXY(ne);
+  const ground = ([x, y]) => {
+    const fx = clamp(((x - x0) / (x1 - x0)) * (nx - 1), 0, nx - 1);
+    const fy = clamp(((y - y0) / (y1 - y0)) * (ny - 1), 0, ny - 1);
+    const i = Math.min(nx - 2, Math.floor(fx));
+    const j = Math.min(ny - 2, Math.floor(fy));
+    const a = fx - i;
+    const b = fy - j;
+    const Z = (ii, jj) => z[jj * nx + ii];
+    return Z(i, j) * (1 - a) * (1 - b) + Z(i + 1, j) * a * (1 - b) + Z(i, j + 1) * (1 - a) * b + Z(i + 1, j + 1) * a * b;
+  };
+  const level = TERRAIN_EXAGGERATION * t.top + (t.h ?? 1);
+  for (const q of out.parts) {
+    const pts = q.rings.flat();
+    const c = [pts.reduce((s, p) => s + p[0], 0) / pts.length, pts.reduce((s, p) => s + p[1], 0) / pts.length];
+    const lift = level - TERRAIN_EXAGGERATION * ground(c);
+    // Parts on the ground keep their footing and grow upwards; raised parts move up.
+    if (q.b > 0) q.b = Math.max(0.01, q.b + lift);
+    q.h = Math.max(q.b + 0.2, q.h + lift);
   }
 }
