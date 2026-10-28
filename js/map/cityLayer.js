@@ -42,6 +42,10 @@ const KINDS = {
   baths:      { order: 12, type: 'area', fill: '#bcd3dc', stroke: '#5a7f8f', fo: 1, label: 'Baths' },
   fort:       { order: 12, type: 'area', fill: '#b9a68a', stroke: '#4f3f2a', fo: 1, label: 'Fort' },
   tomb:       { order: 12, type: 'area', fill: '#cfc4b0', stroke: '#6f6250', fo: 1, label: 'Tomb' },
+  house:      { order: 12, type: 'area', fill: '#b9785a', stroke: '#6e3f2c', fo: 1, label: 'House' },
+  church:     { order: 13, type: 'area', fill: '#c9b8a0', stroke: '#5e4b3a', fo: 1, weight: 1.5, label: 'Church' },
+  wharf:      { order: 6, type: 'area', fill: '#a58a64', stroke: '#6b5233', fo: 1, label: 'Wharf' },
+  redoubt:    { order: 12, type: 'area', fill: '#b8a57c', stroke: '#6b5a3a', fo: 0.9, weight: 2, label: 'Earthwork' },
   shipsheds:  { order: 12, type: 'spokes', color: '#7a5a34', label: 'Ship sheds' },
   label:      { order: 14, type: 'label', label: 'Area' },
 };
@@ -71,7 +75,13 @@ export function createCityLayer(map, cities, { onSelect }) {
       if ((SMOOTH.has(p.kind) && p.smooth !== false) || p.smooth === true) smoothGeometry(feature.geometry);
       const item = { city, feature, p, kind, layers: [], label: null, shown: false, labelShown: false };
 
-      if (p.fabric) {
+      if (p.fabric?.layout === 'blocks') {
+        // Real blocks between historic streets: drawn as built-up blocks, as on a period town plan.
+        item.layers.push(L.geoJSON(feature, {
+          renderer,
+          style: () => ({ color: kind.stroke, weight: 0.8, fillColor: p.fill ?? kind.fill, fillOpacity: 1 }),
+        }));
+      } else if (p.fabric) {
         // A generated texture: house blocks between streets, or chinampa strips
         // between canals. Drawn as one multipolygon for speed.
         const base = { renderer, stroke: false, fillColor: p.fabric.base ?? kind.fill, fillOpacity: p.fabric.base ? 1 : 0 };
@@ -203,7 +213,7 @@ function radialSpokes(centre, inner, outer, count, gapDeg) {
 // Fills a polygon with rectangles (w x h metres, gap metres apart, rotated by
 // angle degrees), skipping any that would sit on a canal, road or causeway, or
 // inside a plaza, temple, palace or other named area of the same city.
-const KEEP_CLEAR_AREAS = new Set(['plaza', 'precinct', 'ruins', 'palace', 'temple', 'market', 'building', 'arena', 'baths', 'fort', 'tomb', 'harbour', 'garden', 'chinampa', 'island']);
+const KEEP_CLEAR_AREAS = new Set(['plaza', 'precinct', 'ruins', 'palace', 'temple', 'church', 'house', 'wharf', 'redoubt', 'market', 'building', 'arena', 'baths', 'fort', 'tomb', 'harbour', 'garden', 'chinampa', 'island']);
 const KEEP_CLEAR_LINES = new Set(['canal', 'road', 'causeway', 'river', 'wall', 'aqueduct']);
 
 function generateFabric(feature, siblings, { w = 60, h = 60, gap = 12, angle = 0, clearM = 4 }) {

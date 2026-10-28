@@ -31,6 +31,16 @@ export function createMapView(el, story, { overlayPadding = () => ({}) } = {}) {
     maxNativeZoom: style.maxNativeZoom ?? style.maxZoom ?? 18,
     opacity: style.opacity ?? 1,
   }).addTo(map);
+  if (style.detail) {
+    L.tileLayer(style.detail.url, {
+      ...tileOptions,
+      minZoom: style.detail.minZoom,
+      maxZoom: style.maxZoom ?? 18,
+      maxNativeZoom: style.detail.maxNativeZoom,
+      opacity: style.detail.opacity,
+      className: 'detail-tiles',
+    }).addTo(map);
+  }
 
   // Panes stack: territories < markers < labels < scene units.
   map.createPane('territory').style.zIndex = 350;

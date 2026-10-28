@@ -6,6 +6,8 @@
 /* ---------- City plans ---------- */
 /* Zoomed into a city, the base map fades so the drawn plan reads clearly. */
 #map.city-zoom .leaflet-tile-pane { opacity: 0.35; }
+/* The sharp grey detail base takes the parchment colour from beneath it. */
+.detail-tiles { mix-blend-mode: multiply; }
 #map.city-zoom { background: #ece3cc !important; }
 
 .city-label { pointer-events: none; }

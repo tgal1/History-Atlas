@@ -27,6 +27,7 @@ const STYLE = {
   roman: { wall: C.stucco, hall: C.brick, roof: C.roof, flatRoof: false },
   punic: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   mexica: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
+  colonial: { wall: '#b9785a', hall: '#a8553d', roof: '#4f4a45', flatRoof: false },
 };
 
 const DEFAULT_MODEL = {
@@ -34,6 +35,7 @@ const DEFAULT_MODEL = {
   baths: 'baths', fort: 'fort', tomb: 'drum-tomb', plaza: 'plaza', precinct: 'precinct',
   wall: 'wall', aqueduct: 'aqueduct', 'aqueduct-cut': 'aqueduct', bridge: 'bridge', garden: 'garden',
   causeway: 'causeway', dike: 'dike', shipsheds: 'shipsheds', ruins: 'ruins',
+  church: 'church', house: 'house', wharf: 'wharf', redoubt: 'redoubt',
 };
 
 // ctx: { toXY, plazas: [[x, y]] centres of open squares, for temples to face,
@@ -726,6 +728,49 @@ const RECIPES = {
     for (const line of shape.lines) {
       for (const q of strips(line, m.w ?? 7)) part(out, q, 0, m.h ?? 2.5, m.colour ?? C.earth);
       for (const q of alongPath(line, 2.5, 0.35, 0.35)) part(out, q, 0, (m.h ?? 2.5) + 0.8, C.wood);
+    }
+  },
+
+  // ---------- Colonial America ----------
+  // A meeting house or church: a gabled nave, a square tower at the front,
+  // a belfry, and a spire rising in tapering stages.
+  church(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 50;
+    const wall = m.colour ?? ctx.S.hall;
+    const roof = m.roof ?? ctx.S.roof;
+    const { hl, hw } = box;
+    const ts = clamp(hw * 1.1, 4.5, 9);
+    const wallH = m.wallH ?? Math.min(12, H * 0.3);
+    part(out, rectIn(box, -hl, hl - ts, -hw, hw), 0, wallH, wall);
+    gable(out, box, -hl - 0.3, hl - ts, hw + 0.3, wallH, hw * 0.6, roof, 4);
+    if (m.tower === false) return;
+    const tb = { c: at(box, hl - ts / 2, 0), u: box.u, v: box.v };
+    part(out, rectIn(tb, -ts / 2, ts / 2, -ts / 2, ts / 2), 0, H * 0.42, wall);
+    part(out, rectIn(tb, -ts * 0.38, ts * 0.38, -ts * 0.38, ts * 0.38), H * 0.42, H * 0.55, m.belfry ?? C.whitewash);
+    part(out, circle(tb.c, ts * 0.3, 8), H * 0.55, H * 0.64, m.belfry ?? C.whitewash);
+    for (let k = 0; k < 6; k++) part(out, circle(tb.c, ts * 0.27 * (1 - k / 6.5), 8), H * (0.64 + k * 0.06), H * (0.7 + k * 0.06), m.spire ?? '#5f6466');
+  },
+
+  // A building recorded on a historic map: its own outline, a gable roof.
+  house(shape, m, out, ctx) {
+    const ring = shape.main[0];
+    const box = obb(ring);
+    const H = ctx.p.heightM ?? m.h ?? 8 + ctx.r() * 4;
+    part(out, ring, 0, H, m.colour ?? ctx.S.wall);
+    gable(out, box, -box.hl, box.hl, box.hw + 0.3, H, Math.min(box.hw * 0.8, 6), m.roof ?? ctx.S.roof, 4);
+  },
+
+  wharf(shape, m, out) {
+    for (const poly of shape.polys) part(out, poly, 0, m.h ?? 1.4, m.colour ?? '#8a6a44');
+  },
+
+  // An earthwork: a raised bank of earth round a ditch (Breed's Hill, Yorktown).
+  redoubt(shape, m, out) {
+    for (const poly of shape.polys) {
+      const ring = poly[0];
+      part(out, [ring, scaleRing(ring, 0.78).reverse()], 0, m.h ?? 2.8, m.colour ?? '#8f7a55');
+      flat(out, scaleRing(ring, 0.78), '#b8a57c');
     }
   },
 

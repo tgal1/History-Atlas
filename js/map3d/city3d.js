@@ -264,7 +264,8 @@ async function buildData(city) {
       el.innerHTML = '<span></span>';
       el.firstChild.textContent = p.name;
       const [lat, lng] = latLng(labelPoint(f));
-      const zoom = (p.labelZoom ?? LABEL_ZOOM[p.kind] ?? 15.5) - 1;
+      // Street names only up close in 3D, where they don't crowd the roofs.
+      const zoom = p.kind === 'road' ? Math.max(17, p.labelZoom ?? 17) : (p.labelZoom ?? LABEL_ZOOM[p.kind] ?? 15.5) - 1;
       labels.push({ marker: new window.maplibregl.Marker({ element: el }).setLngLat([lng, lat]), zoom, t0: p.t0, t1: p.t1, shown: true });
     }
   });

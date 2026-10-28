@@ -45,5 +45,13 @@ export const BASEMAPS = {
     theme: 'light',
     opacity: 0.72,
     background: '#e3d2a8',
+    // The relief stops at zoom 13 and blurs beyond. From there a label-free
+    // grey base is multiplied in, so shores and streets stay sharp in a city.
+    detail: {
+      url: `${ESRI_ROOT}/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}`,
+      minZoom: 13,
+      maxNativeZoom: 16,
+      opacity: 0.75,
+    },
   },
 };

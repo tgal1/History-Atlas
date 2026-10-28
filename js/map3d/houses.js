@@ -24,9 +24,11 @@ import { kindInfo } from '../map/cityLayer.js';
 
 const CLIPPING_URL = 'https://cdn.jsdelivr.net/npm/polygon-clipping@0.15.7/+esm';
 
-const KEEP_CLEAR_AREAS = new Set(['plaza', 'precinct', 'ruins', 'palace', 'temple', 'market', 'building', 'arena', 'baths', 'fort', 'tomb', 'harbour', 'garden', 'chinampa', 'island', 'shipsheds']);
+const KEEP_CLEAR_AREAS = new Set(['plaza', 'precinct', 'ruins', 'palace', 'temple', 'church', 'market', 'building', 'house', 'wharf', 'arena', 'baths', 'fort', 'tomb', 'harbour', 'garden', 'chinampa', 'island', 'shipsheds']);
 const KEEP_CLEAR_LINES = { river: 8, road: 1, canal: 2, causeway: 2, wall: 4, aqueduct: 2 };
 
+const SLATE = ['#4f4a45', '#5a534c', '#625a50'];
+const SHINGLE = ['#6b5d4f', '#5e5348', '#74675a'];
 const ROMAN_ROOFS = ['#a9532f', '#b5603a', '#9e4b2b', '#ba6a43', '#a55a36', '#b2573a'];
 const FLAT_ROOFS = ['#ddd3bf', '#d6cbb4', '#e2d9c6', '#d9cfba'];
 const WHITE = ['#f0ebe0', '#ece4d4', '#e6dccb', '#f3eee4'];
@@ -43,6 +45,10 @@ const TYPES = {
   calli: { area: [160, 380], h: (r) => between(r, 3, 3.8), walls: ['#efe9dc', '#e8dfcc', '#ddd0b8', '#cdb497'], roofs: ['#e5dccb', '#d9cdb6', '#cdbb9c'], rt: 0.35, court: { min: 140, k: 0.42, p: 0.85 } },
   noble: { area: [500, 1000], h: (r) => between(r, 5.5, 7), walls: ['#f2eee5', '#ece5d6'], roofs: ['#e7dfcf', '#e0d7c4'], rt: 0.5, court: { min: 300, k: 0.46, p: 1, garden: true } },
   hut: { area: [60, 140], thatch: true },
+  // Colonial America: brick Georgian houses, painted clapboard, harbour warehouses, all with pitched roofs.
+  georgian: { area: [320, 700], h: (r) => Math.floor(between(r, 2, 3.7)) * 3 + 0.6, walls: ['#a8553d', '#9c4b36', '#b35f45', '#a35a42'], roofs: SLATE, rt: 0.05, pitched: true },
+  clapboard: { area: [280, 620], h: (r) => between(r, 5.4, 6.8), walls: ['#e6dfd0', '#d8cdb8', '#c9b89a', '#b9c2c4', '#d9c7a1'], roofs: SHINGLE, rt: 0.05, pitched: true },
+  warehouse: { area: [300, 700], h: (r) => Math.floor(between(r, 3, 4.7)) * 3 + 0.6, walls: ['#8f4a35', '#9a5a44', '#7d5a45'], roofs: SLATE, rt: 0.05, pitched: true },
   rubble: { area: [150, 500], rubble: true },
 };
 
@@ -57,6 +63,11 @@ const STYLES = {
     centre: { 'punic-house': 0.62, 'punic-tall': 0.12, workshop: 0.18, garden: 0.08 },
     hill: { 'punic-house': 0.35, 'punic-tall': 0.52, workshop: 0.05, garden: 0.08 },
     outer: { 'punic-house': 0.45, workshop: 0.2, garden: 0.35 },
+  },
+  colonial: {
+    centre: { georgian: 0.45, clapboard: 0.35, warehouse: 0.08, garden: 0.12 },
+    hill: { clapboard: 0.45, georgian: 0.3, garden: 0.25 },
+    outer: { clapboard: 0.5, georgian: 0.15, garden: 0.35 },
   },
   mexica: {
     centre: { calli: 0.74, noble: 0.12, garden: 0.08, hut: 0.06 },
@@ -75,11 +86,15 @@ export const HOUSE_INFO = {
   calli: 'Calli: a family compound of whitewashed adobe rooms round a shared patio, with a flat roof.',
   noble: "A noble's house: two storeys on a stone platform, round a garden court.",
   rubble: 'Ruins: the city after its destruction.',
+  georgian: 'A Georgian brick house: two or three storeys, sash windows, a slate or shingle roof. The merchant class built these.',
+  clapboard: 'A timber-framed house clad in painted clapboard, the commonest home in a colonial town.',
+  warehouse: 'A brick warehouse by the waterfront, where cargoes of rum, molasses, cloth and tea were stored.',
 };
 export const HOUSE_LABEL = {
   insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
   'punic-house': 'Courtyard house', 'punic-tall': 'Tall house', workshop: 'Workshops',
   calli: 'Calli (family compound)', noble: "Noble's house", rubble: 'Ruins',
+  georgian: 'Georgian brick house', clapboard: 'Clapboard house', warehouse: 'Warehouse',
 };
 
 export async function generateHouses(city, frame) {
@@ -128,6 +143,11 @@ export async function generateHouses(city, frame) {
 
       const blocks = [];
       if (fabric.layout === 'grid') blocks.push(...gridBlocks(ring, fabric));
+      // Real blocks between historic streets (tools/ohm_city.py); very large ones get alleys.
+      else if (fabric.layout === 'blocks') {
+        if (Math.abs(area(ring)) > 9000) split(ring, 3, r, blocks, clip, BLOCK_SPLIT);
+        else blocks.push(ring);
+      }
       else split(ring, 0, r, blocks, clip, isTown ? TOWN_SPLIT : BLOCK_SPLIT);
 
       for (const block of blocks) {
@@ -182,6 +202,28 @@ function house(lot, type, [t0, t1], suburb, r, extras) {
     return null;
   }
   const h = T.h(r, suburb);
+  if (T.pitched) {
+    // The house stands at one end of its lot, the yard behind it; a steep
+    // gable roof across the house, with a chimney.
+    const lotBox = obb(lot);
+    const end = r() < 0.5 ? 1 : -1;
+    const depth = Math.min(lotBox.hl * 2, between(r, 9, 13));
+    const s0 = end > 0 ? lotBox.hl - depth : -lotBox.hl;
+    const body = rectIn(lotBox, s0, s0 + depth, -lotBox.hw + 0.3, lotBox.hw - 0.3);
+    if (lotBox.hl * 2 - depth > 4) {
+      const yard = rectIn(lotBox, end > 0 ? -lotBox.hl : s0 + depth + 0.4, end > 0 ? s0 - 0.4 : lotBox.hl, -lotBox.hw, lotBox.hw);
+      extras.flats.push({ rings: [yard], c: C.garden, t0, t1 });
+    }
+    const box = { c: at(lotBox, s0 + depth / 2, 0), u: lotBox.v, v: [-lotBox.u[0], -lotBox.u[1]], hl: lotBox.hw - 0.3, hw: depth / 2 };
+    const roof = T.roofs[Math.floor(r() * T.roofs.length)];
+    const rise = Math.min(box.hw * 0.85, 6);
+    const g = { parts: [], flats: [] };
+    gable(g, box, -box.hl - 0.2, box.hl + 0.2, box.hw + 0.3, h, rise, roof, 6);
+    if (r() < 0.75) part(g, rectIn(box, box.hl * 0.6 - 0.6, box.hl * 0.6 + 0.6, -0.6, 0.6), h, h + rise + 1.2, '#7a4a38');
+    g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+    extras.parts.push(...g.parts);
+    return { rings: [body], h: round1(h), c: T.walls[Math.floor(r() * T.walls.length)], roof, rt: 0.05, type, t0, t1 };
+  }
   const holes = [];
   if (T.court && A > T.court.min && isConvex(lot) && r() < T.court.p) {
     const hole = scaleRing(lot, T.court.k);

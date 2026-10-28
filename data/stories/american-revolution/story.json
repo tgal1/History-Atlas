@@ -203,5 +203,6 @@
     },
     "scene": "battlefield"
   },
-  "music": "colonial"
+  "music": "colonial",
+  "cities": ["boston"]
 }
