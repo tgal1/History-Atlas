@@ -1619,3 +1619,318 @@ function raiseToTerrace(out, t, toXY) {
     q.h = Math.max(q.b + 0.2, q.h + lift);
   }
 }
+
+// ---------- Paris ----------
+// Pale limestone under grey slate and lead: mansard roofs, Gothic churches,
+// domes, the medieval fortresses the Revolution pulled down, and the bridges
+// that still carried houses.
+STYLE.paris = { wall: '#e6dbc4', hall: '#ddd0b5', roof: '#676c73', flatRoof: false };
+const PARIS = {
+  stone: '#e6d9bd', stoneShade: '#cbbd9d', slate: '#676c73', lead: '#8e959a', gold: '#c9a54a',
+  walls: ['#ece3cf', '#e4d8bf', '#efe7d6', '#dccfb3', '#e8dcc2'], roofs: ['#6a6f76', '#73777d', '#63686f', '#7b7f85'],
+};
+
+// Move each edge of a ring d metres to its left, mitring the corners: inwards
+// on an anticlockwise outline, away from the hole on a clockwise courtyard.
+export function offsetRing(ring, d) {
+  const n = ring.length;
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const n1 = leftNormal(ring[(i + n - 1) % n], ring[i]);
+    const n2 = leftNormal(ring[i], ring[(i + 1) % n]);
+    const mx = n1[0] + n2[0];
+    const my = n1[1] + n2[1];
+    const ml = Math.hypot(mx, my);
+    if (ml < 1e-6) { out.push([ring[i][0] + n2[0] * d, ring[i][1] + n2[1] * d]); continue; }
+    const k = Math.min(d / Math.max((mx * n1[0] + my * n1[1]) / ml, 0.35), d * 2.5);
+    out.push([ring[i][0] + (mx / ml) * k, ring[i][1] + (my / ml) * k]);
+  }
+  return out;
+}
+function leftNormal(a, b) {
+  const l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+  return [-(b[1] - a[1]) / l, (b[0] - a[0]) / l];
+}
+
+// Drop points closer than 0.5 m and turn outlines anticlockwise, holes clockwise.
+function tidyRings(rings) {
+  return rings.map((ring, i) => {
+    const q = ring.filter((p, j) => j === 0 || Math.hypot(p[0] - ring[j - 1][0], p[1] - ring[j - 1][1]) > 0.5);
+    return (area(q) > 0) === (i === 0) ? q : q.slice().reverse();
+  });
+}
+
+// A mansard: a steep slate slope set back in steps from the cornice, then a
+// low top. Works on any outline, courtyards included; narrow wings get a
+// smaller set-back so the roof never turns inside out.
+export function mansard(out, rings, base, c, { rise = 4, inset = 2.6, steps = 3, top = 1.1 } = {}) {
+  const tidy = tidyRings(rings);
+  const perimeter = tidy.reduce((s, q) => s + pathLength([...q, q[0]]), 0);
+  const net = tidy.reduce((s, q) => s + area(q), 0);
+  const d = Math.min(inset, (0.6 * net) / perimeter);
+  for (let k = 0; k < steps; k++) {
+    part(out, tidy.map((q) => offsetRing(q, (d * k) / steps)), base + (rise * k) / steps, base + (rise * (k + 1)) / steps, c);
+  }
+  part(out, tidy.map((q) => offsetRing(q, d * 1.25)), base + rise, base + rise + top, c);
+}
+
+// Half a disc on the far side of a line through c, facing direction f.
+const halfDisc = (c, r, f, n = 14) => {
+  const a = Math.atan2(f[1], f[0]);
+  return circle(c, r, n, a - Math.PI / 2, a + Math.PI / 2);
+};
+
+function spire(out, c, r, base, h, colour, n = 6) {
+  for (let k = 0; k < n; k++) part(out, circle(c, r * (1 - k / (n + 0.5)), 8), base + (h * k) / n, base + (h * (k + 1)) / n, colour);
+}
+
+Object.assign(RECIPES, {
+  // A Gothic or classical church: nave and choir under a steep roof, lower
+  // aisles, a transept, a rounded east end, and twin or single west towers.
+  // Options: towers (0, 1, 2), towerH, towerTop ('flat', 'spire', 'dome'),
+  // aisles, transept, apse (false to leave out), crossing (0..1 along the
+  // nave, from the east), spire (height above the ridge at the crossing).
+  cathedral(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx); // +u points to the west front
+    const { hl, hw } = box;
+    const H = m.h ?? 30;
+    const wall = m.colour ?? PARIS.stone;
+    const roof = m.roof ?? PARIS.lead;
+    const aisles = m.aisles !== false;
+    const nw = aisles ? Math.min(hw * 0.4, 9) : hw * 0.95;
+    const aw = aisles ? hw * 0.9 : nw;
+    const td = m.towers ? Math.min(hl * 0.2, 16) : 0;
+    const apse = m.apse === false ? 0 : Math.min(aw, hl * 0.25);
+    const s0 = -hl + apse;
+    const s1 = hl - td;
+    const east = [-box.u[0], -box.u[1]];
+    const rise = Math.min(nw * 1.25, 12);
+    if (aisles) {
+      part(out, rectIn(box, s0, s1, -aw, aw), 0, H * 0.42, wall);
+      part(out, rectIn(box, s0, s1, -aw, aw), H * 0.42, H * 0.47, roof);
+      if (apse) {
+        part(out, halfDisc(at(box, s0, 0), aw, east), 0, H * 0.42, wall);
+        part(out, halfDisc(at(box, s0, 0), aw, east), H * 0.42, H * 0.47, roof);
+      }
+    }
+    part(out, rectIn(box, s0, s1, -nw, nw), 0, H, wall);
+    gable(out, box, s0, s1, nw + 0.4, H, rise, roof, 6);
+    if (apse) {
+      part(out, halfDisc(at(box, s0, 0), nw, east), 0, H, wall);
+      for (let k = 0; k < 6; k++) part(out, halfDisc(at(box, s0, 0), (nw + 0.4) * (1 - k / 6), east), H + (rise * k) / 6, H + (rise * (k + 1)) / 6, roof);
+    }
+    const cs = s0 + (s1 - s0) * (m.crossing ?? 0.4);
+    if (m.transept !== false && aisles) {
+      const tb = { c: at(box, cs, 0), u: box.v, v: [-box.u[0], -box.u[1]] };
+      part(out, rectIn(tb, -hw, hw, -nw, nw), 0, H, wall);
+      gable(out, tb, -hw - 0.3, hw + 0.3, nw + 0.4, H, rise, roof, 6);
+    }
+    if (m.spire) spire(out, at(box, cs, 0), 2.6, H + rise * 0.8, m.spire + rise * 0.2, roof, 8);
+    if (!m.towers) return;
+    const TH = m.towerH ?? H * 2;
+    const fh = Math.min(TH * 0.66, H * 1.45);
+    part(out, rectIn(box, s1, hl, -aw, aw), 0, fh, wall);
+    const towers = m.towers === 2 ? [[-aw, -aw * 0.36], [aw * 0.36, aw]] : [[-aw * 0.38, aw * 0.38]];
+    for (const [t0, t1] of towers) {
+      part(out, rectIn(box, s1 + 0.6, hl - 0.6, t0 + 0.6, t1 - 0.6), fh, TH, wall);
+      const c = at(box, (s1 + hl) / 2, (t0 + t1) / 2);
+      const r = Math.min(hl - s1, t1 - t0) / 2 - 0.6;
+      if (m.towerTop === 'spire') spire(out, c, r * 0.8, TH, TH * 0.5, roof);
+      else if (m.towerTop === 'dome') { part(out, circle(c, r * 0.8, 16), TH, TH + 4, wall); dome(out, c, r * 0.8, TH + 4, r * 0.6, roof, 4); }
+      else part(out, rectIn(box, s1 + 0.3, hl - 0.3, t0 + 0.3, t1 - 0.3), TH, TH + 0.8, wall);
+    }
+  },
+
+  // A domed church: a block or Greek cross, an optional columned portico,
+  // and a drum ringed with columns under a dome and lantern (the Pantheon,
+  // the Invalides, the Val-de-Grace). Options: cross, portico, drumR,
+  // drumH, domeRise, lantern, centre (-1..1 along the axis), gold.
+  'dome-church'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const { hl, hw } = box;
+    const H = m.h ?? 24;
+    const wall = m.colour ?? PARIS.stone;
+    const pd = m.portico ? Math.min(13, hl * 0.16) : 0;
+    const L = hl - pd;
+    const cs = m.centre != null ? m.centre * hl : (-hl + L) / 2;
+    if (m.cross) {
+      const arm = hw * 0.46;
+      for (const ring of [rectIn(box, -hl, L, -arm, arm), rectIn(box, cs - hw * 0.52, cs + hw * 0.52, -hw, hw)]) {
+        part(out, ring, 0, H, wall);
+        part(out, ring, H, H + 1.2, PARIS.stoneShade);
+        mansard(out, [ring], H + 1.2, PARIS.lead, { rise: 1.6, steps: 1, top: 0.6 });
+      }
+    } else {
+      const ring = rectIn(box, -hl, L, -hw, hw);
+      part(out, ring, 0, H, wall);
+      mansard(out, [ring], H, PARIS.lead, { rise: 2, steps: 2, top: 0.6 });
+    }
+    if (pd) {
+      const pw = Math.min(hw * 0.5, 22);
+      part(out, rectIn(box, L, hl, -pw, pw), 0, 1.6, PARIS.stoneShade);
+      for (let j = 0; j < 2; j++) columnsBetween(out, box, hl - 1.2 - j * 4.5, -pw + 1, hl - 1.2 - j * 4.5, pw - 1, j ? 4 : 6 + Math.round(pw / 6), 0.85, 1.6, H * 0.78, wall);
+      part(out, rectIn(box, L - 1, hl, -pw, pw), H * 0.78, H * 0.88, wall);
+      gable(out, box, L - 1, hl, pw, H * 0.88, Math.min(pw * 0.32, 7), PARIS.stoneShade, 4);
+    }
+    const c = at(box, cs, 0);
+    const R = m.drumR ?? Math.min(hw * 0.32, 16);
+    const dh = m.drumH ?? R * 1.3;
+    const base = H + 1.2;
+    part(out, circle(c, R * 1.18, 32), H, base, PARIS.stoneShade);
+    for (let i = 0; i < 24; i++) {
+      const a = (i / 24) * Math.PI * 2;
+      part(out, circle([c[0] + R * 1.1 * Math.cos(a), c[1] + R * 1.1 * Math.sin(a)], Math.max(0.5, R * 0.045), 8), base, base + dh * 0.82, wall);
+    }
+    part(out, circle(c, R, 32), base, base + dh, wall);
+    part(out, circle(c, R * 1.16, 32), base + dh * 0.82, base + dh, PARIS.stoneShade);
+    const rise = m.domeRise ?? R;
+    dome(out, c, R * 0.98, base + dh, rise, PARIS.lead, 8);
+    if (m.gold) {
+      for (let i = 0; i < 12; i++) {
+        const a = (i / 12) * Math.PI * 2;
+        const q = [c[0] + R * 0.6 * Math.cos(a), c[1] + R * 0.6 * Math.sin(a)];
+        part(out, circle(q, R * 0.07, 6), base + dh + rise * 0.55, base + dh + rise * 0.8, PARIS.gold);
+      }
+    }
+    const lt = base + dh + rise;
+    const lh = m.lantern ?? R * 0.7;
+    part(out, circle(c, R * 0.2, 12), lt - 0.5, lt + lh * 0.55, wall);
+    spire(out, c, R * 0.16, lt + lh * 0.55, lh * 0.45, m.gold ? PARIS.gold : PARIS.lead, 4);
+  },
+
+  // A palace or public building on its real outline, courtyards and all:
+  // stone walls, a cornice and a slate mansard.
+  chateau(shape, m, out) {
+    const H = m.h ?? 16;
+    for (const poly of shape.polys) {
+      if (Math.abs(area(poly[0])) < 40) continue;
+      part(out, poly, 0, H, m.colour ?? PARIS.stone);
+      part(out, poly, H, H + 0.7, PARIS.stoneShade);
+      mansard(out, poly, H + 0.7, m.roof ?? PARIS.slate, { rise: m.roofH ?? 4.5, inset: 3 });
+    }
+  },
+
+  // A medieval fortress: curtain walls round a court, round towers at the
+  // corners and along the sides, a wet ditch (the Bastille, the Chatelet).
+  // "keep": a square donjon with corner turrets instead (the Temple tower).
+  // "ruined": broken down to stumps, as the Bastille was through 1789-90.
+  fortress(shape, m, out, ctx) {
+    const box = obb(shape.points);
+    const { hl, hw } = box;
+    const H = m.h ?? 24;
+    const r = ctx.r;
+    const wall = m.colour ?? '#cbbf9f';
+    const cut = (h) => (m.ruined ? h * between(r, 0.15, 0.55) : h);
+    if (m.keep) {
+      const s = Math.min(hl, hw) * 0.62;
+      part(out, rectIn(box, -s, s, -s, s), 0, H, wall);
+      for (let k = 0; k < 5; k++) {
+        const q = s * (1 - k / 5.5);
+        part(out, rectIn(box, -q, q, -q, q), H + k * 2.4, H + (k + 1) * 2.4, PARIS.slate);
+      }
+      for (const [sx, sy] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+        const c = at(box, sx * s, sy * s);
+        part(out, circle(c, s * 0.32, 12), 0, H + 2, wall);
+        spire(out, c, s * 0.36, H + 2, 7, PARIS.slate, 4);
+      }
+      return;
+    }
+    if (m.ditch !== false && !m.ruined) {
+      flat(out, [rectIn(box, -hl - 11, hl + 11, -hw - 11, hw + 11), rectIn(box, -hl - 2, hl + 2, -hw - 2, hw + 2).reverse()], C.water);
+    }
+    const tr = Math.min(hw * 0.32, 7);
+    const ring = rectIn(box, -hl + tr * 0.6, hl - tr * 0.6, -hw + tr * 0.6, hw - tr * 0.6);
+    const inner = rectIn(box, -hl + tr * 1.6, hl - tr * 1.6, -hw + tr * 1.6, hw - tr * 1.6);
+    if (m.ruined) {
+      for (const q of alongPath(ring, 9, 8.5, tr, { closed: true })) part(out, q, 0, cut(H), wall);
+      ruinedHeaps(out, box, r);
+    } else {
+      part(out, [ring, inner.slice().reverse()], 0, H, wall);
+      flat(out, inner, C.paving);
+    }
+    const n = m.towers ?? 4; // towers per long side, corners included
+    const spots = [];
+    for (let i = 0; i < n; i++) for (const t of [-1, 1]) spots.push([-hl + tr + ((2 * hl - 2 * tr) * i) / (n - 1), t * (hw - tr)]);
+    for (const [s, t] of spots) {
+      const c = at(box, s, t);
+      const th = cut(H + 1.5);
+      part(out, circle(c, tr, 14), 0, th, wall);
+      if (!m.ruined && m.roofs) spire(out, c, tr * 1.05, th, tr * 1.6, PARIS.slate, 4);
+      else if (!m.ruined) part(out, circle(c, tr * 0.8, 14), th, th + 1.2, wall);
+    }
+  },
+
+  // A round building: the grain hall's ring of vaults round a domed court,
+  // or one of Ledoux's toll houses (a square base under a drum).
+  rotunda(shape, m, out) {
+    const c = shape.centre;
+    const R = m.r ?? shape.radius;
+    const H = m.h ?? 12;
+    const wall = m.colour ?? PARIS.stone;
+    if (m.ledoux) {
+      const box = obb(shape.points);
+      const s = Math.min(box.hl, box.hw) * 0.82;
+      part(out, rectIn(box, -s, s, -s, s), 0, H * 0.5, wall);
+      part(out, circle(box.c, s * 0.78, 28), H * 0.5, H, wall);
+      part(out, circle(box.c, s * 0.82, 28), H, H + 0.8, PARIS.stoneShade);
+      mansard(out, [circle(box.c, s * 0.7, 28)], H + 0.8, PARIS.lead, { rise: 1.4, steps: 2, top: 0.4 });
+      return;
+    }
+    const hole = circle(c, R * 0.62, 36).reverse();
+    part(out, [circle(c, R, 36), hole], 0, H, wall);
+    mansard(out, [circle(c, R, 36), hole], H, PARIS.slate, { rise: 3, inset: 2, steps: 2, top: 0.5 });
+    dome(out, c, R * 0.62, H, R * 0.42, m.domeColour ?? '#8b7a62', 7);
+  },
+
+  // Houses built on a bridge: tall narrow fronts on both sides of the
+  // roadway, overhanging the parapets, as on the Pont Saint-Michel until 1808.
+  'bridge-houses'(shape, m, out, ctx) {
+    const r = ctx.r;
+    const deck = m.deck ?? 7.5;
+    const road = (m.road ?? 7) / 2;
+    const depth = m.depth ?? 8;
+    for (const line of shape.lines) {
+      const [a, b] = [line[0], line.at(-1)];
+      const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const u = [(b[0] - a[0]) / len, (b[1] - a[1]) / len];
+      const box = { c: [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], u, v: [-u[1], u[0]] };
+      const end = len / 2 - (m.endGap ?? 6);
+      for (const side of [-1, 1]) {
+        for (let s = -end; s < end - 3;) {
+          const w = Math.min(between(r, 4.5, 7.5), end - s);
+          const h = deck + Math.floor(between(r, 3, 4.99)) * 3;
+          const t0 = side * road;
+          const t1 = side * (road + depth);
+          part(out, rectIn(box, s + 0.2, s + w - 0.2, Math.min(t0, t1), Math.max(t0, t1)), 0, h, PARIS.walls[Math.floor(r() * PARIS.walls.length)]);
+          const hb = { c: at(box, s + w / 2, side * (road + depth / 2)), u: box.v, v: [-box.u[0], -box.u[1]] };
+          gable(out, hb, -depth / 2 - 0.3, depth / 2 + 0.3, w / 2, h, Math.min(w * 0.6, 4), PARIS.roofs[Math.floor(r() * PARIS.roofs.length)], 4);
+          s += w;
+        }
+      }
+    }
+  },
+
+  // A house recorded on a period plan (Lagrive's Cite, 1754): its own outline,
+  // four to six storeys, a steep slate roof.
+  maison(shape, m, out, ctx) {
+    const ring = shape.main[0];
+    const box = obb(ring);
+    const r = ctx.r;
+    const H = ctx.p.heightM ?? m.h ?? Math.floor(between(r, 3, 5.99)) * 3.1 + 0.8;
+    part(out, ring, 0, H, m.colour ?? PARIS.walls[Math.floor(r() * PARIS.walls.length)]);
+    gable(out, box, -box.hl, box.hl, box.hw + 0.2, H, Math.min(box.hw * 1.1, 6), m.roof ?? PARIS.roofs[Math.floor(r() * PARIS.roofs.length)], 4);
+  },
+});
+
+function ruinedHeaps(out, box, r) {
+  for (let i = 0; i < 26; i++) {
+    const q = at(box, between(r, -box.hl, box.hl), between(r, -box.hw, box.hw));
+    part(out, circle(q, between(r, 2, 5), 7), 0, between(r, 0.6, 2.6), C.rubble);
+  }
+}
+
+// The set-back top of a mansard over a generated house (houses.js): one slab,
+// d metres in from the cornice.
+export function mansardTop(out, rings, base, rise, d, c) {
+  part(out, tidyRings(rings).map((q) => offsetRing(q, d)), base, base + rise, c);
+}
