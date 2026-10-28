@@ -128,7 +128,8 @@
       "story": "crusades",
       "at": "1150",
       "when": "Shown in 1150",
-      "blurb": "The walled city under crusader rule: the Holy Sepulchre, the Dome of the Rock as the Templum Domini, the Templars on the Temple Mount, and the sieges of 1099 and 1187."
+      "blurb": "The walled city under crusader rule: the Holy Sepulchre, the Dome of the Rock as the Templum Domini, the Templars on the Temple Mount, and the sieges of 1099 and 1187.",
+      "threeD": true
     },
     {
       "id": "berlin",
@@ -137,7 +138,7 @@
       "at": "1975-06-01",
       "when": "Shown in 1975",
       "blurb": "The four sectors, the Airlift's Tempelhof, the Wall and its death strip, Checkpoint Charlie and the Brandenburg Gate, 1945–1990.",
-      "threeD": false
+      "threeD": true
     },
     {
       "id": "tehran",
@@ -145,7 +146,8 @@
       "story": "iran-revolution",
       "at": "1978-12-11",
       "when": "Shown in December 1978",
-      "blurb": "The city of the revolution: the avenues of the great marches, Jaleh Square, the university, the bazaar, the palaces, Evin prison and the US embassy."
+      "blurb": "The city of the revolution: the avenues of the great marches, Jaleh Square, the university, the bazaar, the palaces, Evin prison and the US embassy.",
+      "threeD": true
     },
     {
       "id": "boston",
