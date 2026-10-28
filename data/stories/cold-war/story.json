@@ -1,0 +1,368 @@
+{
+  "id": "cold-war",
+  "title": "The Cold War",
+  "subtitle": "1945–1991",
+  "range": {
+    "start": "1945-01-15",
+    "end": "1991-12-31"
+  },
+  "overview": {
+    "bounds": [
+      [
+        -40,
+        -125
+      ],
+      [
+        72,
+        150
+      ]
+    ]
+  },
+  "minZoom": 2,
+  "basemap": "esri-light",
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "cities": ["berlin"],
+  "intro": {
+    "title": "Forty-six years on the brink",
+    "body": [
+      "In 1945 the United States and the Soviet Union stood together over a defeated Germany. Within three years they were rivals, each armed with a different idea of how the world should be run, and soon each armed with the atomic bomb.",
+      "Their armies never fought each other directly. Instead the Cold War was fought by threat and bluff in Europe, and by real wars in Korea, Vietnam, Afghanistan, Angola and many other places. Millions died in these proxy wars, most of them civilians.",
+      "It ended almost without a shot. In 1989 the peoples of Eastern Europe pulled down their communist governments, the Berlin Wall fell, and in December 1991 the Soviet Union itself was dissolved."
+    ],
+    "tips": [
+      "Press play to watch the world split into blocs and come back together. The map flies to each crisis.",
+      "Dark blue is NATO, light blue other US allies. Dark red is the Soviet Union, red its satellites in the Warsaw Pact, orange the other communist states. Gold is non-aligned, grey neutral, green the countries whose communist rule ended in 1989–91.",
+      "Zoom into Berlin to see the four sectors and the Wall. Two animated scenes: the Berlin Airlift and the fall of South Vietnam in 1975."
+    ]
+  },
+  "categories": {
+    "politics": {
+      "label": "Summits, treaties and alliances",
+      "color": "#7b5cc4"
+    },
+    "crisis": {
+      "label": "Crises and stand-offs",
+      "color": "#e08a1e"
+    },
+    "war": {
+      "label": "Proxy wars and battles",
+      "color": "#d64933"
+    },
+    "intervention": {
+      "label": "Coups and invasions",
+      "color": "#4a4f5c"
+    },
+    "uprising": {
+      "label": "Revolutions and uprisings",
+      "color": "#2e9b6a"
+    },
+    "nuclear": {
+      "label": "The bomb, space and arms control",
+      "color": "#c9a227"
+    },
+    "atrocity": {
+      "label": "Massacres and civilian deaths",
+      "color": "#7a1f1f"
+    }
+  },
+  "factions": {
+    "nato": {
+      "label": "NATO members",
+      "short": "NATO",
+      "color": "#1f5fbf",
+      "style": {
+        "fillOpacity": 0.32,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "west": {
+      "label": "Other US allies and Western-occupied zones",
+      "short": "US and allies",
+      "color": "#5c9be0",
+      "style": {
+        "fillOpacity": 0.26,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "soviet": {
+      "label": "Soviet Union",
+      "short": "Soviet Union",
+      "color": "#9e1b17",
+      "style": {
+        "fillOpacity": 0.3,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "eastbloc": {
+      "label": "Soviet satellites (the Warsaw Pact from 1955)",
+      "short": "Soviet bloc",
+      "color": "#e0453a",
+      "style": {
+        "fillOpacity": 0.3,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "communist": {
+      "label": "Other communist states",
+      "short": "Communists",
+      "color": "#ee8a2f",
+      "style": {
+        "fillOpacity": 0.32,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "nonaligned": {
+      "label": "Non-aligned",
+      "short": "Non-aligned",
+      "color": "#c9a227",
+      "style": {
+        "fillOpacity": 0.22,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "neutral": {
+      "label": "Neutral",
+      "short": "Neutral",
+      "color": "#9a968c",
+      "style": {
+        "fillOpacity": 0.22,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "contested": {
+      "label": "Civil war or colonial war",
+      "short": "Contested",
+      "color": "#8a6aa8",
+      "style": {
+        "fillOpacity": 0.26,
+        "weight": 1.2
+      }
+    },
+    "postcom": {
+      "label": "Communist rule ended, 1989–91",
+      "short": "Post-communist",
+      "color": "#3f9e5a",
+      "style": {
+        "fillOpacity": 0.26,
+        "weight": 0.8,
+        "dashArray": null
+      }
+    },
+    "line": {
+      "label": "Iron Curtain, front lines and demilitarised zones",
+      "short": "Border",
+      "color": "#1d1a16",
+      "style": {
+        "weight": 2.6,
+        "dashArray": null,
+        "opacity": 0.85,
+        "fillOpacity": 0
+      }
+    }
+  },
+  "eras": [
+    {
+      "start": "1945-01-15",
+      "end": "1949-08-29",
+      "title": "From allies to rivals",
+      "text": "The victors of 1945 fall out over Germany and Eastern Europe. An Iron Curtain descends, and Berlin is blockaded."
+    },
+    {
+      "start": "1949-08-29",
+      "end": "1955-05-14",
+      "title": "The war turns hot in Asia",
+      "text": "The Soviet bomb, a communist China and a war in Korea. In Indochina the French are driven out."
+    },
+    {
+      "start": "1955-05-14",
+      "end": "1962-11-21",
+      "title": "Brinkmanship",
+      "text": "Hungary is crushed, Sputnik flies, a Wall divides Berlin. In October 1962 the world comes closest to nuclear war."
+    },
+    {
+      "start": "1962-11-21",
+      "end": "1975-04-30",
+      "title": "Vietnam and détente",
+      "text": "The United States fights and loses a long war in Vietnam. Moscow and Washington begin to talk and limit their weapons."
+    },
+    {
+      "start": "1975-04-30",
+      "end": "1985-03-11",
+      "title": "Proxy wars and a second freeze",
+      "text": "The rivalry spreads to Africa, Central America and Afghanistan. By 1983 fear of nuclear war is back."
+    },
+    {
+      "start": "1985-03-11",
+      "end": "1991-12-31",
+      "title": "Gorbachev and the end",
+      "text": "Reform in Moscow, revolutions across Eastern Europe in 1989, and the end of the Soviet Union in 1991."
+    }
+  ],
+  "intensity": {
+    "label": "Nuclear warheads, US and Soviet",
+    "note": "Total stockpiles at year end. Estimates by the US Department of Energy and the Federation of American Scientists; Soviet figures are approximate.",
+    "values": {
+      "1945": 2,
+      "1946": 9,
+      "1947": 13,
+      "1948": 50,
+      "1949": 171,
+      "1950": 304,
+      "1951": 463,
+      "1952": 891,
+      "1953": 1289,
+      "1954": 1853,
+      "1955": 2622,
+      "1956": 4118,
+      "1957": 6203,
+      "1958": 8214,
+      "1959": 13358,
+      "1960": 20243,
+      "1961": 24700,
+      "1962": 28862,
+      "1963": 32371,
+      "1964": 34684,
+      "1965": 37268,
+      "1966": 38264,
+      "1967": 39594,
+      "1968": 38960,
+      "1969": 38090,
+      "1970": 37651,
+      "1971": 38922,
+      "1972": 40994,
+      "1973": 43750,
+      "1974": 45922,
+      "1975": 46574,
+      "1976": 47119,
+      "1977": 48586,
+      "1978": 49811,
+      "1979": 52073,
+      "1980": 53826,
+      "1981": 55080,
+      "1982": 56889,
+      "1983": 58958,
+      "1984": 60659,
+      "1985": 62332,
+      "1986": 63413,
+      "1987": 61597,
+      "1988": 58882,
+      "1989": 55154,
+      "1990": 53392,
+      "1991": 47008
+    }
+  },
+  "mapLabels": [
+    {
+      "text": "38th parallel",
+      "at": [
+        38.05,
+        126.2
+      ],
+      "from": "1945-08-10",
+      "to": "1953-07-27",
+      "minZoom": 5
+    },
+    {
+      "text": "DMZ",
+      "at": [
+        38.2,
+        127.6
+      ],
+      "from": "1953-07-27",
+      "minZoom": 6
+    },
+    {
+      "text": "17th parallel",
+      "at": [
+        17.05,
+        106.6
+      ],
+      "from": "1954-07-21",
+      "to": "1976-07-02",
+      "minZoom": 5
+    },
+    {
+      "text": "Ho Chi Minh Trail",
+      "at": [
+        16.2,
+        106.45
+      ],
+      "from": "1959-05-19",
+      "to": "1975-05-01",
+      "minZoom": 5
+    },
+    {
+      "text": "Iron Curtain",
+      "at": [
+        50.9,
+        10.3
+      ],
+      "from": "1946-03-05",
+      "to": "1989-11-09",
+      "minZoom": 4,
+      "maxZoom": 6
+    },
+    {
+      "text": "West Berlin",
+      "at": [
+        52.47,
+        13.25
+      ],
+      "from": "1949-05-23",
+      "to": "1990-10-03",
+      "minZoom": 7,
+      "maxZoom": 10
+    }
+  ],
+  "ask": {
+    "persona": "a careful, even-handed historian of the Cold War who explains it to a curious listener. You give the Soviet, American and Third World sides their due, treat the dead of the proxy wars with seriousness, and say when numbers are estimates",
+    "defaultQuestions": [
+      "Why did this matter in the Cold War?",
+      "What was it like for the people there?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Wilson Center Cold War International History Project",
+      "url": "https://digitalarchive.wilsoncenter.org/"
+    },
+    {
+      "label": "National Security Archive",
+      "url": "https://nsarchive.gwu.edu/"
+    },
+    {
+      "label": "Federation of American Scientists: nuclear stockpiles",
+      "url": "https://fas.org/initiative/status-world-nuclear-forces/"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/Cold_War"
+    }
+  ],
+  "ambience": {
+    "default": "quiet",
+    "byCategory": {
+      "politics": "quiet",
+      "crisis": "tense-urban",
+      "war": "war",
+      "intervention": "tense-urban",
+      "uprising": "protest",
+      "nuclear": "quiet",
+      "atrocity": "sombre"
+    },
+    "scene": "war"
+  },
+  "music": "coldwar"
+}
