@@ -18,39 +18,64 @@ export const C = {
   brick: '#c48a5e', brickDark: '#ad744c', stucco: '#ead9b8', roof: '#b0603a', lead: '#9d9b93',
   green: '#7d975a', pine: '#5d7b45', cypress: '#4a6638', trunk: '#7a5a3c', bronze: '#8b6b3c',
   sand: '#e7d19c', paving: '#efe6d3', water: '#7fb0d8', ground: '#dccdae', garden: '#b4c98c',
+  whitewash: '#f0ebe0', whitewashShade: '#e3dccd', flatRoof: '#ddd3bf', adobe: '#cdb497', thatch: '#b89c66',
+  wood: '#8a6a44', rubble: '#bdb29c', earth: '#a8906a', red: '#b5452f', blue: '#4f7fb3', willow: '#6f8f4a',
+};
+
+// Building colours that differ between Roman, Punic and Mexica cities.
+const STYLE = {
+  roman: { wall: C.stucco, hall: C.brick, roof: C.roof, flatRoof: false },
+  punic: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
+  mexica: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
 };
 
 const DEFAULT_MODEL = {
   temple: 'temple', building: 'hall', palace: 'palace', market: 'market', arena: 'amphitheatre',
-  baths: 'baths', fort: 'fort', tomb: 'drum-tomb', plaza: 'plaza', precinct: 'plaza',
-  wall: 'wall', aqueduct: 'aqueduct', bridge: 'bridge', garden: 'garden',
+  baths: 'baths', fort: 'fort', tomb: 'drum-tomb', plaza: 'plaza', precinct: 'precinct',
+  wall: 'wall', aqueduct: 'aqueduct', 'aqueduct-cut': 'aqueduct', bridge: 'bridge', garden: 'garden',
+  causeway: 'causeway', dike: 'dike', shipsheds: 'shipsheds', ruins: 'ruins',
 };
 
-// ctx: { toXY, plazas: [[x, y]] centres of open squares, for temples to face }
+// ctx: { toXY, plazas: [[x, y]] centres of open squares, for temples to face,
+//        style: 'roman' | 'punic' | 'mexica', cuts: openings in causeways }
 export function buildModel(feature, ctx) {
   const p = feature.properties;
   const m = { ...(p.model ?? {}) };
   m.type ??= DEFAULT_MODEL[p.kind];
-  if (m.type === 'temple' && feature.geometry.type === 'Point') m.type = 'tholos';
+  if (m.type === 'temple' && feature.geometry.type === 'Point' && !m.size) m.type = 'tholos';
   const recipe = RECIPES[m.type];
   if (!recipe) return null;
-  const shape = readShape(feature, ctx);
+  const shape = readShape(feature, ctx, m);
   if (!shape) return null;
   const out = { parts: [], flats: [] };
   const r = rng(hashString(p.id ?? p.name ?? m.type));
-  recipe(shape, m, out, { ...ctx, r, p });
+  recipe(shape, m, out, { ...ctx, r, p, S: STYLE[ctx.style] ?? STYLE.roman });
   return out;
 }
 
 // Footprint in metres: polygons (outer + holes), all outer points, and for
-// point features a centre and radius.
-function readShape(feature, { toXY }) {
+// point features a centre and radius. A point can also stand for an oval
+// ("ellipse") or, with model.size [length, width], a rectangle.
+function readShape(feature, { toXY }, m) {
   const g = feature.geometry;
   const p = feature.properties;
   if (g.type === 'Point') {
     const c = toXY(g.coordinates);
-    const rad = p.radiusM ?? Math.max(...(p.ellipse ?? [40]).slice(0, 2));
-    return { centre: c, radius: rad, polys: [[circle(c, rad, 32)]], points: circle(c, rad, 32) };
+    if (m.size) {
+      const a = ((m.angle ?? 0) * Math.PI) / 180;
+      const box = { c, u: [Math.cos(a), Math.sin(a)], v: [-Math.sin(a), Math.cos(a)] };
+      const ring = rectIn(box, -m.size[0] / 2, m.size[0] / 2, -m.size[1] / 2, m.size[1] / 2);
+      return { centre: c, radius: Math.max(...m.size) / 2, polys: [[ring]], points: ring, main: [ring] };
+    }
+    if (p.ellipse) {
+      const [rx, ry, angle = 0] = p.ellipse;
+      const a = (angle * Math.PI) / 180;
+      const ring = ellipse(c, rx, ry, [Math.cos(a), Math.sin(a)], 48);
+      return { centre: c, radius: Math.max(rx, ry), polys: [[ring]], points: ring, main: [ring] };
+    }
+    const rad = p.radiusM ?? 40;
+    const ring = circle(c, rad, 32);
+    return { centre: c, radius: rad, polys: [[ring]], points: ring, main: [ring] };
   }
   if (g.type === 'Polygon' || g.type === 'MultiPolygon') {
     const raw = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
@@ -69,12 +94,12 @@ function readShape(feature, { toXY }) {
 }
 
 // ---------- Building blocks ----------
-const part = (out, rings, b, h, c) => { if (h > b) out.parts.push({ rings: Array.isArray(rings[0][0]) ? rings : [rings], b, h, c }); };
+export const part = (out, rings, b, h, c) => { if (h > b) out.parts.push({ rings: Array.isArray(rings[0][0]) ? rings : [rings], b, h, c }); };
 const flat = (out, rings, c) => out.flats.push({ rings: Array.isArray(rings[0][0]) ? rings : [rings], c });
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
 // A pitched roof as stacked slabs, each narrower than the last, ridge along u.
-function gable(out, box, s0, s1, halfW, base, rise, c, layers = 5) {
+export function gable(out, box, s0, s1, halfW, base, rise, c, layers = 5) {
   for (let i = 0; i < layers; i++) {
     const w = halfW * (1 - i / layers);
     part(out, rectIn(box, s0, s1, -w, w), base + (rise * i) / layers, base + (rise * (i + 1)) / layers, c);
@@ -369,8 +394,14 @@ const RECIPES = {
   hall(shape, m, out, ctx) {
     const box = face(obb(shape.points), shape, m, ctx);
     const H = m.h ?? 15;
-    part(out, rectIn(box, -box.hl, box.hl, -box.hw, box.hw), 0, H * 0.78, C.brick);
-    gable(out, box, -box.hl - 0.3, box.hl + 0.3, box.hw + 0.4, H * 0.78, H * 0.22, C.roof, 4);
+    const { S } = ctx;
+    if (S.flatRoof) {
+      part(out, rectIn(box, -box.hl, box.hl, -box.hw, box.hw), 0, H - 0.6, S.hall);
+      part(out, rectIn(box, -box.hl, box.hl, -box.hw, box.hw), H - 0.6, H, S.roof);
+      return;
+    }
+    part(out, rectIn(box, -box.hl, box.hl, -box.hw, box.hw), 0, H * 0.78, S.hall);
+    gable(out, box, -box.hl - 0.3, box.hl + 0.3, box.hw + 0.4, H * 0.78, H * 0.22, S.roof, 4);
   },
 
   market(shape, m, out) {
@@ -383,15 +414,32 @@ const RECIPES = {
     });
   },
 
-  palace(shape, m, out) {
+  palace(shape, m, out, ctx) {
     const H = m.h ?? 20;
+    const { S } = ctx;
     for (const poly of shape.polys) {
       const ring = poly[0];
       if (Math.abs(area(ring)) < 30) continue;
+      if (m.courts > 1) {
+        // Several courtyards in a row: the Mexica palaces were vast complexes.
+        const box = obb(ring);
+        const n = m.courts;
+        const cl = (box.hl * 2) / n;
+        const courts = [];
+        for (let i = 0; i < n; i++) {
+          const s0 = -box.hl + i * cl + cl * 0.18;
+          courts.push(rectIn(box, s0, s0 + cl * 0.64, -box.hw * 0.6, box.hw * 0.6));
+        }
+        const rings = [rectIn(box, -box.hl, box.hl, -box.hw, box.hw), ...courts.map((q) => q.slice().reverse())];
+        part(out, rings, 0, H * 0.9, S.wall);
+        part(out, rings, H * 0.9, H, S.roof);
+        courts.forEach((q, i) => flat(out, q, i % 2 ? C.garden : C.paving));
+        continue;
+      }
       const hole = Math.abs(area(ring)) > 1500 && isConvexish(ring) ? scaleRing(ring, 0.5) : null;
       const rings = hole ? [ring, hole.reverse()] : [ring];
-      part(out, rings, 0, H * 0.8, C.stucco);
-      part(out, rings, H * 0.8, H * 0.8 + 1, C.roof);
+      part(out, rings, 0, H * 0.8, S.wall);
+      part(out, rings, H * 0.8, H * 0.8 + 1, S.roof);
       if (hole) {
         flat(out, hole, C.garden);
         for (const q of alongPath(scaleRing(ring, 0.47), 4, 0.9, 0.9, { closed: true })) part(out, q, 0, H * 0.32, C.marble);
@@ -467,7 +515,7 @@ const RECIPES = {
 
   wall(shape, m, out, ctx) {
     const H = m.h ?? 8;
-    const colour = (ctx.p.t0 ?? 0) > 100 ? C.brick : C.tufa;
+    const colour = m.colour ?? (ctx.style !== 'roman' ? C.stone : (ctx.p.t0 ?? 0) > 100 ? C.brick : C.tufa);
     for (const line of shape.lines) {
       for (const q of strips(line, m.w ?? 4)) part(out, q, 0, H, colour);
       if (m.towers) for (const q of alongPath(line, m.towers, 7.5, 7.5)) part(out, q, 0, H + 4.5, colour);
@@ -476,17 +524,295 @@ const RECIPES = {
 
   aqueduct(shape, m, out) {
     const H = m.h ?? 20;
+    const colour = m.colour ?? C.tufa;
     for (const line of shape.lines) {
-      for (const q of alongPath(line, 6.5, 2.6, 2.8)) part(out, q, 0, H - 2.5, C.tufa);
-      for (const q of strips(line, 2.8)) part(out, q, H - 2.5, H, C.tufa);
+      if (m.arcade === false) { // a channel on a low embankment
+        for (const q of strips(line, m.w ?? 3)) part(out, q, 0, H, colour);
+        continue;
+      }
+      for (const q of alongPath(line, 6.5, 2.6, 2.8)) part(out, q, 0, H - 2.5, colour);
+      for (const q of strips(line, 2.8)) part(out, q, H - 2.5, H, colour);
     }
   },
 
   bridge(shape, m, out, ctx) {
-    const w = ctx.p.widthM ?? 8;
+    const w = m.w ?? ctx.p.widthM ?? 8;
     for (const line of shape.lines) {
+      if (m.wood) {
+        // A removable timber bridge over an opening in a causeway. The line is
+        // drawn across the causeway, so the deck runs at right angles to it.
+        const d = m.deck ?? 1.4;
+        const [a, b] = [line[0], line.at(-1)];
+        const len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+        const across = [(b[0] - a[0]) / len, (b[1] - a[1]) / len];
+        const box = { c: [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], u: [-across[1], across[0]], v: across };
+        const span = (m.span ?? 26) / 2 + 2;
+        part(out, rectIn(box, -span, span, -w / 2, w / 2), d, d + 0.45, C.wood);
+        for (const s of [-span + 1, -span / 3, span / 3, span - 1]) for (const t of [-w / 2 + 0.5, w / 2 - 0.5]) part(out, circle(at(box, s, t), 0.3, 6), 0, d, C.wood);
+        for (const t of [-w / 2, w / 2 - 0.25]) part(out, rectIn(box, -span, span, t, t + 0.25), d + 0.45, d + 1.4, C.wood);
+        continue;
+      }
       for (const q of strips(line, w)) part(out, q, 5.5, 7.5, C.stone);
       for (const q of alongPath(line, 22, 5, w + 1)) part(out, q, 0, 5.5, C.stone);
+    }
+  },
+
+  // ---------- Mesoamerica ----------
+  // Stepped pyramid with a stair (or twin stairs) on the front and shrines on top.
+  pyramid(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 25;
+    const n = m.tiers ?? 4;
+    const { hl, hw } = box;
+    // The base leaves room in front for the stairs, which project forward.
+    const run = hl * 0.3;
+    const L = hl - run / 2;
+    const c0 = -run / 2;
+    const ds = L * 0.09;
+    const dt = hw * 0.09;
+    for (let i = 0; i < n; i++) {
+      part(out, rectIn(box, c0 - L + i * ds, c0 + L - i * ds, -hw + i * dt, hw - i * dt), (H * i) / n, (H * (i + 1)) / n, i % 2 ? C.whitewashShade : C.whitewash);
+    }
+    const topL0 = c0 - L + n * ds;
+    const topL1 = c0 + L - n * ds;
+    const topW = hw - n * dt;
+    // Stairs: stacked slabs climbing from the front edge to the top platform,
+    // with sloping balustrades on either side.
+    const stairs = m.twin ? [[-hw * 0.46, -hw * 0.06], [hw * 0.06, hw * 0.46]] : [[-hw * 0.22, hw * 0.22]];
+    const steps = 18;
+    const front = hl;
+    for (const [t0, t1] of stairs) {
+      for (let k = 0; k < steps; k++) {
+        const s1 = front - ((front - topL1) * k) / steps;
+        part(out, rectIn(box, topL1 - 1, s1, t0, t1), (H * k) / steps, (H * (k + 1)) / steps, C.stone);
+        if (k % 3 === 0) {
+          const s2 = front - ((front - topL1) * (k + 3)) / steps;
+          for (const [b0, b1] of [[t0 - 1.2, t0], [t1, t1 + 1.2]]) part(out, rectIn(box, topL1 - 1, Math.max(s2, topL1), b0, b1), 0, (H * Math.min(steps, k + 3.5)) / steps, C.whitewashShade);
+        }
+      }
+    }
+    // Shrines: Huitzilopochtli (red) on the south half, Tlaloc (blue) on the north.
+    const sh = m.shrine ?? Math.max(8, H * 0.42);
+    const shrines = m.twin
+      ? [[-topW * 0.92, -topW * 0.08, m.colours?.[0] ?? C.blue], [topW * 0.08, topW * 0.92, m.colours?.[1] ?? C.red]]
+      : [[-topW * 0.6, topW * 0.6, m.colours?.[0] ?? C.red]];
+    const sl0 = topL0 + (topL1 - topL0) * 0.1;
+    const sl1 = topL0 + (topL1 - topL0) * 0.62;
+    for (const [t0, t1, colour] of shrines) {
+      part(out, rectIn(box, sl0, sl1, t0, t1), H, H + sh * 0.55, C.whitewash);
+      const mid = (t0 + t1) / 2;
+      const half = (t1 - t0) / 2;
+      for (let k = 0; k < 4; k++) {
+        const f = 1 - k * 0.2;
+        part(out, rectIn(box, sl0 + (sl1 - sl0) * (1 - f) / 2, sl1 - (sl1 - sl0) * (1 - f) / 2, mid - half * f, mid + half * f), H + sh * (0.55 + k * 0.11), H + sh * (0.66 + k * 0.11), colour);
+      }
+    }
+  },
+
+  // Round temple of the wind god: circular tiers, a stair, a drum shrine with a conical thatched roof.
+  'round-pyramid'(shape, m, out) {
+    const c = shape.centre;
+    const R = shape.radius;
+    const H = m.h ?? 12;
+    for (let i = 0; i < 3; i++) part(out, circle(c, R * (1 - i * 0.16), 32), (H * i) / 3, (H * (i + 1)) / 3, i % 2 ? C.whitewashShade : C.whitewash);
+    const f = bearingVec(m.facing ?? 90);
+    const box = { c, u: f, v: [-f[1], f[0]] };
+    for (let k = 0; k < 10; k++) part(out, rectIn(box, R * 0.4, R + 3 - ((R + 3 - R * 0.6) * k) / 10, -R * 0.22, R * 0.22), (H * k) / 10, (H * (k + 1)) / 10, C.stone);
+    part(out, circle(c, R * 0.36, 24), H, H + 4, C.whitewash);
+    for (let k = 0; k < 5; k++) part(out, circle(c, R * 0.42 * (1 - k / 5.5), 16), H + 4 + k * 1.2, H + 5.2 + k * 1.2, C.thatch);
+  },
+
+  ballcourt(shape, m, out) {
+    const box = obb(shape.points);
+    const { hl, hw } = box;
+    flat(out, rectIn(box, -hl, hl, -hw * 0.3, hw * 0.3), C.paving);
+    for (const sgn of [-1, 1]) {
+      const t0 = sgn * hw * 0.3;
+      const t1 = sgn * hw;
+      part(out, rectIn(box, -hl * 0.72, hl * 0.72, Math.min(t0 + sgn * 2.5, t1), Math.max(t0 + sgn * 2.5, t1)), 0, 5.5, C.whitewash);
+      part(out, rectIn(box, -hl * 0.72, hl * 0.72, Math.min(t0, t0 + sgn * 2.5), Math.max(t0, t0 + sgn * 2.5)), 0, 2.2, C.whitewashShade);
+      part(out, circle(at(box, 0, t0 + sgn * 2.5), 0.9, 10), 4, 5.2, C.stone); // stone ring
+    }
+  },
+
+  tzompantli(shape, m, out) {
+    const box = obb(shape.points);
+    const { hl, hw } = box;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, 2.2, C.whitewash);
+    for (const t of [-0.6, -0.2, 0.2, 0.6]) {
+      for (let s = -hl * 0.92; s <= hl * 0.92; s += 1.6) part(out, circle(at(box, s, t * hw), 0.18, 4), 2.2, 6.5, C.wood);
+      for (const z of [3.4, 4.6, 5.8]) part(out, rectIn(box, -hl * 0.92, hl * 0.92, t * hw - 0.12, t * hw + 0.12), z, z + 0.25, C.whitewashShade);
+    }
+  },
+
+  // A walled sacred precinct: paved, ringed by a low wall.
+  precinct(shape, m, out, ctx) {
+    for (const poly of shape.polys) {
+      const ring = poly[0];
+      const R = Math.sqrt(Math.abs(area(ring)) / Math.PI);
+      flat(out, ring, C.paving);
+      part(out, [ring, scaleRing(ring, 1 - 2 / R).reverse()], 0, m.wallH ?? 3, C.whitewash);
+      if (!m.minor) continue;
+      // Lesser temples round the edge, each facing the middle, clear of the named buildings.
+      const c = centroid(ring);
+      const path = scaleRing(ring, 1 - 22 / R);
+      const step = pathLength([...path, path[0]]) / m.minor;
+      for (const q of alongPath(path, step, 1, 1, { closed: true })) {
+        const at0 = centroid(q);
+        const size = between(ctx.r, 26, 38); // across the corners
+        if (ctx.isFree && !ctx.isFree(at0, size * 0.6)) continue;
+        const facing = (Math.atan2(c[0] - at0[0], c[1] - at0[1]) * 180) / Math.PI;
+        const pts = circle(at0, size / 2, 4, Math.PI / 4);
+        RECIPES.pyramid({ points: pts }, { h: between(ctx.r, 8, 14), tiers: 3, facing, colours: [ctx.r() < 0.5 ? C.red : C.whitewashShade] }, out, ctx);
+      }
+    }
+  },
+
+  // A market square full of awnings, ringed by a colonnade.
+  stalls(shape, m, out, ctx) {
+    const box = obb(shape.points);
+    const { hl, hw } = box;
+    const r = ctx.r;
+    flat(out, rectIn(box, -hl, hl, -hw, hw), C.paving);
+    const outer = rectIn(box, -hl, hl, -hw, hw);
+    const inner = rectIn(box, -hl + 7, hl - 7, -hw + 7, hw - 7);
+    part(out, [outer, inner.slice().reverse()], 4, 4.8, C.flatRoof);
+    for (const q of alongPath(rectIn(box, -hl + 6, hl - 6, -hw + 6, hw - 6), 4, 0.6, 0.6, { closed: true })) part(out, q, 0, 4, C.whitewash);
+    const cloths = ['#d8b56a', '#c9a061', '#e3cfa0', '#b98c55', '#cf8f5a'];
+    for (let s = -hl + 12; s < hl - 12; s += 6.5) {
+      for (let t = -hw + 12; t < hw - 12; t += 6) {
+        if (r() < 0.12) continue;
+        part(out, rectIn(box, s, s + 4, t, t + 3.6), 2.1, 2.45, cloths[Math.floor(r() * cloths.length)]);
+      }
+    }
+  },
+
+  // Earth causeway across the lake, with openings where the bridges stand.
+  causeway(shape, m, out, ctx) {
+    const w = m.w ?? ctx.p.widthM ?? 12;
+    const H = m.h ?? 1.6;
+    const colour = m.colour ?? '#d4c29a';
+    for (const line of shape.lines) {
+      for (let i = 1; i < line.length; i++) {
+        const a = line[i - 1];
+        const b = line[i];
+        const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        if (len < 0.5) continue;
+        const u = [(b[0] - a[0]) / len, (b[1] - a[1]) / len];
+        const drops = [];
+        for (const cut of ctx.cuts ?? []) {
+          const s = (cut.c[0] - a[0]) * u[0] + (cut.c[1] - a[1]) * u[1];
+          const off = Math.abs((cut.c[0] - a[0]) * -u[1] + (cut.c[1] - a[1]) * u[0]);
+          if (s > -cut.half && s < len + cut.half && off < 40) drops.push([s - cut.half, s + cut.half]);
+        }
+        drops.sort((x, y) => x[0] - y[0]);
+        let s0 = 0;
+        for (const [d0, d1] of [...drops, [len, len]]) {
+          // Short pieces, so the causeway follows the ground without steps.
+          for (let x = s0; x < Math.min(d0, len) - 0.5; x += 25) {
+            const x1 = Math.min(x + 25.5, d0, len);
+            const p0 = [a[0] + u[0] * x, a[1] + u[1] * x];
+            const p1 = [a[0] + u[0] * x1, a[1] + u[1] * x1];
+            for (const q of strips([p0, p1], w)) part(out, q, 0, H, colour);
+          }
+          s0 = Math.max(s0, d1);
+        }
+        if (i > 1 && !drops.some(([d0]) => d0 <= 0)) part(out, circle(a, w / 2, 12), 0, H, colour); // fill the joint
+      }
+    }
+  },
+
+  dike(shape, m, out) {
+    for (const line of shape.lines) {
+      for (const q of strips(line, m.w ?? 7)) part(out, q, 0, m.h ?? 2.5, m.colour ?? C.earth);
+      for (const q of alongPath(line, 2.5, 0.35, 0.35)) part(out, q, 0, (m.h ?? 2.5) + 0.8, C.wood);
+    }
+  },
+
+  // ---------- Carthage ----------
+  // Ship sheds round a circular harbour: open fronts between columns, a roof ring above.
+  shipsheds(shape, m, out, ctx) {
+    const c = shape.centre;
+    const p = ctx.p;
+    const inner = p.innerM ?? shape.radius * 0.7;
+    const outer = p.radiusM ?? shape.radius;
+    const count = p.count ?? 60;
+    const gap = ((p.gapDeg ?? 0) * Math.PI) / 180;
+    const a0 = gap - Math.PI / 2;
+    const a1 = Math.PI * 1.5 - gap;
+    const H = m.h ?? 8;
+    const arc = (r) => circle(c, r, 72, a0, a1);
+    const ring = gap > 0 ? [[...arc(outer), ...arc(inner).reverse()]] : [circle(c, outer, 72), circle(c, inner, 72).reverse()];
+    part(out, ring, H, H + 1, C.flatRoof);
+    const back = gap > 0 ? [[...arc(outer), ...arc(outer - 1.2).reverse()]] : [circle(c, outer, 72), circle(c, outer - 1.2, 72).reverse()];
+    part(out, back, 0, H, C.whitewashShade);
+    for (let i = 0; i <= count; i++) {
+      if (gap === 0 && i === count) break;
+      const a = a0 + ((a1 - a0) * i) / count;
+      const u = [Math.cos(a), Math.sin(a)];
+      const box = { c, u, v: [-u[1], u[0]] };
+      part(out, rectIn(box, inner + 1, outer - 1.2, -0.3, 0.3), 0, H, C.whitewash);
+      part(out, circle(at(box, inner + 0.6, 0), 0.45, 8), 0, H, C.marble);
+    }
+  },
+
+  // The admiral's island: a round platform with a lookout pavilion at its centre.
+  admiral(shape, m, out) {
+    const c = shape.centre;
+    const R = shape.radius;
+    part(out, circle(c, R, 40), 0, 1.4, C.stone);
+    part(out, circle(c, R * 0.2, 20), 1.4, (m.h ?? 16) - 3, C.whitewash);
+    for (let k = 0; k < 3; k++) part(out, circle(c, R * 0.22 * (1 - k / 3.5), 20), (m.h ?? 16) - 3 + k, (m.h ?? 16) - 2 + k, C.flatRoof);
+  },
+
+  // The Tophet: an enclosure crowded with small stone stelae.
+  tophet(shape, m, out, ctx) {
+    const ring = shape.main[0];
+    const box = obb(ring);
+    const r = ctx.r;
+    flat(out, ring, '#d6c9a8');
+    part(out, [ring, scaleRing(ring, 0.985).reverse()], 0, 2.4, C.stone);
+    for (let s = -box.hl + 3; s < box.hl - 3; s += 3) {
+      for (let t = -box.hw + 3; t < box.hw - 3; t += 2.4) {
+        const q = at(box, s + between(r, -0.6, 0.6), t + between(r, -0.5, 0.5));
+        if (!inRing(q, ring) || r() < 0.25) continue;
+        const sb = { c: q, u: box.u, v: box.v };
+        part(out, rectIn(sb, -0.1, 0.1, -0.25, 0.25), 0, between(r, 0.7, 1.8), r() < 0.5 ? '#cfc3a6' : '#bfb294');
+      }
+    }
+  },
+
+  // Long vaulted water cisterns side by side.
+  cisterns(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 7;
+    const n = m.n ?? Math.max(4, Math.round((box.hw * 2) / 9));
+    const cw = (box.hw * 2) / n;
+    for (let i = 0; i < n; i++) {
+      const t0 = -box.hw + i * cw;
+      part(out, rectIn(box, -box.hl, box.hl, t0 + 0.6, t0 + cw - 0.6), 0, H * 0.7, C.stone);
+      for (let k = 0; k < 3; k++) {
+        const f = 1 - (k + 1) * 0.25;
+        part(out, rectIn(box, -box.hl, box.hl, t0 + cw / 2 - (cw / 2 - 0.6) * f, t0 + cw / 2 + (cw / 2 - 0.6) * f), H * (0.7 + k * 0.1), H * (0.8 + k * 0.1), C.stone);
+      }
+    }
+  },
+
+  // Ruins: scattered low walls and heaps of stone.
+  ruins(shape, m, out, ctx) {
+    const r = ctx.r;
+    for (const poly of shape.polys) {
+      const ring = poly[0];
+      flat(out, ring, '#d2c7b0');
+      const box = obb(ring);
+      const n = Math.min(400, Math.round(Math.abs(area(ring)) / 300));
+      for (let i = 0; i < n; i++) {
+        const q = at(box, between(r, -box.hl, box.hl), between(r, -box.hw, box.hw));
+        if (!inRing(q, ring)) continue;
+        const sb = { c: q, u: box.u, v: box.v };
+        const l = between(r, 2, 9);
+        part(out, rectIn(sb, -l / 2, l / 2, -0.6, 0.6), 0, between(r, 0.4, 2.6), C.rubble);
+      }
     }
   },
 };

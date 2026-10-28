@@ -1,47 +1,85 @@
 // Generates the ordinary city between the landmarks. Each "houses" area with
-// a "fabric" is cut into street blocks by recursive splits (wide streets
-// first, alleys last, each cut slightly off-square so the plan is irregular),
-// then each block becomes one of the city's house types:
+// a "fabric" is cut into street blocks, either by recursive splits (wide
+// streets first, alleys last, each cut slightly off-square, as in Rome) or on
+// a regular grid (Roman Carthage, Tenochtitlan). Each block then becomes one
+// of the house types of the city's style:
 //
-//   insula   apartment block, 3-5 storeys, often round a light well
-//   taberna  row of one- or two-storey shops and workshops
-//   domus    low town house round an atrium and a garden peristyle
-//   garden   walled garden with pines and cypresses
+//   roman   insula (apartment block), taberna (shops), domus (town house)
+//   punic   courtyard houses, tall houses near the citadel, workshops
+//   mexica  calli (family compound round a patio), noble houses, reed huts
+//
+// plus gardens. Other fabrics: "chinampa" (raised fields between canals,
+// lined with willows), "garden" (orchards and villas), "rubble" (a razed
+// city), and "town" points (villages round a lake).
 //
 // Houses vanish when a dated landmark is built over them (the Colosseum over
 // Nero's lake, Trajan's Forum over a hillside quarter).
 
 import {
   rng, between, hashString, area, centroid, open, isConvex, inRing, clipHalf, obb, at, rectIn,
-  scaleRing, distToSegments,
+  scaleRing, distToSegments, circle,
 } from './geom.js';
-import { C, tree, trees } from './models.js';
+import { C, tree, trees, gable, part } from './models.js';
 import { kindInfo } from '../map/cityLayer.js';
 
 const CLIPPING_URL = 'https://cdn.jsdelivr.net/npm/polygon-clipping@0.15.7/+esm';
 
-const KEEP_CLEAR_AREAS = new Set(['plaza', 'precinct', 'ruins', 'palace', 'temple', 'market', 'building', 'arena', 'baths', 'fort', 'tomb', 'harbour', 'garden', 'chinampa', 'island', 'lake']);
+const KEEP_CLEAR_AREAS = new Set(['plaza', 'precinct', 'ruins', 'palace', 'temple', 'market', 'building', 'arena', 'baths', 'fort', 'tomb', 'harbour', 'garden', 'chinampa', 'island', 'shipsheds']);
 const KEEP_CLEAR_LINES = { river: 8, road: 1, canal: 2, causeway: 2, wall: 4, aqueduct: 2 };
 
-// Share of each house type by setting. A fabric can override with "mix".
-const MIX = {
-  centre: { insula: 0.64, taberna: 0.18, domus: 0.12, garden: 0.06 },
-  hill: { insula: 0.26, taberna: 0.08, domus: 0.5, garden: 0.16 },
-  outer: { insula: 0.32, taberna: 0.18, domus: 0.22, garden: 0.28 },
+const ROMAN_ROOFS = ['#a9532f', '#b5603a', '#9e4b2b', '#ba6a43', '#a55a36', '#b2573a'];
+const FLAT_ROOFS = ['#ddd3bf', '#d6cbb4', '#e2d9c6', '#d9cfba'];
+const WHITE = ['#f0ebe0', '#ece4d4', '#e6dccb', '#f3eee4'];
+
+// House types: plot size (m2), height, colours, roof thickness, and an
+// optional open courtyard (a hole in the roof) as a share of the plot.
+const TYPES = {
+  insula: { area: [450, 1000], h: (r, s) => Math.floor(between(r, s ? 2 : 3, s ? 4.6 : 6)) * 3.1 + 0.6, walls: ['#c99a6b', '#d1a77a', '#b98458', '#d8b48a', '#c4916a', '#bf8a62'], roofs: ROMAN_ROOFS, rt: 1.1, court: { min: 420, k: 0.36, p: 0.75 } },
+  taberna: { area: [120, 260], h: (r) => between(r, 4.5, 7.5), walls: ['#cfa577', '#d9b98e', '#c79868', '#d4ae84'], roofs: ROMAN_ROOFS, rt: 1.1 },
+  domus: { area: [600, 1300], h: (r) => between(r, 6, 8.5), walls: ['#ebdcc0', '#e5d3b3', '#f0e4cc', '#dfcaa5'], roofs: ROMAN_ROOFS, rt: 1.1, atrium: true },
+  'punic-house': { area: [180, 420], h: (r) => Math.floor(between(r, 2, 4.6)) * 3.2 + 0.4, walls: WHITE, roofs: FLAT_ROOFS, rt: 0.5, court: { min: 160, k: 0.38, p: 0.85 } },
+  'punic-tall': { area: [200, 450], h: (r) => Math.floor(between(r, 4, 6.9)) * 3.2 + 0.4, walls: WHITE, roofs: FLAT_ROOFS, rt: 0.5, court: { min: 180, k: 0.34, p: 0.6 } },
+  workshop: { area: [90, 220], h: (r) => between(r, 3.5, 5.5), walls: ['#d9c3a0', '#cdb497', '#e0cfb0'], roofs: ['#cbb79a', '#d4c3a5'], rt: 0.4 },
+  calli: { area: [160, 380], h: (r) => between(r, 3, 3.8), walls: ['#efe9dc', '#e8dfcc', '#ddd0b8', '#cdb497'], roofs: ['#e5dccb', '#d9cdb6', '#cdbb9c'], rt: 0.35, court: { min: 140, k: 0.42, p: 0.85 } },
+  noble: { area: [500, 1000], h: (r) => between(r, 5.5, 7), walls: ['#f2eee5', '#ece5d6'], roofs: ['#e7dfcf', '#e0d7c4'], rt: 0.5, court: { min: 300, k: 0.46, p: 1, garden: true } },
+  hut: { area: [60, 140], thatch: true },
+  rubble: { area: [150, 500], rubble: true },
 };
 
-const LOT_AREA = { insula: [450, 1000], taberna: [120, 260], domus: [600, 1300] };
-const WALLS = {
-  insula: ['#c99a6b', '#d1a77a', '#b98458', '#d8b48a', '#c4916a', '#bf8a62'],
-  taberna: ['#cfa577', '#d9b98e', '#c79868', '#d4ae84'],
-  domus: ['#ebdcc0', '#e5d3b3', '#f0e4cc', '#dfcaa5'],
+// Share of each type by setting. A fabric can override with "mix".
+const STYLES = {
+  roman: {
+    centre: { insula: 0.64, taberna: 0.18, domus: 0.12, garden: 0.06 },
+    hill: { insula: 0.26, taberna: 0.08, domus: 0.5, garden: 0.16 },
+    outer: { insula: 0.32, taberna: 0.18, domus: 0.22, garden: 0.28 },
+  },
+  punic: {
+    centre: { 'punic-house': 0.62, 'punic-tall': 0.12, workshop: 0.18, garden: 0.08 },
+    hill: { 'punic-house': 0.35, 'punic-tall': 0.52, workshop: 0.05, garden: 0.08 },
+    outer: { 'punic-house': 0.45, workshop: 0.2, garden: 0.35 },
+  },
+  mexica: {
+    centre: { calli: 0.74, noble: 0.12, garden: 0.08, hut: 0.06 },
+    hill: { calli: 0.74, noble: 0.12, garden: 0.08, hut: 0.06 },
+    outer: { calli: 0.55, hut: 0.22, garden: 0.23 },
+  },
 };
-const ROOFS = ['#a9532f', '#b5603a', '#9e4b2b', '#ba6a43', '#a55a36', '#b2573a'];
 
 export const HOUSE_INFO = {
   insula: 'Insula: an apartment block. Shops at street level, flats above; the higher the floor, the poorer the tenant.',
   taberna: 'Tabernae: one- or two-storey shops and workshops, the family living above or behind.',
   domus: 'Domus: a private town house built round an open atrium and a garden peristyle.',
+  'punic-house': 'A Punic courtyard house: rooms round an open court, plastered walls, a flat roof used as a terrace.',
+  'punic-tall': 'Near the Byrsa, Appian says, houses rose six storeys; the Romans fought through them roof by roof in 146 BC.',
+  workshop: 'Workshops: potters, metalworkers and purple-dye makers worked in low buildings like these.',
+  calli: 'Calli: a family compound of whitewashed adobe rooms round a shared patio, with a flat roof.',
+  noble: "A noble's house: two storeys on a stone platform, round a garden court.",
+  rubble: 'Ruins: the city after its destruction.',
+};
+export const HOUSE_LABEL = {
+  insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
+  'punic-house': 'Courtyard house', 'punic-tall': 'Tall house', workshop: 'Workshops',
+  calli: 'Calli (family compound)', noble: "Noble's house", rubble: 'Ruins',
 };
 
 export async function generateHouses(city, frame) {
@@ -53,37 +91,67 @@ export async function generateHouses(city, frame) {
 
   const houses = [];
   const extras = { parts: [], flats: [] };
+  const dated = (out, life, fn) => {
+    const g = { parts: [], flats: [] };
+    fn(g);
+    for (const q of [...g.parts, ...g.flats]) Object.assign(q, { t0: life[0], t1: life[1] });
+    out.parts.push(...g.parts);
+    out.flats.push(...g.flats);
+  };
+
   for (const f of city.features) {
     const p = f.properties;
-    if (!p.fabric || p.kind !== 'houses') continue;
+    const isTown = p.kind === 'town' && f.geometry.type === 'Point' && p.radiusM;
+    if (!p.fabric && !isTown) continue;
+    const fabric = p.fabric ?? {};
+    const style = fabric.style ?? city.style3d ?? 'roman';
     const r = rng(hashString(p.id ?? p.name));
     const base = { t0: p.t0, t1: p.t1 };
-    const outer = /outer/.test(p.id ?? '');
-    for (const ringLL of outerRings(f.geometry)) {
+    const outer = isTown || /outer/.test(p.id ?? '');
+    const rings = isTown ? [circle(frame.toXY(f.geometry.coordinates), p.radiusM * 0.8, 20)] : outerRings(f.geometry).map((ll) => open(ll.map(frame.toXY)));
+
+    for (const ring of rings.map(ccw)) {
+      // Chinampas and orchards: a water or grass base with strips or plots on it.
+      if (p.kind === 'chinampa' || p.kind === 'garden') {
+        if (fabric.base) extras.flats.push({ rings: [ring], c: fabric.base, t0: base.t0, t1: base.t1 });
+        for (const plot of gridBlocks(ring, fabric)) {
+          const life = lifespan(plot, base, index, f);
+          if (!life) continue;
+          dated(extras, life, (g) => (p.kind === 'chinampa' ? chinampa(g, plot, fabric, r) : orchard(g, plot, r, style)));
+          if (p.kind === 'garden' && r() < 0.12) {
+            const lot = scaleRing(plot, 0.35);
+            houses.push(house(lot, style === 'punic' ? 'punic-house' : 'domus', life, true, r, extras));
+          }
+        }
+        continue;
+      }
+
       const blocks = [];
-      split(ccw(open(ringLL.map(frame.toXY))), 0, r, blocks, clip, BLOCK_SPLIT);
+      if (fabric.layout === 'grid') blocks.push(...gridBlocks(ring, fabric));
+      else split(ring, 0, r, blocks, clip, isTown ? TOWN_SPLIT : BLOCK_SPLIT);
+
       for (const block of blocks) {
         const c = centroid(block);
         const onHill = hills.some((h) => Math.hypot(c[0] - h.c[0], c[1] - h.c[1]) < h.r * 0.9);
-        const mix = p.fabric.mix ?? MIX[onHill ? 'hill' : outer ? 'outer' : 'centre'];
-        const type = pick(mix, r);
+        const mix = fabric.mix ?? STYLES[style][onHill ? 'hill' : outer ? 'outer' : 'centre'];
+        const type = p.kind === 'rubble' ? 'rubble' : pick(mix, r);
         if (type === 'garden') {
-          const life = lifespan(block, base, index);
+          const life = lifespan(block, base, index, f);
           if (!life) continue;
-          const garden = { parts: [], flats: [] };
-          garden.flats.push({ rings: [block], c: C.garden });
-          trees(garden, block, 14, r);
-          for (const part of [...garden.parts, ...garden.flats]) Object.assign(part, { t0: life[0], t1: life[1] });
-          extras.parts.push(...garden.parts);
-          extras.flats.push(...garden.flats);
+          dated(extras, life, (g) => {
+            g.flats.push({ rings: [block], c: C.garden });
+            trees(g, block, 14, r);
+          });
           continue;
         }
-        const [a0, a1] = LOT_AREA[type];
+        const [a0, a1] = TYPES[type].area;
         const lots = [];
-        split(block, 0, r, lots, clip, { min: a0, max: a1, gap: () => 0.6, minArea: 40 });
+        split(block, 0, r, lots, clip, { min: a0, max: a1, gap: () => 0.6, minArea: 30 });
         for (const lot of lots) {
-          const life = lifespan(lot, base, index);
-          if (life) houses.push(house(lot, type, life, onHill || outer, r, extras));
+          const life = lifespan(lot, base, index, f);
+          if (!life) continue;
+          const h = house(lot, type, life, onHill || outer, r, extras);
+          if (h) houses.push(h);
         }
       }
     }
@@ -92,19 +160,35 @@ export async function generateHouses(city, frame) {
 }
 
 const BLOCK_SPLIT = { min: 2600, max: 6500, gap: (depth) => (depth < 2 ? 9 : depth < 5 ? 6 : 3.5), minArea: 150 };
+const TOWN_SPLIT = { min: 1500, max: 3500, gap: (depth) => (depth < 2 ? 7 : 4), minArea: 120 };
 
 function house(lot, type, [t0, t1], suburb, r, extras) {
+  const T = TYPES[type];
   const A = Math.abs(area(lot));
-  let h;
+  if (T.rubble) {
+    if (r() < 0.35 || !isConvex(lot)) return null;
+    return { rings: [lot, scaleRing(lot, 0.82)], h: round1(between(r, 0.5, 2.4)), c: C.rubble, roof: C.rubble, rt: 0.2, type, t0, t1 };
+  }
+  if (T.thatch) {
+    // A reed hut: low adobe walls and a steep thatched roof.
+    const box = obb(lot);
+    const g = { parts: [], flats: [] };
+    const hl = Math.min(box.hl, 6);
+    const hw = Math.min(box.hw, 4);
+    part(g, rectIn(box, -hl, hl, -hw, hw), 0, 2.4, C.adobe);
+    gable(g, box, -hl - 0.4, hl + 0.4, hw + 0.5, 2.4, 2.4, C.thatch, 4);
+    g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+    extras.parts.push(...g.parts);
+    return null;
+  }
+  const h = T.h(r, suburb);
   const holes = [];
-  if (type === 'insula') {
-    const storeys = Math.floor(between(r, suburb ? 2 : 3, suburb ? 4.6 : 6));
-    h = storeys * 3.1 + 0.6;
-    if (A > 420 && isConvex(lot) && r() < 0.75) holes.push(scaleRing(lot, 0.36));
-  } else if (type === 'taberna') {
-    h = between(r, 4.5, 7.5);
-  } else {
-    h = between(r, 6, 8.5);
+  if (T.court && A > T.court.min && isConvex(lot) && r() < T.court.p) {
+    const hole = scaleRing(lot, T.court.k);
+    holes.push(hole);
+    if (T.court.garden) extras.flats.push({ rings: [hole], c: C.garden, t0, t1 });
+  }
+  if (T.atrium) {
     const box = obb(lot);
     if (box.hw > 6 && box.hl > 10) {
       const atrium = rectIn(box, box.hl * 0.18, box.hl * 0.44, -box.hw * 0.2, box.hw * 0.2);
@@ -123,14 +207,63 @@ function house(lot, type, [t0, t1], suburb, r, extras) {
   }
   return {
     rings: [lot, ...holes],
-    h: Math.round(h * 10) / 10,
-    c: WALLS[type][Math.floor(r() * WALLS[type].length)],
-    roof: ROOFS[Math.floor(r() * ROOFS.length)],
+    h: round1(h),
+    c: T.walls[Math.floor(r() * T.walls.length)],
+    roof: T.roofs[Math.floor(r() * T.roofs.length)],
+    rt: T.rt,
     type, t0, t1,
   };
 }
 
-// ---------- Splitting ----------
+// A chinampa: a raised strip of field between canals, edged with willows,
+// sometimes with the farmer's hut at one end.
+function chinampa(g, plot, fabric, r) {
+  g.flats.push({ rings: [plot], c: fabric.fill ?? C.garden });
+  const box = obb(plot);
+  const willows = Math.min(4, Math.floor(box.hl / 14));
+  for (let i = 0; i < willows; i++) {
+    const s = -box.hl + ((i + 0.5) * 2 * box.hl) / willows + between(r, -3, 3);
+    const t = (i % 2 ? 1 : -1) * (box.hw - 1);
+    part(g, circle(at(box, s, t), between(r, 1, 1.5), 6), 0, between(r, 7, 11), C.willow);
+  }
+  if (r() < 0.3) {
+    const hut = { c: at(box, box.hl - 6, 0), u: box.u, v: box.v };
+    part(g, rectIn(hut, -3, 3, -2.5, 2.5), 0, 2.2, C.adobe);
+    gable(g, hut, -3.4, 3.4, 3, 2.2, 2.2, C.thatch, 4);
+  }
+}
+
+// An orchard plot: rows of small round-crowned trees (olives, figs).
+function orchard(g, plot, r) {
+  g.flats.push({ rings: [plot], c: C.garden });
+  const box = obb(plot);
+  for (let s = -box.hl + 6; s < box.hl - 4; s += 13) {
+    for (let t = -box.hw + 6; t < box.hw - 4; t += 11) {
+      if (r() < 0.25) continue;
+      const q = at(box, s + between(r, -1.5, 1.5), t + between(r, -1.5, 1.5));
+      part(g, circle(q, between(r, 2, 2.8), 7), 0.8, between(r, 3.6, 4.8), '#7f915a');
+    }
+  }
+}
+
+// ---------- Layouts ----------
+// Regular grid of w x h blocks, gap apart, turned by angle: only whole blocks inside the area.
+function gridBlocks(ring, { w = 60, h = 60, gap = 12, angle = 0 }) {
+  const rad = (angle * Math.PI) / 180;
+  const rot = ([x, y], s = 1) => [x * Math.cos(s * rad) - y * Math.sin(s * rad), x * Math.sin(s * rad) + y * Math.cos(s * rad)];
+  const turned = ring.map((q) => rot(q, -1));
+  const xs = turned.map((q) => q[0]);
+  const ys = turned.map((q) => q[1]);
+  const out = [];
+  for (let x = Math.min(...xs); x < Math.max(...xs); x += w + gap) {
+    for (let y = Math.min(...ys); y < Math.max(...ys); y += h + gap) {
+      const corners = [[x, y], [x + w, y], [x + w, y + h], [x, y + h]].map((q) => rot(q));
+      if (corners.every((q) => inRing(q, ring))) out.push(corners);
+    }
+  }
+  return out;
+}
+
 function split(ring, depth, r, out, clip, opts) {
   const A = Math.abs(area(ring));
   if (A < opts.minArea) return;
@@ -163,21 +296,23 @@ function halfPlane(clip, ring, p, d) {
 
 // ---------- Obstacles ----------
 // Landmarks, squares, roads and rivers that houses keep clear of, with dates.
+// Big lakes are left out: a whole island city sits inside its lake outline.
 function obstacleIndex(city, frame) {
   const items = [];
   for (const f of city.features) {
     const p = f.properties;
     const g = f.geometry;
     const life = { t0: p.t0, t1: p.t1 };
-    if (KEEP_CLEAR_AREAS.has(p.kind)) {
+    const smallLake = p.kind === 'lake' && g.type === 'Point';
+    if (KEEP_CLEAR_AREAS.has(p.kind) || smallLake) {
       if (g.type === 'Point') {
         const rad = (p.radiusM ?? Math.max(...(p.ellipse ?? [40]).slice(0, 2))) + 4;
         const c = frame.toXY(g.coordinates);
-        items.push({ ...life, circle: c, r: rad, box: [c[0] - rad, c[1] - rad, c[0] + rad, c[1] + rad] });
+        items.push({ ...life, src: f, circle: c, r: rad, box: [c[0] - rad, c[1] - rad, c[0] + rad, c[1] + rad] });
       } else {
         for (const ring of outerRings(g)) {
           const poly = open(ring.map(frame.toXY));
-          items.push({ ...life, poly, box: bbox(poly) });
+          items.push({ ...life, src: f, poly, box: bbox(poly) });
         }
       }
     } else if (p.kind in KEEP_CLEAR_LINES) {
@@ -216,11 +351,12 @@ function obstacleIndex(city, frame) {
 
 // The years a plot stays built: from the district's start until the first
 // landmark built over it. Returns null if something always stands there.
-function lifespan(ring, base, index) {
+function lifespan(ring, base, index, self) {
   let { t0, t1 } = base;
   const c = centroid(ring);
   const rad = Math.sqrt(Math.abs(area(ring)) / Math.PI);
   for (const o of index.near(bbox(ring))) {
+    if (o.src === self || o.t1 <= t0 || o.t0 >= t1) continue; // itself, or never coexists
     if (!overlaps(o, ring, c, rad)) continue;
     if (o.t0 <= t0) {
       if (o.t1 >= t1) return null;
@@ -241,7 +377,7 @@ function overlaps(o, ring, c, rad) {
 function pick(mix, r) {
   let x = r() * Object.values(mix).reduce((a, b) => a + b, 0);
   for (const [k, v] of Object.entries(mix)) if ((x -= v) <= 0) return k;
-  return 'insula';
+  return Object.keys(mix)[0];
 }
 
 function outerRings(g) {
@@ -260,3 +396,4 @@ function bbox(pts) {
 }
 
 const ccw = (ring) => (area(ring) < 0 ? ring.slice().reverse() : ring);
+const round1 = (v) => Math.round(v * 10) / 10;

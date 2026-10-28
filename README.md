@@ -36,7 +36,7 @@ Open http://127.0.0.1:8765. Opening `index.html` directly from disk will not wor
 | Esc | Deselect and fly back out |
 | `#event-id` in the URL | Deep link to an event, e.g. `/#bloody-sunday` |
 | Stories & cities | Menu to switch story or jump straight into a city |
-| View in 3D | In Rome: a 3D city with terrain, landmark models and generated houses. Right-drag or Ctrl+drag to tilt and turn |
+| View in 3D | Rome, Carthage and Tenochtitlan as 3D cities with terrain, landmark models and generated houses. Right-drag or Ctrl+drag to tilt and turn |
 | `?story=rome&city=rome&t=150&view=3d` | Deep link to a city at a date, optionally in 3D |
 
 ## Project layout

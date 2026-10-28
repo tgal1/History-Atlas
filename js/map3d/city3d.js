@@ -5,9 +5,9 @@
 //
 // MapLibre is loaded from the CDN the first time someone opens a city in 3D.
 
-import { createFrame, area, circle } from './geom.js';
+import { createFrame, area, circle, centroid } from './geom.js';
 import { buildModel, C } from './models.js';
-import { generateHouses, HOUSE_INFO } from './houses.js';
+import { generateHouses, HOUSE_INFO, HOUSE_LABEL } from './houses.js';
 import { kindInfo, labelPoint } from '../map/cityLayer.js';
 
 const MAPLIBRE = 'https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl';
@@ -17,7 +17,7 @@ const FOREVER = 1e7; // layer filters need numbers, so +-Infinity become +-1e7
 const EMPTY = { type: 'FeatureCollection', features: [] };
 
 const WATER = new Set(['lake', 'lake-salt', 'sea', 'harbour']);
-const LINE_COLOURS = { river: C.water, canal: C.water, road: '#d3c3a1', causeway: '#d8c49a', dike: '#9a7b4f' };
+const LINE_COLOURS = { river: C.water, canal: C.water, gap: C.water, road: '#d3c3a1' };
 // Label zooms are one lower than on the flat map (MapLibre counts 512px tiles).
 const LABEL_ZOOM = { hill: 12.5, label: 13, district: 13, river: 12.5, wall: 14, aqueduct: 14, lake: 12 };
 
@@ -132,7 +132,7 @@ export function createCity3D(container, { onSelect }) {
       map.getCanvas().style.cursor = f ? 'pointer' : '';
       if (!f) { tip.remove(); return; }
       const p = f.properties;
-      const text = p.n ?? (p.k ? `${HOUSE_LABEL[p.k]}${p.k === 'insula' ? ` · ${p.s} storeys` : ''}` : null);
+      const text = p.n ?? (p.k ? `${HOUSE_LABEL[p.k] ?? p.k}${p.s > 1 ? ` · ${p.s} storeys` : ''}` : null);
       if (!text) { tip.remove(); return; }
       tip.setLngLat(e.lngLat).setText(text).addTo(map);
     });
@@ -149,8 +149,6 @@ export function createCity3D(container, { onSelect }) {
 
   return { open, close, update, setImagery, flyTo, get isOpen() { return isOpen; }, get map() { return map; } };
 }
-
-const HOUSE_LABEL = { insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)' };
 
 function baseStyle(city) {
   const lat = city.center[0];
@@ -177,7 +175,7 @@ function baseStyle(city) {
       { id: 'flats', type: 'fill', source: 'flats', paint: { 'fill-color': ['get', 'c'] } },
       { id: 'lines', type: 'line', source: 'lines', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'c'], 'line-width': width } },
       { id: 'houses', type: 'fill-extrusion', source: 'houses', paint: { 'fill-extrusion-color': ['get', 'c'], 'fill-extrusion-height': ['get', 'h'], 'fill-extrusion-base': 0 } },
-      { id: 'roofs', type: 'fill-extrusion', source: 'houses', paint: { 'fill-extrusion-color': ['get', 'r'], 'fill-extrusion-height': ['+', ['get', 'h'], 1.1], 'fill-extrusion-base': ['get', 'h'] } },
+      { id: 'roofs', type: 'fill-extrusion', source: 'houses', paint: { 'fill-extrusion-color': ['get', 'r'], 'fill-extrusion-height': ['+', ['get', 'h'], ['get', 'rt']], 'fill-extrusion-base': ['get', 'h'] } },
       { id: 'solids', type: 'fill-extrusion', source: 'solids', paint: { 'fill-extrusion-color': ['get', 'c'], 'fill-extrusion-height': ['get', 'h'], 'fill-extrusion-base': ['get', 'b'] } },
     ],
     terrain: { source: 'dem', exaggeration: 1.3 },
@@ -212,6 +210,28 @@ async function buildData(city) {
       return ring.reduce((a, q) => [a[0] + q[0] / ring.length, a[1] + q[1] / ring.length], [0, 0]);
     });
 
+  // Openings in causeways where bridges stand (and later, the breaches).
+  // Bridges and breaches are drawn as short lines across the causeway; the
+  // opening is as wide as a breach.
+  const opening = kindInfo('gap').widthM;
+  const cuts = city.features
+    .filter((f) => ['bridge', 'gap'].includes(f.properties.kind) && f.geometry.type === 'LineString')
+    .map((f) => {
+      const [a, b] = [f.geometry.coordinates[0], f.geometry.coordinates.at(-1)].map(frame.toXY);
+      return { c: [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], half: opening / 2 };
+    });
+
+  // Where the named buildings stand, so generated extras can keep clear.
+  const BUILT = ['temple', 'building', 'palace', 'market', 'arena', 'baths', 'fort', 'tomb'];
+  const footprints = city.features.filter((f) => BUILT.includes(f.properties.kind)).map((f) => {
+    const g = f.geometry;
+    if (g.type === 'Point') return { c: frame.toXY(g.coordinates), r: f.properties.radiusM ?? 30 };
+    const ring = (g.type === 'Polygon' ? g.coordinates[0] : g.coordinates[0][0]).map(frame.toXY);
+    const c = centroid(ring);
+    return { c, r: Math.max(...ring.map((q) => Math.hypot(q[0] - c[0], q[1] - c[1]))) };
+  });
+  const isFree = (q, r) => footprints.every((o) => Math.hypot(q[0] - o.c[0], q[1] - o.c[1]) > o.r + r);
+
   const flats = [];
   const lines = [];
   const solids = [];
@@ -221,15 +241,18 @@ async function buildData(city) {
     const g = f.geometry;
     const life = span(p);
     const rings = polygonRings(g, p, frame);
-    if (WATER.has(p.kind)) rings.forEach((r) => flats.push(polygon(r, { c: C.water, o: 3, ...life })));
+    // Seas and lakes go under the land drawn on them; harbours and ponds sit on top.
+    const under = (p.kind === 'sea' || p.kind.startsWith('lake')) && g.type !== 'Point';
+    if (WATER.has(p.kind)) rings.forEach((r) => flats.push(polygon(r, { c: p.kind === 'lake-salt' ? '#9fb8c8' : C.water, o: under ? -1 : 3, ...life })));
     else if (['island', 'land', 'town'].includes(p.kind)) rings.forEach((r) => flats.push(polygon(r, { c: '#e2d5b4', o: 0, ...life })));
     else if (p.kind === 'houses') rings.forEach((r) => flats.push(polygon(r, { c: C.ground, o: 0, ...life })));
+    else if (p.kind === 'rubble') rings.forEach((r) => flats.push(polygon(r, { c: '#d2c7b0', o: 0, ...life })));
 
     if (p.kind in LINE_COLOURS && (g.type === 'LineString' || g.type === 'MultiLineString')) {
       lines.push({ type: 'Feature', properties: { c: LINE_COLOURS[p.kind], w: p.widthM ?? kindInfo(p.kind).widthM ?? 10, ...life }, geometry: g });
     }
 
-    const model = buildModel(f, { toXY: frame.toXY, plazas });
+    const model = p.fabric && !p.model ? null : buildModel(f, { toXY: frame.toXY, plazas, style: city.style3d ?? 'roman', cuts, isFree });
     if (model) {
       for (const part of model.parts) solids.push(polygon(part.rings, { b: round1(part.b), h: round1(part.h), c: part.c, fid, n: p.name ?? null, ...life }));
       for (const fl of model.flats) flats.push(polygon(fl.rings, { c: fl.c, o: flatOrder(fl.c), ...life }));
@@ -248,7 +271,7 @@ async function buildData(city) {
 
   const { houses, extras } = await generateHouses(city, frame);
   const houseFeatures = houses.map((h) => polygon(h.rings, {
-    h: h.h, c: h.c, r: h.roof, k: h.type, s: Math.round((h.h - 0.6) / 3.1), t0: clampT(h.t0), t1: clampT(h.t1),
+    h: h.h, c: h.c, r: h.roof, rt: h.rt, k: h.type, s: Math.max(1, Math.round(h.h / 3.2)), t0: clampT(h.t0), t1: clampT(h.t1),
   }));
   for (const part of extras.parts) solids.push(polygon(part.rings, { b: round1(part.b), h: round1(part.h), c: part.c, t0: clampT(part.t0), t1: clampT(part.t1) }));
   for (const fl of extras.flats) flats.push(polygon(fl.rings, { c: fl.c, o: 1, t0: clampT(fl.t0), t1: clampT(fl.t1) }));
