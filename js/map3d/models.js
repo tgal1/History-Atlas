@@ -28,6 +28,7 @@ const STYLE = {
   punic: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   mexica: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   colonial: { wall: '#b9785a', hall: '#a8553d', roof: '#4f4a45', flatRoof: false },
+  tehran: { wall: '#d2b98f', hall: '#cdbf9f', roof: '#a9a398', flatRoof: true },
 };
 
 const DEFAULT_MODEL = {
@@ -860,7 +861,190 @@ const RECIPES = {
       }
     }
   },
+
+  // ---------- Tehran, 1970s ----------
+  // The Shahyad (now Azadi) Tower, 1971: white marble legs that curve up into
+  // one crown, a tall pointed arch through the long faces and a lower one
+  // through the short faces. Long pools run out from it along the avenue axis.
+  'azadi-tower'(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 45;
+    const crown = H * 0.8;
+    const { hl, hw } = box;
+    const marble = '#ece6d8';
+    const taper = (base, top, z) => top + (base - top) * (1 - z / crown) ** 1.7;
+    const arch = (half, apex, z) => (z < apex ? half * (1 - (z / apex) ** 1.6) ** 0.65 : 0);
+    const spans = (outer, gap) => (gap > 0.4 ? [[-outer, -gap], [gap, outer]] : [[-outer, outer]]);
+    const dz = 1;
+    for (let z = 0; z < crown - 0.01; z += dz) {
+      const zm = z + dz / 2;
+      const L = taper(hl, hl * 0.34, zm);
+      const W = taper(hw, hw * 0.48, zm);
+      for (const [s0, s1] of spans(L, arch(hl * 0.4, H * 0.52, zm))) {
+        for (const [t0, t1] of spans(W, arch(hw * 0.3, H * 0.27, zm))) part(out, rectIn(box, s0, s1, t0, t1), z, z + dz, marble);
+      }
+    }
+    // Turquoise tiles in the top of the great arch.
+    const gap = arch(hl * 0.4, H * 0.52, H * 0.47);
+    part(out, rectIn(box, -gap, gap, -hw * 0.55, hw * 0.55), H * 0.46, H * 0.52, '#3e9e9a');
+    // The crown, stepped in to a lozenge on top.
+    const L = hl * 0.34;
+    const W = hw * 0.48;
+    part(out, rectIn(box, -L, L, -W, W), crown, H * 0.9, marble);
+    part(out, rectIn(box, -L * 0.85, L * 0.85, -W * 0.85, W * 0.85), H * 0.9, H * 0.94, '#e0d9c9');
+    for (let k = 0; k < 3; k++) {
+      const f = 0.62 - k * 0.2;
+      part(out, rectIn(box, -L * f, L * f, -W * f, W * f), H * (0.94 + k * 0.02), H * (0.96 + k * 0.02), marble);
+    }
+    if (m.pools === false) return;
+    for (const sgn of [-1, 1]) flat(out, rectIn(box, -hl * 0.3, hl * 0.3, sgn * (hw + 18), sgn * (hw + 95)), C.water);
+  },
+
+  // Golestan Palace: Qajar halls round a walled garden of plane trees and a
+  // long pool. The first outline is the garden wall, the rest are halls;
+  // model.tower is the index of the Shams-ol-Emareh, the tall pavilion.
+  golestan(shape, m, out) {
+    const [garden, ...halls] = shape.polys.map((poly) => poly[0]);
+    flat(out, garden, C.garden);
+    for (const q of strips([...garden, garden[0]], 1.4)) part(out, q, 0, m.wallH ?? 7, '#d9c7a4');
+    const box = obb(garden);
+    flat(out, rectIn(box, -box.hl * 0.5, box.hl * 0.5, -3, 3), C.water);
+    const clear = halls.map((h) => scaleRing(h, 1.25));
+    grove(out, garden, 24, (q) => !clear.some((h) => inRing(q, h)) && Math.abs((q[0] - box.c[0]) * box.v[0] + (q[1] - box.c[1]) * box.v[1]) > 6);
+    halls.forEach((ring, i) => {
+      if (i + 1 === m.tower) {
+        shams(out, ring, m.towerH ?? 35);
+        return;
+      }
+      const h = m.hallH ?? 13;
+      part(out, ring, 0, h - 2.2, '#eadcbc');
+      part(out, ring, h - 2.2, h - 0.6, '#5b9aa8');
+      part(out, ring, h - 0.6, h, '#eadcbc');
+    });
+  },
+
+  // A four-iwan mosque: arcades round a court with a pool, a tall iwan and two
+  // minarets on the qibla side (model.facing), and the dome behind them.
+  mosque(shape, m, out, ctx) {
+    const box = face(obb(shape.main[0]), shape, m, ctx);
+    const { hl, hw } = box;
+    const brick = m.colour ?? '#c9a77c';
+    const tile = m.tile ?? '#4f9aa3';
+    const H = m.h ?? 9;
+    const court = rectIn(box, -hl * 0.62, hl * 0.3, -hw * 0.6, hw * 0.6);
+    part(out, [shape.main[0], court.slice().reverse()], 0, H, brick);
+    part(out, [shape.main[0], court.slice().reverse()], H, H + 0.6, '#b8ab94');
+    flat(out, court, C.paving);
+    flat(out, rectIn(box, -hl * 0.3, hl * 0.02, -hw * 0.12, hw * 0.12), C.water);
+    // Iwans: the main one on the qibla side, lesser ones on the other three.
+    const iwan = (s0, s1, t0, t1, h) => {
+      part(out, rectIn(box, s0, s1, t0, t1), 0, h, brick);
+      part(out, rectIn(box, s0, s1, t0, t1), h, h + 0.5, tile);
+    };
+    const mw = Math.min(hw * 0.28, 14);
+    iwan(hl * 0.22, hl * 0.46, -mw, mw, m.iwanH ?? 22);
+    part(out, rectIn(box, hl * 0.2, hl * 0.22, -mw * 0.7, mw * 0.7), 3, (m.iwanH ?? 22) - 2, tile);
+    iwan(-hl * 0.7, -hl * 0.54, -mw * 0.6, mw * 0.6, 14);
+    for (const sgn of [-1, 1]) iwan(-hl * 0.26, hl * 0.02, sgn * hw * 0.58, sgn * hw * 0.74, 14);
+    for (const sgn of [-1, 1]) {
+      const c = at(box, hl * 0.26, sgn * (mw + 1.8));
+      part(out, circle(c, 1.9, 12), 0, m.minaretH ?? 32, brick);
+      part(out, circle(c, 2.5, 12), (m.minaretH ?? 32) - 5, (m.minaretH ?? 32) - 3.8, '#e6d6b0');
+      part(out, circle(c, 1.4, 10), m.minaretH ?? 32, (m.minaretH ?? 32) + 2, tile);
+      part(out, circle(c, 0.5, 6), (m.minaretH ?? 32) + 2, (m.minaretH ?? 32) + 4, tile);
+    }
+    const dc = at(box, hl * 0.7, 0);
+    const R = Math.min(hw * 0.26, hl * 0.25, 13);
+    part(out, circle(dc, R, 32), 0, H + 7, brick);
+    dome(out, dc, R * 0.96, H + 7, R * 0.95, tile);
+    part(out, circle(dc, 0.5, 6), H + 7 + R * 0.95, H + 10 + R * 0.95, C.bronze);
+  },
+
+  // A university campus: lawns and plane trees inside railings, with faculty
+  // buildings on their real outlines (every outline after the first).
+  campus(shape, m, out, ctx) {
+    const [ground, ...blocks] = shape.polys.map((poly) => poly[0]);
+    flat(out, ground, C.garden);
+    for (const q of strips([...ground, ground[0]], 0.6)) part(out, q, 0, 2.2, '#77736a');
+    for (const b of blocks) {
+      const h = (m.h ?? 12) + Math.round(between(ctx.r, -1, 1)) * 3.5;
+      part(out, b, 0, h, m.colour ?? '#d8cbb0');
+      part(out, b, h, h + 0.5, '#a9a398');
+    }
+    const clear = blocks.map((b) => scaleRing(b, 1.3));
+    grove(out, ground, 26, (q) => !clear.some((b) => inRing(q, b)));
+  },
+
+  // The university gate (1966): two tall concrete leaves either side of the
+  // way in, leaning together and flaring out as they rise.
+  'uni-gate'(shape, m, out) {
+    const f = bearingVec(m.facing ?? 180);
+    const box = { c: shape.centre, u: [f[1], -f[0]], v: f };
+    const H = m.h ?? 17;
+    const concrete = '#ddd7ca';
+    const n = 12;
+    for (let i = 0; i < n; i++) {
+      const k = (i + 0.5) / n;
+      const inner = 3.2 - 1.6 * k;
+      const outer = 5 + 6 * k ** 1.6;
+      for (const sgn of [-1, 1]) part(out, rectIn(box, sgn > 0 ? inner : -outer, sgn > 0 ? outer : -inner, -1.2, 1.2), (H * i) / n, (H * (i + 1)) / n, concrete);
+    }
+    for (const sgn of [-1, 1]) part(out, rectIn(box, sgn > 0 ? 12 : -70, sgn > 0 ? 70 : -12, -0.3, 0.3), 0, 2, '#77736a');
+  },
+
+  // A walled compound of lawns and trees (the US embassy).
+  compound(shape, m, out, ctx) {
+    for (const poly of shape.polys) {
+      const ring = poly[0];
+      flat(out, ring, C.garden);
+      for (const q of strips([...ring, ring[0]], 0.8)) part(out, q, 0, m.wallH ?? 3, m.colour ?? '#c2a27a');
+      grove(out, ring, m.spacing ?? 24, (q) => !ctx.isFree || ctx.isFree(q, 4));
+    }
+  },
+
+  // A flat-roofed modern building on its own outline.
+  'modern-block'(shape, m, out, ctx) {
+    const H = m.h ?? 12;
+    for (const poly of shape.polys) {
+      part(out, poly, 0, H, m.colour ?? ctx.S.wall);
+      part(out, poly[0], H, H + 0.5, m.roof ?? ctx.S.roof);
+    }
+  },
 };
+
+// The Shams-ol-Emareh, Golestan's "edifice of the sun" (1867): a five-storey
+// pavilion rising from the palace range, two small towers on top.
+function shams(out, ring, H) {
+  const box = obb(ring);
+  const { hl, hw } = box;
+  const wall = '#efe2c4';
+  const tile = '#5b9aa8';
+  part(out, ring, 0, H * 0.32, wall);
+  part(out, rectIn(box, -hl * 0.32, hl * 0.32, -hw, hw), H * 0.32, H * 0.7, wall);
+  part(out, rectIn(box, -hl * 0.32, hl * 0.32, -hw, hw), H * 0.7, H * 0.72, tile);
+  part(out, rectIn(box, -hl * 0.24, hl * 0.24, -hw * 0.8, hw * 0.8), H * 0.72, H * 0.86, wall);
+  for (const sgn of [-1, 1]) {
+    const c = at(box, sgn * hl * 0.14, 0);
+    const r = Math.min(hw * 0.4, 3.2);
+    part(out, circle(c, r, 8), H * 0.86, H * 0.95, wall);
+    for (let k = 0; k < 3; k++) part(out, circle(c, r * (1 - k * 0.3), 8), H * (0.95 + k * 0.017), H * (0.967 + k * 0.017), tile);
+  }
+}
+
+// Plane trees on a grid, kept where ok(point) allows.
+function grove(out, ring, spacing, ok) {
+  const box = obb(ring);
+  const r = rng(hashString(`${box.c[0].toFixed(1)},${box.c[1].toFixed(1)}`));
+  for (let s = -box.hl; s < box.hl; s += spacing) {
+    for (let t = -box.hw; t < box.hw; t += spacing) {
+      const q = at(box, s + between(r, 0, spacing * 0.6), t + between(r, 0, spacing * 0.6));
+      if (r() < 0.3 || !inRing(q, ring) || !ok(q)) continue;
+      const h = between(r, 6, 9);
+      part(out, circle(q, 0.4, 5), 0, h, C.trunk);
+      part(out, circle(q, between(r, 3.5, 5), 9), h, h + between(r, 4, 6), '#6f8f4f');
+    }
+  }
+}
 
 function isConvexish(ring) {
   return isConvex(ring) || Math.abs(area(ring)) / (obb(ring).hl * obb(ring).hw * 4) > 0.8;
