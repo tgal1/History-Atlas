@@ -35,6 +35,13 @@
       "subtitle": "1939–1945",
       "blurb": "Blitzkrieg, the Battle of Britain, Barbarossa, D-Day and the fall of Berlin.",
       "status": "ready"
+    },
+    {
+      "id": "american-revolution",
+      "title": "The American Revolution",
+      "subtitle": "1765–1783",
+      "blurb": "From the Stamp Act riots to Yorktown: thirteen colonies break with Britain, and a colonial revolt becomes a world war.",
+      "status": "ready"
     }
   ],
   "cities": [

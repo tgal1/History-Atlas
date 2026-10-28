@@ -75,6 +75,30 @@ const FIGURES = {
   marcher: `${legs(14)}<path d="M19 28V3" fill="none" stroke="#5b3b22" stroke-width="1.4"/>
     <path d="M19 3h10v7H19z" fill="#f4f1e8" ${INK}/>
     <path d="M10.5 10.5h7l1.2 11h-9.4z" fill="currentColor" ${INK}/>${head(14, 7)}`,
+  // 18th-century line infantry: tricorne, long coat with crossbelts, musket and bayonet.
+  'line-infantry': `${legs(14)}<path d="M10.3 10.5h7.4l1.6 12.5H8.7z" fill="currentColor" ${INK}/>
+    <path d="M11 11.2l6 8M17 11.2l-6 8" stroke="#f4f1e8" stroke-width="1.1"/>${head(14, 7.2)}
+    <path d="M9.2 6.6c1.6-0.8 3-3.8 4.8-3.8s3.2 3 4.8 3.8c-1.7 0.7-7.9 0.7-9.6 0z" fill="#22201c" ${INK}/>
+    <path d="M9 23L25 6" fill="none" stroke="#6b4a2b" stroke-width="2.2"/><path d="M25 6l4-4" stroke="#c9ccd1" stroke-width="1.2"/>`,
+  // Rifleman or militia: hunting shirt, round hat, long rifle levelled to fire.
+  rifleman: `${legs(13)}<path d="M9.5 10.5h7l1.2 11h-9.4z" fill="currentColor" ${INK}/>
+    <path d="M9.6 15.5h7.4M9.3 18.5h7.9" stroke="#f4e3b0" stroke-width="0.9" stroke-dasharray="1 1"/>${head(13, 7.2)}
+    <ellipse cx="13" cy="5.2" rx="4.8" ry="1.2" fill="${DARK}"/><path d="M10.6 5.2a2.4 2.6 0 0 1 4.8 0z" fill="${DARK}"/>
+    <path d="M8 14L31 11.2" fill="none" stroke="#6b4a2b" stroke-width="1.8"/>`,
+  // Dragoon: horse, crested helmet, raised sabre.
+  dragoon: `<path d="M8 22l-1.5 7M11 23l0.5 6M19 23l-1 6M22 22l2 7" fill="none" ${INK}/>
+    <path d="M5 17c0-3 3-5 8-5h7l4-5 4 2-2 3-3 2c0 4-2 8-7 8h-6c-3 0-5-2-5-5z" fill="#6e4f36" ${INK}/>
+    <path d="M5 17l-3 5" fill="none" ${INK}/>
+    <path d="M12 12l1-5h5l1 5z" fill="currentColor" ${INK}/>${head(15.5, 4.4, 2.4)}
+    <path d="M13.2 3.6a2.4 2.4 0 0 1 4.6 0z" fill="#22201c"/><path d="M13.5 2.2c1.5-1 3-1 4 0" fill="none" stroke="#22201c" stroke-width="1.4"/>
+    <path d="M18 9l9-7" stroke="#c9ccd1" stroke-width="1.6" stroke-linecap="round"/>`,
+  // Field gun with a gunner holding the rammer.
+  cannon: `<path d="M3 27L15 20" stroke="#6b4a2b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M12 17.5l17-4.5 0.8 3.6-17 3.6z" fill="#3d3a35" ${INK}/>
+    <circle cx="15" cy="23" r="5.5" fill="none" stroke="#5b3b22" stroke-width="2"/>
+    <path d="M15 17.5v11M9.5 23h11M11.1 19.1l7.8 7.8M18.9 19.1l-7.8 7.8" stroke="#5b3b22" stroke-width="0.9"/>
+    <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.4, 2.2)}
+    <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
   // A fortified camp: tents behind a palisade.
   camp: `<path d="M4 20l6-9 6 9zM14 20l6-9 6 9z" fill="#e9e1cc" ${INK}/>
     <path d="M2 22h28v4H2z" fill="currentColor" ${INK}/>${[5, 10, 15, 20, 25].map((x) => `<path d="M${x} 22v-3" stroke="#5b3b22" stroke-width="1.4"/>`).join('')}`,
@@ -107,6 +131,7 @@ export function columnSvg(type, size) {
   if (type === 'army-elephants') return `${figureSvg('elephant', size * 1.15)}${figureSvg('spear', size)}${figureSvg('cavalry', size)}`;
   if (type === 'army') return `${figureSvg('cavalry', size)}${figureSvg('legionary', size)}${figureSvg('legionary', size)}`;
   if (type === 'conquistadors') return `${figureSvg('cavalry', size)}${figureSvg('conquistador', size)}${figureSvg('mexica', size)}`;
+  if (type === 'army-musket') return `${figureSvg('dragoon', size)}${figureSvg('line-infantry', size)}${figureSvg('cannon', size)}`;
   return `${figureSvg(type, size)}${figureSvg(type, size)}${figureSvg(type, size)}`;
 }
 
