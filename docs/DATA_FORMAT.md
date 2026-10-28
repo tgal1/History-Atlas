@@ -44,7 +44,7 @@ A date given only to the year or month is shown at that precision ("218 BC", "Oc
 | `ask.defaultQuestions[]` | Not used at the moment (kept for the archived chat) |
 | `sources[]` | `{ label, url }` shown on the intro card |
 | `ambience` | Soundscapes: `{ "default": "countryside", "byCategory": { "battle": "battle" }, "scene": "battle" }`. `default` plays in the overview, `byCategory` on an event of that category, `scene` during an animated scene. Names are listed under *Sound* below |
-| `music` | Background music mood: `celtic`, `roman`, `carthage`, `aztec` or `ww2` |
+| `music` | Background music: `roman` and `carthage` (the Seikilos epitaph and First Delphic Hymn on kithara and aulos), `celtic` (the Londonderry Air), `colonial` (Yankee Doodle on fife and drum), `aztec` (clay flute and drums; no Mexica music survives) or `ww2` (Chopin polonaises, as Polish Radio played in 1939) |
 
 ## events.json
 
@@ -259,8 +259,9 @@ Unit names sit just above their block. Remember that strength is interpolated: t
 The *Sound* button in the timeline bar controls narration, the soundscape and the music. Nothing plays until the first click, as browsers require.
 
 - **Narration** reads each event aloud (date, title, summary, why it matters) with the browser's own voices; the tour waits for the voice to finish. Opening a city or a place reads its description.
-- **Soundscapes** are synthesised in the browser, so there are no sound files to license or host. Names: `countryside`, `highlands`, `jungle`, `lake`, `sea`, `harbour`, `city`, `lake-city`, `market`, `battle`, `conquest-battle` (drums, conch shells, the odd gunshot), `naval`, `siege`, `march`, `war`, `air-raid`, `town`, `quiet`, `sombre` (near silence, no music), `urban`, `tense-urban` (helicopters and sirens, no gunfire), `protest`, `silence`.
-- **Choosing a soundscape**: inside a city, the city file's `"ambience"` in its `city` member (default `city`); during an animated scene, the story's `ambience.scene`; on an event, the event's `ambience`, then `ambience.byCategory`; otherwise `ambience.default`.
-- **Music** follows `story.music` and is muted for `sombre` and `silence`.
+- **Soundscapes** are synthesised in the browser, so there are no sound files to license or host. Names: `countryside`, `mediterranean` (small waves on a calm shore, the odd gull), `highlands`, `jungle`, `lake`, `sea`, `harbour`, `city`, `lake-city`, `market`, `battlefield` and `battlefield-aztec` (quiet backgrounds for animated battles), `battle`, `conquest-battle` (drums, conch shells, the odd gunshot), `naval`, `siege`, `march`, `war`, `air-raid`, `town`, `quiet`, `sombre` (near silence, no music), `urban`, `tense-urban` (helicopters and sirens, no gunfire), `protest`, `silence`.
+- **Choosing a soundscape**: during an animated scene, the scene's own `"ambience"`, else for a battle (a scene with a `frame`) the story's `ambience.scene` and for a march the story's `ambience.default`; inside a city, the city file's `"ambience"` in its `city` member (default `city`); on an event, the event's `ambience`, then `ambience.byCategory`; otherwise `ambience.default`.
+- **Music** follows `story.music` and is muted for `sombre` and `silence`. Scores live in `data/music/` as note lists made from MIDI files with `python tools/midi_to_json.py score.mid data/music/name.json "Title" "Credit"`; the instruments are synthesised.
+- **Battle sounds** follow the animation: the scene player measures how fast each kind of figure is moving on screen and where opposing units touch or lose strength, and plays hooves (cavalry, elephants, dragoons), marching feet, oars and paddles, tank engines and aircraft, and the fight itself by era: blades and shouts (ancient), plus arquebuses and cannon (conquest), musket volleys and cannon (`line-infantry`, `rifleman`, `dragoon`, `cannon`), rifles, machine guns and shells (`soldier`, `tank`, `para`). A horn call, conch or drum roll opens each battle.
 
 Choose sounds with care for recent or painful events: the Troubles uses patrols and sirens rather than gunfire, and Holocaust events are `sombre`.

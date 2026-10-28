@@ -56,6 +56,7 @@ export function createSoundtrack() {
       apply();
     },
     get sceneLabel() { return PRESET_LABELS[wantScene] ?? ''; },
+    get nowPlaying() { return music.nowPlaying; },
     // True when events should be read aloud (and the tour should wait for the voice).
     get narrating() { return settings.sound && settings.narration && narrator.supported; },
     narrate(text) {

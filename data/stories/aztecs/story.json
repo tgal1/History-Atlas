@@ -218,6 +218,6 @@
   "cities": [
     "tenochtitlan"
   ],
-  "ambience": {"default": "highlands", "byCategory": {"battle": "conquest-battle", "massacre": "conquest-battle", "alliance": "town", "journey": "march", "turning": "lake-city"}, "scene": "conquest-battle"},
+  "ambience": {"default": "highlands", "byCategory": {"battle": "conquest-battle", "massacre": "conquest-battle", "alliance": "town", "journey": "march", "turning": "lake-city"}, "scene": "battlefield-aztec"},
   "music": "aztec"
 }

@@ -9,20 +9,25 @@ import { audioContext, buses, noise, filter, gain, osc, panner, lfo, envelope, e
 // [layer, level, options]
 const PRESETS = {
   silence: [],
-  countryside: [['wind', 0.35], ['birds', 0.55, { kind: 'temperate', every: [2, 6] }], ['crickets', 0.1]],
-  highlands: [['wind', 0.55], ['birds', 0.3, { kind: 'temperate', every: [4, 10] }]],
+  countryside: [['wind', 0.15], ['birds', 0.55, { kind: 'temperate', every: [2, 6] }], ['crickets', 0.1]],
+  // A calm Mediterranean shore: small waves on sand, the odd gull.
+  mediterranean: [['shore', 0.85], ['birds', 0.22, { kind: 'gull', every: [10, 22] }]],
+  highlands: [['wind', 0.25], ['birds', 0.3, { kind: 'temperate', every: [4, 10] }]],
   jungle: [['insects', 0.45], ['cicadas', 0.35], ['frogs', 0.35], ['birds', 0.7, { kind: 'jungle', every: [1, 3.5] }], ['howler', 0.5]],
   lake: [['lapping', 0.6], ['wind', 0.2], ['birds', 0.45, { kind: 'water', every: [3, 8] }]],
-  sea: [['surf', 0.75], ['wind', 0.35], ['birds', 0.4, { kind: 'gull', every: [5, 12] }]],
+  sea: [['surf', 0.75], ['wind', 0.15], ['birds', 0.4, { kind: 'gull', every: [5, 12] }]],
   harbour: [['lapping', 0.45], ['birds', 0.5, { kind: 'gull', every: [4, 9] }], ['crowd', 0.3, { voices: 8 }], ['creak', 0.4]],
   city: [['crowd', 0.45, { voices: 10 }], ['birds', 0.2, { kind: 'temperate', every: [5, 12] }], ['clinks', 0.2]],
   'lake-city': [['crowd', 0.35, { voices: 9 }], ['lapping', 0.35], ['birds', 0.3, { kind: 'water', every: [4, 9] }]],
   market: [['crowd', 0.6, { voices: 14 }], ['clinks', 0.3]],
-  battle: [['crowd', 0.55, { voices: 12, excited: true }], ['clangs', 0.5], ['drums', 0.35, { style: 'war', bpm: 84 }], ['horns', 0.35, { style: 'cornu' }], ['wind', 0.2]],
+  battle: [['crowd', 0.55, { voices: 12, excited: true }], ['clangs', 0.5], ['drums', 0.35, { style: 'war', bpm: 84 }], ['horns', 0.35, { style: 'cornu' }]],
+  // Backgrounds for animated battles: the units on screen add hooves, feet and the clash.
+  battlefield: [['crowd', 0.22, { voices: 10, excited: true }], ['drums', 0.22, { style: 'war', bpm: 72 }]],
+  'battlefield-aztec': [['crowd', 0.2, { voices: 10, excited: true }], ['drums', 0.28, { style: 'aztec', bpm: 92 }], ['lapping', 0.3]],
   'conquest-battle': [['crowd', 0.55, { voices: 12, excited: true }], ['clangs', 0.35], ['drums', 0.4, { style: 'aztec', bpm: 96 }], ['horns', 0.4, { style: 'conch' }], ['artillery', 0.25, { every: [8, 20] }]],
-  naval: [['surf', 0.5], ['crowd', 0.4, { voices: 10, excited: true }], ['clangs', 0.35], ['creak', 0.45], ['drums', 0.3, { style: 'rowing', bpm: 30 }], ['wind', 0.3]],
+  naval: [['surf', 0.5], ['crowd', 0.4, { voices: 10, excited: true }], ['clangs', 0.35], ['creak', 0.45], ['drums', 0.3, { style: 'rowing', bpm: 30 }]],
   siege: [['fire', 0.45], ['crowd', 0.35, { voices: 10, excited: true }], ['drums', 0.25, { style: 'war', bpm: 70 }], ['clangs', 0.2]],
-  march: [['wind', 0.35], ['marching', 0.45], ['horns', 0.2, { style: 'cornu' }], ['birds', 0.2, { kind: 'temperate', every: [6, 14] }]],
+  march: [['wind', 0.12], ['marching', 0.45], ['horns', 0.2, { style: 'cornu' }], ['birds', 0.2, { kind: 'temperate', every: [6, 14] }]],
   war: [['artillery', 0.55], ['aircraft', 0.35], ['gunfire', 0.25], ['wind', 0.25]],
   'air-raid': [['siren', 0.45], ['aircraft', 0.55, { continuous: true }], ['artillery', 0.45, { every: [2, 6] }], ['fire', 0.2]],
   town: [['crowd', 0.3, { voices: 8 }], ['birds', 0.35, { kind: 'temperate', every: [3, 8] }], ['wind', 0.15]],
@@ -34,9 +39,9 @@ const PRESETS = {
 };
 
 export const PRESET_LABELS = {
-  silence: 'Silence', countryside: 'Countryside', highlands: 'Highlands', jungle: 'Jungle', lake: 'Lake',
+  silence: 'Silence', countryside: 'Countryside', mediterranean: 'Mediterranean shore', highlands: 'Highlands', jungle: 'Jungle', lake: 'Lake',
   sea: 'Open sea', harbour: 'Harbour', city: 'City streets', 'lake-city': 'Island city', market: 'Market',
-  battle: 'Battle', 'conquest-battle': 'Battle', naval: 'Sea battle', siege: 'Siege', march: 'On the march',
+  battle: 'Battle', battlefield: 'Battlefield', 'battlefield-aztec': 'Battlefield', 'conquest-battle': 'Battle', naval: 'Sea battle', siege: 'Siege', march: 'On the march',
   war: 'Front line', 'air-raid': 'Air raid', town: 'Town', quiet: 'Indoors', sombre: 'Quiet',
   urban: 'City streets', 'tense-urban': 'Streets under patrol', protest: 'Crowd',
 };
@@ -135,14 +140,27 @@ const panned = (dest, pan = rand(-0.8, 0.8)) => { const p = panner(pan); p.conne
 
 // ---------- Layers ----------
 const LAYERS = {
+  // A soft breeze: low, dark air that rises and falls slowly, without the whistle.
   wind(L, out) {
-    const f = filter('bandpass', 450, 0.6);
-    const g = gain(0.5);
+    const f = filter('lowpass', 320, 0.3);
+    const g = gain(0.35);
     L.add(noise()).connect(f).connect(g).connect(out);
-    L.add(lfo(g.gain, rand(0.05, 0.09), 0.35));
-    L.add(lfo(f.frequency, rand(0.03, 0.06), 220));
-    const low = gain(0.35);
-    L.add(noise()).connect(filter('lowpass', 160)).connect(low).connect(out);
+    L.add(lfo(g.gain, rand(0.03, 0.06), 0.15));
+    L.add(lfo(f.frequency, rand(0.02, 0.04), 80));
+  },
+  // Small waves on a beach: a slow swell rolls in, breaks softly and drains back over the sand.
+  shore(L, out) {
+    const body = gain(0.05);
+    L.add(noise()).connect(filter('lowpass', 420, 0.4)).connect(body).connect(out);
+    const wash = gain(0);
+    L.add(noise()).connect(filter('bandpass', 1400, 0.5)).connect(filter('lowpass', 3000)).connect(wash).connect(out);
+    L.every(6, 11, (t) => {
+      const peak = rand(0.25, 0.45);
+      body.gain.setTargetAtTime(peak, t, 1.4);
+      wash.gain.setTargetAtTime(peak * 0.18, t + 2.6, 0.5);
+      body.gain.setTargetAtTime(0.05, t + 3.2, 1.8);
+      wash.gain.setTargetAtTime(0, t + 3.4, 1.6);
+    });
   },
 
   surf(L, out) {

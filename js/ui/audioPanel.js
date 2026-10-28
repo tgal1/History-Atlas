@@ -27,8 +27,9 @@ export function createAudioPanel(button, panel, soundtrack) {
     <label class="sp-field">Music
       <input type="range" min="0" max="1" step="0.05" data-k="music">
     </label>
+    <p class="fine sp-music"></p>
     <button class="btn ghost sp-test" type="button">Test the voice</button>
-    <p class="fine">Voices come from your browser (Edge has the most natural ones). Sounds and music are generated in your browser as you listen.</p>`;
+    <p class="fine">Voices come from your browser (Edge has the most natural ones). Soundscapes are generated as you listen; music is from the period where any survives.</p>`;
 
   const $ = (sel) => panel.querySelector(sel);
   const voiceSelect = $('[data-k="voice"]');
@@ -54,6 +55,8 @@ export function createAudioPanel(button, panel, soundtrack) {
     $('[data-k="ambience"]').value = s.ambience;
     $('[data-k="music"]').value = s.music;
     $('.sp-now').textContent = s.sound && soundtrack.sceneLabel ? `Now: ${soundtrack.sceneLabel}` : '';
+    const piece = soundtrack.nowPlaying;
+    $('.sp-music').textContent = s.sound && piece ? `Music: ${piece.title}. ${piece.credit}.` : '';
     button.classList.toggle('off', !s.sound);
     button.querySelector('span').textContent = s.sound ? 'Sound' : 'Muted';
   }
@@ -78,6 +81,7 @@ export function createAudioPanel(button, panel, soundtrack) {
     e.stopPropagation();
     soundtrack.unlock();
     panel.hidden = !panel.hidden;
+    sync();
     button.setAttribute('aria-expanded', String(!panel.hidden));
   });
   document.addEventListener('click', (e) => { if (!panel.hidden && !panel.contains(e.target) && e.target !== button) close(); });

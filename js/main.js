@@ -20,6 +20,7 @@ import { createLegend } from './ui/legend.js';
 import { createMenu } from './ui/menu.js';
 import { createAudioPanel } from './ui/audioPanel.js';
 import { createSoundtrack } from './audio/soundtrack.js';
+import { createBattleSounds } from './audio/battle.js';
 
 const $ = (s) => document.querySelector(s);
 
@@ -74,6 +75,7 @@ async function boot() {
   const soundtrack = createSoundtrack();
   createAudioPanel($('#btn-sound'), $('#sound-panel'), soundtrack);
   soundtrack.setMood(story.music ?? null);
+  const battleSounds = createBattleSounds();
   for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, () => soundtrack.unlock(), { capture: true });
   let speaking = Promise.resolve();
   const narrateEvent = (ev) => [`${formatEventDate(ev)}. ${ev.title}.`, ev.summary, ev.significance ?? ''].join(' ');
@@ -102,7 +104,7 @@ async function boot() {
   const scenePlayer = createScenePlayer(view.map, {
     factions: story.factions,
     onCamera: (bounds) => view.flyToBounds(bounds, { duration: 1.5, padding: overlayPadding() }),
-    onFrame: (f) => sceneBar.update(f),
+    onFrame: (f) => { sceneBar.update(f); battleSounds.update(f.action, scenePlayer.era); },
     onEnd: () => { sceneBar.setPlaying(false); sceneDone?.(); },
   });
   const sceneBar = createSceneBar($('#scene-bar'), {
@@ -131,6 +133,7 @@ async function boot() {
     await view.flyToBounds(scene.cameras?.[0]?.bounds ?? scene.view.bounds, { padding: overlayPadding() });
     if (signal?.aborted) return;
     scenePlayer.play();
+    if (scene.frame) battleSounds.start(scenePlayer.era);
     await new Promise((resolve) => {
       sceneDone = resolve;
       signal?.addEventListener('abort', resolve, { once: true });
@@ -152,6 +155,7 @@ async function boot() {
 
   function closeScene() {
     scenePlayer.clear();
+    battleSounds.stop();
     sceneBar.hide();
     document.body.classList.remove('in-scene', 'scene-dim');
     updateSound();
@@ -276,16 +280,18 @@ async function boot() {
   view.map.on('moveend', () => { updateCityChip(store.get().t, view.map.getZoom()); updateSound(); });
 
   // ---------- Soundscape ----------
-  // Inside a city: its own sounds. During a battle scene: the story's battle
+  // During a scene: a battle's background (its moving units add their own
+  // sounds), or for a march the story's everyday sounds. Inside a city: its own
   // sounds. On an event: the event's, or its category's. Otherwise the story's.
   function updateSound() {
     const amb = story.ambience ?? {};
     const s = store.get();
     const city = city3d.isOpen ? openCity3D : view.map.getZoom() >= 12.5 ? chipCity : null;
     const ev = byId.get(s.activeId);
+    const scene = document.body.classList.contains('in-scene') ? scenePlayer.scene : null;
     let name;
-    if (city) name = city.ambience ?? 'city';
-    else if (document.body.classList.contains('in-scene')) name = amb.scene ?? 'battle';
+    if (scene) name = scene.ambience ?? (scene.frame ? amb.scene ?? 'battlefield' : amb.default);
+    else if (city) name = city.ambience ?? 'city';
     else if (ev) name = ev.ambience ?? amb.byCategory?.[ev.category] ?? amb.default;
     soundtrack.setScene(name ?? amb.default ?? 'countryside');
   }
@@ -424,7 +430,7 @@ async function boot() {
   });
 
   // Handy from the browser console when authoring a story.
-  window.atlas = { story, events, scenes, store, map: view.map, scenePlayer, city3d, soundtrack };
+  window.atlas = { story, events, scenes, store, map: view.map, scenePlayer, city3d, soundtrack, battleSounds };
 
   // ---------- Start ----------
   const startId = decodeURIComponent(location.hash.slice(1));

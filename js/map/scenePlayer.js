@@ -19,6 +19,10 @@ import { figureSvg, figureFor, columnSvg } from './unitIcons.js';
 
 const FIG = 22; // figure size in pixels
 
+// What each kind of figure sounds like on the move (anything else marches on foot).
+const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft' };
+const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'] };
+
 export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera }) {
   let scene = null;
   let layer = null;
@@ -159,7 +163,51 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
     }
 
     const caption = [...(scene.captions ?? [])].reverse().find((c) => c.t <= st + 1e-6);
-    onFrame?.({ t: st, progress: st / scene.duration, caption: caption?.text ?? '' });
+    onFrame?.({ t: st, progress: st / scene.duration, caption: caption?.text ?? '', action: playing ? measure() : null });
+  }
+
+  // How much is happening, for the battle sounds: each kind of unit's speed on
+  // screen, and fighting where opposing units touch or units are losing strength.
+  function measure() {
+    const action = { hooves: 0, feet: 0, oars: 0, paddles: 0, engines: 0, aircraft: 0, melee: 0 };
+    const eps = scene.duration * 0.004;
+    const realSeconds = eps * (scene.playSeconds / scene.duration);
+    const t1 = Math.min(scene.duration, st + eps);
+    const pxSpeed = (a, b) => map.latLngToContainerPoint(a).distanceTo(map.latLngToContainerPoint(b)) / realSeconds;
+    const now = units.map((u) => ({ u, s: sampleUnit(u.unit.keyframes, st), s1: sampleUnit(u.unit.keyframes, t1) }));
+    for (const { u, s, s1 } of now) {
+      if (s.strength < 0.02) continue;
+      const moving = Math.min(1, pxSpeed(s.at, s1.at) / 20) * s.strength;
+      const kind = SOUND_OF[u.type] ?? 'feet';
+      action[kind] += moving * (kind === 'feet' ? 0.9 : 0.5);
+      action.melee += Math.max(0, (s.strength - s1.strength) / realSeconds) * 1.5;
+    }
+    for (let i = 0; i < now.length; i++) {
+      for (let j = i + 1; j < now.length; j++) {
+        const a = now[i];
+        const b = now[j];
+        if (a.u.unit.side === b.u.unit.side || a.s.strength < 0.1 || b.s.strength < 0.1) continue;
+        const reach = (Math.hypot(a.s.w, a.s.d) + Math.hypot(b.s.w, b.s.d)) / 2;
+        if (map.distance(a.s.at, b.s.at) < reach * 0.75) action.melee += Math.min(a.s.strength, b.s.strength) * 0.45;
+      }
+    }
+    for (const tr of tracks) {
+      const { pos } = samplePath(tr.track.keyframes, st);
+      const { pos: pos1 } = samplePath(tr.track.keyframes, t1);
+      const moving = Math.min(1, pxSpeed(pos, pos1) / 18);
+      for (const kind of MIXED[tr.mode] ?? [SOUND_OF[tr.mode] ?? 'feet']) action[kind] += moving * 0.7;
+    }
+    return action;
+  }
+
+  // The kind of fighting, for the battle sounds.
+  function era() {
+    const types = new Set([...units.map((u) => u.type), ...tracks.map((tr) => tr.track.type ?? figureFor(tr.track, scene))]);
+    if (['soldier', 'tank', 'para'].some((x) => types.has(x))) return 'modern';
+    if (['line-infantry', 'rifleman', 'dragoon', 'cannon', 'army-musket'].some((x) => types.has(x))) return 'musket';
+    if (['conquistador', 'conquistadors', 'mexica', 'canoe'].some((x) => types.has(x))) return 'conquest';
+    if (types.size && [...types].every((x) => x === 'marcher' || x === 'marchers')) return 'civil';
+    return 'ancient';
   }
 
   function frame(now) {
@@ -245,6 +293,7 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
     load, play, pause, seek, clear,
     get playing() { return playing; },
     get scene() { return scene; },
+    get era() { return scene ? era() : null; },
   };
 }
 
