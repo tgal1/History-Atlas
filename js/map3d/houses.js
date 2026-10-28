@@ -166,7 +166,8 @@ export async function generateHouses(city, frame) {
         }
         const [a0, a1] = TYPES[type].area;
         const lots = [];
-        split(block, 0, r, lots, clip, { min: a0, max: a1, gap: () => 0.6, minArea: 30 });
+        if (TYPES[type].lots) TYPES[type].lots(block, r, lots);
+        else split(block, 0, r, lots, clip, { min: a0, max: a1, gap: () => 0.6, minArea: 30 });
         for (const lot of lots) {
           const life = lifespan(lot, base, index, f);
           if (!life) continue;
@@ -184,6 +185,7 @@ const TOWN_SPLIT = { min: 1500, max: 3500, gap: (depth) => (depth < 2 ? 7 : 4), 
 
 function house(lot, type, [t0, t1], suburb, r, extras) {
   const T = TYPES[type];
+  if (T.make) return T.make(lot, [t0, t1], r, extras, type);
   const A = Math.abs(area(lot));
   if (T.rubble) {
     if (r() < 0.35 || !isConvex(lot)) return null;
@@ -333,7 +335,13 @@ function halfPlane(clip, ring, p, d) {
     [p[0] - d[0] * B, p[1] - d[1] * B], [p[0] + d[0] * B, p[1] + d[1] * B],
     [p[0] + d[0] * B + n[0] * B, p[1] + d[1] * B + n[1] * B], [p[0] - d[0] * B + n[0] * B, p[1] - d[1] * B + n[1] * B],
   ];
-  return clip.intersection([[...ring, ring[0]]], [[...hp, hp[0]]]).map((poly) => ccw(open(poly[0])));
+  try {
+    return clip.intersection([[...ring, ring[0]]], [[...hp, hp[0]]]).map((poly) => ccw(open(poly[0])));
+  } catch {
+    // polygon-clipping can fail on near-degenerate outlines: fall back to a plain clip.
+    const half = clipHalf(ring, p, d);
+    return half ? [ccw(half)] : [];
+  }
 }
 
 // ---------- Obstacles ----------
@@ -439,3 +447,216 @@ function bbox(pts) {
 
 const ccw = (ring) => (area(ring) < 0 ? ring.slice().reverse() : ring);
 const round1 = (v) => Math.round(v * 10) / 10;
+
+// ---------- Vietnam (Saigon, Hue, Hanoi, 1968-75) ----------
+// tube      a tube house: a lot 3.5 to 6 m wide running back from the street,
+//           two to four storeys, a flat roof with a stair room or a tiled roof
+// tube-old  an old shophouse of the Hanoi Old Quarter or Cholon: one or two
+//           storeys, a tiled front range, a light well, a tiled back range
+// villa     a French colonial villa: ochre walls, hipped tiled roof, garden
+// concrete  a 1960s concrete block of flats or offices, with balcony bands
+// garden-house  a single-storey tiled house in a garden (inside Hue's Citadel)
+// vn-garden a garden of tropical trees
+// Each type has its own "lots" (how a block is divided) or "make" (what is
+// built on a lot) where the generic house() would not do.
+
+import { hipRoof, vnTree } from './models.js';
+
+const VN_TILES = ['#a4553a', '#9b4f36', '#8c4a35', '#b0664a', '#7e5040'];
+const VN_PASTELS = ['#e9d9a6', '#e5c77f', '#d9d4c4', '#c9d6c8', '#c7d3dc', '#e8cfc0', '#bfb6a6', '#ece6d6'];
+const VN_OCHRE = ['#e2b45e', '#dcaa4f', '#e8c070', '#d9b26a', '#ead9b0'];
+const VN_CONCRETE = ['#d8d4ca', '#cfcabd', '#e2ddd0', '#c4c0b4', '#d6cdb5'];
+const VN_FLAT = ['#b8b2a6', '#a9a397', '#c2bcb0'];
+
+Object.assign(TYPES, {
+  tube: { area: [50, 140], lots: (block, r, out) => tubeLots(block, r, out, [4.2, 6.5], [12, 22]), make: tubeHouse },
+  'tube-old': { area: [50, 160], lots: (block, r, out) => tubeLots(block, r, out, [3.8, 5.5], [14, 30]), make: oldShophouse },
+  villa: { area: [800, 1900], make: villa },
+  concrete: { area: [500, 1400], make: concreteBlock },
+  'garden-house': { area: [800, 1800], make: gardenHouse },
+  'vn-garden': { area: [400, 2000], make: vnGarden },
+});
+
+STYLES.vietnamese = {
+  centre: { tube: 0.7, concrete: 0.15, villa: 0.05, 'vn-garden': 0.1 },
+  hill: { villa: 0.6, tube: 0.25, 'vn-garden': 0.15 },
+  outer: { tube: 0.6, 'garden-house': 0.25, 'vn-garden': 0.15 },
+};
+
+Object.assign(HOUSE_INFO, {
+  tube: 'A tube house: a shop or workshop on the ground floor, the family above, on a lot often only four metres wide but twenty or more deep.',
+  'tube-old': 'An old shophouse: a tiled front range opening onto the street as a shop, a small light well, and a back range where the family lived.',
+  villa: 'A French colonial villa: ochre stucco, tall shuttered windows, a hipped tiled roof, set in its own garden.',
+  concrete: 'A concrete block of flats or offices, of the kind built in the 1950s and 1960s.',
+  'garden-house': 'A garden house: a single-storey timber and brick house with a tiled roof, among fruit trees and areca palms.',
+});
+Object.assign(HOUSE_LABEL, {
+  tube: 'Tube house', 'tube-old': 'Old shophouse', villa: 'Colonial villa', concrete: 'Concrete block', 'garden-house': 'Garden house',
+});
+
+// Narrow lots along every street front of a block, back to back where the
+// block is deep enough; the middle of a big block stays open (yards, alleys).
+function tubeLots(block, r, out, [w0, w1], [d0, d1]) {
+  const ring = block;
+  const sign = area(ring) > 0 ? 1 : -1;
+  const placed = [];
+  const clash = (lot) => placed.some((o) => lot.some((q) => inRing(q, o)) || o.some((q) => inRing(q, lot)) || inRing(centroid(lot), o));
+  for (let i = 0; i < ring.length; i++) {
+    const a = ring[i];
+    const b = ring[(i + 1) % ring.length];
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    if (len < 6) continue;
+    const u = [(b[0] - a[0]) / len, (b[1] - a[1]) / len];
+    const n = [-u[1] * sign, u[0] * sign]; // into the block
+    for (let s = 0.3; s < len - 3; ) {
+      const w = Math.min(between(r, w0, w1), len - 0.3 - s);
+      if (w < 3) break;
+      for (const d of [between(r, d0, d1), d0 * 0.75, 7]) {
+        const p = (k, t) => [a[0] + u[0] * k + n[0] * t, a[1] + u[1] * k + n[1] * t];
+        const lot = [p(s, 0.2), p(s + w, 0.2), p(s + w, d), p(s, d)];
+        // Inset slightly so lots on a shared corner test cleanly.
+        const test = scaleRing(lot, 0.96);
+        if (!test.every((q) => inRing(q, ring)) || clash(test)) continue;
+        placed.push(test);
+        out.push(lot);
+        break;
+      }
+      s += w;
+    }
+  }
+}
+
+// lot[0] -> lot[1] is the street front; lot[3] and lot[2] are at the back.
+const lotBox = (lot) => {
+  const front = Math.hypot(lot[1][0] - lot[0][0], lot[1][1] - lot[0][1]);
+  const depth = Math.hypot(lot[3][0] - lot[0][0], lot[3][1] - lot[0][1]);
+  const u = [(lot[1][0] - lot[0][0]) / front, (lot[1][1] - lot[0][1]) / front];
+  const v = [(lot[3][0] - lot[0][0]) / depth, (lot[3][1] - lot[0][1]) / depth];
+  return { box: { c: lot[0], u, v }, front, depth };
+};
+const vnPick = (list, r) => list[Math.floor(r() * list.length)];
+const dateAll = (g, t0, t1) => g.parts.concat(g.flats).forEach((q) => Object.assign(q, { t0, t1 }));
+
+function tubeHouse(lot, [t0, t1], r, extras, type) {
+  if (lot.length !== 4) return null;
+  const { box, front, depth } = lotBox(lot);
+  const storeys = Math.floor(between(r, 2, 4.99));
+  const h = storeys * 3.4;
+  const g = { parts: [], flats: [] };
+  const body = rectIn(box, 0, front, 0, depth * between(r, 0.8, 1));
+  let roof = vnPick(VN_FLAT, r);
+  let rt = 0.4;
+  if (r() < 0.35) {
+    // A tiled roof, ridge along the street.
+    roof = vnPick(VN_TILES, r);
+    rt = 0.05;
+    const rb = { c: at(box, front / 2, depth * 0.45), u: box.u, v: box.v };
+    gable(g, rb, -front / 2 - 0.1, front / 2 + 0.1, depth * 0.45, h, Math.min(depth * 0.2, 3.5), roof, 3);
+  } else if (r() < 0.6) {
+    // A stair room at the back of the flat roof, a parapet at the front.
+    part(g, rectIn(box, 0.3, Math.min(front - 0.3, 3), depth * 0.55, depth * 0.8), h, h + 2.6, vnPick(VN_PASTELS, r));
+    part(g, rectIn(box, 0, front, 0, 0.25), h, h + 1, '#d8d2c4');
+  }
+  dateAll(g, t0, t1);
+  extras.parts.push(...g.parts);
+  return { rings: [body], h: Math.round(h * 10) / 10, c: vnPick(VN_PASTELS, r), roof, rt, type, t0, t1 };
+}
+
+function oldShophouse(lot, [t0, t1], r, extras, type) {
+  if (lot.length !== 4) return null;
+  const { box, front, depth } = lotBox(lot);
+  const g = { parts: [], flats: [] };
+  const h = r() < 0.55 ? between(r, 3.6, 4.4) : between(r, 6.2, 7.2);
+  const wall = vnPick(VN_PASTELS, r);
+  const fd = Math.min(depth * 0.45, between(r, 6, 9));
+  const ranges = [[0, fd]];
+  if (depth - fd > 9) ranges.push([fd + 3, Math.min(depth, fd + 3 + between(r, 5, 9))]);
+  for (const [d0, d1] of ranges) {
+    part(g, rectIn(box, 0, front, d0, d1), 0, h, wall);
+    const rb = { c: at(box, front / 2, (d0 + d1) / 2), u: box.u, v: box.v };
+    gable(g, rb, -front / 2 - 0.15, front / 2 + 0.15, (d1 - d0) / 2 + 0.3, h, Math.min((d1 - d0) * 0.3, 2.6), vnPick(VN_TILES, r), 3);
+  }
+  if (ranges.length === 2) g.flats.push({ rings: [rectIn(box, 0, front, fd, fd + 3)], c: C.paving });
+  dateAll(g, t0, t1);
+  extras.parts.push(...g.parts.slice(1));
+  extras.flats.push(...g.flats);
+  // The front range is the hoverable house; the rest are extras.
+  const first = g.parts[0];
+  return { rings: first.rings, h: Math.round(h * 10) / 10, c: wall, roof: wall, rt: 0.01, type, t0, t1 };
+}
+
+function villa(lot, [t0, t1], r, extras, type) {
+  const box = obb(lot);
+  const g = { parts: [], flats: [] };
+  g.flats.push({ rings: [lot], c: C.garden });
+  const hl = Math.min(box.hl * 0.55, between(r, 9, 14));
+  const hw = Math.min(box.hw * 0.55, between(r, 6, 9));
+  if (hl < 4 || hw < 3) return null;
+  const h = r() < 0.65 ? between(r, 7.5, 8.8) : between(r, 4.5, 5.2);
+  const roof = vnPick(VN_TILES, r);
+  const body = rectIn(box, -hl, hl, -hw, hw);
+  hipRoof(g, box, hl + 0.5, hw + 0.5, h, Math.min(hw * 0.6, 4.5), roof, 4);
+  for (let i = 0; i < 3; i++) {
+    const q = at(box, between(r, -box.hl * 0.8, box.hl * 0.8), (r() < 0.5 ? 1 : -1) * between(r, hw + 3, Math.max(hw + 3.5, box.hw * 0.85)));
+    if (inRing(q, lot)) vnTree(g, q, r);
+  }
+  dateAll(g, t0, t1);
+  extras.parts.push(...g.parts);
+  extras.flats.push(...g.flats);
+  return { rings: [body], h: Math.round(h * 10) / 10, c: vnPick(VN_OCHRE, r), roof, rt: 0.05, type, t0, t1 };
+}
+
+function concreteBlock(lot, [t0, t1], r, extras, type) {
+  const fp = isConvex(lot) ? scaleRing(lot, 0.88) : lot;
+  const storeys = Math.floor(between(r, 3, 6.99));
+  const h = storeys * 3.2;
+  const g = { parts: [], flats: [] };
+  const band = isConvex(fp) ? scaleRing(fp, 1.035) : fp;
+  const colour = vnPick(VN_CONCRETE, r);
+  for (let k = 1; k < storeys; k += 1) part(g, band, k * 3.2 - 0.2, k * 3.2 + 0.15, '#ebe7de');
+  if (r() < 0.4) {
+    const box = obb(fp);
+    part(g, circle(at(box, box.hl * 0.4, 0), 1.3, 8), h, h + 2.2, '#9a968c');
+  }
+  dateAll(g, t0, t1);
+  extras.parts.push(...g.parts);
+  return { rings: [fp], h, c: colour, roof: vnPick(VN_FLAT, r), rt: 0.5, type, t0, t1 };
+}
+
+function gardenHouse(lot, [t0, t1], r, extras, type) {
+  const box = obb(lot);
+  const g = { parts: [], flats: [] };
+  g.flats.push({ rings: [lot], c: C.garden });
+  const hl = Math.min(box.hl * 0.45, between(r, 6, 9));
+  const hw = Math.min(box.hw * 0.45, between(r, 4, 5.5));
+  if (hl < 3 || hw < 2.5) return null;
+  const h = between(r, 3, 3.6);
+  const roof = vnPick(VN_TILES, r);
+  const off = between(r, -box.hl * 0.25, box.hl * 0.25);
+  const hb = { c: at(box, off, 0), u: box.u, v: box.v };
+  hipRoof(g, hb, hl + 0.8, hw + 0.8, h, Math.min(hw * 0.8, 3.6), roof, 3);
+  for (let i = 0; i < 3; i++) {
+    const q = at(box, between(r, -box.hl * 0.9, box.hl * 0.9), between(r, -box.hw * 0.9, box.hw * 0.9));
+    if (inRing(q, lot) && Math.abs((q[0] - hb.c[0]) * box.u[0] + (q[1] - hb.c[1]) * box.u[1]) > hl + 2) vnTree(g, q, r);
+  }
+  dateAll(g, t0, t1);
+  extras.parts.push(...g.parts);
+  extras.flats.push(...g.flats);
+  return { rings: [rectIn(hb, -hl, hl, -hw, hw)], h: Math.round(h * 10) / 10, c: vnPick(['#d9cdb4', '#cbb994', '#e2d6bd'], r), roof, rt: 0.05, type, t0, t1 };
+}
+
+function vnGarden(lot, [t0, t1], r, extras) {
+  const g = { parts: [], flats: [] };
+  g.flats.push({ rings: [lot], c: C.garden });
+  const box = obb(lot);
+  for (let s = -box.hl; s < box.hl; s += 15) {
+    for (let t = -box.hw; t < box.hw; t += 15) {
+      const q = at(box, s + between(r, 0, 12), t + between(r, 0, 12));
+      if (inRing(q, lot) && r() < 0.6) vnTree(g, q, r);
+    }
+  }
+  dateAll(g, t0, t1);
+  extras.parts.push(...g.parts);
+  extras.flats.push(...g.flats);
+  return null;
+}
