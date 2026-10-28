@@ -14,6 +14,9 @@ The recipe lives in the city file's "shore" member:
                "land": [[lng, lat], ...],   the period land inside the zone
                "water": [[[lng, lat], ...]] optional: creeks since filled }
 
+"mode": "modern" keeps today's banks everywhere and only adds "water" (Paris:
+the Seine as it is now, with the 1820s Ile aux Cygnes put back under water).
+
 Run it last, after tools/osm_footprints.py and tools/ohm_city.py (which
 rebuilds the town blocks):
     python tools/shoreline.py data/cities/charleston.geojson
@@ -142,6 +145,8 @@ def main(path):
     land = modern_land(area, s, w, n, e)
     if recipe.get("mode") == "period":
         land = period_land(fc, recipe, land, deg)
+    elif recipe.get("mode") == "modern":
+        pass  # today's banks; "water" below adds back what has been filled since
     else:
         # The zone is the modern land in the box, with a margin out into the water
         # so that every bit of later fill along its shore is covered.

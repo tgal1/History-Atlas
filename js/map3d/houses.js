@@ -20,6 +20,7 @@ import {
   scaleRing, distToSegments, circle,
 } from './geom.js';
 import { C, tree, trees, gable, part } from './models.js';
+import { mansardTop } from './models.js';
 import { kindInfo } from '../map/cityLayer.js';
 
 const CLIPPING_URL = 'https://cdn.jsdelivr.net/npm/polygon-clipping@0.15.7/+esm';
@@ -201,6 +202,7 @@ function house(lot, type, [t0, t1], suburb, r, extras) {
     extras.parts.push(...g.parts);
     return null;
   }
+  if (T.mansard) return mansardHouse(lot, type, [t0, t1], suburb, r, extras);
   const h = T.h(r, suburb);
   if (T.pitched) {
     // The house stands at one end of its lot, the yard behind it; a steep
@@ -439,3 +441,53 @@ function bbox(pts) {
 
 const ccw = (ring) => (area(ring) < 0 ? ring.slice().reverse() : ring);
 const round1 = (v) => Math.round(v * 10) / 10;
+
+// ---------- Paris ----------
+// Tall stone apartment houses in the old centre, nobles' town houses round a
+// court with a garden behind in the Faubourg Saint-Germain, lower plastered
+// houses and workshops out in the faubourgs.
+const PARIS_WALLS = ['#ece3cf', '#e4d8bf', '#efe7d6', '#dccfb3', '#e8dcc2', '#d8cbb0'];
+const PARIS_SLATE = ['#6a6f76', '#73777d', '#63686f', '#7b7f85'];
+const PARIS_TILE = ['#9b6a4f', '#8f5f47', '#a67658'];
+
+Object.assign(TYPES, {
+  immeuble: { area: [260, 620], h: (r, s) => Math.floor(between(r, s ? 3 : 4, s ? 4.9 : 6.9)) * 3.1 + 0.8, walls: PARIS_WALLS, roofs: PARIS_SLATE, mansard: true },
+  hotel: { area: [900, 2200], h: (r) => between(r, 10.5, 13), walls: ['#efe8d8', '#e9e0cb', '#f2ece0'], roofs: PARIS_SLATE, mansard: true, court: { min: 800, k: 0.5, p: 0.9, garden: true } },
+  faubourg: { area: [300, 750], h: (r) => Math.floor(between(r, 2, 3.9)) * 3 + 0.6, walls: ['#e3d6bb', '#d9c9a6', '#e8dfcb', '#cfbf9e'], roofs: [...PARIS_TILE, ...PARIS_SLATE], mansard: true },
+});
+
+Object.assign(STYLES, {
+  paris: {
+    centre: { immeuble: 0.84, hotel: 0.05, faubourg: 0.05, garden: 0.06 },
+    hill: { faubourg: 0.5, immeuble: 0.15, garden: 0.35 },
+    outer: { faubourg: 0.55, immeuble: 0.15, hotel: 0.05, garden: 0.25 },
+  },
+});
+
+Object.assign(HOUSE_INFO, {
+  immeuble: 'A Paris apartment house of four to six storeys: shops at street level, the richest tenants on the first floor, the poorest under the roof.',
+  hotel: "An hôtel particulier: a noble's town house between a front court and a garden. Many were seized and sold after their owners emigrated.",
+  faubourg: 'A lower house of the faubourgs, often with a workshop: cabinet-makers in Saint-Antoine, tanners and dyers by the Bièvre in Saint-Marcel.',
+});
+Object.assign(HOUSE_LABEL, { immeuble: 'Apartment house', hotel: 'Hôtel particulier (town house)', faubourg: 'Faubourg house' });
+
+// Walls to the cornice, then a slate or tile roof: a steep band flush with the
+// front and a set-back top, the outline of a Paris mansard.
+function mansardHouse(lot, type, [t0, t1], suburb, r, extras) {
+  const T = TYPES[type];
+  const h = T.h(r, suburb);
+  const outline = area(lot) > 0 ? lot : lot.slice().reverse();
+  const rings = [outline];
+  if (T.court && Math.abs(area(lot)) > T.court.min && isConvex(lot) && r() < T.court.p) {
+    const hole = scaleRing(outline, T.court.k);
+    rings.push(hole.slice().reverse());
+    if (T.court.garden) extras.flats.push({ rings: [hole], c: C.garden, t0, t1 });
+  }
+  const roof = T.roofs[Math.floor(r() * T.roofs.length)];
+  const band = round1(between(r, 1.2, 1.9));
+  const g = { parts: [], flats: [] };
+  mansardTop(g, rings, h + band, between(r, 1.3, 2.3), Math.min(1.7, Math.sqrt(Math.abs(area(lot))) * 0.16), roof);
+  g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+  extras.parts.push(...g.parts);
+  return { rings, h: round1(h), c: T.walls[Math.floor(r() * T.walls.length)], roof, rt: band, type, t0, t1 };
+}
