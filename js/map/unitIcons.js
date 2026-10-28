@@ -99,6 +99,40 @@ const FIGURES = {
     <path d="M15 17.5v11M9.5 23h11M11.1 19.1l7.8 7.8M18.9 19.1l-7.8 7.8" stroke="#5b3b22" stroke-width="0.9"/>
     <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.4, 2.2)}
     <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
+  // First World War. British infantryman: Brodie helmet, rifle and bayonet.
+  tommy: `${legs(15)}<path d="M8 16L28 12.5" stroke="#6b4a2b" stroke-width="1.8"/><path d="M28 12.5l3.5-0.7" stroke="#c9ccd1" stroke-width="1.1"/>
+    ${tunic(15)}${head(15, 7.6)}
+    <ellipse cx="15" cy="5.6" rx="6.2" ry="1.1" fill="#6f6c4e" ${INK}/><path d="M11.6 5.4c0-3.4 6.8-3.4 6.8 0z" fill="#6f6c4e" ${INK}/>`,
+  // German infantryman: spiked Pickelhaube, rifle and bayonet.
+  pickelhaube: `${legs(15)}<path d="M8 16L28 12.5" stroke="#6b4a2b" stroke-width="1.8"/><path d="M28 12.5l3.5-0.7" stroke="#c9ccd1" stroke-width="1.1"/>
+    ${tunic(15)}${head(15, 7.6)}
+    <path d="M11.2 6.6c0-4.2 7.6-4.2 7.6 0z" fill="#22201c" ${INK}/><path d="M18.4 6.6h2.2" stroke="#22201c" stroke-width="1.2"/>
+    <path d="M15 2.6V0.4" stroke="#c9a74a" stroke-width="1.8" stroke-linecap="round"/>`,
+  // French infantryman of 1914: kepi, long coat, red trousers.
+  poilu: `<path d="M13.5 21l-2.5 8M16.5 21l2.5 8" stroke="#b33a2a" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M8 16L28 12.5" stroke="#6b4a2b" stroke-width="1.8"/><path d="M28 12.5l3.5-0.7" stroke="#c9ccd1" stroke-width="1.1"/>
+    <path d="M11.3 10.5h7.4l1.6 12H9.7z" fill="currentColor" ${INK}/>${head(15, 7.6)}
+    <path d="M12.3 6.4l0.5-4h4.6l0.4 4z" fill="#b33a2a" ${INK}/><path d="M12.4 5.3h5.1" stroke="#2c3e72" stroke-width="1.6"/><path d="M17.6 6.4h2.2" stroke="#22201c" stroke-width="1.1"/>`,
+  // Cavalry of 1914: trooper in a peaked cap with a pennoned lance.
+  'cavalry-1914': `<path d="M8 22l-1.5 7M11 23l0.5 6M19 23l-1 6M22 22l2 7" fill="none" ${INK}/>
+    <path d="M5 17c0-3 3-5 8-5h7l4-5 4 2-2 3-3 2c0 4-2 8-7 8h-6c-3 0-5-2-5-5z" fill="#7a5a3c" ${INK}/>
+    <path d="M5 17l-3 5" fill="none" ${INK}/>
+    <path d="M12 12l1-5h5l1 5z" fill="currentColor" ${INK}/>${head(15.5, 4.6, 2.4)}
+    <path d="M13 3.8a2.5 2.3 0 0 1 5 0z" fill="#3d3a35"/><path d="M17.4 3.8h2.1" stroke="#22201c" stroke-width="1.1"/>
+    <path d="M7 12L31 1.5" stroke="#6b4a2b" stroke-width="1.2"/><path d="M26.5 3.4l3.4-1.4-0.4 2.9z" fill="#f4f1e8" ${INK}/>`,
+  // Quick-firing field gun with a steel shield and a gunner.
+  'field-gun': `<path d="M4 27L14 21" stroke="#4a4a40" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M13 16.6l16-2.6 0.4 2.4-16 2.7z" fill="#3d3a35" ${INK}/>
+    <path d="M12.6 11.6l4.6-0.8 0.8 9-4.6 0.8z" fill="#5d6150" ${INK}/>
+    <circle cx="15" cy="23" r="5.2" fill="none" stroke="#3d3a35" stroke-width="2"/>
+    <path d="M15 17.8v10.4M9.8 23h10.4M11.3 19.3l7.4 7.4M18.7 19.3l-7.4 7.4" stroke="#3d3a35" stroke-width="0.9"/>
+    <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.4, 2.2)}
+    <path d="M3.2 9.4a2.2 2 0 0 1 4.4 0z" fill="#3d3a35"/>`,
+  // Early rhomboid tank (British Mark IV): tracks run right round the hull, gun in a side sponson.
+  'ww1-tank': `<path d="M2 21L7.5 10.5h17L30.5 20l-3.5 6.5H5z" fill="currentColor" stroke="#3d3a35" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M18.5 10.5V8h4.5v2.5" fill="currentColor" ${INK}/>
+    ${[8, 12.5, 17, 21.5, 25.5].map((x) => `<circle cx="${x}" cy="24" r="1.1" fill="#3d3a35"/>`).join('')}
+    <path d="M10.5 15h7.5v5.5h-7.5z" fill="currentColor" ${INK}/><path d="M18 16.8h6" stroke="#1d1a16" stroke-width="1.8"/>`,
   // A fortified camp: tents behind a palisade.
   camp: `<path d="M4 20l6-9 6 9zM14 20l6-9 6 9z" fill="#e9e1cc" ${INK}/>
     <path d="M2 22h28v4H2z" fill="currentColor" ${INK}/>${[5, 10, 15, 20, 25].map((x) => `<path d="M${x} 22v-3" stroke="#5b3b22" stroke-width="1.4"/>`).join('')}`,

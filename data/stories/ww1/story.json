@@ -1,0 +1,298 @@
+{
+  "id": "ww1",
+  "title": "The First World War",
+  "subtitle": "1914–1918, and the peace of 1919",
+  "range": {
+    "start": "1914-06-20",
+    "end": "1919-12-31"
+  },
+  "overview": {
+    "bounds": [
+      [
+        29.0,
+        -9.0
+      ],
+      [
+        61.0,
+        45.0
+      ]
+    ]
+  },
+  "minZoom": 3,
+  "basemap": "esri-light",
+  "landMask": {
+    "bbox": [
+      -15,
+      12,
+      60,
+      72
+    ]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "The war that made the modern world",
+    "body": [
+      "In June 1914 a Bosnian Serb student shot the heir to the Austro-Hungarian throne in Sarajevo. Within six weeks a chain of alliances had dragged Germany and Austria-Hungary into war with Russia, France and Britain.",
+      "Everyone expected a short war. Instead the armies dug in. In the west, trenches ran from the North Sea to Switzerland and barely moved for four years. In the east the fronts swung back and forth across Poland and Galicia. The fighting spread to Italy, the Balkans, Gallipoli and the deserts of the Middle East.",
+      "About ten million soldiers died, and millions of civilians. Four empires fell: Russia, Germany, Austria-Hungary and the Ottoman Empire. The peace of 1919 drew a new map of Europe, and left grievances that led to the next war."
+    ],
+    "tips": [
+      "Press play to follow the war year by year. The map flies to each turning point.",
+      "Dark grey is Germany, brown Austria-Hungary, green the Ottoman Empire, olive Bulgaria. Lighter grey is land they occupied. Blue is Britain, France and their allies, red the Russian Empire. Purple shows the new states of 1918 and 1919.",
+      "Two animated close-ups: the Western Front in 1914, from the Schlieffen Plan to the race to the sea, and the first day of the Somme."
+    ]
+  },
+  "categories": {
+    "west": {
+      "label": "Western Front",
+      "color": "#e8603c"
+    },
+    "east": {
+      "label": "Eastern Front and the Balkans",
+      "color": "#b8452f"
+    },
+    "south": {
+      "label": "Italy and the Ottoman fronts",
+      "color": "#c98a12"
+    },
+    "sea": {
+      "label": "War at sea",
+      "color": "#2a5f8f"
+    },
+    "home": {
+      "label": "Civilians and the home front",
+      "color": "#7a1f1f"
+    },
+    "politics": {
+      "label": "Politics and diplomacy",
+      "color": "#8b5fd1"
+    }
+  },
+  "factions": {
+    "germany": {
+      "label": "German Empire",
+      "short": "Germany",
+      "color": "#2f3440",
+      "style": {
+        "fillOpacity": 0.38
+      }
+    },
+    "austria": {
+      "label": "Austria-Hungary",
+      "short": "Austria-Hungary",
+      "color": "#8a6a3a",
+      "style": {
+        "fillOpacity": 0.32
+      }
+    },
+    "ottoman": {
+      "label": "Ottoman Empire",
+      "short": "Ottomans",
+      "color": "#2e7d5b",
+      "style": {
+        "fillOpacity": 0.3
+      }
+    },
+    "bulgaria": {
+      "label": "Bulgaria",
+      "short": "Bulgaria",
+      "color": "#9a8a2a",
+      "style": {
+        "fillOpacity": 0.3
+      }
+    },
+    "occupied": {
+      "label": "Occupied by the Central Powers",
+      "short": "Central Powers",
+      "color": "#6a7182",
+      "style": {
+        "fillOpacity": 0.28
+      }
+    },
+    "allies": {
+      "label": "Britain, France and their allies",
+      "short": "Allies",
+      "color": "#2f6fd0",
+      "style": {
+        "fillOpacity": 0.25
+      }
+    },
+    "allied-occupied": {
+      "label": "Occupied by the Allies",
+      "short": "Allies",
+      "color": "#6f9be0",
+      "style": {
+        "fillOpacity": 0.25
+      }
+    },
+    "arab": {
+      "label": "Arab Revolt",
+      "short": "Arab Revolt",
+      "color": "#d9783b",
+      "style": {
+        "fillOpacity": 0.28
+      }
+    },
+    "russia": {
+      "label": "Russian Empire",
+      "short": "Russia",
+      "color": "#c8372d",
+      "style": {
+        "fillOpacity": 0.25
+      }
+    },
+    "soviet": {
+      "label": "Russia in revolution and civil war",
+      "short": "Revolutionary Russia",
+      "color": "#a8413c",
+      "style": {
+        "fillOpacity": 0.3
+      }
+    },
+    "newstate": {
+      "label": "New states, 1917–1919",
+      "short": "New states",
+      "color": "#8b5fd1",
+      "style": {
+        "fillOpacity": 0.25
+      }
+    },
+    "neutral": {
+      "label": "Neutral",
+      "short": "Neutral",
+      "color": "#b8a56e",
+      "style": {
+        "fillOpacity": 0.12,
+        "dashArray": null,
+        "weight": 0.8
+      }
+    }
+  },
+  "eras": [
+    {
+      "start": "1914-06-20",
+      "end": "1915-01-01",
+      "title": "1914: The war of movement",
+      "text": "A murder in Sarajevo sets off a European war. Germany sweeps through Belgium but is stopped on the Marne. Russia is crushed at Tannenberg but routs Austria-Hungary in Galicia. By Christmas the Western Front is a line of trenches."
+    },
+    {
+      "start": "1915-01-01",
+      "end": "1916-01-01",
+      "title": "1915: Deadlock and new fronts",
+      "text": "Poison gas at Ypres, the landings at Gallipoli, Italy joins the Allies. The Central Powers drive Russia out of Poland and overrun Serbia."
+    },
+    {
+      "start": "1916-01-01",
+      "end": "1917-01-01",
+      "title": "1916: The year of attrition",
+      "text": "Verdun and the Somme kill and wound over two million men between them. The fleets meet once, at Jutland. Russia's Brusilov Offensive almost breaks Austria-Hungary. The Arab Revolt begins."
+    },
+    {
+      "start": "1917-01-01",
+      "end": "1918-01-01",
+      "title": "1917: Revolution and America",
+      "text": "Germany's U-boats bring the United States into the war. Russia falls into revolution. Passchendaele, Caporetto and the first mass tank attack at Cambrai. Britain takes Baghdad and Jerusalem."
+    },
+    {
+      "start": "1918-01-01",
+      "end": "1918-11-11",
+      "title": "1918: The last gamble and the Hundred Days",
+      "text": "With Russia out, Germany throws everything into a spring offensive in the west. It fails. From August the Allies advance without stopping, and Germany's allies collapse one by one."
+    },
+    {
+      "start": "1918-11-11",
+      "end": "1919-12-31",
+      "title": "1919: The peace",
+      "text": "The guns fall silent, but the flu kills more than the war did. At Paris the victors redraw the map of Europe and the Middle East."
+    }
+  ],
+  "mapLabels": [
+    {
+      "text": "Petrograd",
+      "at": [
+        59.94,
+        30.31
+      ],
+      "minZoom": 5
+    },
+    {
+      "text": "Constantinople",
+      "at": [
+        41.01,
+        28.98
+      ],
+      "minZoom": 5
+    },
+    {
+      "text": "Salonika",
+      "at": [
+        40.64,
+        22.94
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Lemberg",
+      "at": [
+        49.84,
+        24.03
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Königsberg",
+      "at": [
+        54.71,
+        20.51
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Gallipoli",
+      "at": [
+        40.25,
+        26.45
+      ],
+      "minZoom": 7
+    }
+  ],
+  "ask": {
+    "persona": "a careful, humane historian of the First World War who explains it to a curious listener. You give every front its due, not only the Western Front, treat the suffering of soldiers and civilians with seriousness, and say when casualty figures are estimates",
+    "defaultQuestions": [
+      "Why did this matter for the outcome of the war?",
+      "What was it like for the people there?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war"
+    },
+    {
+      "label": "1914-1918-online: International Encyclopedia of the First World War",
+      "url": "https://encyclopedia.1914-1918-online.net/"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/World_War_I"
+    }
+  ],
+  "ambience": {
+    "default": "war",
+    "byCategory": {
+      "west": "war",
+      "east": "war",
+      "south": "war",
+      "sea": "naval",
+      "home": "sombre",
+      "politics": "quiet"
+    },
+    "scene": "battlefield"
+  },
+  "music": "ww1"
+}

@@ -6,6 +6,8 @@
 // Creative Commons Attribution 4.0, and live in audio/music/. The WW2 mood
 // also streams two Chopin polonaise recordings from Wikimedia Commons: Polish
 // Radio played the 'Military' Polonaise during the 1939 siege of Warsaw.
+// The WW1 mood adds two wartime recordings (public domain, from Wikimedia
+// Commons), converted to MP3 and kept in audio/music/.
 
 import { audioContext, buses, gain } from './engine.js';
 
@@ -23,6 +25,11 @@ const MOODS = {
     { url: `${COMMONS}9/9a/Polonaise_militaire_in_A_major-Brunswick_15098-Josef_Hofmann.mp3`, title: "Chopin, 'Military' Polonaise (Josef Hofmann)", credit: 'Public domain recording, Wikimedia Commons' },
     track('night-vigil', 'Night Vigil'),
     { url: `${COMMONS}3/38/Polonaise_no.5_-_Op.40_no.2_C-minor.mp3`, title: 'Chopin, Polonaise in C minor, Op. 40 No. 2', credit: 'CC0, Wikimedia Commons' },
+  ],
+  ww1: [
+    { url: 'audio/music/tipperary.mp3', title: "\"It's a Long, Long Way to Tipperary\" (Albert Farrington, 1915)", credit: 'Public domain recording, Wikimedia Commons' },
+    track('death-of-kings', 'Death of Kings'),
+    { url: 'audio/music/keep-the-home-fires-burning.mp3', title: '"Keep the Home Fires Burning" (Frederick Wheeler, Edison, 1915)', credit: 'Public domain recording, Library of Congress via Wikimedia Commons' },
   ],
 };
 

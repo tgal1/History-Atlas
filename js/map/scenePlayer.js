@@ -20,7 +20,7 @@ import { figureSvg, figureFor, columnSvg } from './unitIcons.js';
 const FIG = 22; // figure size in pixels
 
 // What each kind of figure sounds like on the move (anything else marches on foot).
-const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft' };
+const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cavalry-1914': 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', 'ww1-tank': 'engines', para: 'aircraft' };
 const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'] };
 
 export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera }) {
@@ -203,7 +203,7 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
   // The kind of fighting, for the battle sounds.
   function era() {
     const types = new Set([...units.map((u) => u.type), ...tracks.map((tr) => tr.track.type ?? figureFor(tr.track, scene))]);
-    if (['soldier', 'tank', 'para'].some((x) => types.has(x))) return 'modern';
+    if (['soldier', 'tank', 'para', 'tommy', 'pickelhaube', 'poilu', 'cavalry-1914', 'field-gun', 'ww1-tank'].some((x) => types.has(x))) return 'modern';
     if (['line-infantry', 'rifleman', 'dragoon', 'cannon', 'army-musket'].some((x) => types.has(x))) return 'musket';
     if (['conquistador', 'conquistadors', 'mexica', 'canoe'].some((x) => types.has(x))) return 'conquest';
     if (types.size && [...types].every((x) => x === 'marcher' || x === 'marchers')) return 'civil';
