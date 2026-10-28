@@ -120,7 +120,8 @@
       "story": "french-revolution",
       "at": "1793-01-21",
       "when": "Shown in January 1793",
-      "blurb": "The city of the Revolution: the Bastille, the Tuileries, the guillotine on the Place de la Révolution and the new customs wall."
+      "blurb": "The city of the Revolution: the Bastille, the Tuileries, the guillotine on the Place de la Révolution and the new customs wall.",
+      "threeD": true
     },
     {
       "id": "jerusalem",
@@ -192,6 +193,42 @@
       "at": "1781-10-12",
       "when": "Shown in October 1781",
       "blurb": "The tobacco port where the war was decided: Cornwallis's defences, the allied siege lines closing in, Redoubts 9 and 10, and the Moore House.",
+      "threeD": true
+    },
+    {
+      "id": "saigon",
+      "name": "Saigon",
+      "story": "cold-war",
+      "at": "1975-04-30",
+      "when": "Shown in April 1975",
+      "blurb": "The capital of South Vietnam: the French boulevards, the cathedral and post office, the US embassy, the Independence Palace and Cholon.",
+      "threeD": true
+    },
+    {
+      "id": "hue",
+      "name": "Hue",
+      "story": "cold-war",
+      "at": "1968-02-10",
+      "when": "Shown in February 1968",
+      "blurb": "The old imperial capital during the Tet battle: the Citadel's ramparts and moat, the Imperial City, the Flag Tower and the Perfume River.",
+      "threeD": true
+    },
+    {
+      "id": "hanoi",
+      "name": "Hanoi",
+      "story": "cold-war",
+      "at": "1972-12-18",
+      "when": "Shown in December 1972",
+      "blurb": "North Vietnam's capital at the Christmas bombing: the Old Quarter, Hoan Kiem Lake, the French quarter, Ba Dinh Square and the Long Bien bridge.",
+      "threeD": true
+    },
+    {
+      "id": "moscow",
+      "name": "Moscow",
+      "story": "cold-war",
+      "at": "1991-08-20",
+      "when": "Shown in August 1991",
+      "blurb": "The Soviet capital during the August coup: the Kremlin and Red Square, the Lubyanka, the White House barricades and Stalin's towers.",
       "threeD": true
     }
   ]

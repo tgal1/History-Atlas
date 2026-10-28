@@ -25,7 +25,7 @@
     "territories": "territories.geojson",
     "scenes": "scenes.json"
   },
-  "cities": ["berlin"],
+  "cities": ["berlin", "moscow", "saigon", "hue", "hanoi"],
   "intro": {
     "title": "Forty-six years on the brink",
     "body": [
