@@ -13,6 +13,13 @@ const DARK = '#3a2f25';
 const head = (x, y, r = 2.6) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${SKIN}" ${INK}/>`;
 const legs = (x, top = 21, spread = 2.5) => `<path d="M${x - 1} ${top}L${x - spread} 29M${x + 1} ${top}L${x + spread} 29" fill="none" ${INK}/>`;
 const tunic = (x) => `<path d="M${x - 3.5} 10.5h7l1.2 11h-9.4z" fill="currentColor" ${INK}/>`;
+// Civil War kit: coloured trousers, a kepi with its crown tipped forward, a rifle-musket.
+const cwLegs = (x, colour) => `<path d="M${x - 1} 21L${x - 2.5} 29M${x + 1} 21L${x + 2.5} 29" fill="none" stroke="#1d1a16" stroke-width="3"/>
+  <path d="M${x - 1} 21L${x - 2.5} 28.6M${x + 1} 21L${x + 2.5} 28.6" fill="none" stroke="${colour}" stroke-width="1.6"/>`;
+const kepi = (x, y = 0, s = 1) => `<g transform="translate(${x} ${y}) scale(${s}) translate(${-x} 0)">
+  <path d="M${x - 3} 6.4L${x - 2.7} 3.2C${x - 1} 2.2 ${x + 2.2} 2 ${x + 3.4} 2.6L${x + 2.6} 6.4z" fill="currentColor" ${INK}/>
+  <path d="M${x + 2.4} 6.5h2.4" stroke="#1d1a16" stroke-width="1.4"/></g>`;
+const rifle = `<path d="M7.5 15.5L27 11.6" fill="none" stroke="#6b4a2b" stroke-width="2"/><path d="M27 11.6l4.3-0.9" stroke="#c9ccd1" stroke-width="1.1"/>`;
 
 const FIGURES = {
   // Hoplite-style spearman: round shield, long spear (Carthaginian and African infantry).
@@ -99,6 +106,27 @@ const FIGURES = {
     <path d="M15 17.5v11M9.5 23h11M11.1 19.1l7.8 7.8M18.9 19.1l-7.8 7.8" stroke="#5b3b22" stroke-width="0.9"/>
     <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.4, 2.2)}
     <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
+  // Civil War infantry: kepi, sack coat and belt, rifle-musket levelled with bayonet.
+  // Union men wear sky-blue trousers; Confederates butternut, with a blanket roll.
+  union: `${cwLegs(14, '#8fb3d9')}<path d="M10.5 10.5h7l1.2 11h-9.4z" fill="currentColor" ${INK}/>
+    <path d="M10 17.2h8.6" stroke="#1d1a16" stroke-width="1.2"/><circle cx="15.6" cy="17.2" r="0.8" fill="#d9b44a"/>
+    ${head(14, 7.4)}${kepi(14)}${rifle}`,
+  confederate: `${cwLegs(14, '#b39b6b')}<path d="M10.5 10.5h7l1.2 11h-9.4z" fill="currentColor" ${INK}/>
+    <path d="M10.8 11.5l7.2 7.5" stroke="#d8cdb0" stroke-width="2.2"/>
+    ${head(14, 7.4)}${kepi(14)}${rifle}`,
+  // Civil War cavalry trooper: kepi, shell jacket, sabre raised.
+  'cw-cavalry': `<path d="M8 22l-1.5 7M11 23l0.5 6M19 23l-1 6M22 22l2 7" fill="none" ${INK}/>
+    <path d="M5 17c0-3 3-5 8-5h7l4-5 4 2-2 3-3 2c0 4-2 8-7 8h-6c-3 0-5-2-5-5z" fill="#5e4632" ${INK}/>
+    <path d="M5 17l-3 5" fill="none" ${INK}/>
+    <path d="M12 12l1-5h5l1 5z" fill="currentColor" ${INK}/>${head(15.5, 4.6, 2.4)}${kepi(15.5, -1.6, 0.85)}
+    <path d="M18 9l9-7" stroke="#c9ccd1" stroke-width="1.6" stroke-linecap="round"/>`,
+  // Civil War field gun (a bronze 12-pounder Napoleon) with a gunner in a kepi.
+  'cw-gun': `<path d="M2 27L15 20.5" stroke="#5b4630" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M12 17.8l16.5-3.4 0.6 2.9-16.5 3.4z" fill="#b08d57" ${INK}/><path d="M27.6 14.4l0.9 3.6" stroke="#1d1a16" stroke-width="1.6"/>
+    <circle cx="15" cy="23" r="6" fill="none" stroke="#3a2f25" stroke-width="2"/>
+    <path d="M15 17v12M9 23h12M10.8 18.8l8.4 8.4M19.2 18.8l-8.4 8.4" stroke="#3a2f25" stroke-width="0.9"/>
+    <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.6, 2.2)}${kepi(5.4, 4.4, 0.85)}
+    <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
   // A fortified camp: tents behind a palisade.
   camp: `<path d="M4 20l6-9 6 9zM14 20l6-9 6 9z" fill="#e9e1cc" ${INK}/>
     <path d="M2 22h28v4H2z" fill="currentColor" ${INK}/>${[5, 10, 15, 20, 25].map((x) => `<path d="M${x} 22v-3" stroke="#5b3b22" stroke-width="1.4"/>`).join('')}`,
@@ -132,6 +160,7 @@ export function columnSvg(type, size) {
   if (type === 'army') return `${figureSvg('cavalry', size)}${figureSvg('legionary', size)}${figureSvg('legionary', size)}`;
   if (type === 'conquistadors') return `${figureSvg('cavalry', size)}${figureSvg('conquistador', size)}${figureSvg('mexica', size)}`;
   if (type === 'army-musket') return `${figureSvg('dragoon', size)}${figureSvg('line-infantry', size)}${figureSvg('cannon', size)}`;
+  if (type === 'army-cw') return `${figureSvg('cw-cavalry', size)}${figureSvg('union', size)}${figureSvg('cw-gun', size)}`;
   return `${figureSvg(type, size)}${figureSvg(type, size)}${figureSvg(type, size)}`;
 }
 

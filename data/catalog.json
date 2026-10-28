@@ -42,6 +42,13 @@
       "subtitle": "1765–1783",
       "blurb": "From the Stamp Act riots to Yorktown: thirteen colonies break with Britain, and a colonial revolt becomes a world war.",
       "status": "ready"
+    },
+    {
+      "id": "civil-war",
+      "title": "The American Civil War",
+      "subtitle": "1860–1865",
+      "blurb": "Secession, Fort Sumter, Antietam and emancipation, Gettysburg and Vicksburg, Sherman's march and Appomattox: the war that saved the Union and ended slavery.",
+      "status": "ready"
     }
   ],
   "cities": [

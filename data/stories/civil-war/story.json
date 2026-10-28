@@ -1,0 +1,219 @@
+{
+  "id": "civil-war",
+  "title": "The American Civil War",
+  "subtitle": "Union against Confederacy, 1860–1865",
+  "range": {
+    "start": "1860-10-01",
+    "end": "1865-12-31"
+  },
+  "overview": {
+    "bounds": [[25.0, -104.0], [47.0, -68.0]]
+  },
+  "minZoom": 3,
+  "basemap": "esri-relief",
+  "landMask": {
+    "bbox": [-125, 24, -66, 50]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "A house divided",
+    "body": [
+      "In 1860 about 31 million people lived in the United States. Almost four million of them were enslaved, nearly all in the fifteen southern states where slavery was legal. Cotton grown by enslaved people was the country's largest export.",
+      "For a generation the North and South had fought over whether slavery could spread into the new western territories. When Abraham Lincoln, who promised to stop that spread, won the presidency in November 1860, seven states of the Deep South left the Union. Four more followed when war began at Fort Sumter in April 1861.",
+      "The war lasted four years and killed about 620,000 soldiers, perhaps more, and many civilians. It began as a war to save the Union. It ended as a war that also destroyed slavery, fought in its last two years with the help of almost 180,000 Black soldiers."
+    ],
+    "tips": [
+      "Press play for a guided tour. The map flies to each event and back out.",
+      "Watch the shading: blue is the free states, tan the slave states that stayed in the Union, grey the Confederacy, and light blue the ground the Union took from it. Scrub through 1862–1865 and watch the Confederacy shrink.",
+      "Gettysburg's third day and Sherman's March to the Sea have animated close-ups. Look for the Watch it unfold button."
+    ]
+  },
+  "categories": {
+    "politics": {
+      "label": "Politics and government",
+      "color": "#8b5fd1"
+    },
+    "battle": {
+      "label": "Battle",
+      "color": "#e8603c"
+    },
+    "siege": {
+      "label": "Siege or surrender",
+      "color": "#b5651d"
+    },
+    "naval": {
+      "label": "War on the water",
+      "color": "#2f86d6"
+    },
+    "campaign": {
+      "label": "Campaigns and marches",
+      "color": "#2f9e6f"
+    },
+    "freedom": {
+      "label": "Slavery and freedom",
+      "color": "#d4a017"
+    },
+    "homefront": {
+      "label": "Home front and dissent",
+      "color": "#c06c9a"
+    },
+    "atrocity": {
+      "label": "Massacres, prisons and disasters",
+      "color": "#8c2f39"
+    },
+    "west": {
+      "label": "The far West",
+      "color": "#7d7a5c"
+    }
+  },
+  "factions": {
+    "union": {
+      "label": "Union: free states",
+      "short": "Union",
+      "color": "#2f5fa8",
+      "style": { "fillOpacity": 0.24 }
+    },
+    "slave": {
+      "label": "Slave states in the Union (the border states after 1861)",
+      "short": "Slave states",
+      "color": "#c08a2e",
+      "style": { "fillOpacity": 0.28 }
+    },
+    "confederate": {
+      "label": "Confederate States",
+      "short": "Confederacy",
+      "color": "#6e6a63",
+      "style": { "fillOpacity": 0.34 }
+    },
+    "occupied": {
+      "label": "Union-held ground in the seceded states",
+      "short": "Union-held",
+      "color": "#5b9be0",
+      "style": { "fillOpacity": 0.3 }
+    },
+    "territory": {
+      "label": "Western territories",
+      "short": "Territories",
+      "color": "#8fa7c4",
+      "style": { "fillOpacity": 0.12 }
+    },
+    "native": {
+      "label": "Indian Territory nations",
+      "short": "Nations",
+      "color": "#2f8f76",
+      "style": { "fillOpacity": 0.24 }
+    }
+  },
+  "eras": [
+    {
+      "start": "1860-10-01",
+      "end": "1861-01-01",
+      "title": "1860: A house divided",
+      "text": "Lincoln wins the presidency without a single southern electoral vote. South Carolina leaves the Union within seven weeks."
+    },
+    {
+      "start": "1861-01-01",
+      "end": "1862-01-01",
+      "title": "1861: Secession and war",
+      "text": "Seven states form the Confederacy and four more join after Fort Sumter. Both sides expect a short war. Bull Run ends that hope, and the Union begins its blockade of the southern coast."
+    },
+    {
+      "start": "1862-01-01",
+      "end": "1863-01-01",
+      "title": "1862: The war grows",
+      "text": "Union armies take Forts Henry and Donelson, Nashville and New Orleans, and win at Shiloh at a fearful cost. In the east Lee drives McClellan from Richmond, then invades Maryland and is stopped at Antietam."
+    },
+    {
+      "start": "1863-01-01",
+      "end": "1864-01-01",
+      "title": "1863: Freedom and turning points",
+      "text": "The Emancipation Proclamation takes effect and Black regiments are raised. Lee wins at Chancellorsville, then loses at Gettysburg as Vicksburg falls. Chattanooga opens the road to Georgia."
+    },
+    {
+      "start": "1864-01-01",
+      "end": "1865-01-01",
+      "title": "1864: Total war",
+      "text": "Grant fights Lee without pause from the Wilderness to Petersburg. Sherman takes Atlanta, which helps re-elect Lincoln, then marches to the sea."
+    },
+    {
+      "start": "1865-01-01",
+      "end": "1865-12-31",
+      "title": "1865: The end of the Confederacy",
+      "text": "Richmond falls and Lee surrenders at Appomattox. Five days later Lincoln is shot. The last Confederate armies give up, and the Thirteenth Amendment ends slavery."
+    }
+  ],
+  "mapLabels": [
+    { "text": "Washington", "at": [38.9, -77.04], "minZoom": 6 },
+    { "text": "Richmond", "at": [37.54, -77.44], "minZoom": 6 },
+    { "text": "Charleston", "at": [32.78, -79.93], "minZoom": 6 },
+    { "text": "Atlanta", "at": [33.75, -84.39], "minZoom": 6 },
+    { "text": "Savannah", "at": [32.08, -81.09], "minZoom": 7 },
+    { "text": "New Orleans", "at": [29.95, -90.07], "minZoom": 6 },
+    { "text": "Vicksburg", "at": [32.35, -90.88], "minZoom": 6 },
+    { "text": "Memphis", "at": [35.15, -90.05], "minZoom": 7 },
+    { "text": "Nashville", "at": [36.16, -86.78], "minZoom": 6 },
+    { "text": "Chattanooga", "at": [35.05, -85.31], "minZoom": 7 },
+    { "text": "St Louis", "at": [38.63, -90.2], "minZoom": 6 },
+    { "text": "Baltimore", "at": [39.29, -76.61], "minZoom": 7 },
+    { "text": "Philadelphia", "at": [39.95, -75.16], "minZoom": 7 },
+    { "text": "New York", "at": [40.71, -74.0], "minZoom": 6 },
+    { "text": "Gettysburg", "at": [39.83, -77.23], "minZoom": 7 },
+    { "text": "Montgomery", "at": [32.38, -86.3], "minZoom": 7 },
+    { "text": "Mobile", "at": [30.69, -88.04], "minZoom": 7 },
+    { "text": "Petersburg", "at": [37.23, -77.4], "minZoom": 8 },
+    { "text": "Union", "at": [42.0, -84.5], "maxZoom": 5 },
+    { "text": "Confederacy", "at": [32.6, -87.0], "maxZoom": 5 },
+    { "text": "Indian Territory", "at": [35.4, -96.8], "minZoom": 5, "maxZoom": 7 },
+    { "text": "Mississippi River", "at": [33.6, -91.25], "minZoom": 6, "maxZoom": 8 },
+    { "text": "Atlantic Ocean", "at": [33.0, -73.0], "maxZoom": 6 },
+    { "text": "Gulf of Mexico", "at": [26.8, -89.5], "maxZoom": 6 },
+    { "text": "Mexico", "at": [28.5, -102.5], "maxZoom": 6 },
+    { "text": "British North America", "at": [47.6, -79.0], "maxZoom": 5 }
+  ],
+  "ask": {
+    "persona": "a clear, careful historian of the American Civil War who explains it to a curious listener from many sides: Union and Confederate soldiers, enslaved and free Black Americans, women on the home front, and the Indigenous nations caught up in it. You are plain that slavery was the cause of secession, and you say when a famous story is more legend than record",
+    "defaultQuestions": [
+      "Why did this happen?",
+      "How did the other side see it?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "American Battlefield Trust: Civil War",
+      "url": "https://www.battlefields.org/learn/civil-war"
+    },
+    {
+      "label": "National Park Service: The Civil War",
+      "url": "https://www.nps.gov/subjects/civilwar/index.htm"
+    },
+    {
+      "label": "Freedmen and Southern Society Project",
+      "url": "https://freedmen.umd.edu/"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/American_Civil_War"
+    }
+  ],
+  "ambience": {
+    "default": "countryside",
+    "byCategory": {
+      "politics": "quiet",
+      "battle": "battle",
+      "siege": "siege",
+      "naval": "naval",
+      "campaign": "march",
+      "freedom": "town",
+      "homefront": "city",
+      "atrocity": "sombre",
+      "west": "highlands"
+    },
+    "scene": "battlefield"
+  },
+  "music": "civilwar"
+}
