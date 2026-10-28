@@ -1,0 +1,1242 @@
+[
+  {
+    "id": "yalta",
+    "date": "1945-02-04",
+    "title": "The Yalta Conference",
+    "place": "Livadia Palace, Yalta, Crimea",
+    "coords": [
+      44.4678,
+      34.1433
+    ],
+    "zoom": 7,
+    "category": "politics",
+    "summary": "Roosevelt, Churchill and Stalin meet for eight days as Germany collapses. They agree to divide Germany into occupation zones, to hold free elections in liberated Eastern Europe, and that the Soviet Union will join the war against Japan.",
+    "significance": "The Red Army already held most of Eastern Europe. The promise of free elections, above all in Poland, was soon broken, and Yalta became a byword for the division of Europe.",
+    "wiki": "Yalta Conference"
+  },
+  {
+    "id": "potsdam",
+    "date": "1945-07-17",
+    "title": "The Potsdam Conference",
+    "place": "Cecilienhof Palace, Potsdam",
+    "coords": [
+      52.4192,
+      13.0712
+    ],
+    "zoom": 9,
+    "category": "politics",
+    "summary": "Truman, Stalin and Churchill (replaced mid-conference by Attlee) settle the occupation of Germany. Poland is moved west to the Oder and Neisse rivers, and millions of Germans are expelled from the east. On 24 July Truman tells Stalin the US has a powerful new weapon.",
+    "significance": "Two weeks later atomic bombs destroyed Hiroshima and Nagasaki. The wartime alliance ended with each side deeply suspicious of the other.",
+    "wiki": "Potsdam Conference"
+  },
+  {
+    "id": "korea-divided",
+    "date": "1945-08-10",
+    "title": "Korea divided at the 38th parallel",
+    "place": "Korean peninsula",
+    "coords": [
+      38.0,
+      127.3
+    ],
+    "zoom": 6,
+    "category": "politics",
+    "summary": "Two American officers, working overnight with a small map, propose the 38th parallel as the line between Soviet and US occupation zones in Korea. Stalin accepts. Soviet troops are already in the north; Americans land at Incheon on 8 September.",
+    "significance": "A line drawn for convenience became a frontier. In 1948 two rival Korean states were founded on either side of it.",
+    "wiki": "Division of Korea"
+  },
+  {
+    "id": "iron-curtain",
+    "date": "1946-03-05",
+    "title": "The Iron Curtain speech",
+    "place": "Westminster College, Fulton, Missouri",
+    "coords": [
+      38.8466,
+      -91.9485
+    ],
+    "zoom": 8,
+    "category": "politics",
+    "summary": "Out of office, Winston Churchill tells an American audience that an iron curtain has descended across Europe, from Stettin on the Baltic to Trieste on the Adriatic. The capitals behind it lie in the Soviet sphere.",
+    "significance": "The phrase gave the new division of Europe its name. Stalin called the speech a call to war.",
+    "wiki": "Iron Curtain"
+  },
+  {
+    "id": "truman-doctrine",
+    "date": "1947-03-12",
+    "title": "The Truman Doctrine",
+    "place": "US Capitol, Washington",
+    "coords": [
+      38.8899,
+      -77.0091
+    ],
+    "zoom": 10,
+    "category": "politics",
+    "summary": "Britain can no longer afford to support Greece, where government forces are fighting communist guerrillas, or Turkey. Truman asks Congress for 400 million dollars, saying the US must support free peoples resisting subjugation.",
+    "significance": "It set the policy of containment: the United States would oppose the spread of communism anywhere in the world.",
+    "wiki": "Truman Doctrine"
+  },
+  {
+    "id": "marshall-plan",
+    "date": "1947-06-05",
+    "title": "The Marshall Plan",
+    "place": "Harvard University, Cambridge, Massachusetts",
+    "coords": [
+      42.3744,
+      -71.1169
+    ],
+    "zoom": 9,
+    "category": "politics",
+    "summary": "Secretary of State George Marshall offers American aid to rebuild Europe. Over four years about 13 billion dollars flows to 16 western European countries. Stalin forbids Poland and Czechoslovakia to take part.",
+    "significance": "The plan revived western Europe's economies and tied them to the United States. Its refusal in the east marked the economic line between the blocs.",
+    "wiki": "Marshall Plan"
+  },
+  {
+    "id": "czech-coup",
+    "date": "1948-02-25",
+    "title": "Communist takeover in Czechoslovakia",
+    "place": "Old Town Square, Prague",
+    "coords": [
+      50.0875,
+      14.4213
+    ],
+    "zoom": 10,
+    "category": "intervention",
+    "summary": "Non-communist ministers resign in protest, and the Communist Party uses the police and armed workers' militias to seize full control. President Beneš gives way. Two weeks later the foreign minister Jan Masaryk is found dead below his window.",
+    "significance": "Czechoslovakia had been the last democracy in Eastern Europe. Its fall alarmed the West and sped up the Marshall Plan and the moves towards NATO.",
+    "wiki": "1948 Czechoslovak coup d'état"
+  },
+  {
+    "id": "berlin-blockade",
+    "date": "1948-06-24",
+    "title": "The Berlin Blockade",
+    "place": "Berlin",
+    "coords": [
+      52.52,
+      13.4
+    ],
+    "zoom": 7,
+    "category": "crisis",
+    "summary": "After the Western powers introduce a new currency, the Soviet Union cuts all road, rail and canal links to the western sectors of Berlin, 160 km inside its zone. Two million people have food for about a month.",
+    "significance": "Stalin hoped to force the West out of Berlin or stop the creation of a West German state. It was the first great crisis of the Cold War.",
+    "wiki": "Berlin Blockade",
+    "scene": "berlin-airlift"
+  },
+  {
+    "id": "berlin-airlift",
+    "date": "1948-06-26",
+    "title": "The Berlin Airlift",
+    "place": "Tempelhof Airport, Berlin",
+    "coords": [
+      52.4731,
+      13.4039
+    ],
+    "zoom": 13,
+    "category": "crisis",
+    "summary": "American and British aircraft begin flying food and coal into the city along three air corridors. At its peak a plane lands every minute or so. Over 15 months they carry about 2.3 million tonnes in some 278,000 flights. Stalin lifts the blockade on 12 May 1949.",
+    "significance": "The West held Berlin without firing a shot. About 100 people died in crashes and accidents, among them 39 British and 31 American airmen.",
+    "stat": "About 2.3 million tonnes of supplies in some 278,000 flights",
+    "wiki": "Berlin Airlift",
+    "scene": "berlin-airlift"
+  },
+  {
+    "id": "nato",
+    "date": "1949-04-04",
+    "title": "NATO founded",
+    "place": "Departmental Auditorium, Washington",
+    "coords": [
+      38.8932,
+      -77.0283
+    ],
+    "zoom": 10,
+    "category": "politics",
+    "summary": "Twelve countries sign the North Atlantic Treaty: the United States, Canada, Britain, France, Belgium, the Netherlands, Luxembourg, Norway, Denmark, Iceland, Portugal and Italy. An armed attack on one will be treated as an attack on all.",
+    "significance": "For the first time in peacetime the United States bound itself to defend Europe. Greece and Turkey joined in 1952, West Germany in 1955.",
+    "wiki": "NATO"
+  },
+  {
+    "id": "germany-divided",
+    "date": "1949-05-23",
+    "title": "Two German states",
+    "place": "Bonn",
+    "coords": [
+      50.7174,
+      7.1219
+    ],
+    "zoom": 6,
+    "category": "politics",
+    "summary": "The Federal Republic of Germany is founded in the three western zones, with its capital at Bonn. On 7 October the Soviet zone becomes the German Democratic Republic, with its capital in East Berlin.",
+    "significance": "Germany would stay divided for 41 years, at the centre of the Cold War in Europe.",
+    "wiki": "History of Germany (1945–1990)"
+  },
+  {
+    "id": "soviet-bomb",
+    "date": "1949-08-29",
+    "title": "The Soviet atomic bomb",
+    "place": "Semipalatinsk test site, Kazakhstan",
+    "coords": [
+      50.4378,
+      77.8125
+    ],
+    "zoom": 6,
+    "category": "nuclear",
+    "summary": "The Soviet Union tests its first atomic bomb, RDS-1, years earlier than Washington expected. Its design drew on secrets passed by spies inside the Manhattan Project. The US detects the fallout within days.",
+    "significance": "The American monopoly was over. Both sides raced to build the far more powerful hydrogen bomb.",
+    "wiki": "RDS-1"
+  },
+  {
+    "id": "prc",
+    "date": "1949-10-01",
+    "title": "The People's Republic of China",
+    "place": "Tiananmen, Beijing",
+    "coords": [
+      39.9054,
+      116.3976
+    ],
+    "zoom": 6,
+    "category": "uprising",
+    "summary": "After a civil war that killed millions, Mao Zedong proclaims the People's Republic. Chiang Kai-shek's Nationalist government retreats to Taiwan, which it holds with American support.",
+    "significance": "The world's most populous country was now communist. In the United States a bitter debate began over who had lost China.",
+    "wiki": "Proclamation of the People's Republic of China"
+  },
+  {
+    "id": "korea-invasion",
+    "date": "1950-06-25",
+    "title": "North Korea invades the South",
+    "place": "38th parallel, Korea",
+    "coords": [
+      37.95,
+      127.05
+    ],
+    "zoom": 7,
+    "category": "war",
+    "summary": "With Stalin's approval, North Korean forces led by Soviet-built tanks cross the 38th parallel. Seoul falls in three days. The UN Security Council, boycotted by the Soviet Union, calls on members to help South Korea.",
+    "significance": "The Cold War became a shooting war. By August the South Koreans and Americans held only a small corner around Pusan.",
+    "wiki": "Korean War"
+  },
+  {
+    "id": "inchon",
+    "date": "1950-09-15",
+    "title": "The Inchon landing",
+    "place": "Incheon, Korea",
+    "coords": [
+      37.4706,
+      126.5975
+    ],
+    "zoom": 9,
+    "category": "war",
+    "victor": "west",
+    "summary": "MacArthur lands US Marines far behind the front at Incheon, despite huge tides and mud flats. Seoul is retaken on 28 September and the North Korean army falls apart. UN forces cross the 38th parallel and race towards the Chinese border.",
+    "significance": "A war to save South Korea became a war to unite Korea by force. That alarmed China.",
+    "wiki": "Battle of Inchon"
+  },
+  {
+    "id": "china-enters",
+    "date": "1950-11-25",
+    "title": "China enters the war",
+    "place": "Chongchon River, North Korea",
+    "coords": [
+      39.6,
+      125.9
+    ],
+    "zoom": 7,
+    "category": "war",
+    "victor": "communist",
+    "summary": "Hundreds of thousands of Chinese troops have crossed the Yalu in secret. On 25 November they attack in force. UN forces suffer one of the longest retreats in US military history, and Marines fight their way out of the Chosin Reservoir in bitter cold. Seoul falls again on 4 January 1951.",
+    "significance": "The war settled into a bloody stalemate near the 38th parallel. Truman sacked MacArthur in April 1951 for pushing to widen the war into China.",
+    "wiki": "Battle of the Ch'ongch'on River"
+  },
+  {
+    "id": "ivy-mike",
+    "date": "1952-11-01",
+    "title": "The first hydrogen bomb",
+    "place": "Elugelab, Enewetak Atoll, Marshall Islands",
+    "coords": [
+      11.6667,
+      162.1883
+    ],
+    "zoom": 9,
+    "category": "nuclear",
+    "summary": "The United States explodes Ivy Mike, about 700 times the power of the Hiroshima bomb. The island of Elugelab vanishes, leaving a crater 1.9 km across. The Soviet Union tests its own hydrogen bomb in 1953 and 1955.",
+    "significance": "A single bomb could now destroy any city on Earth. Tests across the Pacific left islanders with lasting harm.",
+    "wiki": "Ivy Mike"
+  },
+  {
+    "id": "east-berlin-1953",
+    "date": "1953-06-17",
+    "title": "Uprising in East Germany",
+    "place": "Leipziger Strasse, East Berlin",
+    "coords": [
+      52.5095,
+      13.3846
+    ],
+    "zoom": 13,
+    "category": "uprising",
+    "deaths": 55,
+    "stat": "At least 55 killed; some estimates are higher",
+    "summary": "A strike by East Berlin building workers against higher work quotas spreads to more than 700 towns. Protesters call for free elections. Soviet tanks crush the rising and at least 55 people are killed.",
+    "significance": "It was the first revolt in the Soviet bloc. West Germany marked 17 June as a national day until reunification.",
+    "wiki": "East German uprising of 1953"
+  },
+  {
+    "id": "korean-armistice",
+    "date": "1953-07-27",
+    "title": "The Korean armistice",
+    "place": "Panmunjom, Korea",
+    "coords": [
+      37.9561,
+      126.6773
+    ],
+    "zoom": 7,
+    "category": "politics",
+    "deaths": 2500000,
+    "stat": "Estimates range from about 2 to 3 million dead, most of them Korean civilians",
+    "summary": "After two years of talks, mostly over the return of prisoners, an armistice ends the fighting. The new border follows the front line, with a demilitarised zone 4 km wide. No peace treaty is ever signed.",
+    "significance": "Korea stayed divided. Bombing had flattened almost every town in the North, and the war turned containment into a global military policy.",
+    "wiki": "Korean Armistice Agreement"
+  },
+  {
+    "id": "iran-coup",
+    "date": "1953-08-19",
+    "title": "Coup in Iran",
+    "place": "Tehran",
+    "coords": [
+      35.6892,
+      51.389
+    ],
+    "zoom": 9,
+    "category": "intervention",
+    "summary": "Prime Minister Mohammad Mosaddegh, who had nationalised Iran's British-owned oil industry, is overthrown in a coup organised by the CIA and MI6. The Shah returns with greatly increased power.",
+    "significance": "Iran became a close US ally for 25 years. Anger at the coup fed the revolution of 1979.",
+    "wiki": "1953 Iranian coup d'état"
+  },
+  {
+    "id": "dien-bien-phu",
+    "date": "1954-05-07",
+    "title": "Dien Bien Phu",
+    "place": "Dien Bien Phu, Vietnam",
+    "coords": [
+      21.3861,
+      103.0164
+    ],
+    "zoom": 9,
+    "category": "war",
+    "victor": "communist",
+    "ambience": "jungle",
+    "stat": "About 1,500 French Union troops killed and 11,000 captured; Viet Minh losses perhaps 8,000 dead",
+    "summary": "The French build a fortified base in a remote valley to lure the Viet Minh into battle. Instead Vo Nguyen Giap hauls artillery over the hills by hand and pounds the base for 56 days. The garrison surrenders.",
+    "significance": "It ended French rule in Indochina. Fewer than half of the captured soldiers survived the march to prison camps and captivity.",
+    "wiki": "Battle of Dien Bien Phu"
+  },
+  {
+    "id": "guatemala-coup",
+    "date": "1954-06-27",
+    "title": "Coup in Guatemala",
+    "place": "Guatemala City",
+    "coords": [
+      14.6425,
+      -90.5133
+    ],
+    "zoom": 8,
+    "category": "intervention",
+    "summary": "President Jacobo Árbenz, whose land reform had taken unused land from the American United Fruit Company, resigns after a CIA-backed invasion and bombing campaign. A military government takes over.",
+    "significance": "Decades of military rule followed, and a civil war from 1960 to 1996 in which about 200,000 people died, most of them Maya civilians killed by the army.",
+    "wiki": "1954 Guatemalan coup d'état"
+  },
+  {
+    "id": "geneva-1954",
+    "date": "1954-07-21",
+    "title": "Vietnam divided at the 17th parallel",
+    "place": "Palais des Nations, Geneva",
+    "coords": [
+      46.2266,
+      6.1404
+    ],
+    "zoom": 8,
+    "category": "politics",
+    "summary": "The Geneva Conference ends the French war in Indochina. Vietnam is split at the 17th parallel, with Ho Chi Minh's communists in the North. Elections to reunite the country are promised for 1956. Laos and Cambodia become independent.",
+    "significance": "The elections were never held. The United States backed a separate South Vietnam under Ngo Dinh Diem.",
+    "wiki": "1954 Geneva Conference"
+  },
+  {
+    "id": "bandung",
+    "date": "1955-04-18",
+    "title": "The Bandung Conference",
+    "place": "Gedung Merdeka, Bandung, Indonesia",
+    "coords": [
+      -6.9212,
+      107.6097
+    ],
+    "zoom": 6,
+    "category": "politics",
+    "summary": "Leaders of 29 newly independent Asian and African countries meet in Indonesia, among them Nehru, Nasser, Sukarno and Zhou Enlai. They call for an end to colonialism and for peaceful coexistence.",
+    "significance": "It led to the Non-Aligned Movement, founded in Belgrade in 1961 by countries that refused to join either bloc.",
+    "wiki": "Bandung Conference"
+  },
+  {
+    "id": "warsaw-pact",
+    "date": "1955-05-14",
+    "title": "The Warsaw Pact",
+    "place": "Presidential Palace, Warsaw",
+    "coords": [
+      52.2431,
+      21.0154
+    ],
+    "zoom": 7,
+    "category": "politics",
+    "summary": "Five days after West Germany joins NATO, the Soviet Union and seven Eastern European states sign a military alliance: Poland, Czechoslovakia, Hungary, Romania, Bulgaria, Albania and East Germany. Its forces are under Soviet command.",
+    "significance": "Europe now had two armed alliances facing each other. The Pact's only real wars were against its own members, in Hungary and Czechoslovakia.",
+    "wiki": "Warsaw Pact"
+  },
+  {
+    "id": "hungary-1956",
+    "date": "1956-10-23",
+    "title": "The Hungarian Revolution",
+    "place": "Budapest",
+    "coords": [
+      47.5072,
+      19.0458
+    ],
+    "zoom": 9,
+    "category": "uprising",
+    "deaths": 2700,
+    "stat": "About 2,500 Hungarians and 700 Soviet soldiers killed; 200,000 Hungarians fled abroad",
+    "summary": "A student march in Budapest becomes a national revolt. Imre Nagy forms a government, promises free elections and announces that Hungary will leave the Warsaw Pact. On 4 November Soviet tanks return in force and crush the revolution.",
+    "significance": "The West, distracted by Suez, did nothing. Nagy was tried in secret and hanged in 1958.",
+    "wiki": "Hungarian Revolution of 1956"
+  },
+  {
+    "id": "suez",
+    "date": "1956-11-05",
+    "title": "The Suez Crisis",
+    "place": "Port Said, Egypt",
+    "coords": [
+      31.2653,
+      32.3019
+    ],
+    "zoom": 8,
+    "category": "crisis",
+    "summary": "Nasser has nationalised the Suez Canal. In a secret plan, Israel invades Sinai and British and French troops land at Port Said. The United States, furious, forces them to withdraw by threatening Britain's currency. Moscow threatens rocket attacks.",
+    "significance": "It showed that Britain and France could no longer act without Washington. Nasser became a hero of the non-aligned world.",
+    "wiki": "Suez Crisis"
+  },
+  {
+    "id": "sputnik",
+    "date": "1957-10-04",
+    "title": "Sputnik",
+    "place": "Baikonur Cosmodrome, Kazakhstan",
+    "coords": [
+      45.9203,
+      63.3422
+    ],
+    "zoom": 6,
+    "category": "nuclear",
+    "summary": "The Soviet Union launches the first artificial satellite, a polished sphere that beeps as it circles the Earth every 96 minutes. The same rocket, the R-7, is the world's first intercontinental ballistic missile.",
+    "significance": "Americans feared a missile gap. The shock led to NASA, new spending on science education and a space race that ended on the Moon in 1969.",
+    "wiki": "Sputnik 1"
+  },
+  {
+    "id": "cuban-revolution",
+    "date": "1959-01-01",
+    "title": "The Cuban Revolution",
+    "place": "Havana",
+    "coords": [
+      23.1136,
+      -82.3666
+    ],
+    "zoom": 7,
+    "category": "uprising",
+    "summary": "The dictator Fulgencio Batista flees Cuba, and Fidel Castro's guerrillas take power. Castro nationalises American-owned businesses, and the United States imposes a trade embargo. By 1961 Cuba is aligned with the Soviet Union.",
+    "significance": "The Cold War arrived 150 km from Florida.",
+    "wiki": "Cuban Revolution"
+  },
+  {
+    "id": "ho-chi-minh-trail",
+    "date": "1959-05-19",
+    "title": "The Ho Chi Minh Trail",
+    "place": "Truong Son mountains, Laos and Vietnam",
+    "coords": [
+      16.8,
+      106.3
+    ],
+    "zoom": 6,
+    "category": "war",
+    "ambience": "jungle",
+    "summary": "North Vietnam sets up Group 559 to move soldiers and supplies south along jungle tracks through Laos and Cambodia. Over the years it grows into a network of roads, pipelines and depots thousands of kilometres long, used by trucks, bicycles and porters.",
+    "significance": "The United States dropped more than two million tonnes of bombs on Laos trying to cut the trail. Unexploded bombs still kill and injure people there today.",
+    "wiki": "Ho Chi Minh trail"
+  },
+  {
+    "id": "lumumba",
+    "date": "1961-01-17",
+    "title": "Patrice Lumumba murdered",
+    "place": "Near Élisabethville, Katanga, Congo",
+    "coords": [
+      -11.66,
+      27.48
+    ],
+    "zoom": 6,
+    "category": "atrocity",
+    "summary": "Congo's first prime minister, elected at independence in 1960, asked the Soviet Union for help when Katanga broke away. Deposed and handed to his enemies in Katanga, he is shot by a firing squad under Belgian officers. The CIA had also plotted to kill him.",
+    "significance": "Africa's decolonisation was pulled into the Cold War. Mobutu, who took full power in 1965, ruled Congo as a US ally for 32 years.",
+    "wiki": "Patrice Lumumba"
+  },
+  {
+    "id": "bay-of-pigs",
+    "date": "1961-04-17",
+    "title": "The Bay of Pigs",
+    "place": "Playa Girón, Cuba",
+    "coords": [
+      22.0686,
+      -81.0333
+    ],
+    "zoom": 9,
+    "category": "intervention",
+    "victor": "communist",
+    "summary": "About 1,400 Cuban exiles trained by the CIA land on Cuba's south coast. Kennedy refuses open US air support, the expected uprising never comes, and within three days the invaders are killed or captured.",
+    "significance": "It humiliated Kennedy and pushed Castro closer to Moscow. Castro declared Cuba a socialist state on the eve of the landing.",
+    "wiki": "Bay of Pigs Invasion"
+  },
+  {
+    "id": "berlin-wall",
+    "date": "1961-08-13",
+    "title": "The Berlin Wall",
+    "place": "Brandenburg Gate, Berlin",
+    "coords": [
+      52.5163,
+      13.3777
+    ],
+    "zoom": 13,
+    "category": "crisis",
+    "summary": "About 2.7 million people have fled East Germany since 1949, most through Berlin. Overnight, East German troops and police string barbed wire around West Berlin. Concrete walls follow within days, and later a death strip with watchtowers.",
+    "significance": "It stopped the flight from the East. At least 140 people were killed at the Wall before it fell in 1989.",
+    "wiki": "Berlin Wall"
+  },
+  {
+    "id": "checkpoint-charlie",
+    "date": "1961-10-27",
+    "title": "Tanks at Checkpoint Charlie",
+    "place": "Friedrichstrasse, Berlin",
+    "coords": [
+      52.5075,
+      13.3904
+    ],
+    "zoom": 16,
+    "category": "crisis",
+    "summary": "After East German guards demand to check the papers of American officials, US tanks move up to the crossing. Soviet tanks arrive opposite. For 16 hours they face each other about 100 metres apart, until both sides pull back one tank at a time.",
+    "significance": "It was the only time American and Soviet tanks faced each other directly. A quiet deal between Kennedy and Khrushchev ended it.",
+    "wiki": "Checkpoint Charlie"
+  },
+  {
+    "id": "missiles-in-cuba",
+    "date": "1962-10-16",
+    "title": "The Cuban Missile Crisis",
+    "place": "San Cristóbal, Cuba",
+    "coords": [
+      22.715,
+      -83.05
+    ],
+    "zoom": 6,
+    "category": "crisis",
+    "summary": "Photos taken by a U-2 spy plane show Soviet nuclear missile sites being built in Cuba. On 22 October Kennedy announces a naval blockade, which he calls a quarantine, and demands their removal. US forces move to DEFCON 2.",
+    "significance": "Khrushchev had sent the missiles to protect Cuba and to match US missiles in Turkey. For 13 days the world was closer to nuclear war than ever before or since.",
+    "wiki": "Cuban Missile Crisis"
+  },
+  {
+    "id": "black-saturday",
+    "date": "1962-10-27",
+    "title": "Black Saturday",
+    "place": "Near Banes, eastern Cuba",
+    "coords": [
+      20.9628,
+      -75.7158
+    ],
+    "zoom": 6,
+    "category": "crisis",
+    "deaths": 1,
+    "summary": "A Soviet missile shoots down a U-2 over Cuba, killing its pilot, Major Rudolf Anderson. Near the blockade line, US ships drop practice depth charges on a Soviet submarine carrying a nuclear torpedo. One officer, Vasili Arkhipov, refuses to agree to launch it.",
+    "significance": "Next day Khrushchev agreed to remove the missiles. In secret, Kennedy agreed to remove US missiles from Turkey. A hotline between the two capitals followed.",
+    "wiki": "Vasily Arkhipov"
+  },
+  {
+    "id": "kennedy-berlin",
+    "date": "1963-06-26",
+    "title": "Ich bin ein Berliner",
+    "place": "Rathaus Schöneberg, West Berlin",
+    "coords": [
+      52.4847,
+      13.3446
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "Before a crowd of about 450,000 in West Berlin, Kennedy declares that all free men are citizens of Berlin. Earlier he had looked over the Wall from a viewing platform.",
+    "significance": "It reassured West Berliners that the United States would not abandon them.",
+    "wiki": "Ich bin ein Berliner"
+  },
+  {
+    "id": "test-ban",
+    "date": "1963-08-05",
+    "title": "The Partial Test Ban Treaty",
+    "place": "Moscow",
+    "coords": [
+      55.752,
+      37.6175
+    ],
+    "zoom": 6,
+    "category": "nuclear",
+    "summary": "Shaken by the missile crisis, the United States, the Soviet Union and Britain agree to stop testing nuclear weapons in the air, in space and under water. Tests continue underground.",
+    "significance": "It was the first arms-control treaty of the Cold War, and it ended most radioactive fallout from testing.",
+    "wiki": "Partial Nuclear Test Ban Treaty"
+  },
+  {
+    "id": "gulf-of-tonkin",
+    "date": "1964-08-02",
+    "title": "The Gulf of Tonkin",
+    "place": "Gulf of Tonkin",
+    "coords": [
+      19.7,
+      106.6
+    ],
+    "zoom": 7,
+    "category": "war",
+    "summary": "North Vietnamese torpedo boats attack the US destroyer Maddox, which is gathering intelligence off the coast. A second attack reported on 4 August almost certainly never happened. On 7 August Congress gives President Johnson broad power to use force in Vietnam.",
+    "significance": "The resolution was the legal basis for the American war. Bombing of the North began in 1965.",
+    "wiki": "Gulf of Tonkin incident"
+  },
+  {
+    "id": "marines-da-nang",
+    "date": "1965-03-08",
+    "title": "US combat troops land at Da Nang",
+    "place": "Nam O beach, Da Nang",
+    "coords": [
+      16.12,
+      108.13
+    ],
+    "zoom": 9,
+    "category": "war",
+    "summary": "Two battalions of US Marines wade ashore to guard the air base at Da Nang, the first American ground combat units in Vietnam. A week earlier the bombing campaign Rolling Thunder had begun.",
+    "significance": "By 1968 there were more than 530,000 American troops in Vietnam.",
+    "wiki": "Vietnam War"
+  },
+  {
+    "id": "tet",
+    "date": "1968-01-31",
+    "title": "The Tet Offensive",
+    "place": "US Embassy, Saigon",
+    "coords": [
+      10.7826,
+      106.7036
+    ],
+    "zoom": 6,
+    "category": "war",
+    "stat": "Tens of thousands of communist fighters killed; about 14,000 South Vietnamese civilians killed in the fighting",
+    "summary": "During the lunar new year truce, about 80,000 communist troops attack more than 100 towns and cities across South Vietnam. A squad breaks into the grounds of the US Embassy in Saigon. Almost everywhere the attacks are beaten back with heavy losses.",
+    "significance": "A military defeat for Hanoi became a political victory. Americans had been told the war was being won. In March Johnson announced he would not run again.",
+    "wiki": "Tet Offensive"
+  },
+  {
+    "id": "hue",
+    "date": "1968-02-24",
+    "title": "Hue retaken and the massacre",
+    "place": "The Citadel, Hue",
+    "coords": [
+      16.4698,
+      107.5786
+    ],
+    "zoom": 13,
+    "category": "atrocity",
+    "stat": "At least 2,800 people executed by communist forces; about 5,800 civilians died in the battle",
+    "summary": "After more than three weeks of house-to-house fighting, US and South Vietnamese troops retake Hue's Citadel. Much of the old imperial city lies in ruins. Mass graves are later found holding thousands of civilians killed by the occupying communist forces, among them officials, teachers and priests.",
+    "significance": "It was the bloodiest battle of the Tet Offensive and the worst massacre of the war.",
+    "wiki": "Huế massacre"
+  },
+  {
+    "id": "my-lai",
+    "date": "1968-03-16",
+    "title": "The My Lai massacre",
+    "place": "Son My, Quang Ngai province",
+    "coords": [
+      15.178,
+      108.8697
+    ],
+    "zoom": 13,
+    "category": "atrocity",
+    "deaths": 504,
+    "stat": "Between 347 and 504 unarmed villagers killed, most of them women, children and old men",
+    "summary": "A company of American soldiers kills hundreds of unarmed villagers in My Lai and nearby hamlets. A helicopter crew led by Hugh Thompson lands between the soldiers and fleeing villagers and stops some of the killing.",
+    "significance": "The army covered it up until a journalist, Seymour Hersh, revealed it in 1969. Only one officer, Lieutenant William Calley, was convicted.",
+    "wiki": "My Lai massacre"
+  },
+  {
+    "id": "prague-1968",
+    "date": "1968-08-21",
+    "title": "The end of the Prague Spring",
+    "place": "Wenceslas Square, Prague",
+    "coords": [
+      50.0814,
+      14.4277
+    ],
+    "zoom": 9,
+    "category": "intervention",
+    "stat": "137 Czechoslovak civilians killed by the end of 1968",
+    "summary": "Alexander Dubček has eased censorship and promised socialism with a human face. On the night of 20 August about 250,000 Warsaw Pact troops invade. Crowds argue with the soldiers in the streets but the army does not resist.",
+    "significance": "Moscow claimed the right to intervene wherever socialism was threatened, the Brezhnev Doctrine. In January 1969 the student Jan Palach burned himself to death in protest.",
+    "wiki": "Warsaw Pact invasion of Czechoslovakia"
+  },
+  {
+    "id": "zhenbao",
+    "date": "1969-03-02",
+    "title": "China and the Soviet Union clash",
+    "place": "Zhenbao (Damansky) Island, Ussuri River",
+    "coords": [
+      46.4867,
+      133.8417
+    ],
+    "zoom": 8,
+    "category": "crisis",
+    "summary": "Chinese troops ambush a Soviet border patrol on a disputed river island. Fighting over the following weeks kills dozens on the Chinese side and 58 Soviet soldiers. Moscow hints at a nuclear strike on China.",
+    "significance": "The split between the two communist giants, open since about 1960, was now armed. China began to look to the United States.",
+    "wiki": "Sino-Soviet border conflict"
+  },
+  {
+    "id": "cambodia-1970",
+    "date": "1970-04-30",
+    "title": "The war spreads to Cambodia",
+    "place": "Fishhook, Cambodian border",
+    "coords": [
+      11.6,
+      106.25
+    ],
+    "zoom": 7,
+    "category": "war",
+    "ambience": "jungle",
+    "summary": "A month after a coup in Cambodia, Nixon announces that US and South Vietnamese troops are crossing the border to destroy communist bases. Secret B-52 bombing of Cambodia had begun in March 1969. On 4 May, National Guardsmen kill four students protesting at Kent State University.",
+    "significance": "The bombing and invasion drew Cambodia into the war and helped the Khmer Rouge recruit.",
+    "wiki": "Cambodian campaign"
+  },
+  {
+    "id": "nixon-china",
+    "date": "1972-02-21",
+    "title": "Nixon in China",
+    "place": "Beijing",
+    "coords": [
+      39.9031,
+      116.3874
+    ],
+    "zoom": 6,
+    "category": "politics",
+    "summary": "Richard Nixon, long a fierce anti-communist, flies to Beijing and meets Mao Zedong. The two sides agree that there is one China, and begin to work together against the Soviet Union.",
+    "significance": "The Cold War was no longer simply two blocs. Moscow, worried, became more willing to deal with Washington.",
+    "wiki": "1972 visit by Richard Nixon to China"
+  },
+  {
+    "id": "salt-1",
+    "date": "1972-05-26",
+    "title": "SALT I and the ABM Treaty",
+    "place": "The Kremlin, Moscow",
+    "coords": [
+      55.752,
+      37.6175
+    ],
+    "zoom": 6,
+    "category": "nuclear",
+    "summary": "Nixon and Brezhnev sign the first treaties to limit nuclear arms. SALT I freezes the number of missile launchers. The ABM Treaty limits defences against missiles, so that neither side can hope to survive a war.",
+    "significance": "It was the high point of détente, a period of easier relations that lasted until the late 1970s.",
+    "wiki": "Strategic Arms Limitation Talks"
+  },
+  {
+    "id": "linebacker-ii",
+    "date": "1972-12-18",
+    "title": "The Christmas bombing",
+    "place": "Hanoi",
+    "coords": [
+      21.019,
+      105.835
+    ],
+    "zoom": 10,
+    "category": "war",
+    "stat": "1,624 civilians killed in Hanoi and Haiphong (North Vietnamese figure); 15 B-52s lost",
+    "summary": "When peace talks stall, Nixon sends B-52 bombers against Hanoi and Haiphong for 11 days. Kham Thien street and Bach Mai hospital in Hanoi are among the places hit.",
+    "significance": "Talks resumed, and the Paris Peace Accords were signed on 27 January 1973. The last American combat troops left Vietnam two months later.",
+    "wiki": "Operation Linebacker II"
+  },
+  {
+    "id": "chile-coup",
+    "date": "1973-09-11",
+    "title": "Coup in Chile",
+    "place": "La Moneda Palace, Santiago",
+    "coords": [
+      -33.4429,
+      -70.654
+    ],
+    "zoom": 9,
+    "category": "intervention",
+    "stat": "About 3,200 people killed or disappeared under military rule, 1973–90",
+    "summary": "The army and air force overthrow the elected Marxist president Salvador Allende. Jets bomb the presidential palace, and Allende dies inside. The United States had worked for years to undermine his government.",
+    "significance": "General Augusto Pinochet ruled for 17 years. Tens of thousands were imprisoned and tortured.",
+    "wiki": "1973 Chilean coup d'état"
+  },
+  {
+    "id": "spring-offensive",
+    "date": "1975-03-10",
+    "title": "The final offensive",
+    "place": "Ban Me Thuot, Central Highlands",
+    "coords": [
+      12.6667,
+      108.0378
+    ],
+    "zoom": 6,
+    "category": "war",
+    "victor": "communist",
+    "summary": "North Vietnamese divisions, supplied down the Ho Chi Minh Trail, take Ban Me Thuot in the Central Highlands. President Thieu orders a retreat that turns into a rout. Hue falls on 25 March and Da Nang on 29 March.",
+    "significance": "Hanoi had planned a two-year campaign. South Vietnam collapsed in less than eight weeks.",
+    "wiki": "1975 spring offensive",
+    "scene": "fall-of-saigon"
+  },
+  {
+    "id": "khmer-rouge",
+    "date": "1975-04-17",
+    "title": "The Khmer Rouge take Phnom Penh",
+    "place": "Phnom Penh",
+    "coords": [
+      11.5564,
+      104.9282
+    ],
+    "zoom": 7,
+    "category": "atrocity",
+    "stat": "About 1.5 to 2 million Cambodians died, 1975–79, roughly a quarter of the population",
+    "summary": "Pol Pot's Khmer Rouge capture the capital and drive its whole population into the countryside. Money, schools and religion are abolished. Over the next four years people die of execution, forced labour, starvation and disease. About 14,000 pass through the Tuol Sleng prison; almost none survive.",
+    "significance": "It was one of the worst genocides of the 20th century, aimed above all at the educated, at ethnic Vietnamese and Cham Muslims.",
+    "wiki": "Cambodian genocide"
+  },
+  {
+    "id": "fall-of-saigon",
+    "date": "1975-04-30",
+    "title": "The fall of Saigon",
+    "place": "Independence Palace, Saigon",
+    "coords": [
+      10.777,
+      106.6953
+    ],
+    "zoom": 7,
+    "category": "war",
+    "victor": "communist",
+    "stat": "Vietnam War, 1955–75: estimates range from about 1 to 3 million Vietnamese dead, plus 58,220 Americans",
+    "summary": "North Vietnamese tanks crash through the gates of the presidential palace, and South Vietnam surrenders. In the previous two days US helicopters lifted about 7,000 Americans and Vietnamese from the city to ships offshore.",
+    "significance": "Vietnam was reunited under communist rule. Hundreds of thousands were sent to re-education camps, and more than a million boat people fled over the next 20 years.",
+    "wiki": "Fall of Saigon",
+    "scene": "fall-of-saigon"
+  },
+  {
+    "id": "mozambique",
+    "date": "1975-06-25",
+    "title": "Mozambique independent",
+    "place": "Lourenço Marques (Maputo)",
+    "coords": [
+      -25.9692,
+      32.5732
+    ],
+    "zoom": 6,
+    "category": "uprising",
+    "summary": "After ten years of guerrilla war, and a coup in Portugal in 1974, Mozambique becomes independent under the Marxist FRELIMO movement. From 1977 it is torn by civil war with RENAMO, backed first by Rhodesia and then by South Africa.",
+    "significance": "The civil war killed about a million people, many by famine, before a peace deal in 1992.",
+    "wiki": "Mozambican Civil War"
+  },
+  {
+    "id": "helsinki",
+    "date": "1975-08-01",
+    "title": "The Helsinki Accords",
+    "place": "Finlandia Hall, Helsinki",
+    "coords": [
+      60.1757,
+      24.9346
+    ],
+    "zoom": 7,
+    "category": "politics",
+    "summary": "Thirty-five countries, including the United States, Canada and every European state but Albania, accept Europe's post-war borders. In return the Soviet bloc signs up to respect human rights, including freedom of thought and movement.",
+    "significance": "Moscow saw a victory. But dissidents such as Charter 77 in Czechoslovakia held their governments to the human rights promises.",
+    "wiki": "Helsinki Final Act"
+  },
+  {
+    "id": "angola",
+    "date": "1975-11-11",
+    "title": "Angola's civil war",
+    "place": "Luanda",
+    "coords": [
+      -8.8383,
+      13.2344
+    ],
+    "zoom": 5,
+    "category": "war",
+    "stat": "About 500,000 killed in the civil war, 1975–2002",
+    "summary": "Angola becomes independent from Portugal in the middle of a war between three movements. The Marxist MPLA holds Luanda with Soviet weapons and thousands of Cuban troops. The FNLA and UNITA are backed by the United States, Zaire and South Africa, whose army invades from the south.",
+    "significance": "It became the largest Cold War battlefield in Africa, with up to 50,000 Cuban troops in the country by the late 1980s.",
+    "wiki": "Angolan Civil War"
+  },
+  {
+    "id": "vietnam-ousts-khmer-rouge",
+    "date": "1979-01-07",
+    "title": "Vietnam drives out the Khmer Rouge",
+    "place": "Phnom Penh",
+    "coords": [
+      11.5564,
+      104.9282
+    ],
+    "zoom": 7,
+    "category": "war",
+    "summary": "After Khmer Rouge raids across its border, Vietnam invades Cambodia and takes Phnom Penh. It installs a new government. China, allied to the Khmer Rouge, attacks northern Vietnam in February.",
+    "significance": "Cambodians were freed from Pol Pot, but the Khmer Rouge kept Cambodia's UN seat, with Chinese and Western support, and fought on from the Thai border.",
+    "wiki": "Cambodian–Vietnamese War"
+  },
+  {
+    "id": "iran-revolution",
+    "date": "1979-02-11",
+    "title": "The Iranian Revolution",
+    "place": "Tehran",
+    "coords": [
+      35.6892,
+      51.389
+    ],
+    "zoom": 6,
+    "category": "uprising",
+    "summary": "Months of mass protest drive out the Shah, and Ayatollah Khomeini returns from exile to found an Islamic Republic. In November students seize the US Embassy and hold 52 Americans hostage for 444 days.",
+    "significance": "The United States lost its main ally in the Gulf. Iran's slogan was neither East nor West.",
+    "wiki": "Iranian Revolution"
+  },
+  {
+    "id": "nicaragua",
+    "date": "1979-07-19",
+    "title": "The Sandinistas take Managua",
+    "place": "Managua",
+    "coords": [
+      12.1364,
+      -86.2514
+    ],
+    "zoom": 7,
+    "category": "uprising",
+    "summary": "The left-wing Sandinista movement overthrows the Somoza family, which had ruled Nicaragua for over 40 years with US support. From 1981 the CIA arms the Contra rebels against them.",
+    "significance": "The Contra war killed about 30,000 people. Secret arms sales to Iran to fund the Contras became the Iran-Contra scandal of 1986. The Sandinistas lost an election in 1990.",
+    "wiki": "Nicaraguan Revolution"
+  },
+  {
+    "id": "afghan-invasion",
+    "date": "1979-12-27",
+    "title": "The Soviet invasion of Afghanistan",
+    "place": "Tajbeg Palace, Kabul",
+    "coords": [
+      34.4544,
+      69.1208
+    ],
+    "zoom": 6,
+    "category": "war",
+    "stat": "Estimates of Afghan dead range from about 500,000 to 2 million; about 15,000 Soviet soldiers killed",
+    "summary": "Soviet special forces storm the palace in Kabul and kill the communist leader Hafizullah Amin, whose rule had provoked a revolt. About 100,000 Soviet troops are soon fighting the mujahideen, Islamist guerrillas armed by the United States, Pakistan, Saudi Arabia and China.",
+    "significance": "Détente was over. About five million Afghans fled abroad, the largest refugee crisis of its time, and the war became the Soviet Union's Vietnam.",
+    "wiki": "Soviet–Afghan War"
+  },
+  {
+    "id": "solidarnosc",
+    "date": "1980-08-31",
+    "title": "Solidarity",
+    "place": "Lenin Shipyard, Gdańsk",
+    "coords": [
+      54.3605,
+      18.6489
+    ],
+    "zoom": 9,
+    "category": "uprising",
+    "summary": "A strike at the Gdańsk shipyard, led by the electrician Lech Wałęsa, wins the right to form a free trade union. Solidarity soon has about ten million members. On 13 December 1981 General Jaruzelski declares martial law and thousands of its leaders are interned.",
+    "significance": "It was the first independent mass movement in the Soviet bloc. Driven underground, it survived to negotiate the end of communism in 1989.",
+    "wiki": "Solidarity (Polish trade union)"
+  },
+  {
+    "id": "able-archer",
+    "date": "1983-11-07",
+    "title": "The war scare of 1983",
+    "place": "SHAPE, NATO headquarters, Mons",
+    "coords": [
+      50.5003,
+      3.9805
+    ],
+    "zoom": 5,
+    "category": "nuclear",
+    "summary": "Reagan has called the Soviet Union an evil empire and announced a missile-defence plan. In September Soviet fighters shoot down Korean Air Lines Flight 007, killing all 269 on board, and a Soviet officer, Stanislav Petrov, rightly judges a satellite alarm of US missile launches to be false. In November NATO's Able Archer exercise rehearses nuclear release, and some Soviet forces are put on alert.",
+    "significance": "Reagan was shaken to learn how far Soviet leaders feared a surprise attack. He soon began to talk of reducing nuclear arms.",
+    "wiki": "Able Archer 83"
+  },
+  {
+    "id": "gorbachev",
+    "date": "1985-03-11",
+    "title": "Gorbachev takes power",
+    "place": "The Kremlin, Moscow",
+    "coords": [
+      55.752,
+      37.6175
+    ],
+    "zoom": 6,
+    "category": "politics",
+    "summary": "After three elderly leaders die in less than three years, the Politburo chooses Mikhail Gorbachev, aged 54. He begins perestroika, reform of the stagnant economy, and glasnost, openness.",
+    "significance": "Gorbachev wanted to save Soviet socialism. Instead his reforms released forces that ended it.",
+    "wiki": "Mikhail Gorbachev"
+  },
+  {
+    "id": "chernobyl",
+    "date": "1986-04-26",
+    "title": "Chernobyl",
+    "place": "Chernobyl nuclear power plant, Ukraine",
+    "coords": [
+      51.3894,
+      30.0989
+    ],
+    "zoom": 9,
+    "category": "nuclear",
+    "stat": "31 deaths at the time; later estimates of cancer deaths range from about 4,000 to many tens of thousands",
+    "summary": "Reactor No. 4 explodes during a safety test, spreading radioactive fallout across Ukraine, Belarus and much of Europe. The Soviet authorities say nothing for two days. The nearby town of Pripyat, 49,000 people, is evacuated and never resettled.",
+    "significance": "The cover-up undermined faith in the Soviet system, and Gorbachev pushed glasnost further.",
+    "wiki": "Chernobyl disaster",
+    "ambience": "sombre"
+  },
+  {
+    "id": "tear-down-this-wall",
+    "date": "1987-06-12",
+    "title": "Tear down this wall",
+    "place": "Brandenburg Gate, West Berlin side",
+    "coords": [
+      52.5163,
+      13.3763
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "Speaking in front of the Brandenburg Gate, Reagan calls on Gorbachev: if you seek peace, open this gate, tear down this wall. East German police keep people on the other side away.",
+    "significance": "Little noticed at the time, the speech became famous after the Wall fell two years later.",
+    "wiki": "Tear down this wall!"
+  },
+  {
+    "id": "inf-treaty",
+    "date": "1987-12-08",
+    "title": "The INF Treaty",
+    "place": "The White House, Washington",
+    "coords": [
+      38.8977,
+      -77.0365
+    ],
+    "zoom": 9,
+    "category": "nuclear",
+    "summary": "Reagan and Gorbachev sign a treaty to destroy every land-based missile with a range of 500 to 5,500 km. It follows their summit at Reykjavík in 1986, where they came close to agreeing to abolish nuclear weapons altogether.",
+    "significance": "For the first time a whole class of nuclear weapons was scrapped, 2,692 missiles in all, with inspectors checking on both sides.",
+    "wiki": "Intermediate-Range Nuclear Forces Treaty"
+  },
+  {
+    "id": "cuito-cuanavale",
+    "date": "1988-03-23",
+    "title": "Cuito Cuanavale",
+    "place": "Cuito Cuanavale, Angola",
+    "coords": [
+      -15.1622,
+      19.1722
+    ],
+    "zoom": 7,
+    "category": "war",
+    "summary": "The largest battle in Africa since the Second World War ends after six months. South African and UNITA forces fail to take the town from Angolan and Cuban troops. Both sides claim victory.",
+    "significance": "It led to the New York Accords of December 1988: Cuba withdrew from Angola, South Africa left Namibia, and Namibia became independent in 1990.",
+    "wiki": "Battle of Cuito Cuanavale"
+  },
+  {
+    "id": "afghan-withdrawal",
+    "date": "1989-02-15",
+    "title": "The Soviet Army leaves Afghanistan",
+    "place": "Friendship Bridge, Termez",
+    "coords": [
+      37.2318,
+      67.4128
+    ],
+    "zoom": 7,
+    "category": "war",
+    "summary": "General Boris Gromov is the last Soviet soldier to cross the bridge over the Amu Darya out of Afghanistan. The Afghan communist government, now on its own, holds out until 1992.",
+    "significance": "Gorbachev had called the war a bleeding wound. Its failure showed that Soviet military power had limits.",
+    "wiki": "Soviet withdrawal from Afghanistan"
+  },
+  {
+    "id": "tiananmen",
+    "date": "1989-06-04",
+    "title": "Tiananmen Square",
+    "place": "Tiananmen Square, Beijing",
+    "coords": [
+      39.9054,
+      116.3976
+    ],
+    "zoom": 11,
+    "category": "atrocity",
+    "stat": "Several hundred to several thousand killed; the true number is unknown",
+    "summary": "For seven weeks students and workers have occupied the square, calling for reform and an end to corruption. On the night of 3 to 4 June the army clears it with tanks and live fire. Most of the dead are killed in the streets leading to the square.",
+    "significance": "China's Communist Party survived by force. Its leaders chose economic reform without political freedom.",
+    "wiki": "1989 Tiananmen Square protests and massacre"
+  },
+  {
+    "id": "polish-election",
+    "date": "1989-06-04",
+    "title": "Poland votes",
+    "place": "Warsaw",
+    "coords": [
+      52.2251,
+      21.0283
+    ],
+    "zoom": 7,
+    "category": "uprising",
+    "summary": "On the same day as the killings in Beijing, Poland holds partly free elections agreed at round-table talks. Solidarity wins every seat it is allowed to contest in the Sejm, and 99 of the 100 seats in the new Senate.",
+    "significance": "In August Tadeusz Mazowiecki became the first non-communist prime minister in the Soviet bloc since the 1940s. Moscow did not intervene.",
+    "wiki": "1989 Polish parliamentary election"
+  },
+  {
+    "id": "pan-european-picnic",
+    "date": "1989-08-19",
+    "title": "The Pan-European Picnic",
+    "place": "Sopronpuszta, Hungarian–Austrian border",
+    "coords": [
+      47.7445,
+      16.6617
+    ],
+    "zoom": 9,
+    "category": "uprising",
+    "summary": "Hungary has begun dismantling its border fence with Austria. At a peace picnic, a border gate is opened for three hours and about 600 East Germans run through to the West. On 11 September Hungary opens the border for good.",
+    "significance": "The Iron Curtain had a hole in it. Tens of thousands of East Germans left through Hungary within weeks.",
+    "wiki": "Pan-European Picnic"
+  },
+  {
+    "id": "baltic-way",
+    "date": "1989-08-23",
+    "title": "The Baltic Way",
+    "place": "Tallinn to Riga to Vilnius",
+    "coords": [
+      57.0,
+      24.6
+    ],
+    "zoom": 6,
+    "category": "uprising",
+    "summary": "On the 50th anniversary of the Nazi-Soviet Pact, about two million Estonians, Latvians and Lithuanians join hands in a human chain 675 km long, calling for independence.",
+    "significance": "It showed the world that the Baltic peoples had never accepted Soviet rule. Lithuania declared independence in March 1990.",
+    "wiki": "Baltic Way"
+  },
+  {
+    "id": "leipzig",
+    "date": "1989-10-09",
+    "title": "Leipzig: We are the people",
+    "place": "Nikolaikirche and the ring road, Leipzig",
+    "coords": [
+      51.3404,
+      12.3813
+    ],
+    "zoom": 12,
+    "category": "uprising",
+    "summary": "After the Monday prayers for peace, about 70,000 people march around Leipzig's ring road chanting 'We are the people'. Police and troops are ready to shoot, and hospitals have cleared beds. No order to fire comes.",
+    "significance": "After that night the East German regime never used force against the crowds. Honecker was removed nine days later.",
+    "wiki": "Monday demonstrations in East Germany"
+  },
+  {
+    "id": "wall-falls",
+    "date": "1989-11-09",
+    "title": "The Wall falls",
+    "place": "Bornholmer Strasse crossing, Berlin",
+    "coords": [
+      52.5547,
+      13.398
+    ],
+    "zoom": 14,
+    "category": "uprising",
+    "summary": "At a press conference, the party spokesman Günter Schabowski announces new travel rules and, asked when, says immediately. Crowds gather at the crossings. At 23:30 the guards at Bornholmer Strasse give up and open the gate. Berliners climb onto the Wall at the Brandenburg Gate.",
+    "significance": "The symbol of the divided world fell almost by accident, and without bloodshed.",
+    "wiki": "Fall of the Berlin Wall"
+  },
+  {
+    "id": "velvet-revolution",
+    "date": "1989-11-17",
+    "title": "The Velvet Revolution",
+    "place": "Národní třída, Prague",
+    "coords": [
+      50.0816,
+      14.4185
+    ],
+    "zoom": 9,
+    "category": "uprising",
+    "summary": "Riot police beat students on a march in Prague. Within days hundreds of thousands fill Wenceslas Square and a general strike follows. The communist government resigns, and on 29 December the dissident playwright Václav Havel becomes president.",
+    "significance": "Communist rule ended in Czechoslovakia in six weeks without a death.",
+    "wiki": "Velvet Revolution"
+  },
+  {
+    "id": "romania",
+    "date": "1989-12-22",
+    "title": "Revolution in Romania",
+    "place": "Central Committee building, Bucharest",
+    "coords": [
+      44.4396,
+      26.096
+    ],
+    "zoom": 7,
+    "category": "uprising",
+    "deaths": 1100,
+    "stat": "About 1,100 people killed",
+    "summary": "Protests that began in Timișoara on 16 December reach Bucharest, where a rally for Nicolae Ceaușescu turns against him. On 22 December he flees by helicopter from the Central Committee roof. Captured, he and his wife Elena are shot on 25 December after a short trial.",
+    "significance": "Romania was the only country where the end of communism was violent, and where its leader was executed.",
+    "wiki": "Romanian Revolution"
+  },
+  {
+    "id": "reunification",
+    "date": "1990-10-03",
+    "title": "German reunification",
+    "place": "Reichstag, Berlin",
+    "coords": [
+      52.5186,
+      13.3762
+    ],
+    "zoom": 6,
+    "category": "politics",
+    "summary": "At midnight the German Democratic Republic ceases to exist and its states join the Federal Republic. The Two Plus Four Treaty, signed in September by the two Germanies and the four wartime Allies, lets the united Germany stay in NATO.",
+    "significance": "The division of Germany, where the Cold War began, was over. Soviet troops left by 1994.",
+    "wiki": "German reunification"
+  },
+  {
+    "id": "vilnius",
+    "date": "1991-01-13",
+    "title": "Bloody Sunday in Vilnius",
+    "place": "Vilnius TV Tower",
+    "coords": [
+      54.6869,
+      25.2149
+    ],
+    "zoom": 12,
+    "category": "atrocity",
+    "deaths": 14,
+    "summary": "Soviet troops and tanks attack unarmed Lithuanians defending the TV tower and broadcasting centre, ten months after Lithuania declared independence. Fourteen civilians are killed, some crushed by tanks.",
+    "significance": "Instead of crushing the independence movement, the killings strengthened it, and Western governments protested to Gorbachev.",
+    "wiki": "January Events (Lithuania)"
+  },
+  {
+    "id": "august-coup",
+    "date": "1991-08-19",
+    "title": "The August Coup",
+    "place": "The White House, Moscow",
+    "coords": [
+      55.7546,
+      37.5736
+    ],
+    "zoom": 9,
+    "category": "crisis",
+    "deaths": 3,
+    "summary": "Hardliners hold Gorbachev under house arrest in Crimea and send tanks into Moscow to stop a new union treaty. Boris Yeltsin, the elected president of Russia, climbs onto a tank outside the Russian parliament and calls for resistance. Three young men are killed. The coup collapses in three days.",
+    "significance": "Power passed from Gorbachev to Yeltsin and the republics. The Baltic states won recognition of their independence within weeks.",
+    "wiki": "1991 Soviet coup attempt"
+  },
+  {
+    "id": "ussr-ends",
+    "date": "1991-12-25",
+    "title": "The end of the Soviet Union",
+    "place": "The Kremlin, Moscow",
+    "coords": [
+      55.752,
+      37.6175
+    ],
+    "zoom": 4,
+    "category": "politics",
+    "summary": "Gorbachev resigns on television, and the red flag over the Kremlin is lowered for the last time. Next day the Soviet Union is formally dissolved into 15 independent states. The Warsaw Pact had already been wound up in July.",
+    "significance": "The Cold War ended with the collapse of one side, and without the nuclear war that both sides had spent 46 years preparing for.",
+    "wiki": "Dissolution of the Soviet Union"
+  }
+]

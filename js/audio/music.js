@@ -32,6 +32,7 @@ const MOODS = {
     track('death-of-kings', 'Death of Kings'),
   ],
   crusades: [track('ibn-al-noor', 'Ibn Al-Noor'), track('lord-of-the-land', 'Lord of the Land'), track('crusade', 'Crusade')],
+  coldwar: [track('crypto', 'Crypto'), track('lightless-dawn', 'Lightless Dawn'), track('oppressive-gloom', 'Oppressive Gloom')],
   ww2: [
     { url: `${COMMONS}9/9a/Polonaise_militaire_in_A_major-Brunswick_15098-Josef_Hofmann.mp3`, title: "Chopin, 'Military' Polonaise (Josef Hofmann)", credit: 'Public domain recording, Wikimedia Commons' },
     track('night-vigil', 'Night Vigil'),

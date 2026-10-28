@@ -20,7 +20,7 @@ import { figureSvg, figureFor, columnSvg } from './unitIcons.js';
 const FIG = 22; // figure size in pixels
 
 // What each kind of figure sounds like on the move (anything else marches on foot).
-const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cw-cavalry': 'hooves', cuirassier: 'hooves', hussar: 'hooves', cossack: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft', knight: 'hooves', 'horse-archer': 'hooves', 'cavalry-1914': 'hooves', 'ww1-tank': 'engines' };
+const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cw-cavalry': 'hooves', cuirassier: 'hooves', hussar: 'hooves', cossack: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft', knight: 'hooves', 'horse-archer': 'hooves', 'cavalry-1914': 'hooves', 'ww1-tank': 'engines', aircraft: 'aircraft', helicopter: 'aircraft', truck: 'engines', apc: 'engines' };
 const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'], 'army-cw': ['feet', 'hooves'], 'army-napoleonic': ['feet', 'hooves'], crusaders: ['feet', 'hooves'] };
 
 export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera }) {
@@ -203,7 +203,7 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
   // The kind of fighting, for the battle sounds.
   function era() {
     const types = new Set([...units.map((u) => u.type), ...tracks.map((tr) => tr.track.type ?? figureFor(tr.track, scene))]);
-    if (['soldier', 'tank', 'para', 'tommy', 'pickelhaube', 'poilu', 'cavalry-1914', 'gun-1914', 'ww1-tank'].some((x) => types.has(x))) return 'modern';
+    if (['soldier', 'tank', 'para', 'tommy', 'pickelhaube', 'poilu', 'cavalry-1914', 'gun-1914', 'ww1-tank', 'aircraft', 'helicopter', 'truck', 'apc'].some((x) => types.has(x))) return 'modern';
     if (['line-infantry', 'rifleman', 'dragoon', 'cannon', 'army-musket', 'union', 'confederate', 'cw-cavalry', 'cw-gun', 'army-cw', 'fusilier', 'cuirassier', 'hussar', 'cossack', 'field-gun', 'army-napoleonic'].some((x) => types.has(x))) return 'musket';
     if (['conquistador', 'conquistadors', 'mexica', 'canoe'].some((x) => types.has(x))) return 'conquest';
     if (types.size && [...types].every((x) => x === 'marcher' || x === 'marchers')) return 'civil';

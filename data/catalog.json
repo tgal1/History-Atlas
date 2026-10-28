@@ -70,6 +70,13 @@
       "subtitle": "1914–1918, and the peace of 1919",
       "blurb": "Sarajevo, the Marne, Gallipoli, Verdun and the Somme, revolution in Russia, the Hundred Days and the new map of Europe.",
       "status": "ready"
+    },
+    {
+      "id": "cold-war",
+      "title": "The Cold War",
+      "subtitle": "1945–1991",
+      "blurb": "The Iron Curtain, the Berlin Airlift, Korea, Cuba and Vietnam, proxy wars from Angola to Afghanistan, and the fall of the Wall.",
+      "status": "ready"
     }
   ],
   "cities": [
@@ -115,6 +122,15 @@
       "at": "1150",
       "when": "Shown in 1150",
       "blurb": "The walled city under crusader rule: the Holy Sepulchre, the Dome of the Rock as the Templum Domini, the Templars on the Temple Mount, and the sieges of 1099 and 1187."
+    },
+    {
+      "id": "berlin",
+      "name": "Berlin",
+      "story": "cold-war",
+      "at": "1975-06-01",
+      "when": "Shown in 1975",
+      "blurb": "The four sectors, the Airlift's Tempelhof, the Wall and its death strip, Checkpoint Charlie and the Brandenburg Gate, 1945–1990.",
+      "threeD": false
     }
   ]
 }

@@ -1,5 +1,5 @@
 // Little side-on figures for scene units: soldiers, riders, elephants,
-// canoes, ships, tanks. Each is drawn facing right in a 32 x 32 box, filled
+// canoes, ships, tanks, aircraft. Each is drawn facing right in a 32 x 32 box, filled
 // with the faction colour (currentColor) and outlined in dark ink; the scene
 // player mirrors them when a unit heads west.
 //
@@ -78,6 +78,27 @@ const FIGURES = {
     <path d="M21 12h10" stroke="#1d1a16" stroke-width="2"/>`,
   para: `<path d="M4 12C4 3 28 3 28 12z" fill="#e9e4d6" ${INK}/><path d="M4 12l11 9M28 12l-11 9M16 12v8" fill="none" stroke="#555" stroke-width="0.8"/>
     <path d="M13.5 19h5l0.6 6h-6.2z" fill="currentColor" ${INK}/>${head(16, 17.5, 2)}<path d="M15 25l-1 4M17 25l1 4" fill="none" ${INK}/>`,
+  // Four-engine transport aircraft (C-54 Skymaster, Avro York) seen from the side.
+  aircraft: `<path d="M2.5 15L1.5 6.5h3l4.5 6z" fill="currentColor" ${INK}/>
+    <path d="M3 15c0-2 2-3 5-3h15c3 0 6 1.5 7 3.5-1 1.5-4 2.5-7 2.5H8c-3 0-5-1-5-3z" fill="currentColor" ${INK}/>
+    <path d="M11.5 16.5h10l-4 4.5h-3z" fill="#3d3a35" ${INK}/>
+    ${[11, 14, 17, 20].map((x) => `<circle cx="${x}" cy="14" r="0.8" fill="#f4f1e8"/>`).join('')}
+    <path d="M25 13.2h2.8l1 1.6h-3.8z" fill="#cfe3f0"/>`,
+  // Utility helicopter (UH-1 Huey): rotor, tail boom, skids.
+  helicopter: `<path d="M3 8h26M17 8v3" fill="none" stroke="#1d1a16" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M10 15H2" stroke="#1d1a16" stroke-width="2.2" stroke-linecap="round"/><circle cx="2.5" cy="13.5" r="2.2" fill="none" stroke="#555" stroke-width="0.9"/>
+    <path d="M9 15c0-2.5 2.5-4.5 6.5-4.5h6c3.5 0 6.5 2 6.5 5s-2.5 4.5-6 4.5h-9c-2.5 0-4-2-4-5z" fill="currentColor" ${INK}/>
+    <path d="M22 12h2.5c1.4 0 2.6 1.3 2.8 3h-5.3z" fill="#cfe3f0"/>
+    <path d="M11 25h16M14 20v5M23 20v5" fill="none" ${INK}/>`,
+  // Supply truck with a canvas load.
+  truck: `<path d="M3 11h17v11H3z" fill="currentColor" ${INK}/><path d="M3 14.5h17" stroke="#1d1a16" stroke-width="0.8"/>
+    <path d="M20 14h6l3.5 4.5V23H20z" fill="#4e4a42" ${INK}/><path d="M22 15.5h3.5l2.2 3H22z" fill="#cfe3f0"/>
+    ${[8, 15, 25].map((x) => `<circle cx="${x}" cy="24" r="2.7" fill="#2b2b2b" ${INK}/>`).join('')}`,
+  // Armoured personnel carrier (M113 and the like).
+  apc: `<rect x="3" y="21" width="26" height="6.5" rx="3.2" fill="#3d3a35" ${INK}/>
+    ${[7, 12, 17, 22, 26].map((x) => `<circle cx="${x}" cy="24.2" r="1.5" fill="#77716a"/>`).join('')}
+    <path d="M4 21v-7l3-4h14l7 5v6z" fill="currentColor" ${INK}/>
+    <path d="M13 10V7.5h7" fill="none" stroke="#1d1a16" stroke-width="1.4"/>`,
   // Civil rights marcher with a banner.
   marcher: `${legs(14)}<path d="M19 28V3" fill="none" stroke="#5b3b22" stroke-width="1.4"/>
     <path d="M19 3h10v7H19z" fill="#f4f1e8" ${INK}/>
@@ -235,6 +256,10 @@ export function figureFor(item, scene) {
   const l = (item.label ?? '').toLowerCase();
   if (/canoe/.test(l)) return 'canoe';
   if (/brigantine|fleet|ships?\b|galley|navy/.test(l)) return 'ship';
+  if (/helicopter|huey/.test(l)) return 'helicopter';
+  if (/aircraft|airlift|plane|c-54|dakota|skymaster|york/.test(l)) return 'aircraft';
+  if (/truck|convoy/.test(l)) return 'truck';
+  if (/apc|personnel carrier|m113/.test(l)) return 'apc';
   if (/panzer|armou?r|tank/.test(l)) return 'tank';
   if (/airborne|parachut/.test(l)) return 'para';
   if (/elephant/.test(l)) return 'elephant';
@@ -249,7 +274,7 @@ export function figureFor(item, scene) {
 
 // A marching column for track heads: several figures of the kind.
 export function columnSvg(type, size) {
-  if (type === 'ship' || type === 'canoe') return figureSvg(type, size * 1.3);
+  if (type === 'ship' || type === 'canoe' || type === 'aircraft' || type === 'helicopter') return figureSvg(type, size * 1.3);
   if (type === 'army-elephants') return `${figureSvg('elephant', size * 1.15)}${figureSvg('spear', size)}${figureSvg('cavalry', size)}`;
   if (type === 'army') return `${figureSvg('cavalry', size)}${figureSvg('legionary', size)}${figureSvg('legionary', size)}`;
   if (type === 'conquistadors') return `${figureSvg('cavalry', size)}${figureSvg('conquistador', size)}${figureSvg('mexica', size)}`;
