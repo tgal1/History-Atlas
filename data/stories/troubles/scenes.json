@@ -1,0 +1,44 @@
+{
+  "pd-march": {
+    "title": "Belfast to Derry march, 1–4 January 1969",
+    "note": "Route and timings are approximate.",
+    "duration": 4,
+    "unitLabel": "Day",
+    "playSeconds": 24,
+    "view": { "bounds": [[54.56, -7.40], [55.05, -5.88]] },
+    "tracks": [
+      {
+        "id": "marchers",
+        "label": "Marchers",
+        "color": "#5aa9ff",
+        "keyframes": [
+          { "t": 0.00, "at": [54.5965, -5.9301] },
+          { "t": 0.45, "at": [54.6700, -6.1000] },
+          { "t": 0.90, "at": [54.7167, -6.2167] },
+          { "t": 1.30, "at": [54.7500, -6.3200] },
+          { "t": 1.70, "at": [54.7550, -6.4600] },
+          { "t": 2.20, "at": [54.8450, -6.6700] },
+          { "t": 2.60, "at": [54.9300, -6.9000] },
+          { "t": 2.95, "at": [54.9100, -7.1520] },
+          { "t": 3.30, "at": [54.9580, -7.1990] },
+          { "t": 3.40, "at": [54.9580, -7.1990] },
+          { "t": 3.80, "at": [54.9967, -7.3197] }
+        ]
+      }
+    ],
+    "markers": [
+      { "t": 0.00, "at": [54.5965, -5.9301], "label": "Belfast City Hall", "color": "#9fb3c8" },
+      { "t": 2.95, "at": [54.9100, -7.1520], "label": "Claudy", "color": "#9fb3c8" },
+      { "t": 3.30, "at": [54.9580, -7.1990], "label": "Burntollet ambush", "color": "#ff5252", "pulse": true },
+      { "t": 3.80, "at": [54.9967, -7.3197], "label": "Guildhall Square, Derry", "color": "#9fb3c8" }
+    ],
+    "captions": [
+      { "t": 0.00, "text": "1 January: about 40 students from People's Democracy set off from Belfast City Hall." },
+      { "t": 0.80, "text": "Loyalist counter-protesters and police block the road at Antrim. The march is re-routed again and again." },
+      { "t": 1.60, "text": "Numbers grow to a few hundred as the march crosses into Co. Londonderry." },
+      { "t": 2.90, "text": "3 January: the marchers rest at Claudy. Loyalists gather stones and clubs on the hills ahead." },
+      { "t": 3.30, "text": "4 January: at Burntollet Bridge about 200 loyalists, some of them off-duty B-Specials, attack. Police largely stand by." },
+      { "t": 3.60, "text": "Bloodied marchers struggle on into Derry. Rioting follows that night." }
+    ]
+  }
+}

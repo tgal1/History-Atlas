@@ -1,0 +1,310 @@
+{
+  "id": "rome",
+  "title": "Rise and fall of Rome",
+  "subtitle": "753 BC – AD 476",
+  "range": {
+    "start": "-752-01-01",
+    "end": "476-12-31"
+  },
+  "overview": {
+    "bounds": [
+      [
+        24,
+        -10
+      ],
+      [
+        57,
+        47
+      ]
+    ]
+  },
+  "minZoom": 3,
+  "basemap": "esri-relief",
+  "clockPrecision": "year",
+  "calendar": {
+    "ad": true
+  },
+  "landMask": {
+    "bbox": [
+      -12,
+      22,
+      50,
+      58
+    ]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "From one hill town to half the known world",
+    "body": [
+      "Legend says Rome was founded in 753 BC by Romulus. For centuries it was one small city among many in central Italy, first under kings, then as a republic run by elected magistrates and an aristocratic Senate.",
+      "Over 500 years it conquered Italy, then Carthage, Greece, Gaul and Egypt. The Republic tore itself apart in civil wars, and Augustus turned it into an empire ruled by one man. At its height under Trajan, the empire stretched from Scotland to the Persian Gulf.",
+      "Then came crisis, recovery, division into East and West, and the slow loss of the western provinces to Germanic peoples. In AD 476 the last western emperor was deposed. The eastern half carried on for almost another thousand years."
+    ],
+    "tips": [
+      "Press play and watch the red spread across the map, century by century.",
+      "From AD 395 the empire splits: red is the West, wine-red the East. Watch the West break up into barbarian kingdoms.",
+      "The Siege of Alesia has an animated close-up. For Cannae and Hannibal, follow the link to the Rome v Carthage story."
+    ]
+  },
+  "categories": {
+    "battle": {
+      "label": "Battle",
+      "color": "#e8603c"
+    },
+    "siege": {
+      "label": "Siege or sack",
+      "color": "#c98a12"
+    },
+    "politics": {
+      "label": "Politics and power",
+      "color": "#8b5fd1"
+    },
+    "people": {
+      "label": "Rulers and turning points",
+      "color": "#2f9e6f"
+    },
+    "culture": {
+      "label": "City and society",
+      "color": "#2f86d6"
+    }
+  },
+  "factions": {
+    "rome": {
+      "label": "Rome",
+      "short": "Rome",
+      "color": "#c8372d"
+    },
+    "rome-west": {
+      "label": "Western Roman Empire",
+      "short": "Western Rome",
+      "color": "#d9503f"
+    },
+    "rome-east": {
+      "label": "Eastern Roman Empire",
+      "short": "Eastern Rome",
+      "color": "#9c2f6a"
+    },
+    "carthage": {
+      "label": "Carthage",
+      "short": "Carthage",
+      "color": "#6d3fb8"
+    },
+    "parthia": {
+      "label": "Parthia, then Sasanian Persia",
+      "short": "Persia",
+      "color": "#c98a12"
+    },
+    "gallic": {
+      "label": "Gallic Empire (breakaway)",
+      "short": "Gallic Empire",
+      "color": "#7a8f3a"
+    },
+    "palmyra": {
+      "label": "Palmyrene Empire (breakaway)",
+      "short": "Palmyra",
+      "color": "#2f9e8f"
+    },
+    "barbarian": {
+      "label": "Germanic and Hunnic peoples",
+      "short": "Barbarians",
+      "color": "#5f6675"
+    },
+    "gauls": {
+      "label": "Gauls",
+      "short": "Gauls",
+      "color": "#3f7fa6"
+    }
+  },
+  "eras": [
+    {
+      "start": "-752-01-01",
+      "end": "-508-01-01",
+      "title": "The kings",
+      "text": "Seven legendary kings rule a small city by the Tiber, under strong Etruscan influence."
+    },
+    {
+      "start": "-508-01-01",
+      "end": "-263-01-01",
+      "title": "The Republic conquers Italy",
+      "text": "Rome expels its last king, survives a Gallic sack, and fights Latins, Samnites, Etruscans and Pyrrhus until it rules Italy."
+    },
+    {
+      "start": "-263-01-01",
+      "end": "-132-01-01",
+      "title": "Mediterranean empire",
+      "text": "Three wars with Carthage and wars against the Greek kingdoms make Rome master of the Mediterranean."
+    },
+    {
+      "start": "-132-01-01",
+      "end": "-26-01-01",
+      "title": "Fall of the Republic",
+      "text": "Reformers murdered, generals with private armies, civil wars. Caesar wins, is killed, and his heir takes everything."
+    },
+    {
+      "start": "-26-01-01",
+      "end": "180-03-17",
+      "title": "Pax Romana",
+      "text": "Two centuries of relative peace under the emperors. The empire reaches its greatest size under Trajan."
+    },
+    {
+      "start": "180-03-17",
+      "end": "284-11-20",
+      "title": "Crisis",
+      "text": "Civil wars, plague, invasions and breakaway empires. Over 20 emperors in 50 years."
+    },
+    {
+      "start": "284-11-20",
+      "end": "395-01-17",
+      "title": "The late empire",
+      "text": "Diocletian and Constantine rebuild the state. Christianity rises and a new capital is founded at Constantinople."
+    },
+    {
+      "start": "395-01-17",
+      "end": "476-12-31",
+      "title": "Fall of the West",
+      "text": "The empire divides for good. Goths, Vandals and Huns carve up the West until its last emperor is deposed."
+    }
+  ],
+  "mapLabels": [
+    {
+      "text": "Roma",
+      "at": [
+        41.9,
+        12.5
+      ]
+    },
+    {
+      "text": "Carthago",
+      "at": [
+        36.85,
+        10.32
+      ],
+      "to": "-145"
+    },
+    {
+      "text": "Carthago",
+      "at": [
+        36.85,
+        10.32
+      ],
+      "from": "-28",
+      "minZoom": 5
+    },
+    {
+      "text": "Alexandria",
+      "at": [
+        31.2,
+        29.92
+      ],
+      "from": "-330",
+      "minZoom": 4
+    },
+    {
+      "text": "Antiochia",
+      "at": [
+        36.2,
+        36.16
+      ],
+      "from": "-299",
+      "minZoom": 5
+    },
+    {
+      "text": "Athenae",
+      "at": [
+        37.98,
+        23.73
+      ],
+      "minZoom": 5
+    },
+    {
+      "text": "Byzantium",
+      "at": [
+        41.01,
+        28.98
+      ],
+      "minZoom": 5,
+      "to": "330-05-11"
+    },
+    {
+      "text": "Constantinopolis",
+      "at": [
+        41.01,
+        28.98
+      ],
+      "from": "330-05-11"
+    },
+    {
+      "text": "Lugdunum",
+      "at": [
+        45.76,
+        4.83
+      ],
+      "from": "-42",
+      "minZoom": 5
+    },
+    {
+      "text": "Londinium",
+      "at": [
+        51.51,
+        -0.12
+      ],
+      "from": "47",
+      "minZoom": 5
+    },
+    {
+      "text": "Mediolanum",
+      "at": [
+        45.46,
+        9.19
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Ravenna",
+      "at": [
+        44.42,
+        12.2
+      ],
+      "from": "402",
+      "minZoom": 5
+    },
+    {
+      "text": "Jerusalem",
+      "at": [
+        31.78,
+        35.23
+      ],
+      "minZoom": 6
+    }
+  ],
+  "ask": {
+    "persona": "a vivid, careful historian of ancient Rome who explains its rise and fall to a curious listener. You point out when stories are legend rather than history, when numbers are ancient estimates, and when historians disagree, for example about why the western empire fell",
+    "defaultQuestions": [
+      "Is this history or legend?",
+      "Why did this matter for Rome's rise or fall?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Livy, History of Rome",
+      "url": "https://en.wikisource.org/wiki/From_the_Founding_of_the_City"
+    },
+    {
+      "label": "Tacitus, Annals",
+      "url": "https://en.wikisource.org/wiki/The_Annals_(Tacitus)"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/Ancient_Rome"
+    }
+  ],
+  "cities": [
+    "rome",
+    "carthage"
+  ]
+}

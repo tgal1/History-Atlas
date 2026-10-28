@@ -1,0 +1,247 @@
+{
+  "id": "ww2-europe",
+  "title": "The Second World War in Europe",
+  "subtitle": "1939–1945",
+  "range": {
+    "start": "1939-08-25",
+    "end": "1945-05-10"
+  },
+  "overview": {
+    "bounds": [
+      [
+        33.0,
+        -10.0
+      ],
+      [
+        66.0,
+        46.0
+      ]
+    ]
+  },
+  "minZoom": 3,
+  "basemap": "esri-light",
+  "landMask": {
+    "bbox": [
+      -12,
+      29,
+      51,
+      72
+    ]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "Six years that remade Europe",
+    "body": [
+      "In August 1939 Hitler's Germany had already swallowed Austria and Czechoslovakia. A secret pact with Stalin's Soviet Union divided eastern Europe between them. On 1 September German armies invaded Poland, and Britain and France declared war.",
+      "Within two years Germany and its allies ruled from the Atlantic to the gates of Moscow. Then the tide turned: in the snows outside Moscow, at Stalingrad, in the deserts of North Africa, and finally on the beaches of Normandy.",
+      "Behind the front lines Nazi Germany murdered six million Jews and millions of others. By May 1945, when Germany surrendered, tens of millions of Europeans were dead, more than half of them civilians."
+    ],
+    "tips": [
+      "Press play to watch the war month by month. The map flies to each turning point.",
+      "Dark grey is Germany, lighter grey the lands it occupied, green Fascist Italy, olive Germany's allies. Blue is Britain and its allies, red the Soviet Union.",
+      "Four animated close-ups: the Fall of France, Operation Barbarossa, the encirclement at Stalingrad, and D-Day."
+    ]
+  },
+  "categories": {
+    "invasion": {
+      "label": "Axis attacks",
+      "color": "#4a4f5c"
+    },
+    "battle": {
+      "label": "Battles",
+      "color": "#e8603c"
+    },
+    "liberation": {
+      "label": "Allied landings and liberations",
+      "color": "#2f6fd0"
+    },
+    "holocaust": {
+      "label": "The Holocaust",
+      "color": "#7a1f1f"
+    },
+    "bombing": {
+      "label": "Bombing of cities",
+      "color": "#c98a12"
+    },
+    "politics": {
+      "label": "Politics and diplomacy",
+      "color": "#8b5fd1"
+    }
+  },
+  "factions": {
+    "germany": {
+      "label": "Nazi Germany (and annexed land)",
+      "short": "Germany",
+      "color": "#2f3440",
+      "style": {
+        "fillOpacity": 0.38
+      }
+    },
+    "occupied": {
+      "label": "German-occupied",
+      "short": "Germany",
+      "color": "#6a7182",
+      "style": {
+        "fillOpacity": 0.28
+      }
+    },
+    "italy": {
+      "label": "Fascist Italy",
+      "short": "Italy",
+      "color": "#2e7d5b",
+      "style": {
+        "fillOpacity": 0.3
+      }
+    },
+    "axisally": {
+      "label": "Axis allies and puppet states",
+      "short": "Axis",
+      "color": "#9a8a2a",
+      "style": {
+        "fillOpacity": 0.3
+      }
+    },
+    "vichy": {
+      "label": "Vichy France",
+      "short": "Vichy France",
+      "color": "#8a5fb0",
+      "style": {
+        "fillOpacity": 0.28
+      }
+    },
+    "western": {
+      "label": "Britain, France and Western Allies",
+      "short": "Western Allies",
+      "color": "#2f6fd0",
+      "style": {
+        "fillOpacity": 0.25
+      }
+    },
+    "soviet": {
+      "label": "Soviet Union",
+      "short": "Soviet Union",
+      "color": "#c8372d",
+      "style": {
+        "fillOpacity": 0.25
+      }
+    },
+    "resistance": {
+      "label": "Liberated by partisans",
+      "short": "Partisans",
+      "color": "#d9783b",
+      "style": {
+        "fillOpacity": 0.28
+      }
+    },
+    "neutral": {
+      "label": "Neutral",
+      "short": "Neutral",
+      "color": "#b8a56e",
+      "style": {
+        "fillOpacity": 0.12,
+        "dashArray": null,
+        "weight": 0.8
+      }
+    }
+  },
+  "eras": [
+    {
+      "start": "1939-08-25",
+      "end": "1940-04-09",
+      "title": "Poland and the Phoney War",
+      "text": "Germany and the Soviet Union carve up Poland. In the west, almost nothing happens for months."
+    },
+    {
+      "start": "1940-04-09",
+      "end": "1941-06-22",
+      "title": "Blitzkrieg",
+      "text": "Germany conquers Scandinavia, the Low Countries and France in weeks. Britain fights on alone, and the war spreads to the Balkans and North Africa."
+    },
+    {
+      "start": "1941-06-22",
+      "end": "1942-11-19",
+      "title": "The war in the East",
+      "text": "Germany invades the Soviet Union. The largest land war in history, and the start of the systematic murder of Europe's Jews."
+    },
+    {
+      "start": "1942-11-19",
+      "end": "1944-06-06",
+      "title": "The tide turns",
+      "text": "Stalingrad, El Alamein, Kursk. The Allies clear North Africa and invade Italy; the Red Army drives west."
+    },
+    {
+      "start": "1944-06-06",
+      "end": "1945-05-10",
+      "title": "Liberation and defeat",
+      "text": "D-Day and the Soviet summer offensive. Allied armies close in on Germany from east and west until Berlin falls."
+    }
+  ],
+  "mapLabels": [
+    {
+      "text": "Leningrad",
+      "at": [
+        59.94,
+        30.31
+      ],
+      "minZoom": 5
+    },
+    {
+      "text": "Stalingrad",
+      "at": [
+        48.71,
+        44.51
+      ],
+      "minZoom": 5
+    },
+    {
+      "text": "Königsberg",
+      "at": [
+        54.71,
+        20.51
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Danzig",
+      "at": [
+        54.35,
+        18.65
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Breslau",
+      "at": [
+        51.11,
+        17.03
+      ],
+      "minZoom": 6
+    }
+  ],
+  "ask": {
+    "persona": "a careful, humane historian of the Second World War in Europe who explains it to a curious listener. You give the Eastern Front its full weight, treat the Holocaust and civilian suffering with seriousness and accuracy, and say when numbers are estimates",
+    "defaultQuestions": [
+      "Why did this matter for the outcome of the war?",
+      "What was it like for the people there?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war"
+    },
+    {
+      "label": "United States Holocaust Memorial Museum",
+      "url": "https://encyclopedia.ushmm.org/"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/World_War_II"
+    }
+  ]
+}

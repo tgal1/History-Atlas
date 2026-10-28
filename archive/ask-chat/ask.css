@@ -1,0 +1,47 @@
+/* Styles for the archived Ask chat. Paste back into css/panel.css to restore. */
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.q-chip {
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 13px; text-align: left;
+}
+.q-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+
+/* ---------- Ask ---------- */
+#panel-ask { display: flex; flex-direction: column; padding-bottom: 14px; }
+.ask { display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
+.ask-context { font-size: 13px; color: var(--muted); }
+.ask-context strong { color: var(--text); }
+.ask-log { flex: 1; min-height: 120px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 4px 0; }
+.hint { color: var(--muted); font-size: 13px; margin: 0; }
+.bubble { max-width: 92%; padding: 10px 12px; border-radius: 10px; font-size: 14px; }
+.bubble p { margin: 0 0 8px; }
+.bubble p:last-child { margin: 0; }
+.bubble.user { align-self: flex-end; background: var(--accent); color: var(--accent-ink); }
+.bubble.guide { align-self: flex-start; background: var(--surface-2); }
+.bubble .error { color: var(--danger); }
+.typing { display: inline-flex; gap: 4px; }
+.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: blink 1s infinite; }
+.typing i:nth-child(2) { animation-delay: 0.15s; }
+.typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes blink { 50% { opacity: 0.2; } }
+
+.ask-form { display: flex; gap: 8px; align-items: flex-end; }
+.ask-form textarea {
+  flex: 1; resize: none;
+  font: inherit; color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.ask-settings { font-size: 13px; }
+.ask-settings summary { cursor: pointer; color: var(--muted); }
+.ask-settings label { display: grid; gap: 4px; margin-top: 8px; color: var(--muted); }
+.ask-settings input { font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; }
+.ask-settings .row { display: flex; gap: 8px; margin-top: 8px; }
+

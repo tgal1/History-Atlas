@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History Atlas</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/panel.css">
+  <link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+  <div id="map" aria-label="Map"></div>
+
+  <!-- Story title and current chapter -->
+  <header class="hud">
+    <div class="hud-top">
+      <span class="brand">History Atlas</span>
+      <select id="story-picker" aria-label="Choose a story"></select>
+    </div>
+    <h1 id="story-title"></h1>
+    <p id="story-subtitle" class="hud-sub"></p>
+    <div class="hud-era">
+      <span class="eyebrow">Chapter</span>
+      <strong id="era-title"></strong>
+      <p id="era-text"></p>
+    </div>
+  </header>
+
+  <aside id="legend" class="legend"></aside>
+  <button id="city-chip" class="city-chip" hidden></button>
+  <!-- Blend the drawn city plan with modern satellite imagery -->
+  <div id="then-now" class="then-now" hidden>
+    <span>Then</span>
+    <input type="range" min="0" max="100" value="0" aria-label="Blend the ancient plan with today's satellite view">
+    <span>Today</span>
+  </div>
+
+  <!-- Event card, intro and city guide -->
+  <aside id="panel" class="panel">
+    <div class="panel-tabs" role="tablist">
+      <button role="tab" data-tab="event" aria-selected="true">Story</button>
+      <button id="btn-intro" class="tab-link" title="Back to the introduction">Intro</button>
+      <button id="panel-close" class="icon-btn" aria-label="Show or hide panel">&#8250;</button>
+    </div>
+    <div id="panel-event" class="panel-body"></div>
+  </aside>
+
+  <!-- Scene (animated close-up) controls -->
+  <section id="scene-bar" class="scene-bar" hidden></section>
+
+  <!-- Timeline -->
+  <footer class="timeline">
+    <div class="tl-controls">
+      <button id="btn-prev" class="icon-btn" aria-label="Previous event" title="Previous event (←)">&#9664;&#9664;</button>
+      <button id="btn-play" class="play-btn" aria-label="Play" title="Play / pause (space)">&#9654;</button>
+      <button id="btn-next" class="icon-btn" aria-label="Next event" title="Next event (→)">&#9654;&#9654;</button>
+      <div class="tl-date-wrap">
+        <span id="tl-date" class="tl-date"></span>
+      </div>
+      <div class="tl-options">
+        <label class="toggle"><input id="tour-mode" type="checkbox" checked> Stop at events</label>
+        <select id="speed" aria-label="Tour speed">
+          <option value="relaxed">Relaxed</option>
+          <option value="normal" selected>Normal</option>
+          <option value="fast">Fast</option>
+        </select>
+      </div>
+    </div>
+    <div id="tl-track" class="tl-track" role="slider" aria-label="Timeline"></div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

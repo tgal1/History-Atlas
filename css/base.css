@@ -1,0 +1,125 @@
+/* Tokens, page layout, shared controls, HUD. */
+
+:root {
+  /* Slate rather than near-black: softer, and lets map colours breathe. */
+  --bg: #1f2633;
+  --surface: #263041;
+  --surface-2: #303b4f;
+  --surface-3: #3b475d;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f3efe6;
+  --muted: #b3bcc8;
+  --accent: #f0c75e;
+  --accent-ink: #231b05;
+  --danger: #ff7b7b;
+
+  --panel-w: 400px;
+  --tl-h: 128px;
+  --radius: 10px;
+  --shadow: 0 8px 24px rgba(10, 14, 22, 0.35);
+
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--accent); }
+h1, h2, h3 { margin: 0; font-weight: 600; }
+
+/* Map fills the space not taken by the panel and timeline. */
+#map {
+  position: fixed;
+  inset: 0 var(--panel-w) var(--tl-h) 0;
+  background: #6a7587;
+  transition: right 0.3s ease;
+}
+body.panel-closed #map { right: 0; }
+
+/* ---------- Buttons ---------- */
+button { font: inherit; color: inherit; cursor: pointer; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.btn:hover:not(:disabled) { background: var(--surface-3); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:disabled { opacity: 0.4; cursor: default; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 600; }
+.btn.primary:hover { background: #f2d488; }
+.btn.ghost { background: transparent; }
+
+.icon-btn {
+  display: inline-grid; place-items: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  font-size: 11px;
+  letter-spacing: -2px;
+}
+.icon-btn:hover { background: var(--surface-3); }
+
+select {
+  font: inherit; color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.toggle { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; cursor: pointer; user-select: none; }
+.toggle input { accent-color: var(--accent); }
+
+.eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.fine { font-size: 12px; color: var(--muted); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- HUD (top-left) ---------- */
+.hud {
+  position: fixed; top: 16px; left: 16px; z-index: 900;
+  width: min(340px, calc(100vw - var(--panel-w) - 80px));
+  padding: 14px 16px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.hud-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.brand { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.hud-top select { font-size: 12px; padding: 3px 6px; max-width: 170px; }
+.hud h1 { font-family: var(--font-display); font-size: 28px; line-height: 1.1; font-weight: 700; }
+.hud-sub { margin: 2px 0 12px; color: var(--muted); }
+.hud-era { border-top: 1px solid var(--line); padding-top: 10px; }
+.hud-era strong { display: block; font-family: var(--font-display); font-size: 17px; margin-top: 2px; }
+.hud-era p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+/* ---------- Errors ---------- */
+.fatal {
+  position: fixed; inset: 0; z-index: 2000;
+  display: grid; place-content: center; text-align: center; gap: 4px;
+  background: var(--bg); padding: 24px;
+}
+
+/* ---------- Small screens: panel becomes a bottom sheet ---------- */
+@media (max-width: 760px) {
+  :root { --panel-w: 0px; --tl-h: 118px; }
+  .hud { width: calc(100vw - 32px); padding: 10px 12px; }
+  .hud h1 { font-size: 20px; }
+  .hud-era, .hud-sub { display: none; }
+}

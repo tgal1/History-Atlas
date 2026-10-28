@@ -1,0 +1,9 @@
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+
+# Python cache from tools/serve.py
+__pycache__/

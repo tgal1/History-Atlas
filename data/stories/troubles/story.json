@@ -1,0 +1,190 @@
+{
+  "id": "troubles",
+  "title": "The Troubles",
+  "subtitle": "Northern Ireland, 1966–1998",
+  "range": {
+    "start": "1966-01-01",
+    "end": "1998-12-31"
+  },
+  "overview": {
+    "center": [
+      54.35,
+      -7.3
+    ],
+    "zoom": 7.25,
+    "bounds": [
+      [
+        52.2,
+        -9.6
+      ],
+      [
+        55.35,
+        -5.3
+      ]
+    ]
+  },
+  "minZoom": 5,
+  "basemap": "esri-dark",
+  "landMask": {
+    "bbox": [
+      -11,
+      51,
+      -5,
+      56
+    ]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "Before you press play",
+    "body": [
+      "In 1921 Ireland was partitioned. Six north-eastern counties became Northern Ireland, part of the United Kingdom with its own parliament at Stormont. The rest became the Irish Free State, later the Republic of Ireland.",
+      "Northern Ireland's Protestant majority were mostly unionists who wanted to stay British. Its Catholic minority, about a third of the population, were mostly nationalists, many of whom wanted a united Ireland.",
+      "Fifty years of one-party unionist rule left Catholics facing discrimination in jobs, housing and voting. The Troubles began when a civil rights campaign collided with that system. Over 30 years, about 3,500 people were killed."
+    ],
+    "tips": [
+      "Press play for a guided tour. The map flies to each event and back out.",
+      "Drag the timeline to scrub through time. Click any dot or tick to jump to it.",
+      "Watch the shaded areas: they show who controls the ground at that moment."
+    ]
+  },
+  "categories": {
+    "protest": {
+      "label": "Protest & civil rights",
+      "color": "#5aa9ff"
+    },
+    "violence": {
+      "label": "Attack / killing",
+      "color": "#ff5252"
+    },
+    "security": {
+      "label": "Army, police & prisons",
+      "color": "#d4b13f"
+    },
+    "politics": {
+      "label": "Politics",
+      "color": "#b48cff"
+    },
+    "peace": {
+      "label": "Peace process",
+      "color": "#4cd18a"
+    }
+  },
+  "factions": {
+    "uk": {
+      "label": "Northern Ireland (UK)",
+      "color": "#6f8fc9"
+    },
+    "nogo": {
+      "label": "Republican 'no-go' area",
+      "color": "#ff9f1c"
+    }
+  },
+  "eras": [
+    {
+      "start": "1966-01-01",
+      "end": "1969-08-12",
+      "title": "Civil rights",
+      "text": "Catholics march for equal votes, homes and jobs. The marches meet police batons and loyalist counter-protests."
+    },
+    {
+      "start": "1969-08-12",
+      "end": "1972-03-30",
+      "title": "Descent",
+      "text": "Riots, British troops on the streets, the IRA splits, and internment without trial."
+    },
+    {
+      "start": "1972-03-30",
+      "end": "1976-03-01",
+      "title": "The worst years",
+      "text": "London rules directly. 1972 is the deadliest year of the conflict. Power-sharing is tried and collapses."
+    },
+    {
+      "start": "1976-03-01",
+      "end": "1981-10-03",
+      "title": "Prison war",
+      "text": "Britain treats paramilitary prisoners as ordinary criminals. The prisons become the frontline, ending in the hunger strikes."
+    },
+    {
+      "start": "1981-10-03",
+      "end": "1993-12-15",
+      "title": "Ballot box and Armalite",
+      "text": "Sinn Féin enters elections while the IRA campaign goes on. London and Dublin start working together over unionist heads."
+    },
+    {
+      "start": "1993-12-15",
+      "end": "1998-12-31",
+      "title": "Peace process",
+      "text": "Ceasefires, a breakdown, and finally the Good Friday Agreement."
+    }
+  ],
+  "intensity": {
+    "label": "Deaths per year",
+    "note": "Approximate, after the CAIN Sutton Index of Deaths (which starts in July 1969).",
+    "values": {
+      "1969": 16,
+      "1970": 26,
+      "1971": 171,
+      "1972": 479,
+      "1973": 253,
+      "1974": 294,
+      "1975": 260,
+      "1976": 295,
+      "1977": 111,
+      "1978": 81,
+      "1979": 121,
+      "1980": 80,
+      "1981": 114,
+      "1982": 111,
+      "1983": 84,
+      "1984": 69,
+      "1985": 57,
+      "1986": 61,
+      "1987": 98,
+      "1988": 104,
+      "1989": 76,
+      "1990": 81,
+      "1991": 96,
+      "1992": 89,
+      "1993": 88,
+      "1994": 64,
+      "1995": 9,
+      "1996": 18,
+      "1997": 22,
+      "1998": 55
+    }
+  },
+  "mapLabels": [
+    {
+      "text": "Free Derry",
+      "at": [
+        54.9945,
+        -7.3365
+      ],
+      "minZoom": 14,
+      "from": "1971-08-09",
+      "to": "1972-07-31"
+    }
+  ],
+  "ask": {
+    "persona": "a warm, even-handed history guide who knows the Troubles in depth and explains them to someone listening to a podcast about them",
+    "defaultQuestions": [
+      "Explain what's happening here like I'm new to this",
+      "How did each community see this?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "CAIN Archive, Ulster University",
+      "url": "https://cain.ulster.ac.uk/"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/"
+    }
+  ]
+}

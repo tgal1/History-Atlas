@@ -1,0 +1,230 @@
+{
+  "id": "punic-wars",
+  "title": "Rome v Carthage",
+  "subtitle": "The Punic Wars, 264–146 BC",
+  "range": {
+    "start": "-263-01-01",
+    "end": "-145-12-31"
+  },
+  "overview": {
+    "bounds": [
+      [
+        32.5,
+        -8.5
+      ],
+      [
+        46.5,
+        19.0
+      ]
+    ]
+  },
+  "minZoom": 4,
+  "basemap": "esri-relief",
+  "clockPrecision": "year",
+  "landMask": {
+    "bbox": [
+      -10,
+      30,
+      25,
+      48
+    ]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "Two superpowers, one sea",
+    "body": [
+      "In 264 BC the western Mediterranean had two great powers. Carthage, a Phoenician city in what is now Tunisia, ruled the sea, much of Sicily, Sardinia and the coast of Spain. Rome had just finished conquering Italy and had almost no navy.",
+      "Over the next 118 years they fought three wars. The first was a 23-year slog for Sicily, won at sea. The second brought Hannibal over the Alps and to within sight of Rome. The third ended with Carthage burned to the ground.",
+      "Almost everything we know comes from the winners' side: the Greek historian Polybius, who lived among the Roman elite, and the Roman writer Livy. Carthage's own histories are lost."
+    ],
+    "tips": [
+      "Press play for a guided tour. The map flies to each battle and back out.",
+      "Watch the coloured areas: red is Rome and its allies, purple is Carthage. Scrub the timeline and see Sicily, Spain and southern Italy change hands.",
+      "Cannae and Hannibal's crossing of the Alps have animated close-ups. Look for the Watch it unfold button."
+    ]
+  },
+  "categories": {
+    "battle": {
+      "label": "Land battle",
+      "color": "#e8603c"
+    },
+    "naval": {
+      "label": "Sea battle",
+      "color": "#2f86d6"
+    },
+    "siege": {
+      "label": "Siege or sack",
+      "color": "#c98a12"
+    },
+    "campaign": {
+      "label": "Campaigns and leaders",
+      "color": "#2f9e6f"
+    },
+    "politics": {
+      "label": "Treaties and politics",
+      "color": "#8b5fd1"
+    }
+  },
+  "factions": {
+    "rome": {
+      "label": "Rome and its allies",
+      "short": "Rome",
+      "color": "#c8372d"
+    },
+    "carthage": {
+      "label": "Carthage",
+      "short": "Carthage",
+      "color": "#6d3fb8"
+    },
+    "syracuse": {
+      "label": "Syracuse",
+      "short": "Syracuse",
+      "color": "#d89a1e"
+    },
+    "numidia": {
+      "label": "Numidia (Roman ally)",
+      "short": "Numidia",
+      "color": "#2f8f76"
+    },
+    "gauls": {
+      "label": "Gallic tribes",
+      "short": "Gauls",
+      "color": "#7d7a5c"
+    }
+  },
+  "eras": [
+    {
+      "start": "-263-01-01",
+      "end": "-240-03-10",
+      "title": "First Punic War",
+      "text": "A quarrel over the Sicilian city of Messana becomes a 23-year war. Rome builds its first navy and wins it at sea."
+    },
+    {
+      "start": "-240-03-10",
+      "end": "-217-04-01",
+      "title": "Uneasy peace",
+      "text": "Carthage loses Sicily, then Sardinia. The Barca family builds a new empire in Spain, and Hannibal grows up."
+    },
+    {
+      "start": "-217-04-01",
+      "end": "-200-01-01",
+      "title": "Second Punic War",
+      "text": "Hannibal crosses the Alps and wins three crushing victories in Italy. Rome refuses to give in, and Scipio takes the war to Africa."
+    },
+    {
+      "start": "-200-01-01",
+      "end": "-148-01-01",
+      "title": "Carthage in Rome's shadow",
+      "text": "Carthage is disarmed but prospers again. Rome conquers the east, and some senators want Carthage gone for good."
+    },
+    {
+      "start": "-148-01-01",
+      "end": "-145-12-31",
+      "title": "Third Punic War",
+      "text": "A three-year siege, and the end of Carthage."
+    }
+  ],
+  "mapLabels": [
+    {
+      "text": "Roma",
+      "at": [
+        41.9,
+        12.5
+      ]
+    },
+    {
+      "text": "Carthago",
+      "at": [
+        36.85,
+        10.32
+      ]
+    },
+    {
+      "text": "Syracusae",
+      "at": [
+        37.07,
+        15.28
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Messana",
+      "at": [
+        38.19,
+        15.55
+      ],
+      "minZoom": 7
+    },
+    {
+      "text": "Massalia",
+      "at": [
+        43.3,
+        5.37
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Gades",
+      "at": [
+        36.53,
+        -6.29
+      ],
+      "minZoom": 6
+    },
+    {
+      "text": "Carthago Nova",
+      "at": [
+        37.6,
+        -0.98
+      ],
+      "minZoom": 6,
+      "from": "-228"
+    },
+    {
+      "text": "Saguntum",
+      "at": [
+        39.68,
+        -0.27
+      ],
+      "minZoom": 7
+    },
+    {
+      "text": "Utica",
+      "at": [
+        37.06,
+        10.06
+      ],
+      "minZoom": 7
+    }
+  ],
+  "ask": {
+    "persona": "a vivid, careful historian of the ancient Mediterranean who explains the wars between Rome and Carthage to a curious listener. You point out when a story comes only from pro-Roman sources such as Polybius and Livy, and when numbers are ancient estimates",
+    "defaultQuestions": [
+      "How do we know this? What are the sources?",
+      "What was Hannibal thinking here?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Polybius, The Histories",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/home.html"
+    },
+    {
+      "label": "Livy, History of Rome",
+      "url": "https://en.wikisource.org/wiki/From_the_Founding_of_the_City"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/Punic_Wars"
+    }
+  ],
+  "cities": [
+    "carthage",
+    "rome"
+  ]
+}

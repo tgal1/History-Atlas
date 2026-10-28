@@ -1,0 +1,201 @@
+/* Everything drawn on the map: dots, pulse, labels, scene units, legend. */
+
+.leaflet-container { font: inherit; }
+.leaflet-control-attribution { background: rgba(31, 38, 51, 0.75) !important; color: var(--muted) !important; font-size: 10px; }
+
+/* ---------- City plans ---------- */
+/* Zoomed into a city, the base map fades so the drawn plan reads clearly. */
+#map.city-zoom .leaflet-tile-pane { opacity: 0.35; }
+#map.city-zoom { background: #ece3cc !important; }
+
+.city-label { pointer-events: none; }
+.city-label span {
+  display: block;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: #3f2f1c;
+  text-shadow: 0 0 3px #fbf6ea, 0 0 6px #fbf6ea;
+}
+.city-label.k-district span, .city-label.k-label span { font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(90, 60, 30, 0.75); font-weight: 500; }
+.city-label.k-lake span, .city-label.k-lake-salt span, .city-label.k-river span, .city-label.k-canal span, .city-label.k-harbour span { color: #2b5a86; font-style: italic; text-shadow: 0 0 3px #e6f0f8; }
+.city-label.k-hill span { color: #55632e; font-style: italic; }
+.city-label.k-town span { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; }
+.city-label.k-temple span, .city-label.k-palace span, .city-label.k-market span, .city-label.k-arena span { font-size: 11px; }
+.city-label.k-bridge span, .city-label.k-gap span { font-size: 10px; font-weight: 500; color: #6a4318; }
+
+.city-chip {
+  position: fixed; z-index: 905; top: 16px;
+  left: calc((100vw - var(--panel-w)) / 2); transform: translateX(-50%);
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+}
+.city-chip strong { color: var(--accent); font-family: var(--font-display); }
+.city-chip:hover { background: var(--surface-2); }
+body.in-scene .city-chip { display: none; }
+
+.then-now {
+  position: fixed; z-index: 905; top: 62px;
+  left: calc((100vw - var(--panel-w)) / 2); transform: translateX(-50%);
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+}
+.then-now input { width: 160px; accent-color: var(--accent); }
+body.in-scene .then-now { display: none; }
+#map.imagery-on .leaflet-tile-pane { opacity: 1; }
+#map.imagery-on .city-label span { color: #fff; text-shadow: 0 0 4px #000, 0 0 8px #000; }
+
+/* Scenes can fade the map back so the troops stand out. */
+body.scene-dim .leaflet-tile-pane { opacity: 0.4; }
+.leaflet-control-attribution a { color: var(--muted) !important; }
+.leaflet-bar a { background: var(--surface-2); color: var(--text); border-color: var(--line) !important; }
+.leaflet-bar a:hover { background: var(--surface-3); }
+
+/* Event tooltips */
+.ev-tip {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--shadow) !important;
+  padding: 6px 10px !important;
+  font-size: 12px;
+}
+.ev-tip strong { display: block; font-size: 13px; }
+.ev-tip span { color: var(--muted); }
+.ev-tip::before { display: none; }
+
+/* Pulse ring on the selected event */
+.ev-pulse { pointer-events: none; }
+.ev-pulse span {
+  position: absolute; inset: 0;
+  border: 2px solid var(--c, #fff);
+  border-radius: 50%;
+  animation: pulse 2.2s ease-out infinite;
+  opacity: 0;
+}
+.ev-pulse span:nth-child(2) { animation-delay: 1.1s; }
+@keyframes pulse {
+  0% { transform: scale(0.15); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* Big story labels */
+.map-label { pointer-events: none; }
+.map-label span {
+  display: block;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.75);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+.map-light .map-label span {
+  color: rgba(58, 40, 22, 0.8);
+  font-style: italic;
+  text-shadow: 0 0 4px rgba(255, 250, 235, 0.9);
+}
+
+/* Battle blocks and scene lines */
+.scene-block-label, .scene-line-label { pointer-events: none; }
+.scene-block-label span, .scene-line-label span {
+  display: block;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(31, 38, 51, 0.85);
+  color: var(--text);
+  font-size: 11px; font-weight: 600;
+}
+.scene-line-label span { background: none; color: #1f5f9e; font-style: italic; text-shadow: 0 0 3px #fff; }
+/* Unit names sit just above their block so they never hide it. */
+.scene-block-label span { transform: translate(-50%, calc(-100% - 10px)); background: rgba(31, 38, 51, 0.72); }
+
+/* Scene units and markers */
+.scene-unit, .scene-marker { pointer-events: none; }
+.scene-unit .dot, .scene-marker .dot {
+  position: absolute; left: -9px; top: -9px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--c);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 35%, transparent), 0 0 18px var(--c);
+}
+.scene-marker .dot { width: 12px; height: 12px; left: -6px; top: -6px; border-width: 1.5px; box-shadow: none; }
+.scene-marker.pulse .dot { animation: beacon 1.2s ease-in-out infinite; }
+@keyframes beacon {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 70%, transparent); }
+  50% { box-shadow: 0 0 0 12px transparent; }
+}
+.scene-unit .name, .scene-marker .name {
+  position: absolute; left: 14px; top: -10px;
+  white-space: nowrap;
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: rgba(11, 14, 19, 0.85);
+  font-size: 12px; font-weight: 600;
+}
+.scene-marker .name { font-weight: 500; color: var(--muted); left: 10px; top: -9px; }
+.scene-marker.pulse .name { color: var(--danger); font-weight: 600; }
+
+/* ---------- Legend ---------- */
+.legend {
+  position: fixed; left: 16px; bottom: calc(var(--tl-h) + 16px); z-index: 900;
+  width: 220px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 12px;
+}
+.legend-toggle { background: none; border: 0; padding: 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.legend.collapsed .legend-body { display: none; }
+body.in-scene .legend { display: none; }
+.legend ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.legend .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex: none; }
+.legend .area { width: 14px; height: 10px; border: 1.5px dashed var(--c); background: color-mix(in srgb, var(--c) 25%, transparent); flex: none; }
+.legend .fine { margin: 8px 0 0; }
+
+/* ---------- Scene bar ---------- */
+.scene-bar {
+  position: fixed; z-index: 950;
+  left: 50%; bottom: calc(var(--tl-h) + 16px);
+  transform: translateX(calc(-50% - var(--panel-w) / 2));
+  width: min(560px, calc(100vw - var(--panel-w) - 300px));
+  min-width: 320px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.sb-head { display: flex; align-items: center; gap: 10px; }
+.sb-title { flex: 1; min-width: 0; }
+.sb-title strong { display: block; font-family: var(--font-display); font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sb-clock { font-size: 12px; color: var(--accent); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.sb-range { width: 100%; margin: 10px 0 4px; accent-color: var(--accent); }
+.sb-caption { margin: 4px 0 0; font-size: 15px; min-height: 44px; }
+.sb-caption.flash { animation: fadein 0.5s ease; }
+.sb-note { margin: 4px 0 0; font-size: 11px; color: var(--muted); }
+@keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 760px) {
+  .legend { display: none; }
+  .scene-bar { left: 8px; right: 8px; width: auto; min-width: 0; transform: none; }
+}

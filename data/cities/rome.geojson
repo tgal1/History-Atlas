@@ -1,0 +1,2110 @@
+{
+ "type": "FeatureCollection",
+ "city": {
+  "id": "rome",
+  "name": "Rome",
+  "center": [
+   41.893,
+   12.487
+  ],
+  "zoom": 14,
+  "radiusKm": 6,
+  "wiki": "Ancient Rome",
+  "summary": [
+   "A city of seven hills on the Tiber, growing from a cluster of huts on the Palatine to a metropolis of perhaps a million people under Augustus.",
+   "Scrub the timeline to watch it change: the Servian Wall after the Gallic sack, the forums of Caesar and the emperors, Nero's Golden House, the Colosseum, and finally the Aurelian Walls of a city under threat. Slide 'Then ⟷ Today' to see how much of it is still there."
+  ],
+  "note": "Positions after archaeological maps of ancient Rome. Hills, districts and the street blocks inside them are drawn schematically; the real street plan was irregular.",
+  "gallery": [
+   {
+    "file": "Model of Rome - Gismondi.jpg",
+    "caption": "Italo Gismondi's great model of Rome in the age of Constantine"
+   },
+   {
+    "file": "Maquette de Rome (musée de la civilisation romaine, Rome) (5911810278).jpg",
+    "caption": "Gismondi's model: the city centre"
+   },
+   {
+    "file": "Model of imperial Rome, Area of the Velian Hill and the Valley of the Colosseum in I. Gismondi's large 1987 model of Rome, Museo della Civita Romana (13841003315).jpg",
+    "caption": "The Colosseum valley in Gismondi's model"
+   },
+   {
+    "file": "Vue maquette de Gismondi, J.-P. Dalbéra.jpg",
+    "caption": "Panorama of Gismondi's model"
+   },
+   {
+    "file": "Circus maximus et son quartier - Plan de Rome de Paul Bigot.jpg",
+    "caption": "The Circus Maximus in Paul Bigot's model, Caen"
+   },
+   {
+    "file": "Courbe du Tibre, forum boarium, ponts et circus maximus - plan de Rome.jpg",
+    "caption": "The Tiber bend and Tiber Island in Bigot's model"
+   }
+  ]
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "capitoline",
+    "kind": "hill",
+    "name": "Capitoline Hill",
+    "description": "The smallest and most sacred of the seven hills: citadel, treasury and the great Temple of Jupiter. Triumphal processions ended here.",
+    "wiki": "Capitoline Hill",
+    "radiusM": 170
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4828,
+     41.8932
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "palatine",
+    "kind": "hill",
+    "name": "Palatine Hill",
+    "description": "Where legend placed Romulus' hut and archaeology finds the earliest village. Later the hill of the emperors: our word 'palace' comes from Palatium.",
+    "wiki": "Palatine Hill",
+    "radiusM": 260
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4872,
+     41.8892
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "aventine",
+    "kind": "hill",
+    "name": "Aventine Hill",
+    "description": "The plebeians' hill, home of merchants and the temple of Diana; outside the sacred boundary until the reign of Claudius.",
+    "wiki": "Aventine Hill",
+    "radiusM": 380
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.479,
+     41.8835
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "caelian",
+    "kind": "hill",
+    "name": "Caelian Hill",
+    "description": "A hill of wealthy houses and later of the great Lateran palace and church.",
+    "wiki": "Caelian Hill",
+    "radiusM": 330
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4965,
+     41.8855
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "esquiline",
+    "kind": "hill",
+    "name": "Esquiline Hill",
+    "description": "The largest hill, once a cemetery for the poor beyond the Servian Wall, turned into gardens by Maecenas under Augustus.",
+    "wiki": "Esquiline Hill",
+    "radiusM": 420
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4975,
+     41.8958
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "viminal",
+    "kind": "hill",
+    "name": "Viminal Hill",
+    "description": "The smallest of the seven hills, named after the osier willows that grew there.",
+    "wiki": "Viminal Hill",
+    "radiusM": 220
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4942,
+     41.8995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "quirinal",
+    "kind": "hill",
+    "name": "Quirinal Hill",
+    "description": "Long ridge to the north, once home of the Sabines in legend; the Italian president's palace stands on it today.",
+    "wiki": "Quirinal Hill",
+    "radiusM": 300
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.488,
+     41.9005
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "janiculum",
+    "kind": "hill",
+    "name": "Janiculum",
+    "description": "A ridge across the Tiber, a lookout over the city and a key to its defence.",
+    "wiki": "Janiculum",
+    "radiusM": 350
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4618,
+     41.8915
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pincian",
+    "kind": "hill",
+    "name": "Pincian Hill",
+    "description": "The 'hill of gardens' to the north, covered with luxurious villas under the empire.",
+    "wiki": "Pincian Hill",
+    "radiusM": 250
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.481,
+     41.9115
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "tiber",
+    "kind": "river",
+    "name": "River Tiber",
+    "description": "Rome grew up at the lowest point where the Tiber could be crossed, by the island. The river brought grain from Ostia and floods that regularly swamped the low-lying city.",
+    "wiki": "Tiber",
+    "minZoom": 10,
+    "labelAt": [
+     12.4655,
+     41.899
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4673,
+      41.9356
+     ],
+     [
+      12.469,
+      41.925
+     ],
+     [
+      12.473,
+      41.915
+     ],
+     [
+      12.472,
+      41.909
+     ],
+     [
+      12.472,
+      41.9045
+     ],
+     [
+      12.4685,
+      41.902
+     ],
+     [
+      12.464,
+      41.901
+     ],
+     [
+      12.4645,
+      41.8985
+     ],
+     [
+      12.468,
+      41.895
+     ],
+     [
+      12.4715,
+      41.892
+     ],
+     [
+      12.4755,
+      41.8908
+     ],
+     [
+      12.4785,
+      41.8895
+     ],
+     [
+      12.4795,
+      41.8875
+     ],
+     [
+      12.4778,
+      41.884
+     ],
+     [
+      12.474,
+      41.88
+     ],
+     [
+      12.47,
+      41.876
+     ],
+     [
+      12.469,
+      41.87
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "tiber-island",
+    "kind": "island",
+    "name": "Tiber Island",
+    "description": "A boat-shaped island, later faced in stone to look like a ship. A temple of Asclepius, god of healing, stood here from 291 BC, and the island has had a hospital ever since.",
+    "wiki": "Tiber Island",
+    "images": [
+     {
+      "file": "Courbe du Tibre, forum boarium, ponts et circus maximus - plan de Rome.jpg",
+      "caption": "The Tiber bend, Tiber Island, the bridges and the Forum Boarium in Bigot's model"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.476,
+       41.8907
+      ],
+      [
+       12.4774,
+       41.8906
+      ],
+      [
+       12.479,
+       41.8901
+      ],
+      [
+       12.4784,
+       41.8896
+      ],
+      [
+       12.4768,
+       41.8899
+      ],
+      [
+       12.4758,
+       41.8903
+      ],
+      [
+       12.476,
+       41.8907
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "urbs",
+    "kind": "houses",
+    "name": "Houses and apartment blocks",
+    "showLabel": false,
+    "fabric": {
+     "w": 34,
+     "h": 38,
+     "gap": 8,
+     "angle": 20
+    },
+    "description": [
+     "Most Romans lived in insulae, apartment blocks of four or five storeys with shops on the ground floor, the rich in single-family houses (domus) with atriums and gardens.",
+     "Fires and collapses were common; Augustus limited building heights to about 20 metres."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.481,
+       41.8945
+      ],
+      [
+       12.487,
+       41.901
+      ],
+      [
+       12.4925,
+       41.9045
+      ],
+      [
+       12.499,
+       41.904
+      ],
+      [
+       12.503,
+       41.9
+      ],
+      [
+       12.504,
+       41.896
+      ],
+      [
+       12.501,
+       41.89
+      ],
+      [
+       12.498,
+       41.886
+      ],
+      [
+       12.493,
+       41.8822
+      ],
+      [
+       12.486,
+       41.879
+      ],
+      [
+       12.479,
+       41.878
+      ],
+      [
+       12.476,
+       41.882
+      ],
+      [
+       12.479,
+       41.888
+      ],
+      [
+       12.481,
+       41.8945
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "urbs-outer",
+    "kind": "houses",
+    "name": "Outer districts",
+    "showLabel": false,
+    "from": "-26",
+    "fabric": {
+     "w": 40,
+     "h": 44,
+     "gap": 12,
+     "angle": 20
+    },
+    "description": "By the empire the city had spread far beyond the Servian Wall, over the Esquiline, the Pincian and the Caelian."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4815,
+       41.91
+      ],
+      [
+       12.4985,
+       41.9105
+      ],
+      [
+       12.512,
+       41.9055
+      ],
+      [
+       12.515,
+       41.896
+      ],
+      [
+       12.51,
+       41.887
+      ],
+      [
+       12.501,
+       41.882
+      ],
+      [
+       12.5,
+       41.888
+      ],
+      [
+       12.5045,
+       41.896
+      ],
+      [
+       12.503,
+       41.9005
+      ],
+      [
+       12.4925,
+       41.905
+      ],
+      [
+       12.487,
+       41.9015
+      ],
+      [
+       12.482,
+       41.8975
+      ],
+      [
+       12.4815,
+       41.91
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "campus-martius",
+    "kind": "houses",
+    "name": "Campus Martius",
+    "description": [
+     "The Field of Mars: open ground in the Republic where the army mustered and citizens voted. Augustus and his successors filled it with theatres, baths, temples and monuments.",
+     "It is the heart of the historic centre today."
+    ],
+    "fabric": {
+     "w": 40,
+     "h": 46,
+     "gap": 9,
+     "angle": -14
+    },
+    "from": "-26",
+    "labelZoom": 14,
+    "wiki": "Campus Martius"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.47,
+       41.905
+      ],
+      [
+       12.479,
+       41.9075
+      ],
+      [
+       12.4815,
+       41.8962
+      ],
+      [
+       12.4775,
+       41.894
+      ],
+      [
+       12.4712,
+       41.8962
+      ],
+      [
+       12.47,
+       41.905
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "subura",
+    "kind": "label",
+    "name": "Subura",
+    "description": "A crowded, noisy, dangerous neighbourhood of tall apartment blocks (insulae) in the valley between the hills. Julius Caesar grew up here.",
+    "labelZoom": 14,
+    "wiki": "Subura"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4925,
+     41.896
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "trastevere",
+    "kind": "houses",
+    "name": "Trans Tiberim (Trastevere)",
+    "description": "The district 'across the Tiber', home to sailors, dockers, potters and Rome's early Jewish community.",
+    "fabric": {
+     "w": 36,
+     "h": 42,
+     "gap": 8,
+     "angle": 40
+    },
+    "from": "-200",
+    "labelZoom": 14,
+    "wiki": "Trastevere"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4655,
+       41.8938
+      ],
+      [
+       12.4712,
+       41.8924
+      ],
+      [
+       12.4752,
+       41.8903
+      ],
+      [
+       12.476,
+       41.8862
+      ],
+      [
+       12.4702,
+       41.8848
+      ],
+      [
+       12.4655,
+       41.888
+      ],
+      [
+       12.4655,
+       41.8938
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "gardens-maecenas",
+    "kind": "garden",
+    "name": "Gardens of Maecenas",
+    "description": "Augustus' friend Maecenas turned an old paupers' cemetery on the Esquiline into luxurious gardens.",
+    "wiki": "Gardens of Maecenas",
+    "from": "-30",
+    "radiusM": 190
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5015,
+     41.8952
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "servian-wall",
+    "kind": "wall",
+    "name": "Servian Wall",
+    "description": [
+     "Rome's first stone wall, about 11 km round and up to 10 metres high, built of tufa blocks after the Gallic sack of 390 BC. Named, wrongly, after the sixth king, Servius Tullius.",
+     "By the empire the city had long outgrown it."
+    ],
+    "wiki": "Servian Wall",
+    "from": "-377",
+    "labelAt": [
+     12.504,
+     41.8975
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.481,
+      41.8945
+     ],
+     [
+      12.487,
+      41.901
+     ],
+     [
+      12.4925,
+      41.9045
+     ],
+     [
+      12.499,
+      41.904
+     ],
+     [
+      12.503,
+      41.9
+     ],
+     [
+      12.504,
+      41.896
+     ],
+     [
+      12.501,
+      41.89
+     ],
+     [
+      12.498,
+      41.886
+     ],
+     [
+      12.493,
+      41.8822
+     ],
+     [
+      12.486,
+      41.879
+     ],
+     [
+      12.479,
+      41.878
+     ],
+     [
+      12.476,
+      41.882
+     ],
+     [
+      12.479,
+      41.888
+     ],
+     [
+      12.481,
+      41.8945
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "aurelian-wall",
+    "kind": "wall",
+    "name": "Aurelian Walls",
+    "description": [
+     "Built in a hurry by Aurelian from AD 271 after barbarian raids reached Italy: 19 km of brick-faced concrete with 383 towers and 18 gates.",
+     "The first new walls for Rome in 650 years, and a sign of how dangerous the times had become. Most of them still stand."
+    ],
+    "wiki": "Aurelian Walls",
+    "from": "271",
+    "labelAt": [
+     12.515,
+     41.8975
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4765,
+      41.911
+     ],
+     [
+      12.483,
+      41.9125
+     ],
+     [
+      12.492,
+      41.9105
+     ],
+     [
+      12.4985,
+      41.9118
+     ],
+     [
+      12.504,
+      41.9098
+     ],
+     [
+      12.512,
+      41.906
+     ],
+     [
+      12.516,
+      41.9
+     ],
+     [
+      12.5175,
+      41.8935
+     ],
+     [
+      12.516,
+      41.8915
+     ],
+     [
+      12.5065,
+      41.884
+     ],
+     [
+      12.502,
+      41.879
+     ],
+     [
+      12.5,
+      41.875
+     ],
+     [
+      12.5014,
+      41.8735
+     ],
+     [
+      12.492,
+      41.87
+     ],
+     [
+      12.4815,
+      41.8755
+     ],
+     [
+      12.474,
+      41.873
+     ],
+     [
+      12.47,
+      41.876
+     ],
+     [
+      12.467,
+      41.879
+     ],
+     [
+      12.463,
+      41.886
+     ],
+     [
+      12.462,
+      41.89
+     ],
+     [
+      12.466,
+      41.8945
+     ],
+     [
+      12.4715,
+      41.8935
+     ],
+     [
+      12.47,
+      41.9
+     ],
+     [
+      12.4725,
+      41.906
+     ],
+     [
+      12.4765,
+      41.911
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "via-sacra",
+    "kind": "road",
+    "name": "Via Sacra",
+    "description": "The Sacred Way through the Forum, the route of triumphal processions up to the Capitol.",
+    "wiki": "Via Sacra",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4842,
+      41.8925
+     ],
+     [
+      12.487,
+      41.8912
+     ],
+     [
+      12.4895,
+      41.8908
+     ],
+     [
+      12.4915,
+      41.8904
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "via-appia",
+    "kind": "road",
+    "name": "Via Appia",
+    "description": "The 'queen of roads', built from 312 BC by Appius Claudius to Capua and later Brundisium. Spartacus' followers were crucified along it.",
+    "wiki": "Appian Way",
+    "from": "-311"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4908,
+      41.8838
+     ],
+     [
+      12.496,
+      41.879
+     ],
+     [
+      12.5014,
+      41.8735
+     ],
+     [
+      12.51,
+      41.86
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "via-flaminia",
+    "kind": "road",
+    "name": "Via Flaminia",
+    "description": "The great north road to Ariminum (Rimini) and the Adriatic, built in 220 BC. Inside the city it is today's Via del Corso.",
+    "wiki": "Via Flaminia",
+    "from": "-219"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4825,
+      41.896
+     ],
+     [
+      12.48,
+      41.905
+     ],
+     [
+      12.4765,
+      41.911
+     ],
+     [
+      12.47,
+      41.925
+     ],
+     [
+      12.4675,
+      41.9345
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "aqua-claudia",
+    "kind": "aqueduct",
+    "name": "Aqua Claudia",
+    "description": "Finished under Claudius in AD 52: water from springs 69 km away, carried the last stretch on arches up to 28 metres high. Nero extended it to the Palatine.",
+    "wiki": "Aqua Claudia",
+    "from": "52"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.54,
+      41.875
+     ],
+     [
+      12.516,
+      41.8915
+     ],
+     [
+      12.506,
+      41.889
+     ],
+     [
+      12.495,
+      41.8865
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pons-sublicius",
+    "kind": "bridge",
+    "name": "Pons Sublicius",
+    "description": "Rome's oldest bridge, all wood and built without nails. Legend says Horatius held it alone against the Etruscan army while it was cut down behind him.",
+    "wiki": "Pons Sublicius",
+    "from": "-641",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4755,
+      41.8848
+     ],
+     [
+      12.4779,
+      41.884
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pons-aemilius",
+    "kind": "bridge",
+    "name": "Pons Aemilius",
+    "description": "Rome's first stone bridge, 142 BC. One arch survives in the river, the 'Ponte Rotto'.",
+    "wiki": "Pons Aemilius",
+    "from": "-141",
+    "labelZoom": 16,
+    "images": [
+     {
+      "file": "Courbe du Tibre, forum boarium, ponts et circus maximus - plan de Rome.jpg",
+      "caption": "The Tiber bend, Tiber Island, the bridges and the Forum Boarium in Bigot's model"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4788,
+      41.8893
+     ],
+     [
+      12.481,
+      41.8886
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pons-fabricius",
+    "kind": "bridge",
+    "name": "Pons Fabricius",
+    "description": "Built in 62 BC to Tiber Island and still in use: the oldest Roman bridge in Rome carrying traffic in its original form.",
+    "wiki": "Pons Fabricius",
+    "from": "-61",
+    "labelZoom": 16,
+    "images": [
+     {
+      "file": "Courbe du Tibre, forum boarium, ponts et circus maximus - plan de Rome.jpg",
+      "caption": "The Tiber bend, Tiber Island, the bridges and the Forum Boarium in Bigot's model"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.478,
+      41.8906
+     ],
+     [
+      12.479,
+      41.8914
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pons-cestius",
+    "kind": "bridge",
+    "name": "Pons Cestius",
+    "description": "Linking Tiber Island to Trastevere.",
+    "wiki": "Pons Cestius",
+    "from": "-45",
+    "labelZoom": 16,
+    "images": [
+     {
+      "file": "Courbe du Tibre, forum boarium, ponts et circus maximus - plan de Rome.jpg",
+      "caption": "The Tiber bend, Tiber Island, the bridges and the Forum Boarium in Bigot's model"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4762,
+      41.8894
+     ],
+     [
+      12.4772,
+      41.8902
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pons-aelius",
+    "kind": "bridge",
+    "name": "Pons Aelius",
+    "description": "Hadrian's bridge to his mausoleum, AD 134; today Ponte Sant'Angelo with Bernini's angels.",
+    "wiki": "Ponte Sant'Angelo",
+    "from": "134",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.4668,
+      41.901
+     ],
+     [
+      12.4668,
+      41.9026
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pons-milvius",
+    "kind": "bridge",
+    "name": "Pons Milvius (Milvian Bridge)",
+    "description": "Where the Via Flaminia crossed the Tiber north of the city. Constantine defeated Maxentius here in 312.",
+    "wiki": "Ponte Milvio",
+    "from": "-108",
+    "labelZoom": 14,
+    "minZoom": 11
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.466,
+      41.9356
+     ],
+     [
+      12.4686,
+      41.9356
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "forum",
+    "kind": "plaza",
+    "name": "Forum Romanum",
+    "description": [
+     "A marshy valley drained around 600 BC that became the centre of public life: speeches from the Rostra, trials, elections, triumphs and shopping.",
+     "Under the empire it filled with marble temples, basilicas and arches."
+    ],
+    "wiki": "Roman Forum",
+    "from": "-600"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4838,
+       41.8928
+      ],
+      [
+       12.4862,
+       41.8922
+      ],
+      [
+       12.4876,
+       41.8913
+      ],
+      [
+       12.487,
+       41.8907
+      ],
+      [
+       12.4848,
+       41.8913
+      ],
+      [
+       12.4836,
+       41.892
+      ],
+      [
+       12.4838,
+       41.8928
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "temple-jupiter",
+    "kind": "temple",
+    "name": "Temple of Jupiter Best and Greatest",
+    "description": "Rome's chief temple on the Capitol, dedicated by tradition in the first year of the Republic, 509 BC: one of the largest temples in the Mediterranean world. Generals ended their triumphs here.",
+    "wiki": "Temple of Jupiter Optimus Maximus",
+    "from": "-508"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4818,
+       41.8929
+      ],
+      [
+       12.4828,
+       41.8929
+      ],
+      [
+       12.4828,
+       41.8921
+      ],
+      [
+       12.4818,
+       41.8921
+      ],
+      [
+       12.4818,
+       41.8929
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "curia",
+    "kind": "building",
+    "name": "Curia (Senate house)",
+    "description": "The meeting house of the Senate. The present brick building is Diocletian's rebuild of the Curia Julia begun by Caesar; it survived because it became a church.",
+    "wiki": "Curia Julia",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4846,
+       41.8932
+      ],
+      [
+       12.4851,
+       41.8932
+      ],
+      [
+       12.4851,
+       41.8929
+      ],
+      [
+       12.4846,
+       41.8929
+      ],
+      [
+       12.4846,
+       41.8932
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "vesta",
+    "kind": "temple",
+    "name": "Temple of Vesta",
+    "description": "A small round temple where the Vestal Virgins kept the sacred flame of Rome burning.",
+    "wiki": "Temple of Vesta",
+    "labelZoom": 16,
+    "labelAt": [
+     12.4864,
+     41.89145
+    ],
+    "radiusM": 9
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4862,
+     41.8917
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "forum-caesar",
+    "kind": "plaza",
+    "name": "Forum of Caesar",
+    "description": "Caesar's new forum, dedicated in 46 BC with a temple to Venus, from whom his family claimed descent.",
+    "wiki": "Forum of Caesar",
+    "from": "-45",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4848,
+       41.8946
+      ],
+      [
+       12.486,
+       41.894
+      ],
+      [
+       12.4856,
+       41.8934
+      ],
+      [
+       12.4844,
+       41.894
+      ],
+      [
+       12.4848,
+       41.8946
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "forum-augustus",
+    "kind": "plaza",
+    "name": "Forum of Augustus",
+    "description": "Built from the spoils of victory over Caesar's assassins, with a temple to Mars the Avenger. Dedicated 2 BC.",
+    "wiki": "Forum of Augustus",
+    "from": "-1",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.487,
+       41.8945
+      ],
+      [
+       12.4882,
+       41.8942
+      ],
+      [
+       12.488,
+       41.8934
+      ],
+      [
+       12.4868,
+       41.8937
+      ],
+      [
+       12.487,
+       41.8945
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "forum-trajan",
+    "kind": "plaza",
+    "name": "Forum of Trajan",
+    "description": "The grandest of the imperial fora, paid for by the conquest of Dacia, with Trajan's Column telling the story of the war in a spiral of carvings.",
+    "wiki": "Trajan's Forum",
+    "from": "112",
+    "labelZoom": 15,
+    "images": [
+     {
+      "file": "Plan Rome caen Forum Trajan.jpg",
+      "caption": "Trajan's Forum in Bigot's model of Rome"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4838,
+       41.8962
+      ],
+      [
+       12.4862,
+       41.8957
+      ],
+      [
+       12.4858,
+       41.8945
+      ],
+      [
+       12.4834,
+       41.895
+      ],
+      [
+       12.4838,
+       41.8962
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "markets-trajan",
+    "kind": "market",
+    "name": "Trajan's Markets",
+    "description": "A multi-storey complex of shops and offices cut into the Quirinal slope, sometimes called the world's oldest shopping mall.",
+    "wiki": "Trajan's Market",
+    "from": "110",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.486,
+       41.8965
+      ],
+      [
+       12.4872,
+       41.8962
+      ],
+      [
+       12.4868,
+       41.8952
+      ],
+      [
+       12.4859,
+       41.8955
+      ],
+      [
+       12.486,
+       41.8965
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "house-augustus",
+    "kind": "palace",
+    "name": "House of Augustus",
+    "description": "Augustus lived in a relatively modest house on the Palatine, next to the hut of Romulus, to look like a first citizen rather than a king.",
+    "wiki": "House of Augustus",
+    "from": "-36",
+    "to": "92",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4855,
+       41.889
+      ],
+      [
+       12.4864,
+       41.889
+      ],
+      [
+       12.4864,
+       41.8884
+      ],
+      [
+       12.4855,
+       41.8884
+      ],
+      [
+       12.4855,
+       41.889
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "palace-domitian",
+    "kind": "palace",
+    "name": "Imperial palace (Domus Augustana)",
+    "description": "Domitian's vast palace covering the Palatine, finished AD 92 and home of the emperors for three centuries.",
+    "wiki": "Palace of Domitian",
+    "from": "92"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4855,
+       41.89
+      ],
+      [
+       12.4885,
+       41.8898
+      ],
+      [
+       12.4888,
+       41.888
+      ],
+      [
+       12.4858,
+       41.8878
+      ],
+      [
+       12.4855,
+       41.89
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "circus-maximus",
+    "kind": "arena",
+    "name": "Circus Maximus",
+    "description": [
+     "The great chariot-racing track in the valley between the Palatine and Aventine, about 600 metres long. In its imperial form it seated perhaps 150,000 people.",
+     "The Great Fire of AD 64 started in shops at its eastern end."
+    ],
+    "wiki": "Circus Maximus",
+    "from": "-599",
+    "images": [
+     {
+      "file": "Circus maximus et son quartier - Plan de Rome de Paul Bigot.jpg",
+      "caption": "The Circus Maximus in Paul Bigot's plaster model of Rome, Caen"
+     },
+     {
+      "file": "Plan Rome Caen Circus Maximus Colisée.jpg",
+      "caption": "From the Circus Maximus to the Colosseum, Bigot's model"
+     },
+     {
+      "file": "Circus Maximus et Septizodium - plan de Rome de Bigot.jpg",
+      "caption": "The Circus and the Septizodium, Bigot's model"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4815,
+       41.8879
+      ],
+      [
+       12.4888,
+       41.8854
+      ],
+      [
+       12.4884,
+       41.8841
+      ],
+      [
+       12.4811,
+       41.8866
+      ],
+      [
+       12.4815,
+       41.8879
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "domus-aurea-lake",
+    "kind": "lake",
+    "name": "Lake of Nero's Golden House",
+    "description": "After the fire of 64, Nero built a private palace-park in the heart of Rome with an artificial lake. The Flavian emperors drained it and gave the land back to the people with the Colosseum.",
+    "wiki": "Domus Aurea",
+    "from": "64-07-19",
+    "to": "72",
+    "labelZoom": 15,
+    "radiusM": 95
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4922,
+     41.8902
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "domus-aurea",
+    "kind": "palace",
+    "name": "Golden House (Domus Aurea)",
+    "description": "Nero's extravagant palace, with a revolving dining room and gilded ceilings. Trajan buried it under his baths; its painted rooms inspired Renaissance artists who crawled into the 'grottoes'.",
+    "wiki": "Domus Aurea",
+    "from": "64-07-19",
+    "to": "104"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4935,
+       41.8925
+      ],
+      [
+       12.4975,
+       41.893
+      ],
+      [
+       12.498,
+       41.891
+      ],
+      [
+       12.494,
+       41.8905
+      ],
+      [
+       12.4935,
+       41.8925
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "colosseum",
+    "kind": "arena",
+    "name": "Colosseum (Flavian Amphitheatre)",
+    "description": [
+     "Begun by Vespasian about AD 72 on the site of Nero's lake and opened by Titus in 80 with 100 days of games. It held around 50,000 spectators.",
+     "Gladiator fights, wild beast hunts and executions were staged here until the 6th century."
+    ],
+    "wiki": "Colosseum",
+    "from": "80",
+    "ellipse": [
+     94,
+     78,
+     -15
+    ],
+    "images": [
+     {
+      "file": "Model of imperial Rome, Area of the Velian Hill and the Valley of the Colosseum in I. Gismondi's large 1987 model of Rome, Museo della Civita Romana (13841003315).jpg",
+      "caption": "The Colosseum and the Velian valley in Gismondi's model of imperial Rome"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4922,
+     41.8902
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "venus-roma",
+    "kind": "temple",
+    "name": "Temple of Venus and Rome",
+    "description": "Hadrian's huge double temple, said to have been designed by the emperor himself.",
+    "wiki": "Temple of Venus and Roma",
+    "from": "135",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4892,
+       41.8913
+      ],
+      [
+       12.491,
+       41.8909
+      ],
+      [
+       12.4908,
+       41.8903
+      ],
+      [
+       12.489,
+       41.8907
+      ],
+      [
+       12.4892,
+       41.8913
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "theatre-pompey",
+    "kind": "arena",
+    "name": "Theatre of Pompey",
+    "description": "Rome's first permanent stone theatre, built by Pompey in 55 BC with a temple on top to get round the ban on permanent theatres.",
+    "wiki": "Theatre of Pompey",
+    "from": "-54",
+    "radiusM": 75
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4727,
+     41.8955
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "portico-pompey",
+    "kind": "plaza",
+    "name": "Portico of Pompey",
+    "description": "A great garden colonnade behind the theatre, full of art.",
+    "wiki": "Theatre of Pompey",
+    "from": "-54",
+    "labelZoom": 16
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4735,
+       41.896
+      ],
+      [
+       12.4762,
+       41.8959
+      ],
+      [
+       12.4761,
+       41.8949
+      ],
+      [
+       12.4735,
+       41.8951
+      ],
+      [
+       12.4735,
+       41.896
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "curia-pompey",
+    "kind": "building",
+    "name": "Curia of Pompey",
+    "description": "The hall where the Senate was meeting on the Ides of March, 44 BC. Caesar was stabbed to death at the foot of Pompey's statue. Its remains are in the Largo di Torre Argentina, now home to a cat sanctuary.",
+    "wiki": "Curia of Pompey",
+    "from": "-54",
+    "labelZoom": 15
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4763,
+       41.8957
+      ],
+      [
+       12.4769,
+       41.8957
+      ],
+      [
+       12.4769,
+       41.8951
+      ],
+      [
+       12.4763,
+       41.8951
+      ],
+      [
+       12.4763,
+       41.8957
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pantheon",
+    "kind": "temple",
+    "name": "Pantheon",
+    "description": "Agrippa's temple to all the gods (27 BC), rebuilt by Hadrian around 126 with the great unreinforced concrete dome that is still the largest of its kind in the world.",
+    "wiki": "Pantheon, Rome",
+    "from": "-26",
+    "radiusM": 26
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4769,
+     41.8986
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "mausoleum-augustus",
+    "kind": "tomb",
+    "name": "Mausoleum of Augustus",
+    "description": "A huge circular tomb for Augustus and his family, finished 28 BC.",
+    "wiki": "Mausoleum of Augustus",
+    "from": "-27",
+    "radiusM": 45
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4764,
+     41.9061
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "mausoleum-hadrian",
+    "kind": "tomb",
+    "name": "Mausoleum of Hadrian",
+    "description": "Hadrian's tomb, later turned into a fortress and papal refuge: Castel Sant'Angelo.",
+    "wiki": "Castel Sant'Angelo",
+    "from": "139",
+    "radiusM": 45
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4663,
+     41.9031
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "baths-caracalla",
+    "kind": "baths",
+    "name": "Baths of Caracalla",
+    "description": "Opened AD 216: hot, warm and cold baths, gymnasia, libraries and gardens for perhaps 1,600 bathers at a time.",
+    "wiki": "Baths of Caracalla",
+    "from": "216"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4905,
+       41.8805
+      ],
+      [
+       12.4945,
+       41.88
+      ],
+      [
+       12.4942,
+       41.8775
+      ],
+      [
+       12.4902,
+       41.878
+      ],
+      [
+       12.4905,
+       41.8805
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "baths-diocletian",
+    "kind": "baths",
+    "name": "Baths of Diocletian",
+    "description": "The largest baths of all, finished about 306. Michelangelo turned part of them into a church.",
+    "wiki": "Baths of Diocletian",
+    "from": "306"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.496,
+       41.9045
+      ],
+      [
+       12.5005,
+       41.904
+      ],
+      [
+       12.5,
+       41.901
+      ],
+      [
+       12.4955,
+       41.9015
+      ],
+      [
+       12.496,
+       41.9045
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "castra-praetoria",
+    "kind": "fort",
+    "name": "Castra Praetoria",
+    "description": "Barracks of the Praetorian Guard, the emperors' bodyguard, who made and murdered several of them. Constantine disbanded the Guard in 312.",
+    "wiki": "Castra Praetoria",
+    "from": "23"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.5065,
+       41.9075
+      ],
+      [
+       12.512,
+       41.907
+      ],
+      [
+       12.5115,
+       41.904
+      ],
+      [
+       12.506,
+       41.9045
+      ],
+      [
+       12.5065,
+       41.9075
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "lateran",
+    "kind": "temple",
+    "name": "Lateran Basilica",
+    "description": "Rome's cathedral, founded by Constantine on the site of the Guard cavalry barracks.",
+    "wiki": "Archbasilica of Saint John Lateran",
+    "from": "324",
+    "labelZoom": 15
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.505,
+       41.8862
+      ],
+      [
+       12.5064,
+       41.8862
+      ],
+      [
+       12.5064,
+       41.8856
+      ],
+      [
+       12.505,
+       41.8856
+      ],
+      [
+       12.505,
+       41.8862
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "st-peters",
+    "kind": "temple",
+    "name": "Old St Peter's Basilica",
+    "description": "Constantine's great church over the traditional grave of St Peter on the Vatican Hill.",
+    "wiki": "Old St. Peter's Basilica",
+    "from": "330",
+    "labelZoom": 15
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.4528,
+       41.9026
+      ],
+      [
+       12.4552,
+       41.9026
+      ],
+      [
+       12.4552,
+       41.9018
+      ],
+      [
+       12.4528,
+       41.9018
+      ],
+      [
+       12.4528,
+       41.9026
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ara-pacis",
+    "kind": "temple",
+    "name": "Ara Pacis",
+    "from": "-8",
+    "labelZoom": 16,
+    "description": "The Altar of Augustan Peace, dedicated in 9 BC on the Campus Martius, carved with a procession of Augustus and his family.",
+    "wiki": "Ara Pacis"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       12.47545,
+       41.90645
+      ],
+      [
+       12.47575,
+       41.90645
+      ],
+      [
+       12.47575,
+       41.90625
+      ],
+      [
+       12.47545,
+       41.90625
+      ],
+      [
+       12.47545,
+       41.90645
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

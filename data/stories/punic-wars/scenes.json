@@ -1,0 +1,229 @@
+{
+  "cannae": {
+    "title": "Cannae, 2 August 216 BC",
+    "note": "Schematic reconstruction after Polybius. The exact site and orientation of the battlefield are debated, and unit sizes are indicative.",
+    "duration": 6,
+    "unitLabel": "Stage",
+    "playSeconds": 42,
+    "dimMap": true,
+    "frame": { "origin": [41.322, 16.105] },
+    "view": { "xy": [[-1750, -650], [1750, 1150]] },
+
+    "lines": [
+      { "label": "River Aufidus (Ofanto)", "color": "#3b8fd9", "weight": 7,
+        "xy": [[-1700, -900], [-1580, -300], [-1660, 400], [-1560, 1000], [-1640, 1500]] }
+    ],
+
+    "units": [
+      { "id": "rom-cav", "label": "Roman cavalry", "side": "rome", "color": "#e0675d", "w": 450, "d": 80,
+        "keyframes": [
+          { "t": 0, "xy": [-1250, 350], "angle": 180 },
+          { "t": 0.5, "xy": [-1250, 230] },
+          { "t": 1.0, "xy": [-1260, 260], "strength": 0.7 },
+          { "t": 1.4, "xy": [-1330, 560], "angle": 0, "strength": 0.35 },
+          { "t": 2.0, "xy": [-1500, 1250], "strength": 0 }
+        ] },
+
+      { "id": "rom-inf-l", "side": "rome", "w": 600, "d": 220,
+        "keyframes": [
+          { "t": 0, "xy": [-650, 350], "angle": 180 },
+          { "t": 1, "xy": [-640, 250] },
+          { "t": 2, "xy": [-560, 60] },
+          { "t": 3, "xy": [-480, -150], "w": 480, "d": 260 },
+          { "t": 4, "xy": [-430, -230], "w": 420, "d": 300 },
+          { "t": 5, "xy": [-410, -250], "w": 380, "strength": 0.7 },
+          { "t": 6, "xy": [-400, -260], "w": 340, "strength": 0.3 }
+        ] },
+      { "id": "rom-inf-c", "label": "Roman and allied infantry", "side": "rome", "w": 600, "d": 220,
+        "keyframes": [
+          { "t": 0, "xy": [0, 350], "angle": 180 },
+          { "t": 1, "xy": [0, 250] },
+          { "t": 2, "xy": [0, 50] },
+          { "t": 3, "xy": [0, -180], "w": 520, "d": 260 },
+          { "t": 4, "xy": [0, -260], "w": 480, "d": 300 },
+          { "t": 5, "xy": [0, -280], "w": 440, "strength": 0.7 },
+          { "t": 6, "xy": [0, -290], "w": 400, "d": 280, "strength": 0.3 }
+        ] },
+      { "id": "rom-inf-r", "side": "rome", "w": 600, "d": 220,
+        "keyframes": [
+          { "t": 0, "xy": [650, 350], "angle": 180 },
+          { "t": 1, "xy": [640, 250] },
+          { "t": 2, "xy": [560, 60] },
+          { "t": 3, "xy": [480, -150], "w": 480, "d": 260 },
+          { "t": 4, "xy": [430, -230], "w": 420, "d": 300 },
+          { "t": 5, "xy": [410, -250], "w": 380, "strength": 0.7 },
+          { "t": 6, "xy": [400, -260], "w": 340, "strength": 0.3 }
+        ] },
+
+      { "id": "allied-cav", "label": "Allied cavalry", "side": "rome", "color": "#e0675d", "w": 500, "d": 80,
+        "keyframes": [
+          { "t": 0, "xy": [1250, 350], "angle": 180 },
+          { "t": 0.8, "xy": [1250, 160] },
+          { "t": 3.0, "xy": [1250, 160] },
+          { "t": 3.5, "xy": [1330, 330], "strength": 0.6 },
+          { "t": 4.0, "xy": [1450, 650], "angle": 30, "strength": 0.3 },
+          { "t": 4.6, "xy": [1650, 1250], "strength": 0 }
+        ] },
+
+      { "id": "hasdrubal", "label": "Hasdrubal's heavy cavalry", "side": "carthage", "w": 450, "d": 100, "trail": true,
+        "keyframes": [
+          { "t": 0, "xy": [-1250, -250], "angle": 0 },
+          { "t": 0.5, "xy": [-1250, 150] },
+          { "t": 1.0, "xy": [-1260, 200] },
+          { "t": 1.4, "xy": [-1300, 550] },
+          { "t": 1.8, "xy": [-1200, 950], "angle": 60 },
+          { "t": 2.4, "xy": [-400, 1080], "angle": 90 },
+          { "t": 3.0, "xy": [800, 1000], "angle": 120 },
+          { "t": 3.4, "xy": [1250, 560], "angle": 180 },
+          { "t": 3.9, "xy": [1000, 700], "angle": 250 },
+          { "t": 4.5, "xy": [200, 480], "angle": 200, "w": 700 },
+          { "t": 5.0, "xy": [0, 180], "angle": 180, "w": 1000 },
+          { "t": 5.5, "xy": [0, 20], "w": 1100 },
+          { "t": 6.0, "xy": [0, -40] }
+        ] },
+
+      { "id": "lib-l", "label": "African infantry", "side": "carthage", "w": 300, "d": 150,
+        "keyframes": [
+          { "t": 0, "xy": [-900, -380], "angle": 0 },
+          { "t": 3.0, "xy": [-900, -380] },
+          { "t": 3.6, "xy": [-800, -300], "angle": 60 },
+          { "t": 4.2, "xy": [-720, -240], "angle": 90 },
+          { "t": 6.0, "xy": [-680, -250] }
+        ] },
+      { "id": "lib-r", "label": "African infantry", "side": "carthage", "w": 300, "d": 150,
+        "keyframes": [
+          { "t": 0, "xy": [900, -380], "angle": 0 },
+          { "t": 3.0, "xy": [900, -380] },
+          { "t": 3.6, "xy": [800, -300], "angle": 300 },
+          { "t": 4.2, "xy": [720, -240], "angle": 270 },
+          { "t": 6.0, "xy": [680, -250] }
+        ] },
+
+      { "id": "g1", "side": "carthage", "color": "#8f6ad0", "w": 290, "d": 90,
+        "keyframes": [
+          { "t": 0, "xy": [-560, -300], "angle": 335 },
+          { "t": 2.5, "xy": [-560, -310], "angle": 350 },
+          { "t": 3, "xy": [-580, -340], "angle": 20 },
+          { "t": 4, "xy": [-610, -400], "angle": 40 },
+          { "t": 6, "xy": [-620, -410] }
+        ] },
+      { "id": "g2", "side": "carthage", "color": "#8f6ad0", "w": 290, "d": 90,
+        "keyframes": [
+          { "t": 0, "xy": [-280, -180], "angle": 348 },
+          { "t": 2, "xy": [-280, -180] },
+          { "t": 2.5, "xy": [-280, -240], "angle": 0 },
+          { "t": 3, "xy": [-290, -330], "angle": 15 },
+          { "t": 4, "xy": [-310, -420], "angle": 25 },
+          { "t": 6, "xy": [-320, -440] }
+        ] },
+      { "id": "g3", "label": "Gauls and Spaniards", "side": "carthage", "color": "#8f6ad0", "w": 290, "d": 90,
+        "keyframes": [
+          { "t": 0, "xy": [0, -120], "angle": 0 },
+          { "t": 2, "xy": [0, -120] },
+          { "t": 3, "xy": [0, -355] },
+          { "t": 4, "xy": [0, -455] },
+          { "t": 6, "xy": [0, -480], "strength": 0.75 }
+        ] },
+      { "id": "g4", "side": "carthage", "color": "#8f6ad0", "w": 290, "d": 90,
+        "keyframes": [
+          { "t": 0, "xy": [280, -180], "angle": 12 },
+          { "t": 2, "xy": [280, -180] },
+          { "t": 2.5, "xy": [280, -240], "angle": 0 },
+          { "t": 3, "xy": [290, -330], "angle": 345 },
+          { "t": 4, "xy": [310, -420], "angle": 335 },
+          { "t": 6, "xy": [320, -440] }
+        ] },
+      { "id": "g5", "side": "carthage", "color": "#8f6ad0", "w": 290, "d": 90,
+        "keyframes": [
+          { "t": 0, "xy": [560, -300], "angle": 25 },
+          { "t": 2.5, "xy": [560, -310], "angle": 10 },
+          { "t": 3, "xy": [580, -340], "angle": 340 },
+          { "t": 4, "xy": [610, -400], "angle": 320 },
+          { "t": 6, "xy": [620, -410] }
+        ] },
+
+      { "id": "numidians", "label": "Numidian cavalry", "side": "carthage", "color": "#9a7ad6", "w": 500, "d": 100,
+        "keyframes": [
+          { "t": 0, "xy": [1250, -250], "angle": 0 },
+          { "t": 0.8, "xy": [1250, 60] },
+          { "t": 3.0, "xy": [1250, 60] },
+          { "t": 3.5, "xy": [1350, 300] },
+          { "t": 4.2, "xy": [1550, 800], "angle": 20 },
+          { "t": 4.8, "xy": [1750, 1300], "strength": 0 }
+        ] }
+    ],
+
+    "markers": [
+      { "t": 0, "xy": [0, -580], "label": "Hannibal and Mago", "color": "#6d3fb8" },
+      { "t": 0, "until": 1.4, "xy": [-1250, 470], "label": "Consul Paullus", "color": "#c8372d" },
+      { "t": 0, "until": 3.5, "xy": [1250, 470], "label": "Consul Varro", "color": "#c8372d" },
+      { "t": 5.0, "xy": [0, -100], "label": "Surrounded", "color": "#c8372d", "pulse": true }
+    ],
+
+    "captions": [
+      { "t": 0.0, "text": "About 86,000 Romans and allies face Hannibal's 50,000. The Romans stack their infantry unusually deep, hoping sheer weight will punch through." },
+      { "t": 0.5, "text": "By the river, Hasdrubal's heavy Spanish and Gallic horse crash into the Roman cavalry. There is no room to manoeuvre; men dismount and fight on foot." },
+      { "t": 1.2, "text": "The Roman cavalry is cut down or flees. Consul Paullus, wounded, joins the infantry. On the far wing, Numidian light horse keep the allied cavalry busy." },
+      { "t": 1.9, "text": "Hannibal's centre bulges toward the Romans: a crescent of Gauls and Spaniards, with Hannibal himself behind it. The Roman infantry hits it head on." },
+      { "t": 2.4, "text": "Hasdrubal does not chase the beaten horsemen. He leads his cavalry right round the back of the Roman army." },
+      { "t": 2.9, "text": "The crescent gives ground slowly, as planned, and turns inside out. The Romans pour into the pocket, packed tighter and tighter." },
+      { "t": 3.4, "text": "Hasdrubal hits the allied cavalry from behind. It breaks, and the Numidians chase it off the field." },
+      { "t": 3.7, "text": "Now the African infantry, waiting unseen on each flank, turn inward and attack the Roman sides." },
+      { "t": 4.5, "text": "Hasdrubal turns back and charges into the rear of the Roman infantry. The trap is closed." },
+      { "t": 5.2, "text": "Surrounded and crushed together, the Roman army is destroyed. Livy says 48,200 died, Polybius 70,000. Hannibal lost perhaps 6,000 to 8,000." }
+    ]
+  },
+
+  "hannibal-march": {
+    "title": "Hannibal's march to Italy, 218 BC",
+    "note": "Route is a reconstruction. Which Alpine pass Hannibal used is still argued over.",
+    "duration": 8,
+    "unitLabel": "Month",
+    "playSeconds": 32,
+    "tracks": [
+      { "id": "hannibal", "label": "Hannibal", "side": "carthage",
+        "keyframes": [
+          { "t": 0.0, "at": [37.60, -0.98] },
+          { "t": 1.0, "at": [40.80, 0.50] },
+          { "t": 2.5, "at": [42.40, 2.90] },
+          { "t": 3.3, "at": [43.90, 4.65] },
+          { "t": 4.0, "at": [44.90, 4.90] },
+          { "t": 4.5, "at": [45.20, 5.70] },
+          { "t": 5.2, "at": [44.70, 7.00] },
+          { "t": 5.7, "at": [45.07, 7.69] },
+          { "t": 6.5, "at": [45.20, 9.00] },
+          { "t": 7.5, "at": [45.03, 9.60] }
+        ] },
+      { "id": "scipio", "label": "Consul Publius Scipio", "side": "rome",
+        "keyframes": [
+          { "t": 0.0, "at": [43.72, 10.40] },
+          { "t": 2.6, "at": [43.72, 10.40] },
+          { "t": 3.2, "at": [43.30, 5.37] },
+          { "t": 3.6, "at": [43.75, 4.70] },
+          { "t": 4.2, "at": [43.30, 5.37] },
+          { "t": 4.8, "at": [43.72, 10.40] },
+          { "t": 6.0, "at": [45.05, 9.69] },
+          { "t": 6.5, "at": [45.20, 9.05] }
+        ] }
+    ],
+    "markers": [
+      { "t": 0.0, "at": [37.60, -0.98], "label": "New Carthage", "color": "#6d3fb8" },
+      { "t": 3.3, "at": [43.90, 4.65], "label": "Rhône crossing", "color": "#2f86d6" },
+      { "t": 5.2, "at": [44.70, 7.00], "label": "Alpine pass (debated)", "color": "#7a5a2a", "pulse": true },
+      { "t": 6.5, "at": [45.20, 9.00], "label": "Ticinus", "color": "#e8603c" },
+      { "t": 7.5, "at": [45.03, 9.60], "label": "Trebia", "color": "#e8603c", "pulse": true }
+    ],
+    "captions": [
+      { "t": 0.0, "text": "Late spring 218 BC. Hannibal leaves New Carthage with, Polybius says, about 90,000 infantry, 12,000 cavalry and 37 elephants." },
+      { "t": 1.1, "text": "North of the Ebro he fights his way through the local tribes and leaves garrisons behind him." },
+      { "t": 2.5, "text": "Over the Pyrenees and into Gaul. Consul Publius Scipio, meant to stop him in Spain, sails west from Pisa." },
+      { "t": 3.3, "text": "At the Rhône, Gauls hold the far bank. Hannibal sends a force upstream to hit them from behind, and floats the elephants across on rafts." },
+      { "t": 3.6, "text": "Scipio lands at Massalia and reaches the crossing three days too late. He sends his army on to Spain and hurries back to Italy." },
+      { "t": 4.4, "text": "Up into the Alps as winter closes in. Mountain tribes ambush the column in the passes." },
+      { "t": 5.1, "text": "At the top, Hannibal shows his exhausted men the plains of Italy below. The descent is worse: snow, ice and a landslide that has to be cut through." },
+      { "t": 5.7, "text": "He reaches the Po valley with about 20,000 infantry and 6,000 cavalry. The crossing took fifteen days." },
+      { "t": 6.5, "text": "First clash, a cavalry fight at the Ticinus. Scipio is wounded; legend says his teenage son, the future Africanus, saved him." },
+      { "t": 7.4, "text": "December: Hannibal wins at the Trebia, and the Gauls of northern Italy flock to join him." }
+    ]
+  }
+}

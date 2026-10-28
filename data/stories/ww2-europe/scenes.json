@@ -1,0 +1,2279 @@
+{
+  "fall-of-france": {
+    "title": "The Fall of France, 10 May – 4 June 1940",
+    "note": "Schematic. Army groups and armies are shown as single blocks; positions and timings are simplified.",
+    "duration": 26,
+    "unitLabel": "Day",
+    "playSeconds": 42,
+    "view": {
+      "bounds": [
+        [
+          48.5,
+          0.5
+        ],
+        [
+          52.5,
+          7.5
+        ]
+      ]
+    },
+    "lines": [
+      {
+        "label": "Maginot Line",
+        "color": "#2f6fd0",
+        "weight": 4,
+        "dash": "8 6",
+        "labelIndex": 3,
+        "points": [
+          [
+            49.5,
+            5.8
+          ],
+          [
+            49.4,
+            6.5
+          ],
+          [
+            49.15,
+            7.0
+          ],
+          [
+            49.05,
+            7.8
+          ],
+          [
+            48.97,
+            8.2
+          ],
+          [
+            48.5,
+            7.8
+          ],
+          [
+            48.0,
+            7.6
+          ],
+          [
+            47.6,
+            7.55
+          ]
+        ]
+      }
+    ],
+    "units": [
+      {
+        "id": "agb",
+        "label": "Army Group B",
+        "side": "germany",
+        "w": 90000,
+        "d": 25000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              52.0,
+              6.6
+            ],
+            "angle": 270
+          },
+          {
+            "t": 5,
+            "at": [
+              51.6,
+              4.8
+            ]
+          },
+          {
+            "t": 7,
+            "at": [
+              50.85,
+              4.4
+            ],
+            "angle": 250
+          },
+          {
+            "t": 14,
+            "at": [
+              50.85,
+              3.3
+            ]
+          },
+          {
+            "t": 18,
+            "at": [
+              51.0,
+              2.85
+            ]
+          },
+          {
+            "t": 26,
+            "at": [
+              51.0,
+              2.85
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aga",
+        "label": "Army Group A panzers",
+        "side": "germany",
+        "color": "#1d2128",
+        "w": 50000,
+        "d": 25000,
+        "trail": true,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              50.0,
+              6.6
+            ],
+            "angle": 270
+          },
+          {
+            "t": 3,
+            "at": [
+              49.72,
+              4.95
+            ]
+          },
+          {
+            "t": 6,
+            "at": [
+              49.85,
+              3.3
+            ]
+          },
+          {
+            "t": 8,
+            "at": [
+              50.0,
+              2.4
+            ]
+          },
+          {
+            "t": 10,
+            "at": [
+              50.1,
+              1.85
+            ]
+          },
+          {
+            "t": 12,
+            "at": [
+              50.6,
+              1.75
+            ],
+            "angle": 0
+          },
+          {
+            "t": 14,
+            "at": [
+              50.85,
+              2.1
+            ],
+            "angle": 30
+          },
+          {
+            "t": 17,
+            "at": [
+              50.85,
+              2.1
+            ]
+          },
+          {
+            "t": 20,
+            "at": [
+              50.95,
+              2.3
+            ]
+          },
+          {
+            "t": 26,
+            "at": [
+              50.95,
+              2.3
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agc",
+        "label": "Army Group C",
+        "side": "germany",
+        "w": 120000,
+        "d": 15000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              49.1,
+              7.95
+            ],
+            "angle": 250
+          }
+        ]
+      },
+      {
+        "id": "dutch",
+        "label": "Dutch army",
+        "side": "western",
+        "w": 60000,
+        "d": 20000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              52.1,
+              5.2
+            ],
+            "angle": 90
+          },
+          {
+            "t": 4,
+            "strength": 0.5
+          },
+          {
+            "t": 5,
+            "strength": 0
+          }
+        ]
+      },
+      {
+        "id": "allies-north",
+        "label": "British, French and Belgian armies",
+        "side": "western",
+        "w": 100000,
+        "d": 30000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              50.5,
+              3.2
+            ],
+            "angle": 90
+          },
+          {
+            "t": 3,
+            "at": [
+              50.8,
+              4.6
+            ]
+          },
+          {
+            "t": 6,
+            "at": [
+              50.8,
+              4.3
+            ]
+          },
+          {
+            "t": 9,
+            "at": [
+              50.75,
+              3.6
+            ]
+          },
+          {
+            "t": 14,
+            "at": [
+              50.85,
+              2.9
+            ],
+            "w": 70000,
+            "strength": 0.9
+          },
+          {
+            "t": 17,
+            "at": [
+              51.0,
+              2.5
+            ],
+            "w": 50000,
+            "d": 25000,
+            "strength": 0.8
+          },
+          {
+            "t": 22,
+            "at": [
+              51.03,
+              2.4
+            ],
+            "w": 30000,
+            "d": 15000,
+            "strength": 0.5
+          },
+          {
+            "t": 25,
+            "at": [
+              51.03,
+              2.38
+            ],
+            "strength": 0
+          }
+        ]
+      },
+      {
+        "id": "french-meuse",
+        "label": "French 9th and 2nd Armies",
+        "side": "western",
+        "w": 120000,
+        "d": 20000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              49.85,
+              4.8
+            ],
+            "angle": 45
+          },
+          {
+            "t": 3,
+            "strength": 0.6
+          },
+          {
+            "t": 5,
+            "strength": 0.2
+          },
+          {
+            "t": 7,
+            "strength": 0
+          }
+        ]
+      },
+      {
+        "id": "maginot",
+        "label": "French armies on the Maginot Line",
+        "side": "western",
+        "w": 140000,
+        "d": 20000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              48.9,
+              6.8
+            ],
+            "angle": 70
+          }
+        ]
+      }
+    ],
+    "markers": [
+      {
+        "t": 3,
+        "until": 8,
+        "at": [
+          49.7,
+          4.94
+        ],
+        "label": "13 May: Meuse crossed at Sedan",
+        "color": "#e8603c",
+        "pulse": true
+      },
+      {
+        "t": 4,
+        "until": 9,
+        "at": [
+          51.92,
+          4.48
+        ],
+        "label": "14 May: Rotterdam bombed",
+        "color": "#c98a12"
+      },
+      {
+        "t": 10,
+        "at": [
+          50.1,
+          1.83
+        ],
+        "label": "20 May: panzers reach the Channel",
+        "color": "#4a4f5c"
+      },
+      {
+        "t": 14,
+        "until": 17,
+        "at": [
+          50.75,
+          2.25
+        ],
+        "label": "24 May: Hitler's halt order",
+        "color": "#4a4f5c",
+        "pulse": true
+      },
+      {
+        "t": 16,
+        "at": [
+          51.03,
+          2.38
+        ],
+        "label": "Dunkirk: about 338,000 evacuated",
+        "color": "#2f6fd0",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "10 May 1940. Army Group B invades the Netherlands and Belgium. The British and French rush north into Belgium to meet it, as the Germans hoped."
+      },
+      {
+        "t": 1.5,
+        "text": "Meanwhile seven panzer divisions wind through the hills and forests of the Ardennes, thought too difficult for tanks."
+      },
+      {
+        "t": 3,
+        "text": "13 May: under heavy dive-bombing, German infantry cross the Meuse at Sedan. The French armies there begin to collapse."
+      },
+      {
+        "t": 5,
+        "text": "15 May: the Netherlands surrender, a day after Rotterdam is bombed. The panzers race west across open country towards the sea."
+      },
+      {
+        "t": 10,
+        "text": "20 May: German tanks reach the Channel near Abbeville. The best Allied armies are cut off in the north."
+      },
+      {
+        "t": 14,
+        "text": "24 May: Hitler halts the panzers outside Dunkirk for three days, to rest them and let the Luftwaffe finish the job."
+      },
+      {
+        "t": 16,
+        "text": "26 May – 4 June: Operation Dynamo. Warships and hundreds of small boats lift about 338,000 soldiers off the beaches and harbour of Dunkirk."
+      },
+      {
+        "t": 19,
+        "text": "Belgium surrenders on 28 May. The rearguard holds the perimeter while the evacuation goes on; nearly all the heavy equipment is left behind."
+      },
+      {
+        "t": 25,
+        "text": "4 June: Dunkirk falls. Less than three weeks later France signs an armistice."
+      }
+    ]
+  },
+  "barbarossa": {
+    "title": "Operation Barbarossa, June – December 1941",
+    "note": "Schematic. Army groups and Soviet fronts are shown as single blocks; positions and dates are approximate.",
+    "duration": 24,
+    "unitLabel": "Week",
+    "playSeconds": 44,
+    "view": {
+      "bounds": [
+        [
+          46,
+          20
+        ],
+        [
+          61,
+          40
+        ]
+      ]
+    },
+    "units": [
+      {
+        "id": "agn",
+        "label": "Army Group North",
+        "side": "germany",
+        "w": 220000,
+        "d": 70000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              55.0,
+              21.8
+            ],
+            "angle": 45
+          },
+          {
+            "t": 1.3,
+            "at": [
+              56.6,
+              24.5
+            ]
+          },
+          {
+            "t": 2.5,
+            "at": [
+              57.8,
+              28.3
+            ],
+            "angle": 30
+          },
+          {
+            "t": 8,
+            "at": [
+              58.6,
+              29.8
+            ]
+          },
+          {
+            "t": 11,
+            "at": [
+              59.55,
+              30.3
+            ],
+            "angle": 0,
+            "w": 160000
+          },
+          {
+            "t": 24,
+            "at": [
+              59.55,
+              30.3
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agc",
+        "label": "Army Group Centre",
+        "side": "germany",
+        "w": 250000,
+        "d": 80000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              52.6,
+              23.6
+            ],
+            "angle": 90
+          },
+          {
+            "t": 1.2,
+            "at": [
+              53.9,
+              27.6
+            ]
+          },
+          {
+            "t": 4,
+            "at": [
+              54.8,
+              32.0
+            ]
+          },
+          {
+            "t": 9,
+            "at": [
+              54.6,
+              32.5
+            ]
+          },
+          {
+            "t": 14.5,
+            "at": [
+              55.1,
+              34.3
+            ]
+          },
+          {
+            "t": 20,
+            "at": [
+              55.9,
+              37.0
+            ],
+            "w": 200000
+          },
+          {
+            "t": 23.5,
+            "at": [
+              55.9,
+              37.0
+            ],
+            "strength": 0.7
+          },
+          {
+            "t": 24,
+            "at": [
+              55.5,
+              35.8
+            ],
+            "strength": 0.55
+          }
+        ]
+      },
+      {
+        "id": "guderian",
+        "label": "Guderian's panzers",
+        "side": "germany",
+        "color": "#1d2128",
+        "w": 120000,
+        "d": 50000,
+        "trail": true,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              52.1,
+              24.0
+            ],
+            "angle": 90
+          },
+          {
+            "t": 1.2,
+            "at": [
+              53.4,
+              26.5
+            ]
+          },
+          {
+            "t": 4,
+            "at": [
+              53.6,
+              31.5
+            ]
+          },
+          {
+            "t": 9,
+            "at": [
+              53.2,
+              32.3
+            ]
+          },
+          {
+            "t": 12,
+            "at": [
+              50.4,
+              33.2
+            ],
+            "angle": 180
+          },
+          {
+            "t": 14.5,
+            "at": [
+              52.6,
+              35.5
+            ],
+            "angle": 45
+          },
+          {
+            "t": 20,
+            "at": [
+              54.1,
+              37.4
+            ],
+            "strength": 0.7
+          },
+          {
+            "t": 24,
+            "at": [
+              53.5,
+              36.3
+            ],
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "ags",
+        "label": "Army Group South",
+        "side": "germany",
+        "w": 250000,
+        "d": 80000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              50.8,
+              24.0
+            ],
+            "angle": 90
+          },
+          {
+            "t": 6,
+            "at": [
+              48.75,
+              30.2
+            ]
+          },
+          {
+            "t": 12.5,
+            "at": [
+              49.9,
+              31.8
+            ]
+          },
+          {
+            "t": 17,
+            "at": [
+              49.6,
+              36.0
+            ]
+          },
+          {
+            "t": 21,
+            "at": [
+              47.4,
+              39.4
+            ],
+            "angle": 110
+          },
+          {
+            "t": 22.5,
+            "at": [
+              47.4,
+              38.4
+            ],
+            "strength": 0.85
+          },
+          {
+            "t": 24,
+            "at": [
+              47.4,
+              38.4
+            ]
+          }
+        ]
+      },
+      {
+        "id": "finns",
+        "label": "Finnish army",
+        "side": "axisally",
+        "w": 150000,
+        "d": 40000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              61.4,
+              29.0
+            ],
+            "angle": 160
+          },
+          {
+            "t": 2,
+            "at": [
+              61.4,
+              29.0
+            ]
+          },
+          {
+            "t": 10,
+            "at": [
+              60.75,
+              30.0
+            ],
+            "angle": 180
+          },
+          {
+            "t": 24,
+            "at": [
+              60.75,
+              30.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nw-front",
+        "label": "Soviet Northwestern Front",
+        "side": "soviet",
+        "w": 220000,
+        "d": 60000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              55.6,
+              24.5
+            ],
+            "angle": 270
+          },
+          {
+            "t": 2,
+            "at": [
+              57.4,
+              27.8
+            ],
+            "strength": 0.6
+          },
+          {
+            "t": 11,
+            "at": [
+              59.85,
+              30.6
+            ],
+            "w": 110000,
+            "d": 40000,
+            "angle": 200,
+            "strength": 0.8
+          },
+          {
+            "t": 24,
+            "at": [
+              59.85,
+              30.6
+            ]
+          }
+        ]
+      },
+      {
+        "id": "w-front",
+        "label": "Soviet Western Front",
+        "side": "soviet",
+        "w": 250000,
+        "d": 70000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              53.4,
+              25.2
+            ],
+            "angle": 270
+          },
+          {
+            "t": 1.2,
+            "at": [
+              53.8,
+              27.0
+            ],
+            "strength": 0.25
+          },
+          {
+            "t": 2,
+            "at": [
+              54.5,
+              30.0
+            ],
+            "strength": 0.6
+          },
+          {
+            "t": 4,
+            "at": [
+              54.8,
+              33.6
+            ]
+          },
+          {
+            "t": 9,
+            "at": [
+              54.8,
+              33.8
+            ],
+            "strength": 0.7
+          },
+          {
+            "t": 14.5,
+            "at": [
+              55.3,
+              35.3
+            ],
+            "strength": 0.3
+          },
+          {
+            "t": 17,
+            "at": [
+              55.6,
+              36.3
+            ],
+            "strength": 0.6
+          },
+          {
+            "t": 20,
+            "at": [
+              56.0,
+              37.6
+            ],
+            "w": 200000,
+            "strength": 0.75
+          },
+          {
+            "t": 23.5,
+            "at": [
+              55.9,
+              37.3
+            ],
+            "strength": 1
+          },
+          {
+            "t": 24,
+            "at": [
+              55.6,
+              36.2
+            ],
+            "strength": 1
+          }
+        ]
+      },
+      {
+        "id": "sw-front",
+        "label": "Soviet Southwestern Front",
+        "side": "soviet",
+        "w": 250000,
+        "d": 70000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              50.3,
+              25.0
+            ],
+            "angle": 270
+          },
+          {
+            "t": 6,
+            "at": [
+              49.6,
+              30.6
+            ],
+            "strength": 0.6
+          },
+          {
+            "t": 12.5,
+            "at": [
+              50.2,
+              32.1
+            ],
+            "strength": 0.15
+          },
+          {
+            "t": 14,
+            "at": [
+              50.0,
+              35.5
+            ],
+            "strength": 0.5
+          },
+          {
+            "t": 17,
+            "at": [
+              50.0,
+              37.2
+            ]
+          },
+          {
+            "t": 21,
+            "at": [
+              47.9,
+              39.9
+            ],
+            "strength": 0.7
+          },
+          {
+            "t": 22.5,
+            "at": [
+              47.6,
+              39.2
+            ],
+            "strength": 0.85
+          },
+          {
+            "t": 24,
+            "at": [
+              47.6,
+              39.2
+            ]
+          }
+        ]
+      }
+    ],
+    "markers": [
+      {
+        "t": 0,
+        "at": [
+          55.75,
+          37.62
+        ],
+        "label": "Moscow",
+        "color": "#c8372d"
+      },
+      {
+        "t": 1.2,
+        "until": 5,
+        "at": [
+          53.9,
+          27.56
+        ],
+        "label": "Minsk pocket: about 300,000 captured (German figure)",
+        "color": "#4a4f5c",
+        "pulse": true
+      },
+      {
+        "t": 4,
+        "until": 8,
+        "at": [
+          54.78,
+          32.05
+        ],
+        "label": "Smolensk pocket",
+        "color": "#4a4f5c"
+      },
+      {
+        "t": 11,
+        "at": [
+          59.94,
+          30.31
+        ],
+        "label": "8 Sep: Leningrad cut off",
+        "color": "#c8372d",
+        "pulse": true
+      },
+      {
+        "t": 12.3,
+        "until": 16,
+        "at": [
+          50.2,
+          32.4
+        ],
+        "label": "Kiev pocket: over 600,000 captured (German figure)",
+        "color": "#4a4f5c",
+        "pulse": true
+      },
+      {
+        "t": 14.5,
+        "until": 19,
+        "at": [
+          55.2,
+          34.3
+        ],
+        "label": "Vyazma–Bryansk pockets",
+        "color": "#4a4f5c",
+        "pulse": true
+      },
+      {
+        "t": 21,
+        "until": 23,
+        "at": [
+          47.23,
+          39.72
+        ],
+        "label": "Rostov taken, then lost",
+        "color": "#c8372d"
+      },
+      {
+        "t": 23.5,
+        "at": [
+          55.95,
+          37.2
+        ],
+        "label": "5 Dec: Soviet counter-offensive",
+        "color": "#c8372d",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "22 June 1941. Three German army groups, with Finnish, Romanian and other allies, attack along a front of nearly 3,000 km."
+      },
+      {
+        "t": 1.2,
+        "text": "Within a week Army Group Centre's panzers close a vast pocket around Minsk."
+      },
+      {
+        "t": 3.5,
+        "text": "July: another pocket at Smolensk. The road to Moscow seems open, but Soviet resistance is stiffening."
+      },
+      {
+        "t": 9,
+        "text": "Hitler sends Guderian's panzers south to help destroy the Soviet armies defending Kiev."
+      },
+      {
+        "t": 11,
+        "text": "8 September: Army Group North cuts Leningrad off by land, with the Finns closing in from the north. The siege will last 872 days."
+      },
+      {
+        "t": 12.3,
+        "text": "Mid-September: the pincers close east of Kiev, the largest encirclement in military history."
+      },
+      {
+        "t": 14.5,
+        "text": "October: the drive on Moscow resumes. Huge new pockets at Vyazma and Bryansk; Moscow panics."
+      },
+      {
+        "t": 16.5,
+        "text": "Autumn rains turn the roads to mud and the advance slows."
+      },
+      {
+        "t": 20,
+        "text": "Late November: in freezing cold, German spearheads come within about 30 km of the Kremlin."
+      },
+      {
+        "t": 21,
+        "text": "In the south Rostov falls on 21 November and is lost a week later: the first big German retreat."
+      },
+      {
+        "t": 23.5,
+        "text": "5 December: fresh Soviet divisions, many from Siberia, counter-attack at Moscow in bitter cold and drive the Germans back."
+      }
+    ]
+  },
+  "stalingrad": {
+    "title": "Encirclement at Stalingrad, 19 November 1942 – 2 February 1943",
+    "note": "Schematic. Armies are shown as single blocks; positions are simplified.",
+    "duration": 75,
+    "unitLabel": "Day",
+    "playSeconds": 44,
+    "view": {
+      "bounds": [
+        [
+          47.3,
+          41.8
+        ],
+        [
+          50.0,
+          45.4
+        ]
+      ]
+    },
+    "units": [
+      {
+        "id": "sixth",
+        "label": "German Sixth Army (Paulus)",
+        "side": "germany",
+        "w": 70000,
+        "d": 40000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              48.75,
+              44.2
+            ],
+            "angle": 90,
+            "strength": 0.85
+          },
+          {
+            "t": 4,
+            "at": [
+              48.75,
+              44.2
+            ]
+          },
+          {
+            "t": 35,
+            "w": 60000,
+            "d": 35000,
+            "strength": 0.65
+          },
+          {
+            "t": 60,
+            "at": [
+              48.73,
+              44.35
+            ],
+            "w": 40000,
+            "d": 25000,
+            "strength": 0.45
+          },
+          {
+            "t": 73,
+            "at": [
+              48.71,
+              44.47
+            ],
+            "w": 15000,
+            "d": 10000,
+            "strength": 0.2
+          },
+          {
+            "t": 75,
+            "strength": 0
+          }
+        ]
+      },
+      {
+        "id": "rom3",
+        "label": "Romanian 3rd Army",
+        "side": "axisally",
+        "w": 130000,
+        "d": 20000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              49.45,
+              42.9
+            ],
+            "angle": 0
+          },
+          {
+            "t": 1,
+            "strength": 0.4
+          },
+          {
+            "t": 3,
+            "strength": 0.05
+          },
+          {
+            "t": 5,
+            "strength": 0
+          }
+        ]
+      },
+      {
+        "id": "rom4",
+        "label": "Romanian 4th Army",
+        "side": "axisally",
+        "w": 80000,
+        "d": 20000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              48.2,
+              44.3
+            ],
+            "angle": 180
+          },
+          {
+            "t": 1,
+            "strength": 1
+          },
+          {
+            "t": 2,
+            "strength": 0.3
+          },
+          {
+            "t": 3,
+            "strength": 0.05
+          },
+          {
+            "t": 5,
+            "strength": 0
+          }
+        ]
+      },
+      {
+        "id": "swf",
+        "label": "Soviet Southwestern Front",
+        "side": "soviet",
+        "w": 70000,
+        "d": 30000,
+        "trail": true,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              49.7,
+              42.8
+            ],
+            "angle": 180
+          },
+          {
+            "t": 1.5,
+            "at": [
+              49.2,
+              43.0
+            ]
+          },
+          {
+            "t": 4,
+            "at": [
+              48.68,
+              43.5
+            ],
+            "angle": 135
+          },
+          {
+            "t": 10,
+            "at": [
+              48.75,
+              43.6
+            ],
+            "angle": 90,
+            "w": 60000
+          },
+          {
+            "t": 60,
+            "at": [
+              48.73,
+              44.0
+            ],
+            "w": 45000
+          },
+          {
+            "t": 73,
+            "at": [
+              48.72,
+              44.3
+            ]
+          },
+          {
+            "t": 75,
+            "at": [
+              48.72,
+              44.3
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stf",
+        "label": "Soviet Stalingrad Front",
+        "side": "soviet",
+        "w": 70000,
+        "d": 30000,
+        "trail": true,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              48.35,
+              44.6
+            ],
+            "angle": 270
+          },
+          {
+            "t": 1,
+            "at": [
+              48.35,
+              44.6
+            ]
+          },
+          {
+            "t": 2,
+            "at": [
+              48.35,
+              44.0
+            ]
+          },
+          {
+            "t": 4,
+            "at": [
+              48.6,
+              43.55
+            ],
+            "angle": 0
+          },
+          {
+            "t": 10,
+            "at": [
+              48.5,
+              44.1
+            ],
+            "w": 60000
+          },
+          {
+            "t": 60,
+            "at": [
+              48.6,
+              44.3
+            ]
+          },
+          {
+            "t": 73,
+            "at": [
+              48.66,
+              44.45
+            ]
+          },
+          {
+            "t": 75,
+            "at": [
+              48.66,
+              44.45
+            ]
+          }
+        ]
+      },
+      {
+        "id": "don-front",
+        "label": "Soviet Don Front",
+        "side": "soviet",
+        "w": 70000,
+        "d": 25000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              49.1,
+              44.0
+            ],
+            "angle": 180
+          },
+          {
+            "t": 10,
+            "at": [
+              48.95,
+              44.1
+            ]
+          },
+          {
+            "t": 60,
+            "at": [
+              48.85,
+              44.3
+            ]
+          },
+          {
+            "t": 73,
+            "at": [
+              48.78,
+              44.45
+            ]
+          },
+          {
+            "t": 75,
+            "at": [
+              48.78,
+              44.45
+            ]
+          }
+        ]
+      },
+      {
+        "id": "62nd",
+        "label": "62nd Army (Chuikov) in the city",
+        "side": "soviet",
+        "w": 15000,
+        "d": 5000,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              48.73,
+              44.56
+            ],
+            "angle": 270,
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "manstein",
+        "label": "Manstein's relief force",
+        "side": "germany",
+        "color": "#1d2128",
+        "w": 50000,
+        "d": 25000,
+        "trail": true,
+        "keyframes": [
+          {
+            "t": 0,
+            "at": [
+              47.45,
+              42.4
+            ],
+            "angle": 45,
+            "strength": 0
+          },
+          {
+            "t": 22,
+            "strength": 0
+          },
+          {
+            "t": 23,
+            "at": [
+              47.55,
+              42.6
+            ],
+            "strength": 1
+          },
+          {
+            "t": 30,
+            "at": [
+              48.1,
+              43.4
+            ]
+          },
+          {
+            "t": 35,
+            "at": [
+              47.7,
+              42.7
+            ],
+            "angle": 225,
+            "strength": 0.4
+          },
+          {
+            "t": 40,
+            "at": [
+              47.4,
+              42.3
+            ],
+            "strength": 0
+          }
+        ]
+      }
+    ],
+    "markers": [
+      {
+        "t": 0,
+        "at": [
+          48.71,
+          44.51
+        ],
+        "label": "Stalingrad",
+        "color": "#c8372d"
+      },
+      {
+        "t": 4,
+        "until": 12,
+        "at": [
+          48.69,
+          43.53
+        ],
+        "label": "23 Nov: pincers meet at Kalach",
+        "color": "#c8372d",
+        "pulse": true
+      },
+      {
+        "t": 10,
+        "until": 60,
+        "at": [
+          48.67,
+          44.18
+        ],
+        "label": "Pitomnik airfield: the airlift fails",
+        "color": "#4a4f5c"
+      },
+      {
+        "t": 30,
+        "until": 36,
+        "at": [
+          48.05,
+          43.55
+        ],
+        "label": "Relief stopped about 50 km away",
+        "color": "#4a4f5c",
+        "pulse": true
+      },
+      {
+        "t": 73,
+        "at": [
+          48.7,
+          44.52
+        ],
+        "label": "31 Jan: Paulus surrenders",
+        "color": "#c8372d"
+      },
+      {
+        "t": 75,
+        "at": [
+          48.78,
+          44.42
+        ],
+        "label": "2 Feb: last surrender, about 91,000 prisoners",
+        "color": "#c8372d",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "19 November 1942. Germany's Sixth Army is fighting for the ruins of Stalingrad. Its long flanks on the Don and the open steppe are held by weaker Romanian armies."
+      },
+      {
+        "t": 1,
+        "text": "Operation Uranus: Soviet armies smash through the Romanian 3rd Army north-west of the city. Next day a second blow falls in the south."
+      },
+      {
+        "t": 4,
+        "text": "23 November: the two pincers meet near Kalach. About a quarter of a million Axis soldiers are trapped."
+      },
+      {
+        "t": 6,
+        "text": "Hitler forbids a breakout. Göring promises to supply the pocket by air."
+      },
+      {
+        "t": 12,
+        "text": "The airlift delivers a fraction of what is needed. Men begin to starve in the frozen steppe."
+      },
+      {
+        "t": 23,
+        "text": "12 December: Manstein's relief force attacks from the south-west."
+      },
+      {
+        "t": 30,
+        "text": "It gets within about 50 km of the pocket. Paulus does not break out to meet it."
+      },
+      {
+        "t": 35,
+        "text": "A new Soviet offensive on the Don threatens to cut off the relief force too. It falls back."
+      },
+      {
+        "t": 45,
+        "text": "January: the Soviets demand surrender and are refused. The pocket is crushed piece by piece and the last airfields are lost."
+      },
+      {
+        "t": 73,
+        "text": "31 January 1943: Paulus, promoted to field marshal the day before, surrenders."
+      },
+      {
+        "t": 75,
+        "text": "2 February: the last troops in the northern pocket surrender. About 91,000 prisoners march into captivity."
+      }
+    ]
+  },
+  "d-day": {
+    "title": "D-Day, 6 June 1944",
+    "note": "Schematic. Divisions are shown as single blocks; positions and times are approximate.",
+    "duration": 24,
+    "unitLabel": "Hour",
+    "playSeconds": 44,
+    "frame": {
+      "origin": [
+        49.33,
+        -0.65
+      ]
+    },
+    "view": {
+      "xy": [
+        [
+          -52000,
+          -20000
+        ],
+        [
+          32000,
+          18000
+        ]
+      ]
+    },
+    "units": [
+      {
+        "id": "fleet",
+        "label": "Invasion fleet",
+        "side": "western",
+        "w": 60000,
+        "d": 5000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              -5000,
+              26000
+            ],
+            "angle": 180,
+            "strength": 0.7
+          },
+          {
+            "t": 5.5,
+            "xy": [
+              -5000,
+              15000
+            ],
+            "strength": 1
+          },
+          {
+            "t": 24,
+            "xy": [
+              -5000,
+              15000
+            ]
+          }
+        ]
+      },
+      {
+        "id": "uk-airborne",
+        "label": "British 6th Airborne",
+        "side": "western",
+        "color": "#5b8fe0",
+        "w": 8000,
+        "d": 6000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              27000,
+              -8000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 0.2,
+            "strength": 0
+          },
+          {
+            "t": 0.5,
+            "strength": 1
+          },
+          {
+            "t": 24,
+            "strength": 0.9
+          }
+        ]
+      },
+      {
+        "id": "us-airborne",
+        "label": "US airborne",
+        "side": "western",
+        "color": "#5b8fe0",
+        "w": 14000,
+        "d": 9000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              -45000,
+              5000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 0.8,
+            "strength": 0
+          },
+          {
+            "t": 1.5,
+            "strength": 0.8
+          },
+          {
+            "t": 24,
+            "xy": [
+              -44000,
+              4000
+            ],
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "utah",
+        "label": "US 4th Div.",
+        "side": "western",
+        "w": 6000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              -38467,
+              15000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 5.7,
+            "strength": 0
+          },
+          {
+            "t": 5.8,
+            "strength": 1
+          },
+          {
+            "t": 6.5,
+            "xy": [
+              -38467,
+              10019
+            ]
+          },
+          {
+            "t": 12,
+            "xy": [
+              -40500,
+              7000
+            ]
+          },
+          {
+            "t": 24,
+            "xy": [
+              -42500,
+              5000
+            ]
+          }
+        ]
+      },
+      {
+        "id": "omaha",
+        "label": "US 1st & 29th Div.",
+        "side": "western",
+        "w": 8000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              -16694,
+              12000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 5.7,
+            "strength": 0
+          },
+          {
+            "t": 5.8,
+            "strength": 1
+          },
+          {
+            "t": 6.5,
+            "xy": [
+              -16694,
+              4453
+            ],
+            "strength": 0.6
+          },
+          {
+            "t": 10,
+            "xy": [
+              -16694,
+              4100
+            ],
+            "strength": 0.55
+          },
+          {
+            "t": 14,
+            "xy": [
+              -16694,
+              2600
+            ],
+            "strength": 0.75
+          },
+          {
+            "t": 24,
+            "xy": [
+              -16694,
+              1500
+            ],
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "gold",
+        "label": "British 50th Div.",
+        "side": "western",
+        "w": 7000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              5806,
+              8000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 7.1,
+            "strength": 0
+          },
+          {
+            "t": 7.2,
+            "strength": 1
+          },
+          {
+            "t": 7.5,
+            "xy": [
+              5806,
+              1113
+            ]
+          },
+          {
+            "t": 16,
+            "xy": [
+              4000,
+              -4500
+            ]
+          },
+          {
+            "t": 24,
+            "xy": [
+              2000,
+              -6500
+            ]
+          }
+        ]
+      },
+      {
+        "id": "juno",
+        "label": "Canadian 3rd Div.",
+        "side": "western",
+        "w": 7000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              15968,
+              7000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 7.4,
+            "strength": 0
+          },
+          {
+            "t": 7.5,
+            "strength": 1
+          },
+          {
+            "t": 7.9,
+            "xy": [
+              15968,
+              0
+            ]
+          },
+          {
+            "t": 16,
+            "xy": [
+              16000,
+              -6000
+            ]
+          },
+          {
+            "t": 24,
+            "xy": [
+              16500,
+              -9000
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sword",
+        "label": "British 3rd Div.",
+        "side": "western",
+        "w": 6000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              26129,
+              3000
+            ],
+            "angle": 180,
+            "strength": 0
+          },
+          {
+            "t": 7.1,
+            "strength": 0
+          },
+          {
+            "t": 7.2,
+            "strength": 1
+          },
+          {
+            "t": 7.5,
+            "xy": [
+              26129,
+              -4453
+            ]
+          },
+          {
+            "t": 16,
+            "xy": [
+              25000,
+              -9000
+            ]
+          },
+          {
+            "t": 24,
+            "xy": [
+              24500,
+              -10500
+            ]
+          }
+        ]
+      },
+      {
+        "id": "g709",
+        "label": "709th Div.",
+        "side": "germany",
+        "w": 12000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              -38000,
+              6500
+            ],
+            "angle": 0
+          },
+          {
+            "t": 6.5,
+            "strength": 0.7
+          },
+          {
+            "t": 10,
+            "strength": 0.3
+          },
+          {
+            "t": 24,
+            "strength": 0.2
+          }
+        ]
+      },
+      {
+        "id": "g352",
+        "label": "352nd Div.",
+        "side": "germany",
+        "w": 22000,
+        "d": 3500,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              -15000,
+              2000
+            ],
+            "angle": 0
+          },
+          {
+            "t": 8,
+            "strength": 0.85
+          },
+          {
+            "t": 14,
+            "strength": 0.5
+          },
+          {
+            "t": 24,
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "g716",
+        "label": "716th Div.",
+        "side": "germany",
+        "w": 30000,
+        "d": 3000,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              14000,
+              -2500
+            ],
+            "angle": 0
+          },
+          {
+            "t": 8,
+            "strength": 0.5
+          },
+          {
+            "t": 12,
+            "strength": 0.25
+          },
+          {
+            "t": 24,
+            "strength": 0.15
+          }
+        ]
+      },
+      {
+        "id": "pz21",
+        "label": "21st Panzer",
+        "side": "germany",
+        "color": "#1d2128",
+        "w": 6000,
+        "d": 4000,
+        "trail": true,
+        "keyframes": [
+          {
+            "t": 0,
+            "xy": [
+              22000,
+              -17000
+            ],
+            "angle": 0
+          },
+          {
+            "t": 14,
+            "xy": [
+              22000,
+              -17000
+            ]
+          },
+          {
+            "t": 16,
+            "xy": [
+              20500,
+              -12000
+            ]
+          },
+          {
+            "t": 20,
+            "xy": [
+              23500,
+              -3600
+            ]
+          },
+          {
+            "t": 21.5,
+            "xy": [
+              21000,
+              -9000
+            ],
+            "angle": 180,
+            "strength": 0.6
+          },
+          {
+            "t": 24,
+            "xy": [
+              20500,
+              -12000
+            ]
+          }
+        ]
+      }
+    ],
+    "markers": [
+      {
+        "t": 0,
+        "xy": [
+          -38467,
+          11800
+        ],
+        "label": "Utah",
+        "color": "#2f6fd0"
+      },
+      {
+        "t": 0,
+        "xy": [
+          -16694,
+          6200
+        ],
+        "label": "Omaha",
+        "color": "#2f6fd0"
+      },
+      {
+        "t": 0,
+        "xy": [
+          5806,
+          2900
+        ],
+        "label": "Gold",
+        "color": "#2f6fd0"
+      },
+      {
+        "t": 0,
+        "xy": [
+          15968,
+          1800
+        ],
+        "label": "Juno",
+        "color": "#2f6fd0"
+      },
+      {
+        "t": 0,
+        "xy": [
+          26129,
+          -2700
+        ],
+        "label": "Sword",
+        "color": "#2f6fd0"
+      },
+      {
+        "t": 0,
+        "xy": [
+          20322,
+          -16698
+        ],
+        "label": "Caen (not taken until July)",
+        "color": "#4a4f5c"
+      },
+      {
+        "t": 0.27,
+        "until": 3,
+        "xy": [
+          27290,
+          -9685
+        ],
+        "label": "Pegasus Bridge: glider assault, 00:16",
+        "color": "#5b8fe0",
+        "pulse": true
+      },
+      {
+        "t": 4.5,
+        "xy": [
+          -48410,
+          8683
+        ],
+        "label": "Sainte-Mère-Église taken, 04:30",
+        "color": "#5b8fe0"
+      },
+      {
+        "t": 7.1,
+        "until": 12,
+        "xy": [
+          -24600,
+          7350
+        ],
+        "label": "Pointe du Hoc: Rangers scale the cliffs",
+        "color": "#2f6fd0",
+        "pulse": true
+      },
+      {
+        "t": 9,
+        "until": 13,
+        "xy": [
+          -16694,
+          3300
+        ],
+        "label": "Omaha: about 2,400 casualties",
+        "color": "#e8603c",
+        "pulse": true
+      },
+      {
+        "t": 20,
+        "until": 22,
+        "xy": [
+          23950,
+          -3340
+        ],
+        "label": "21st Panzer reaches the coast",
+        "color": "#4a4f5c",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "Night of 5–6 June 1944. Minesweepers clear lanes across the Channel as the invasion fleet approaches Normandy."
+      },
+      {
+        "t": 0.27,
+        "text": "00:16: British glider troops land beside the bridges over the Orne canal and river and seize them within minutes."
+      },
+      {
+        "t": 1,
+        "text": "Paratroopers of the US 82nd and 101st Airborne drop behind Utah beach, scattered widely in the dark."
+      },
+      {
+        "t": 4.5,
+        "text": "Before dawn, US paratroopers take Sainte-Mère-Église."
+      },
+      {
+        "t": 5.5,
+        "text": "Bombers and the guns of hundreds of warships pound the coastal defences."
+      },
+      {
+        "t": 6.5,
+        "text": "06:30: the Americans land. At Utah, carried off course, they meet light defences. At Omaha they are pinned down beneath the bluffs."
+      },
+      {
+        "t": 7.1,
+        "text": "US Rangers climb the cliffs at Pointe du Hoc to silence guns that turn out to have been moved inland."
+      },
+      {
+        "t": 7.5,
+        "text": "About an hour later, with the rising tide, British and Canadian troops land at Gold, Juno and Sword."
+      },
+      {
+        "t": 11,
+        "text": "By late morning small groups of Americans fight their way up the bluffs at Omaha."
+      },
+      {
+        "t": 16,
+        "text": "21st Panzer, the only German tank division near the beaches, counter-attacks north of Caen."
+      },
+      {
+        "t": 20,
+        "text": "Some of its tanks reach the coast near Lion-sur-Mer, between Juno and Sword, but pull back that night."
+      },
+      {
+        "t": 23,
+        "text": "By midnight about 156,000 Allied troops are ashore. Caen, the day's main objective, will not fall until July."
+      }
+    ]
+  }
+}

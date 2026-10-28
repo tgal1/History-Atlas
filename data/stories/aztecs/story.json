@@ -1,0 +1,221 @@
+{
+  "id": "aztecs",
+  "title": "Cortés and the Aztecs",
+  "subtitle": "The fall of Tenochtitlan, 1519–1521",
+  "range": {
+    "start": "1519-02-01",
+    "end": "1522-10-31"
+  },
+  "overview": {
+    "bounds": [
+      [
+        14.5,
+        -104.5
+      ],
+      [
+        23.5,
+        -80.5
+      ]
+    ]
+  },
+  "minZoom": 4,
+  "basemap": "esri-relief",
+  "landMask": {
+    "bbox": [
+      -106,
+      12,
+      -84,
+      24
+    ]
+  },
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "An island city of 200,000 people",
+    "body": [
+      "In 1325, by tradition, the Mexica people founded Tenochtitlan on an island in Lake Texcoco, where they saw an eagle on a cactus. A century later they joined Texcoco and Tlacopan in the Triple Alliance, the empire we call Aztec. By 1519 it took tribute from millions of people across central Mexico, and Tenochtitlan, joined to the shore by long causeways, was one of the biggest cities in the world.",
+      "Not everyone was conquered. Tlaxcala, an independent state just east of the Valley of Mexico, had fought the Aztecs for generations, and many subject peoples resented the tribute and the demand for war captives to sacrifice.",
+      "In February 1519 Hernán Cortés sailed from Cuba with about 500 Spaniards, against his governor's orders. Two and a half years later Tenochtitlan lay in ruins. How that happened is a story of alliances, disease and siege warfare as much as of guns and horses, and most of the army that took the city was Indigenous."
+    ],
+    "tips": [
+      "Press play for a day-by-day tour from Cuba to the fall of the city.",
+      "Teal is the Aztec Empire, gold is Tlaxcala, orange the other Indigenous allies of Cortés, red the Spanish. The blue lakes have been drained since: modern Mexico City stands on them.",
+      "Three animated close-ups: the march inland, the Noche Triste escape, and the siege of Tenochtitlan."
+    ]
+  },
+  "categories": {
+    "battle": {
+      "label": "Battle",
+      "color": "#e8603c"
+    },
+    "massacre": {
+      "label": "Massacre",
+      "color": "#a32020"
+    },
+    "alliance": {
+      "label": "Alliances and diplomacy",
+      "color": "#d6a21f"
+    },
+    "journey": {
+      "label": "Journeys and landings",
+      "color": "#2f86d6"
+    },
+    "turning": {
+      "label": "Turning points",
+      "color": "#2f9e6f"
+    }
+  },
+  "factions": {
+    "aztec": {
+      "label": "Aztec Empire (Triple Alliance)",
+      "short": "Mexica",
+      "color": "#1d8a7e"
+    },
+    "spanish": {
+      "label": "Spanish",
+      "short": "Spanish and allies",
+      "color": "#c8372d"
+    },
+    "tlaxcala": {
+      "label": "Tlaxcala",
+      "short": "Tlaxcala",
+      "color": "#d6a21f"
+    },
+    "allies": {
+      "label": "Other Indigenous allies of Cortés",
+      "short": "Allies",
+      "color": "#e07b2c"
+    },
+    "tarascan": {
+      "label": "Purépecha (Tarascan) kingdom",
+      "short": "Purépecha",
+      "color": "#7a5ab8"
+    }
+  },
+  "eras": [
+    {
+      "start": "1519-02-01",
+      "end": "1519-08-16",
+      "title": "Landfall",
+      "text": "Cortés sails along the coast, wins his first battle, gains an interpreter, and finds peoples ready to rebel against the Aztecs."
+    },
+    {
+      "start": "1519-08-16",
+      "end": "1519-11-08",
+      "title": "The march inland",
+      "text": "Over the mountains, war and then alliance with Tlaxcala, a massacre at Cholula, and the road between the volcanoes."
+    },
+    {
+      "start": "1519-11-08",
+      "end": "1520-06-30",
+      "title": "Guests and hostage-takers",
+      "text": "Moctezuma welcomes the Spaniards into his city and becomes their prisoner. A massacre at the Great Temple sparks a rising."
+    },
+    {
+      "start": "1520-06-30",
+      "end": "1521-05-26",
+      "title": "Retreat and return",
+      "text": "A bloody escape, a desperate battle, a smallpox epidemic, and Cortés rebuilds his alliances around the lake."
+    },
+    {
+      "start": "1521-05-26",
+      "end": "1521-08-13",
+      "title": "The siege",
+      "text": "Eighty days of fighting on the causeways and canals, until the city falls."
+    },
+    {
+      "start": "1521-08-13",
+      "end": "1522-10-31",
+      "title": "New Spain",
+      "text": "Mexico City is built on the ruins, and the old empire's provinces are absorbed into Spain's."
+    }
+  ],
+  "mapLabels": [
+    {
+      "text": "Tenochtitlan",
+      "at": [
+        19.475,
+        -99.03
+      ],
+      "minZoom": 7,
+      "maxZoom": 11,
+      "to": "1521-08-13"
+    },
+    {
+      "text": "Tlaxcala",
+      "at": [
+        19.31,
+        -98.24
+      ],
+      "minZoom": 7
+    },
+    {
+      "text": "Cempoala",
+      "at": [
+        19.44,
+        -96.4
+      ],
+      "minZoom": 7
+    },
+    {
+      "text": "Cholula",
+      "at": [
+        19.06,
+        -98.3
+      ],
+      "minZoom": 8
+    },
+    {
+      "text": "Cuba",
+      "at": [
+        22.0,
+        -81.6
+      ],
+      "maxZoom": 7
+    },
+    {
+      "text": "Maya lands",
+      "at": [
+        19.3,
+        -89.2
+      ],
+      "maxZoom": 7
+    },
+    {
+      "text": "Gulf of Mexico",
+      "at": [
+        22.8,
+        -93.5
+      ],
+      "maxZoom": 6
+    }
+  ],
+  "ask": {
+    "persona": "a historian of Mesoamerica and the Spanish conquest who gives Indigenous perspectives equal weight. You explain that most of the army that took Tenochtitlan was Indigenous, and you say when a detail comes from Cortés' self-serving letters, from Bernal Díaz writing decades later, or from Nahua accounts such as the Florentine Codex",
+    "defaultQuestions": [
+      "How did the Mexica see this?",
+      "Which sources tell us this, and can we trust them?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Florentine Codex, Book 12 (Nahua account)",
+      "url": "https://en.wikipedia.org/wiki/Florentine_Codex"
+    },
+    {
+      "label": "Bernal Díaz del Castillo, The True History",
+      "url": "https://en.wikipedia.org/wiki/The_True_History_of_the_Conquest_of_New_Spain"
+    },
+    {
+      "label": "Hernán Cortés, Letters from Mexico",
+      "url": "https://en.wikipedia.org/wiki/Hern%C3%A1n_Cort%C3%A9s"
+    }
+  ],
+  "cities": [
+    "tenochtitlan"
+  ]
+}

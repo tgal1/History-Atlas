@@ -1,0 +1,10 @@
+{
+  "default": "troubles",
+  "stories": [
+    { "id": "troubles", "title": "The Troubles", "subtitle": "Northern Ireland, 1966–1998", "status": "ready" },
+    { "id": "punic-wars", "title": "Rome v Carthage", "subtitle": "The Punic Wars, 264–146 BC", "status": "ready" },
+    { "id": "rome", "title": "Rise and fall of Rome", "subtitle": "753 BC – AD 476", "status": "ready" },
+    { "id": "aztecs", "title": "Cortés and the Aztecs", "subtitle": "The fall of Tenochtitlan, 1519–1521", "status": "ready" },
+    { "id": "ww2-europe", "title": "Second World War in Europe", "subtitle": "1939–1945", "status": "ready" }
+  ]
+}

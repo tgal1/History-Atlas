@@ -1,0 +1,415 @@
+[
+  {
+    "id": "pact", "date": "1939-08-23", "title": "The Nazi–Soviet Pact", "place": "Moscow",
+    "coords": [55.75, 37.62], "zoom": 5, "category": "politics",
+    "summary": "Germany's foreign minister Ribbentrop and the Soviet foreign minister Molotov sign a non-aggression pact. A secret protocol divides Poland, the Baltic states and Romania's Bessarabia between them.",
+    "significance": "Hitler could now invade Poland without fearing a war on two fronts. The world's bitterest ideological enemies had made a deal.",
+    "wiki": "Molotov–Ribbentrop Pact", "questions": ["Why did Stalin make a deal with Hitler?"]
+  },
+  {
+    "id": "poland-invaded", "date": "1939-09-01", "title": "Germany invades Poland", "place": "Poland",
+    "coords": [52.2, 19.0], "zoom": 6, "category": "invasion",
+    "summary": "At dawn the old battleship Schleswig-Holstein shells the Polish garrison at Westerplatte in Danzig, and German armies cross the border from three sides. The Luftwaffe bombs Polish cities.",
+    "significance": "The start of the war in Europe.",
+    "wiki": "Invasion of Poland"
+  },
+  {
+    "id": "war-declared", "date": "1939-09-03", "title": "Britain and France declare war", "place": "London",
+    "coords": [51.503, -0.128], "zoom": 6, "category": "politics",
+    "summary": "When Hitler ignores their ultimatum, Britain and France declare war on Germany. Prime Minister Neville Chamberlain announces it on the radio at 11:15.",
+    "significance": "But they could do little to help Poland. In the west came months of inaction: the 'Phoney War'.",
+    "wiki": "British and French declaration of war on Germany"
+  },
+  {
+    "id": "soviets-invade", "date": "1939-09-17", "title": "The Soviet Union invades Poland", "place": "Eastern Poland",
+    "coords": [52.5, 26.0], "zoom": 6, "category": "invasion",
+    "summary": "As the secret protocol allowed, the Red Army invades from the east. Poland is crushed between two powers.",
+    "significance": "Over the next two years the Soviets deported hundreds of thousands of Poles and, at Katyn in 1940, murdered some 22,000 Polish officers and leaders.",
+    "wiki": "Soviet invasion of Poland"
+  },
+  {
+    "id": "warsaw-falls", "date": "1939-09-28", "title": "Warsaw surrenders", "place": "Warsaw",
+    "coords": [52.23, 21.01], "zoom": 9, "category": "battle", "victor": "germany",
+    "summary": "After three weeks of siege and bombing, Warsaw surrenders. Poland is divided: western areas annexed to Germany, the centre ruled as the 'General Government', the east taken by the Soviet Union.",
+    "significance": "German occupation of Poland was meant to destroy the nation: its leaders and intellectuals were murdered, and Polish Jews were forced into ghettos.",
+    "wiki": "Siege of Warsaw (1939)"
+  },
+  {
+    "id": "winter-war", "date": "1939-11-30", "title": "The Winter War", "place": "Karelian Isthmus",
+    "coords": [60.5, 29.5], "zoom": 6, "category": "battle",
+    "summary": "The Soviet Union attacks Finland. Outnumbered Finnish troops on skis inflict huge losses on the Red Army in the snow forests. In March 1940 Finland makes peace, giving up Karelia.",
+    "significance": "The Red Army's poor showing convinced Hitler it would collapse quickly if Germany attacked.",
+    "wiki": "Winter War"
+  },
+  {
+    "id": "norway", "date": "1940-04-09", "title": "Germany invades Denmark and Norway", "place": "Oslo",
+    "coords": [59.91, 10.75], "zoom": 5, "category": "invasion",
+    "summary": "Denmark falls in a day. In Norway, Germans land by sea and air; British and French troops land to help but are pulled out after two months.",
+    "significance": "The failure brought down Chamberlain. Germany secured Swedish iron ore and bases on the Atlantic.",
+    "wiki": "Operation Weserübung"
+  },
+  {
+    "id": "blitzkrieg-west", "date": "1940-05-10", "title": "Germany attacks in the West; Churchill takes over", "place": "Low Countries",
+    "coords": [50.8, 5.0], "zoom": 6, "category": "invasion",
+    "summary": "German armies invade the Netherlands, Belgium and Luxembourg. The Allies rush north into Belgium, as Germany hoped. The same day Winston Churchill becomes British Prime Minister.",
+    "significance": "Rotterdam is bombed on 14 May and the Netherlands surrender the next day.",
+    "wiki": "Battle of France"
+  },
+  {
+    "id": "sedan", "date": "1940-05-13", "title": "The breakthrough at Sedan", "place": "Sedan, on the Meuse",
+    "coords": [49.70, 4.94], "zoom": 8, "category": "invasion", "victor": "germany", "scene": "fall-of-france",
+    "summary": "German panzers that came through the hilly, wooded Ardennes, thought impassable for tanks, cross the River Meuse at Sedan under a storm of dive-bombing. In a week they reach the English Channel, cutting the Allied armies in two.",
+    "significance": "The 'sickle cut' was one of the most decisive manoeuvres in military history.",
+    "wiki": "Battle of Sedan (1940)", "questions": ["Why did France fall so fast?"]
+  },
+  {
+    "id": "dunkirk", "date": "1940-05-26", "title": "Dunkirk evacuation", "place": "Dunkirk",
+    "coords": [51.03, 2.38], "zoom": 9, "category": "battle",
+    "stat": "About 338,000 Allied troops evacuated",
+    "summary": "Trapped against the sea, the British army and many French soldiers are lifted off the beaches and harbour of Dunkirk over nine days by warships and hundreds of 'little ships'.",
+    "significance": "A defeat turned into a deliverance. Britain kept the core of its army, though it left its equipment behind.",
+    "wiki": "Dunkirk evacuation"
+  },
+  {
+    "id": "paris-falls", "date": "1940-06-14", "title": "German troops enter Paris", "place": "Paris",
+    "coords": [48.86, 2.35], "zoom": 8, "category": "invasion", "victor": "germany",
+    "summary": "The French government has fled. German troops march down the Champs-Élysées. Italy, seeing France beaten, had declared war four days earlier.",
+    "significance": "Charles de Gaulle, a junior general, broadcasts from London on 18 June calling on the French to fight on.",
+    "wiki": "Fall of France"
+  },
+  {
+    "id": "armistice", "date": "1940-06-22", "title": "France signs an armistice", "place": "Compiègne",
+    "coords": [49.43, 2.91], "zoom": 9, "category": "politics",
+    "summary": "Hitler insists the French sign in the same railway carriage, in the same forest clearing, where Germany signed the armistice of 1918. Germany occupies the north and the Atlantic coast; Marshal Pétain's government at Vichy runs the south.",
+    "significance": "Britain now stood alone.",
+    "wiki": "Armistice of 22 June 1940"
+  },
+  {
+    "id": "battle-of-britain", "date": "1940-07-10", "title": "The Battle of Britain", "place": "Skies over southern England",
+    "coords": [51.3, 0.5], "zoom": 7, "category": "battle", "victor": "western",
+    "summary": "The Luftwaffe tries to destroy the Royal Air Force to prepare an invasion. Radar, a well-organised defence system and Hurricane and Spitfire fighters hold it off through the summer.",
+    "significance": "Hitler postponed the invasion indefinitely. Churchill: 'Never was so much owed by so many to so few.'",
+    "wiki": "Battle of Britain"
+  },
+  {
+    "id": "blitz", "date": "1940-09-07", "title": "The Blitz", "place": "London",
+    "coords": [51.51, -0.09], "zoom": 9, "category": "bombing",
+    "stat": "Over 40,000 British civilians killed",
+    "summary": "Germany switches to bombing London, at first for 57 nights in a row, then Coventry, Liverpool, Glasgow and other cities until May 1941. Londoners shelter in the Underground.",
+    "significance": "The bombing did not break British morale or war production.",
+    "wiki": "The Blitz"
+  },
+  {
+    "id": "italy-greece", "date": "1940-10-28", "title": "Italy invades Greece", "place": "Epirus",
+    "coords": [39.8, 20.6], "zoom": 7, "category": "invasion",
+    "summary": "Mussolini attacks Greece from Albania without telling Hitler. The Greeks throw the Italians back into Albania.",
+    "significance": "Germany would have to rescue its ally, dragging it into the Balkans.",
+    "wiki": "Greco-Italian War"
+  },
+  {
+    "id": "balkans", "date": "1941-04-06", "title": "Germany invades Yugoslavia and Greece", "place": "Belgrade",
+    "coords": [44.82, 20.46], "zoom": 6, "category": "invasion", "victor": "germany",
+    "summary": "After a coup in Belgrade against a pact with the Axis, Germany bombs the city and invades Yugoslavia and Greece. Both are overrun within weeks; Yugoslavia is carved up between Germany, Italy, Hungary, Bulgaria and a new Croatian puppet state.",
+    "significance": "Resistance began almost at once. Yugoslavia became the scene of a brutal guerrilla and civil war.",
+    "wiki": "Invasion of Yugoslavia"
+  },
+  {
+    "id": "crete", "date": "1941-05-20", "title": "The airborne invasion of Crete", "place": "Crete",
+    "coords": [35.30, 24.5], "zoom": 8, "category": "battle", "victor": "germany",
+    "summary": "German paratroopers drop on Crete and, at heavy cost, capture an airfield and then the island from British, Australian, New Zealand and Greek defenders.",
+    "significance": "Losses were so high that Hitler never again used paratroopers in a major airborne assault.",
+    "wiki": "Battle of Crete"
+  },
+  {
+    "id": "barbarossa", "date": "1941-06-22", "title": "Operation Barbarossa", "place": "The Soviet border",
+    "coords": [52.1, 23.7], "zoom": 5, "category": "invasion", "scene": "barbarossa",
+    "stat": "About 3 million Axis soldiers attack",
+    "summary": "Germany and its allies invade the Soviet Union along a front from the Baltic to the Black Sea. The Red Army, caught by surprise, loses millions of men in huge encirclements.",
+    "significance": "The decisive theatre of the war: most German soldiers who died in the war died on the Eastern Front. Behind the lines, mobile killing squads began murdering Jews by the hundreds of thousands.",
+    "wiki": "Operation Barbarossa", "questions": ["Why did Hitler invade the Soviet Union?"]
+  },
+  {
+    "id": "leningrad", "date": "1941-09-08", "title": "The siege of Leningrad begins", "place": "Leningrad",
+    "coords": [59.94, 30.31], "zoom": 8, "category": "battle",
+    "stat": "Around a million civilians died, most of starvation",
+    "summary": "German and Finnish forces cut Leningrad off by land. For 872 days the city is shelled and starved. The only supply route is across frozen Lake Ladoga, the 'Road of Life'.",
+    "significance": "The longest and deadliest siege of a modern city.",
+    "wiki": "Siege of Leningrad"
+  },
+  {
+    "id": "kiev-pocket", "date": "1941-09-19", "title": "Kiev falls; a vast encirclement", "place": "Kiev",
+    "coords": [50.45, 30.52], "zoom": 7, "category": "battle", "victor": "germany",
+    "stat": "Over 600,000 Soviet soldiers captured (German figure)",
+    "summary": "Stalin forbids retreat. German panzer groups swing round from north and south and trap whole Soviet armies east of Kiev.",
+    "significance": "The largest encirclement in military history, but it cost Germany weeks before Moscow.",
+    "wiki": "Battle of Kiev (1941)"
+  },
+  {
+    "id": "babi-yar", "date": "1941-09-29", "title": "Babi Yar", "place": "Kiev",
+    "coords": [50.47, 30.45], "zoom": 10, "category": "holocaust",
+    "stat": "33,771 Jews murdered in two days",
+    "summary": "Days after taking Kiev, German SS units and police, with local helpers, march the city's Jews to the Babi Yar ravine and shoot them.",
+    "significance": "One of the largest single massacres of the Holocaust, by the 'Holocaust by bullets' that killed around two million Jews in the occupied Soviet Union.",
+    "wiki": "Babi Yar"
+  },
+  {
+    "id": "moscow", "date": "1941-12-05", "title": "The Soviet counter-attack at Moscow", "place": "Moscow",
+    "coords": [55.75, 37.62], "zoom": 7, "category": "battle", "victor": "soviet",
+    "summary": "With German troops in sight of the city's outskirts, in temperatures below −30°C, fresh Soviet divisions, many from Siberia, counter-attack and drive the Germans back.",
+    "significance": "The first major German defeat of the war. Two days later Japan attacked Pearl Harbor.",
+    "wiki": "Battle of Moscow"
+  },
+  {
+    "id": "usa", "date": "1941-12-11", "title": "Germany declares war on the United States", "place": "Berlin",
+    "coords": [52.52, 13.37], "zoom": 6, "category": "politics",
+    "summary": "Four days after Pearl Harbor, Hitler declares war on the United States.",
+    "significance": "Perhaps his greatest strategic blunder: the world's largest economy was now fully in the war against him.",
+    "wiki": "German declaration of war against the United States"
+  },
+  {
+    "id": "wannsee", "date": "1942-01-20", "title": "The Wannsee Conference", "place": "Wannsee, Berlin",
+    "coords": [52.433, 13.165], "zoom": 11, "category": "holocaust",
+    "summary": "Senior Nazi officials meet in a lakeside villa to coordinate the 'Final Solution': the deportation of Europe's Jews to be murdered.",
+    "significance": "The killing had already begun; Wannsee organised it across the whole continent. Death camps with gas chambers were built in occupied Poland.",
+    "wiki": "Wannsee Conference"
+  },
+  {
+    "id": "treblinka", "date": "1942-07-22", "title": "Deportations from the Warsaw Ghetto", "place": "Treblinka",
+    "coords": [52.63, 22.05], "zoom": 9, "category": "holocaust",
+    "stat": "About 265,000 Jews deported to Treblinka in two months",
+    "summary": "Germans begin emptying the Warsaw Ghetto, where some 400,000 Jews had been crammed. Day after day trains take them to Treblinka, where they are murdered in gas chambers on arrival.",
+    "significance": "Treblinka, Belzec and Sobibor together killed about 1.7 million Jews in Operation Reinhard.",
+    "wiki": "Grossaktion Warsaw"
+  },
+  {
+    "id": "malta", "date": "1942-08-15", "title": "The convoy that saved Malta", "place": "Malta",
+    "coords": [35.9, 14.5], "zoom": 9, "category": "battle", "victor": "western",
+    "summary": "Bombed relentlessly and close to starving, the British island fortress is relieved when the crippled tanker Ohio is towed into Grand Harbour by destroyers, the last ship of Operation Pedestal.",
+    "significance": "Malta survived to strike at Rommel's supply lines across the Mediterranean.",
+    "wiki": "Operation Pedestal"
+  },
+  {
+    "id": "stalingrad-volga", "date": "1942-08-23", "title": "Germans reach the Volga at Stalingrad", "place": "Stalingrad",
+    "coords": [48.71, 44.51], "zoom": 9, "category": "battle",
+    "summary": "Germany's summer offensive drives towards the oil of the Caucasus. The Sixth Army reaches the Volga north of Stalingrad as the Luftwaffe bombs the city into ruins.",
+    "significance": "For months both sides fought street by street, house by house, through the rubble.",
+    "wiki": "Battle of Stalingrad"
+  },
+  {
+    "id": "alamein", "date": "1942-10-23", "title": "The Second Battle of El Alamein", "place": "El Alamein, Egypt",
+    "coords": [30.83, 28.95], "zoom": 8, "category": "battle", "victor": "western",
+    "summary": "General Montgomery's Eighth Army attacks Rommel's German and Italian army at El Alamein. After twelve days of fighting, Rommel retreats across Libya.",
+    "significance": "Churchill: 'Before Alamein we never had a victory. After Alamein we never had a defeat.'",
+    "wiki": "Second Battle of El Alamein"
+  },
+  {
+    "id": "torch", "date": "1942-11-08", "title": "Operation Torch", "place": "Algiers",
+    "coords": [36.75, 3.06], "zoom": 6, "category": "liberation",
+    "summary": "American and British troops land in Vichy French Morocco and Algeria. Germany responds by occupying the rest of France and rushing troops to Tunisia.",
+    "significance": "The first big American operation against Germany.",
+    "wiki": "Operation Torch"
+  },
+  {
+    "id": "uranus", "date": "1942-11-19", "title": "Operation Uranus: the Sixth Army trapped", "place": "Around Stalingrad",
+    "coords": [48.7, 43.5], "zoom": 7, "category": "battle", "victor": "soviet", "scene": "stalingrad",
+    "summary": "The Red Army smashes the weak Romanian armies on either side of Stalingrad. On 23 November its two pincers meet at Kalach, encircling the German Sixth Army.",
+    "significance": "Hitler forbids a breakout and trusts Göring's promise to supply the pocket by air. The promise fails.",
+    "wiki": "Operation Uranus"
+  },
+  {
+    "id": "stalingrad-surrender", "date": "1943-02-02", "title": "Surrender at Stalingrad", "place": "Stalingrad",
+    "coords": [48.71, 44.51], "zoom": 10, "category": "battle", "victor": "soviet",
+    "stat": "About 91,000 prisoners; only around 5,000 ever returned home",
+    "summary": "Starving and freezing, the last German troops in the pocket surrender. Field Marshal Paulus had surrendered two days earlier.",
+    "significance": "The turning point of the war in Europe. Germany never recovered the initiative in the East.",
+    "wiki": "Battle of Stalingrad", "questions": ["Why was Stalingrad the turning point?"]
+  },
+  {
+    "id": "ghetto-uprising", "date": "1943-04-19", "title": "The Warsaw Ghetto Uprising", "place": "Warsaw Ghetto",
+    "coords": [52.249, 20.995], "zoom": 13, "category": "holocaust",
+    "summary": "When the SS arrive to deport the ghetto's last Jews, a few hundred poorly armed young fighters of the Jewish Combat Organisation resist. They hold out for almost a month before the ghetto is burned street by street.",
+    "significance": "The largest Jewish revolt of the war, and the first urban uprising in occupied Europe.",
+    "wiki": "Warsaw Ghetto Uprising"
+  },
+  {
+    "id": "tunisia", "date": "1943-05-13", "title": "Axis surrender in North Africa", "place": "Tunis",
+    "coords": [36.8, 10.18], "zoom": 7, "category": "battle", "victor": "western",
+    "stat": "About 250,000 Axis prisoners",
+    "summary": "Trapped in Tunisia between the Allied armies from east and west, the last German and Italian forces in Africa surrender.",
+    "significance": "A defeat on the scale of Stalingrad. The way was open to invade Italy.",
+    "wiki": "Tunisian campaign"
+  },
+  {
+    "id": "kursk", "date": "1943-07-05", "title": "The Battle of Kursk", "place": "Kursk salient",
+    "coords": [51.04, 36.73], "zoom": 7, "category": "battle", "victor": "soviet",
+    "summary": "Germany's last great offensive in the East attacks a bulge in the Soviet line around Kursk. The Red Army, warned in advance, has built deep defences. The attack fails, with a huge tank battle at Prokhorovka.",
+    "significance": "From now on the Red Army attacked and the Germans retreated.",
+    "wiki": "Battle of Kursk"
+  },
+  {
+    "id": "sicily", "date": "1943-07-10", "title": "The Allies land in Sicily", "place": "Gela, Sicily",
+    "coords": [37.07, 14.25], "zoom": 7, "category": "liberation", "victor": "western",
+    "summary": "American, British and Canadian troops land in Sicily and take the island in 38 days.",
+    "significance": "On 25 July the Fascist Grand Council and the King depose Mussolini.",
+    "wiki": "Allied invasion of Sicily"
+  },
+  {
+    "id": "italy-surrenders", "date": "1943-09-09", "title": "Italy surrenders; landings at Salerno", "place": "Salerno",
+    "coords": [40.6, 14.9], "zoom": 8, "category": "liberation",
+    "summary": "Italy's armistice is announced and the Allies land at Salerno. Germany seizes northern and central Italy and disarms the Italian army; German commandos free Mussolini to head a puppet state.",
+    "significance": "Italy became a slow, bloody battleground up the mountainous peninsula.",
+    "wiki": "Allied invasion of Italy"
+  },
+  {
+    "id": "kiev-liberated", "date": "1943-11-06", "title": "Kiev liberated", "place": "Kiev",
+    "coords": [50.45, 30.52], "zoom": 8, "category": "liberation", "victor": "soviet",
+    "summary": "After crossing the wide Dnieper river under fire, the Red Army retakes Kiev.",
+    "significance": "Liberators found a city emptied of its Jews and devastated by occupation.",
+    "wiki": "Battle of Kiev (1943)"
+  },
+  {
+    "id": "leningrad-relieved", "date": "1944-01-27", "title": "The siege of Leningrad is lifted", "place": "Leningrad",
+    "coords": [59.94, 30.31], "zoom": 8, "category": "liberation", "victor": "soviet",
+    "summary": "A Soviet offensive drives the Germans back from the city after 872 days. Fireworks are fired over the Neva.",
+    "significance": "The city had lost perhaps a third of its pre-war population.",
+    "wiki": "Leningrad–Novgorod offensive"
+  },
+  {
+    "id": "cassino", "date": "1944-05-18", "title": "Monte Cassino falls", "place": "Monte Cassino",
+    "coords": [41.49, 13.81], "zoom": 10, "category": "battle", "victor": "western",
+    "summary": "After four battles over five months, Polish troops raise their flag over the ruins of the hilltop monastery, the key to the German Gustav Line.",
+    "significance": "The road to Rome was open. Allied troops entered the city on 4 June.",
+    "wiki": "Battle of Monte Cassino"
+  },
+  {
+    "id": "d-day", "date": "1944-06-06", "title": "D-Day", "place": "Normandy",
+    "coords": [49.33, -0.6], "zoom": 9, "category": "liberation", "victor": "western", "scene": "d-day",
+    "stat": "About 156,000 Allied troops landed on the first day",
+    "summary": "The largest seaborne invasion in history. American, British and Canadian troops land on five beaches, after paratroopers drop in the night. Omaha beach nearly fails.",
+    "significance": "The second front in the west that Stalin had demanded for three years.",
+    "wiki": "Normandy landings", "questions": ["Why Normandy?", "What went wrong at Omaha?"]
+  },
+  {
+    "id": "bagration", "date": "1944-06-22", "title": "Operation Bagration", "place": "Belarus",
+    "coords": [53.9, 27.56], "zoom": 6, "category": "battle", "victor": "soviet",
+    "summary": "Three years to the day after Barbarossa, the Red Army attacks in Belarus and destroys German Army Group Centre, advancing over 500 km to the Vistula in two months.",
+    "significance": "Germany's worst defeat of the war, bigger than Stalingrad, though far less known in the West.",
+    "wiki": "Operation Bagration"
+  },
+  {
+    "id": "july-plot", "date": "1944-07-20", "title": "The July plot", "place": "Wolf's Lair, East Prussia",
+    "coords": [54.08, 21.49], "zoom": 9, "category": "politics",
+    "summary": "Colonel Claus von Stauffenberg leaves a bomb in a briefcase at Hitler's headquarters. It explodes, but a heavy table leg shields Hitler. The coup in Berlin collapses within hours.",
+    "significance": "Thousands were arrested and around 200 executed. The war went on for nine more months.",
+    "wiki": "20 July plot"
+  },
+  {
+    "id": "warsaw-uprising", "date": "1944-08-01", "title": "The Warsaw Uprising", "place": "Warsaw",
+    "coords": [52.23, 21.01], "zoom": 10, "category": "battle", "victor": "germany",
+    "stat": "Up to 200,000 civilians killed",
+    "summary": "As the Red Army nears, the Polish Home Army rises against the Germans. It fights for 63 days while Soviet forces halt across the Vistula. After it surrenders, Hitler orders Warsaw razed.",
+    "significance": "Why Stalin did not help is still bitterly debated. Poland's non-communist resistance was destroyed.",
+    "wiki": "Warsaw Uprising"
+  },
+  {
+    "id": "romania-switches", "date": "1944-08-23", "title": "Romania changes sides", "place": "Bucharest",
+    "coords": [44.43, 26.10], "zoom": 6, "category": "politics",
+    "summary": "As the Red Army breaks through, King Michael has the dictator Antonescu arrested and Romania joins the Allies. Bulgaria follows in September.",
+    "significance": "Germany lost its main oil supply, and the whole southern front collapsed.",
+    "wiki": "King Michael's Coup"
+  },
+  {
+    "id": "paris-liberated", "date": "1944-08-25", "title": "Paris liberated", "place": "Paris",
+    "coords": [48.86, 2.35], "zoom": 9, "category": "liberation", "victor": "western",
+    "summary": "The French Resistance rises in Paris and the Free French 2nd Armoured Division drives in. The German commander surrenders, having ignored Hitler's order to destroy the city.",
+    "significance": "De Gaulle walked down the Champs-Élysées the next day.",
+    "wiki": "Liberation of Paris"
+  },
+  {
+    "id": "market-garden", "date": "1944-09-17", "title": "Operation Market Garden", "place": "Arnhem",
+    "coords": [51.98, 5.91], "zoom": 9, "category": "battle", "victor": "germany",
+    "summary": "A bold plan to seize Dutch river bridges with airborne troops and end the war by Christmas. British paratroopers at Arnhem hold the far end of the bridge for four days but are not relieved.",
+    "significance": "'A bridge too far.' The Netherlands north of the rivers stayed occupied through a winter of famine.",
+    "wiki": "Operation Market Garden"
+  },
+  {
+    "id": "belgrade", "date": "1944-10-20", "title": "Belgrade liberated", "place": "Belgrade",
+    "coords": [44.82, 20.46], "zoom": 8, "category": "liberation",
+    "summary": "Tito's Yugoslav partisans and the Red Army take Belgrade together.",
+    "significance": "Yugoslavia largely liberated itself; Tito would later break with Stalin.",
+    "wiki": "Belgrade offensive"
+  },
+  {
+    "id": "bulge", "date": "1944-12-16", "title": "The Battle of the Bulge", "place": "Ardennes",
+    "coords": [50.0, 5.72], "zoom": 8, "category": "battle", "victor": "western",
+    "summary": "Hitler's last gamble in the West: a surprise attack through the Ardennes in winter fog towards Antwerp. US paratroopers hold out surrounded at Bastogne until the skies clear and Patton's army breaks through.",
+    "significance": "The biggest battle fought by the US Army in the war. Germany's last reserves were spent.",
+    "wiki": "Battle of the Bulge"
+  },
+  {
+    "id": "auschwitz", "date": "1945-01-27", "title": "Auschwitz liberated", "place": "Oświęcim",
+    "coords": [50.035, 19.18], "zoom": 10, "category": "holocaust",
+    "stat": "About 1.1 million people murdered at Auschwitz, around a million of them Jews",
+    "summary": "Soviet soldiers reach Auschwitz and find about 7,000 sick and starving prisoners. Days earlier the SS had forced some 60,000 others on death marches west.",
+    "significance": "27 January is now International Holocaust Remembrance Day.",
+    "wiki": "Auschwitz concentration camp"
+  },
+  {
+    "id": "yalta", "date": "1945-02-04", "title": "The Yalta Conference", "place": "Yalta, Crimea",
+    "coords": [44.47, 34.14], "zoom": 8, "category": "politics",
+    "summary": "Roosevelt, Churchill and Stalin agree to divide Germany into occupation zones and on the future of Poland and the United Nations.",
+    "significance": "Its compromises shaped Europe's division in the Cold War.",
+    "wiki": "Yalta Conference"
+  },
+  {
+    "id": "dresden", "date": "1945-02-13", "title": "The bombing of Dresden", "place": "Dresden",
+    "coords": [51.05, 13.74], "zoom": 10, "category": "bombing",
+    "stat": "About 25,000 killed",
+    "summary": "British and American bombers destroy the historic centre of Dresden in a firestorm over two days.",
+    "significance": "Its necessity is still debated. Allied bombing killed several hundred thousand German civilians during the war.",
+    "wiki": "Bombing of Dresden in World War II"
+  },
+  {
+    "id": "remagen", "date": "1945-03-07", "title": "The bridge at Remagen", "place": "Remagen",
+    "coords": [50.58, 7.24], "zoom": 10, "category": "battle", "victor": "western",
+    "summary": "American troops find the Ludendorff railway bridge over the Rhine still standing, after German demolition charges fail, and rush across.",
+    "significance": "The first Allied crossing of the Rhine.",
+    "wiki": "Battle of Remagen"
+  },
+  {
+    "id": "berlin-attack", "date": "1945-04-16", "title": "The battle for Berlin begins", "place": "Seelow Heights",
+    "coords": [52.53, 14.38], "zoom": 8, "category": "battle", "victor": "soviet",
+    "summary": "Two and a half million Soviet troops attack across the Oder. After bloody fighting at the Seelow Heights they encircle Berlin by 25 April.",
+    "significance": "Berlin was defended by old men, boys of the Hitler Youth and the remnants of shattered armies.",
+    "wiki": "Battle of Berlin"
+  },
+  {
+    "id": "torgau", "date": "1945-04-25", "title": "East meets West at the Elbe", "place": "Torgau",
+    "coords": [51.56, 13.00], "zoom": 10, "category": "liberation",
+    "summary": "American and Soviet soldiers meet on the River Elbe at Torgau, cutting Germany in two.",
+    "significance": "Three days later Italian partisans shot Mussolini.",
+    "wiki": "Elbe Day"
+  },
+  {
+    "id": "hitler-dies", "date": "1945-04-30", "title": "Hitler kills himself", "place": "Führerbunker, Berlin",
+    "coords": [52.512, 13.381], "zoom": 13, "category": "politics",
+    "summary": "With Soviet troops a few hundred metres away, Hitler shoots himself in his bunker under the Reich Chancellery. The same day Soviet soldiers raise a flag over the Reichstag.",
+    "significance": "Admiral Dönitz was left to surrender.",
+    "wiki": "Death of Adolf Hitler"
+  },
+  {
+    "id": "berlin-surrenders", "date": "1945-05-02", "title": "Berlin surrenders", "place": "Berlin",
+    "coords": [52.5186, 13.3762], "zoom": 11, "category": "battle", "victor": "soviet",
+    "summary": "The garrison of Berlin surrenders to the Red Army.",
+    "significance": "The battle for Berlin cost the Red Army around 80,000 dead.",
+    "wiki": "Battle of Berlin"
+  },
+  {
+    "id": "ve-day", "date": "1945-05-08", "title": "Victory in Europe", "place": "Berlin-Karlshorst",
+    "coords": [52.486, 13.53], "zoom": 5, "category": "politics",
+    "stat": "Tens of millions dead in Europe, including some 27 million Soviet citizens and six million Jews",
+    "summary": "Germany surrenders unconditionally, signing at Reims on 7 May and again in Berlin on 8 May. Crowds celebrate in London, Paris and New York; in Moscow, Victory Day is 9 May.",
+    "significance": "Europe lay in ruins, divided between the Western Allies and the Soviet Union. The war with Japan went on until August.",
+    "wiki": "Victory in Europe Day"
+  }
+]
