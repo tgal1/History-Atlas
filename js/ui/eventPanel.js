@@ -59,7 +59,7 @@ export function createEventPanel(el, { story, cities = [], onPrev, onNext, onPla
   }
 
   // City guide: what the city was, and its landmarks as they stood at time t.
-  function renderCity(city, landmarks, { t, onLandmark, onBack }) {
+  function renderCity(city, landmarks, { t, onLandmark, onBack, on3D }) {
     const token = ++renderToken;
     const groups = new Map();
     for (const f of landmarks) {
@@ -73,6 +73,7 @@ export function createEventPanel(el, { story, cities = [], onPrev, onNext, onPla
         <h2>${esc(city.name)}</h2>
         <figure class="ev-figure loading"><div class="ph"></div></figure>
         ${(Array.isArray(city.summary) ? city.summary : [city.summary]).map((p) => `<p>${esc(p)}</p>`).join('')}
+        ${on3D ? '<button class="btn primary" data-act="3d">Explore it in 3D &rarr;</button>' : ''}
         <p class="fine">Click any building, bridge or canal on the map, or pick a landmark below. Scrub the timeline to see the city change.</p>
         ${[...groups].map(([label, fs]) => `
           <h3>${esc(label)}</h3>
@@ -89,6 +90,7 @@ export function createEventPanel(el, { story, cities = [], onPrev, onNext, onPla
       onLandmark(landmarks.find((f) => f.properties.id === b.dataset.id));
     }));
     el.querySelector('[data-act="back"]')?.addEventListener('click', onBack);
+    el.querySelector('[data-act="3d"]')?.addEventListener('click', on3D);
     if (city.gallery?.length) attachGallery(city.gallery, token, city.wiki);
     else attachWiki(city.wiki, token);
   }

@@ -4,7 +4,7 @@
 
 import { createStore } from './core/store.js';
 import { createPlayer, sleep } from './core/player.js';
-import { configureCalendar, formatDate, formatEventDate } from './core/time.js';
+import { configureCalendar, formatDate, formatEventDate, parseDate } from './core/time.js';
 import { loadCatalog, loadStory } from './data/loader.js';
 import { createMapView } from './map/mapView.js';
 import { createEventLayer } from './map/eventLayer.js';
@@ -12,10 +12,12 @@ import { createTerritoryLayer } from './map/territoryLayer.js';
 import { createLabelLayer } from './map/labelLayer.js';
 import { createScenePlayer } from './map/scenePlayer.js';
 import { createCityLayer, labelPoint } from './map/cityLayer.js';
+import { createCity3D } from './map3d/city3d.js';
 import { createTimeline } from './ui/timeline.js';
 import { createEventPanel } from './ui/eventPanel.js';
 import { createSceneBar } from './ui/sceneBar.js';
 import { createLegend } from './ui/legend.js';
+import { createMenu } from './ui/menu.js';
 
 const $ = (s) => document.querySelector(s);
 
@@ -28,7 +30,12 @@ const SPEEDS = {
 
 async function boot() {
   const catalog = await loadCatalog();
-  const storyId = new URLSearchParams(location.search).get('story') ?? catalog.default;
+  const params = new URLSearchParams(location.search);
+  const storyId = params.get('story') ?? catalog.default;
+  const menu = createMenu($('#menu'), { catalog, currentStory: storyId });
+  $('#btn-menu').addEventListener('click', () => menu.open());
+  // First visit: offer the menu instead of dropping straight into a story.
+  if (!params.has('story') && !location.hash) menu.open();
   const { story, events, territories, scenes, cities } = await loadStory(storyId);
   const cityById = new Map(cities.map((c) => [c.id, c]));
   const byId = new Map(events.map((e) => [e.id, e]));
@@ -37,7 +44,6 @@ async function boot() {
   document.title = `${story.title} · History Atlas`;
   $('#story-title').textContent = story.title;
   $('#story-subtitle').textContent = story.subtitle;
-  buildStoryPicker(catalog, storyId);
 
   const store = createStore({ t: story.range.t0, playing: false, speed: 'normal', tourMode: true, activeId: null });
 
@@ -56,6 +62,7 @@ async function boot() {
     defaultMaxZoom: cities.length ? 11.75 : null,
   });
   const cityLayer = createCityLayer(view.map, cities, { onSelect: (feature, city) => showPlace(feature, city) });
+  const city3d = createCity3D($('#city3d'), { onSelect: (feature, city) => showPlace(feature, city) });
   const labels = createLabelLayer(view.map, story.mapLabels);
   const legend = createLegend($('#legend'), story);
 
@@ -74,7 +81,7 @@ async function boot() {
     onPrev: () => step(-1),
     onNext: () => step(1),
     onPlayScene: () => { const ev = byId.get(store.get().activeId); if (ev?.scene) { stopTour(); runScene(ev); } },
-    onStartTour: () => { closeScene(); store.set({ t: story.range.t0, activeId: null }); player.play(); },
+    onStartTour: () => { close3D(); closeScene(); store.set({ t: story.range.t0, activeId: null }); player.play(); },
   });
 
   // ---------- Scenes ----------
@@ -185,6 +192,7 @@ async function boot() {
     if (!ev) return;
     stopTour();
     closeScene();
+    close3D();
     select(ev);
     view.flyToEvent(ev);
   }
@@ -213,6 +221,7 @@ async function boot() {
     legend.setFactions(territory.update(s.t, zoom));
     labels.update(s.t, zoom);
     cityLayer.update(s.t, zoom);
+    if (city3d.isOpen) city3d.update(s.t);
     updateCityChip(s.t, zoom);
     timeline.setTime(s.t);
     timeline.setActive(s.activeId);
@@ -246,6 +255,7 @@ async function boot() {
   // and offer a guide to whichever city is on screen.
   let chipCity = null;
   function updateCityChip(t, zoom) {
+    if (city3d.isOpen) return;
     const inCity = cities.length > 0 && zoom >= 12.5;
     $('#map').classList.toggle('city-zoom', inCity);
     $('#then-now').hidden = !inCity;
@@ -256,8 +266,40 @@ async function boot() {
     const chip = $('#city-chip');
     chip.hidden = !chipCity;
     if (chipCity) chip.innerHTML = `Explore <strong>${chipCity.name}</strong> &rarr;`;
+    $('#btn-3d').hidden = !chipCity?.view3d;
   }
   $('#city-chip').addEventListener('click', () => chipCity && openCity(chipCity));
+  $('#btn-3d').addEventListener('click', () => (city3d.isOpen ? close3D() : chipCity && open3D(chipCity)));
+
+  // ---------- 3D city ----------
+  function open3D(city) {
+    stopTour();
+    closeScene();
+    const here = view.map.getCenter();
+    const near = view.map.distance(here, city.center) < city.radiusKm * 1000;
+    document.body.classList.add('view-3d');
+    $('#btn-3d').hidden = false;
+    $('#btn-3d').innerHTML = '&larr; Back to the flat map';
+    $('#then-now').hidden = false;
+    city3d.setImagery(Number($('#then-now input').value) / 100);
+    city3d.open(city, {
+      center: near ? [here.lat, here.lng] : city.center,
+      zoom: Math.max(near ? view.map.getZoom() : city.zoom, 14.5),
+      t: store.get().t,
+    }).catch((err) => {
+      console.error(err);
+      close3D();
+    });
+  }
+
+  function close3D() {
+    if (!city3d.isOpen) return;
+    city3d.close();
+    document.body.classList.remove('view-3d');
+    $('#btn-3d').textContent = 'View in 3D';
+    setThenNow(Number($('#then-now input').value) / 100);
+    updateCityChip(store.get().t, view.map.getZoom());
+  }
 
   // Then ⟷ Today: fade the drawn plan over modern satellite imagery.
   function setThenNow(v) {
@@ -268,7 +310,11 @@ async function boot() {
     view.map.getPane('city-labels').style.opacity = String(1 - v * 0.7);
     $('#map').classList.toggle('imagery-on', v > 0);
   }
-  $('#then-now input').addEventListener('input', (e) => setThenNow(Number(e.target.value) / 100));
+  $('#then-now input').addEventListener('input', (e) => {
+    const v = Number(e.target.value) / 100;
+    if (city3d.isOpen) city3d.setImagery(v);
+    else setThenNow(v);
+  });
 
   let lastCityFromEvent = null;
   function openCity(city, { fly = true } = {}) {
@@ -281,15 +327,17 @@ async function boot() {
       t: store.get().t,
       onLandmark: (feature) => showPlace(feature, city),
       onBack: lastCityFromEvent ? () => userSelect(lastCityFromEvent.id) : null,
+      on3D: city.view3d && !city3d.isOpen ? () => open3D(city) : null,
     });
     showPanel();
-    if (fly) view.map.flyTo(city.center, city.zoom, { duration: 1.6 });
+    if (fly && !city3d.isOpen) view.map.flyTo(city.center, city.zoom, { duration: 1.6 });
   }
 
   function showPlace(feature, city) {
     stopTour();
     panel.renderPlace(feature, city, { onBack: () => openCity(city, { fly: false }) });
     showPanel();
+    if (city3d.isOpen) { city3d.flyTo(feature); return; }
     const zoom = Math.max(view.map.getZoom(), feature.properties.zoom ?? 15);
     view.map.flyTo(labelPoint(feature), zoom, { duration: 1.2 });
   }
@@ -297,7 +345,7 @@ async function boot() {
   // ---------- Controls ----------
   $('#btn-play').addEventListener('click', () => {
     if (store.get().playing) stopTour();
-    else { closeScene(); player.play(); }
+    else { close3D(); closeScene(); player.play(); }
   });
   $('#btn-prev').addEventListener('click', () => step(-1));
   $('#btn-next').addEventListener('click', () => step(1));
@@ -315,11 +363,12 @@ async function boot() {
 
   // ---------- Keyboard ----------
   document.addEventListener('keydown', (e) => {
-    if (e.target.closest('input, textarea, select')) return;
+    if (e.target.closest('input, textarea, select') || menu.isOpen) return;
     if (e.key === ' ') { e.preventDefault(); $('#btn-play').click(); }
     else if (e.key === 'ArrowRight') step(1);
     else if (e.key === 'ArrowLeft') step(-1);
     else if (e.key === 'Escape') {
+      if (city3d.isOpen) { close3D(); return; }
       stopTour();
       closeScene();
       store.set({ activeId: null });
@@ -328,11 +377,20 @@ async function boot() {
   });
 
   // Handy from the browser console when authoring a story.
-  window.atlas = { story, events, scenes, store, map: view.map, scenePlayer };
+  window.atlas = { story, events, scenes, store, map: view.map, scenePlayer, city3d };
 
   // ---------- Start ----------
   const startId = decodeURIComponent(location.hash.slice(1));
-  if (byId.has(startId)) {
+  const startCity = cityById.get(params.get('city'));
+  if (startCity) {
+    // Opened from the Cities menu: ?story=rome&city=rome&t=150[&view=3d]
+    const t = params.get('t') ? parseDate(params.get('t')) : store.get().t;
+    store.set({ t });
+    player.resync(t);
+    view.map.setView(startCity.center, startCity.zoom, { animate: false });
+    openCity(startCity, { fly: false });
+    if (params.get('view') === '3d' && startCity.view3d) open3D(startCity);
+  } else if (byId.has(startId)) {
     const ev = byId.get(startId);
     select(ev);
     view.map.setView(ev.coords, ev.zoom ?? 13);
@@ -340,15 +398,6 @@ async function boot() {
     panel.renderIntro();
     render(store.get());
   }
-}
-
-function buildStoryPicker(catalog, currentId) {
-  const select = $('#story-picker');
-  select.innerHTML = catalog.stories.map((s) => `
-    <option value="${s.id}" ${s.id === currentId ? 'selected' : ''} ${s.status === 'ready' ? '' : 'disabled'}>
-      ${s.title}${s.status === 'ready' ? '' : ' (coming soon)'}
-    </option>`).join('');
-  select.addEventListener('change', () => { location.href = `?story=${encodeURIComponent(select.value)}`; });
 }
 
 boot().catch((err) => {

@@ -26,10 +26,14 @@
 .city-label.k-temple span, .city-label.k-palace span, .city-label.k-market span, .city-label.k-arena span { font-size: 11px; }
 .city-label.k-bridge span, .city-label.k-gap span { font-size: 10px; font-weight: 500; color: #6a4318; }
 
-.city-chip {
+.city-tools {
   position: fixed; z-index: 905; top: 16px;
   left: calc((100vw - var(--panel-w)) / 2); transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.city-chip {
   padding: 8px 16px;
+  white-space: nowrap;
   border: 1px solid var(--accent);
   border-radius: 999px;
   background: var(--surface);
@@ -40,6 +44,42 @@
 .city-chip strong { color: var(--accent); font-family: var(--font-display); }
 .city-chip:hover { background: var(--surface-2); }
 body.in-scene .city-chip { display: none; }
+.btn-3d { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.btn-3d:hover { background: var(--accent); filter: brightness(1.08); }
+body.view-3d #city-chip, body.view-3d #legend { display: none; }
+
+/* 3D city */
+body.view-3d #map { visibility: hidden; }
+.city3d {
+  position: fixed; z-index: 850;
+  inset: 0 var(--panel-w) var(--tl-h) 0;
+  background: #e6dbc0;
+  transition: right 0.3s ease;
+}
+body.panel-closed .city3d { right: 0; }
+.city3d .map3d { position: absolute; inset: 0; }
+.status3d {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0;
+  padding: 10px 20px; border-radius: 999px;
+  background: var(--surface); box-shadow: var(--shadow);
+  font-family: var(--font-display); font-size: 16px;
+}
+.hint3d {
+  position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); margin: 0;
+  padding: 4px 12px; border-radius: 999px;
+  background: rgba(255, 250, 240, 0.8); color: #5d4f38;
+  font-size: 12px; white-space: nowrap; pointer-events: none;
+}
+.city3d .city-label span { transform: none; }
+.city3d.imagery-on .city-label span { color: #fff; text-shadow: 0 0 4px #000, 0 0 8px #000; }
+.city3d .maplibregl-popup-content {
+  padding: 6px 10px; border-radius: 8px;
+  background: var(--surface); color: var(--text); box-shadow: var(--shadow);
+  font-size: 12px; line-height: 1.45;
+}
+.city3d .tip3d .maplibregl-popup-content { font-weight: 600; }
+.city3d .maplibregl-popup-tip { display: none; }
+.city3d .maplibregl-popup-close-button { color: var(--muted); }
 
 .then-now {
   position: fixed; z-index: 905; top: 62px;

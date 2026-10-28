@@ -2,6 +2,8 @@
 
 A story is a folder in `data/stories/<id>/` plus an entry in `data/catalog.json`. No code changes needed.
 
+`catalog.json` also lists the cities for the menu's Cities tab: `{ "id": "rome", "name": "Rome", "story": "rome", "at": "150", "when": "Shown in AD 150", "blurb": "...", "threeD": true }`. `story` is the story that loads the city and `at` the date it opens on.
+
 ```
 data/stories/<id>/
 ├── story.json           required
@@ -166,6 +168,14 @@ The `city` member can also carry a `gallery` in the same format as `images`, sho
 - In the app, zoom into a city and drag the *Then ⟷ Today* slider to about halfway: the plan sits over modern satellite imagery, so coastlines, harbours and surviving monuments can be lined up by eye. `atlas.map.containerPointToLatLng([x, y])` in the browser console turns a screen point into coordinates.
 
 Shores, islands, hills and rivers are smoothed automatically, so a dozen hand-placed points make a natural outline.
+
+### 3D cities
+
+Set `"view3d": true` in the `city` member to offer *View in 3D* (Rome has it). The 3D view uses the same file:
+
+- **Houses** come from every `houses` feature with a `fabric`. The area is cut into irregular street blocks, and each block becomes apartment blocks (insulae), shops, town houses (domus) or a garden. Blocks on a `hill` lean towards town houses; districts with `outer` in their id get more gardens. Override the shares with `"fabric": { ..., "mix": { "insula": 0.6, "taberna": 0.2, "domus": 0.15, "garden": 0.05 } }`. Houses disappear when a dated landmark is built over them.
+- **Landmarks** get a `model`: `{ "type": "temple", "h": 24 }`. Types: `temple`, `tholos` (round temple), `pantheon`, `amphitheatre`, `circus`, `stadium`, `theatre`, `drum-tomb`, `baths`, `basilica`, `hall`, `market`, `palace`, `forum` (paved with porticoes), `plaza` (paving only), `fort`, `arch`, `column`, `altar`, `wall`, `aqueduct`, `bridge`, `garden`. Without a `model`, the `kind` picks one (`temple` becomes a temple, `baths` becomes baths, and so on). `h` is the height in metres. Extras: `facing` (compass bearing of a temple's front or a theatre's stage; temples otherwise face the nearest square), `columns`, `podium`, `inset`, `twoFronts`, `peripteral`, `squareBase`, `apse`, `towers` (wall tower spacing in metres), `bays` (1 or 3 for arches), `wallH` (forum walls).
+- **Real outlines.** Give a feature `"osm": "way/123"` or `"relation/456"` (or a list) and run `python tools/osm_footprints.py data/cities/rome.geojson`. Its geometry is replaced by the OpenStreetMap outline, on the flat map too. Find ids at [openstreetmap.org](https://www.openstreetmap.org) with the query tool. OSM data is ODbL; the credit is added to the city file and shown on the 3D map.
 
 Time tricks used in the existing plans: Tenochtitlan's `bridge` features end on `1520-06-25` and `gap` features start then; the `aqueduct` becomes `aqueduct-cut` on `1521-05-26`; Carthage's Punic districts end in `-145`, `rubble` covers `-145` to `-28`, then the Roman grid begins.
 

@@ -15,12 +15,18 @@
 </head>
 <body>
   <div id="map" aria-label="Map"></div>
+  <!-- 3D city view, laid over the map while exploring a city -->
+  <div id="city3d" class="city3d" hidden>
+    <div class="map3d" aria-label="3D city"></div>
+    <p class="status3d" hidden></p>
+    <p class="hint3d">Drag to move · right-drag or Ctrl+drag to tilt and turn · click a building</p>
+  </div>
 
   <!-- Story title and current chapter -->
   <header class="hud">
     <div class="hud-top">
       <span class="brand">History Atlas</span>
-      <select id="story-picker" aria-label="Choose a story"></select>
+      <button id="btn-menu" class="menu-btn" aria-haspopup="dialog">&#9776; Stories &amp; cities</button>
     </div>
     <h1 id="story-title"></h1>
     <p id="story-subtitle" class="hud-sub"></p>
@@ -32,7 +38,10 @@
   </header>
 
   <aside id="legend" class="legend"></aside>
-  <button id="city-chip" class="city-chip" hidden></button>
+  <div class="city-tools">
+    <button id="city-chip" class="city-chip" hidden></button>
+    <button id="btn-3d" class="city-chip btn-3d" hidden>View in 3D</button>
+  </div>
   <!-- Blend the drawn city plan with modern satellite imagery -->
   <div id="then-now" class="then-now" hidden>
     <span>Then</span>
@@ -73,6 +82,24 @@
     </div>
     <div id="tl-track" class="tl-track" role="slider" aria-label="Timeline"></div>
   </footer>
+
+  <!-- Start menu: stories and cities -->
+  <div id="menu" class="menu" hidden>
+    <div class="menu-card" role="dialog" aria-modal="true" aria-label="Stories and cities" tabindex="-1">
+      <header class="menu-head">
+        <div>
+          <span class="brand">History Atlas</span>
+          <h2>Where to?</h2>
+        </div>
+        <button class="icon-btn" data-act="close" aria-label="Close menu">&times;</button>
+      </header>
+      <div class="menu-tabs" role="tablist">
+        <button role="tab" data-tab="stories" aria-selected="true">Stories</button>
+        <button role="tab" data-tab="cities" aria-selected="false">Cities</button>
+      </div>
+      <div class="menu-body"></div>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type="module" src="js/main.js"></script>

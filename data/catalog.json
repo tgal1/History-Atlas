@@ -1,10 +1,15 @@
 {
   "default": "troubles",
   "stories": [
-    { "id": "troubles", "title": "The Troubles", "subtitle": "Northern Ireland, 1966–1998", "status": "ready" },
-    { "id": "punic-wars", "title": "Rome v Carthage", "subtitle": "The Punic Wars, 264–146 BC", "status": "ready" },
-    { "id": "rome", "title": "Rise and fall of Rome", "subtitle": "753 BC – AD 476", "status": "ready" },
-    { "id": "aztecs", "title": "Cortés and the Aztecs", "subtitle": "The fall of Tenochtitlan, 1519–1521", "status": "ready" },
-    { "id": "ww2-europe", "title": "Second World War in Europe", "subtitle": "1939–1945", "status": "ready" }
+    { "id": "troubles", "title": "The Troubles", "subtitle": "Northern Ireland, 1966–1998", "blurb": "Civil rights marches, the Provisional IRA, loyalist paramilitaries and the long road to the Good Friday Agreement.", "status": "ready" },
+    { "id": "punic-wars", "title": "Rome v Carthage", "subtitle": "The Punic Wars, 264–146 BC", "blurb": "Three wars for the western Mediterranean: Hannibal's elephants, the slaughter at Cannae and the burning of Carthage.", "status": "ready" },
+    { "id": "rome", "title": "Rise and fall of Rome", "subtitle": "753 BC – AD 476", "blurb": "From a hill town on the Tiber to an empire from Scotland to the Persian Gulf, and its slow collapse in the west.", "status": "ready" },
+    { "id": "aztecs", "title": "Cortés and the Aztecs", "subtitle": "The fall of Tenochtitlan, 1519–1521", "blurb": "A few hundred Spaniards, thousands of native allies and smallpox bring down the greatest city in the Americas.", "status": "ready" },
+    { "id": "ww2-europe", "title": "Second World War in Europe", "subtitle": "1939–1945", "blurb": "Blitzkrieg, the Battle of Britain, Barbarossa, D-Day and the fall of Berlin.", "status": "ready" }
+  ],
+  "cities": [
+    { "id": "rome", "name": "Rome", "story": "rome", "at": "150", "when": "Shown in AD 150", "blurb": "Temples, forums, the Colosseum and twenty thousand houses on the seven hills. Scrub from the kings to the Aurelian Walls.", "threeD": true },
+    { "id": "carthage", "name": "Carthage", "story": "punic-wars", "at": "-150", "when": "Shown in 150 BC", "blurb": "The Punic city with its circular naval harbour, then Scipio's siege, the ruins, and the Roman city built on top." },
+    { "id": "tenochtitlan", "name": "Tenochtitlan", "story": "aztecs", "at": "1519-11-08", "when": "Shown in November 1519", "blurb": "The Aztec capital on its lake: causeways, canals, chinampa gardens and the Templo Mayor, and its destruction in 1521." }
   ]
 }

@@ -35,6 +35,9 @@ Open http://127.0.0.1:8765. Opening `index.html` directly from disk will not wor
 | Watch it unfold | Plays the event's animated scene (e.g. the Belfast–Derry march) |
 | Esc | Deselect and fly back out |
 | `#event-id` in the URL | Deep link to an event, e.g. `/#bloody-sunday` |
+| Stories & cities | Menu to switch story or jump straight into a city |
+| View in 3D | In Rome: a 3D city with terrain, landmark models and generated houses. Right-drag or Ctrl+drag to tilt and turn |
+| `?story=rome&city=rome&t=150&view=3d` | Deep link to a city at a date, optionally in 3D |
 
 ## Project layout
 
@@ -62,9 +65,15 @@ history-atlas/
 │   │   ├── cityLayer.js       Drawn city plans: styles, generated street blocks, dates, clicks
 │   │   ├── labelLayer.js      Story-specific place labels
 │   │   └── scenePlayer.js     Animated scenes: marching armies and battle formations
+│   ├── map3d/                 3D city view (MapLibre GL, loaded on demand)
+│   │   ├── city3d.js          Terrain, layers, time filter, clicks, Then/Today
+│   │   ├── models.js          Landmark recipes: temples, amphitheatres, baths, walls...
+│   │   ├── houses.js          Generated streets and houses (insulae, domus, shops, gardens)
+│   │   └── geom.js            Metres frame, oriented boxes, rings, seeded randomness
 │   ├── ui/
 │   │   ├── timeline.js        Eras, intensity strip, ticks, playhead
 │   │   ├── eventPanel.js      Intro and event cards
+│   │   ├── menu.js            Start menu: stories and cities
 │   │   ├── sceneBar.js        Scene play / scrub / caption
 │   │   ├── lightbox.js        Full-screen image viewer for galleries
 │   │   └── legend.js          Map key
@@ -72,7 +81,7 @@ history-atlas/
 │       ├── wikipedia.js       Lead image + extract per event
 │       └── commons.js         Reconstruction images and credits from Wikimedia Commons
 ├── data/
-│   ├── catalog.json           List of stories (ready / planned)
+│   ├── catalog.json           Stories and cities shown in the menu
 │   ├── cities/                City plans shared between stories
 │   │   ├── tenochtitlan.geojson
 │   │   ├── rome.geojson
@@ -92,7 +101,8 @@ history-atlas/
 ├── docs/
 │   └── DATA_FORMAT.md         How to write a new story
 └── tools/
-    └── serve.py               No-cache local dev server
+    ├── serve.py               No-cache local dev server
+    └── osm_footprints.py      Refreshes monument outlines from OpenStreetMap
 ```
 
 The engine knows nothing about Ireland or Rome. Everything story-specific lives in `data/stories/<id>/`. A new story is a new folder plus its `status` set to `"ready"` in `catalog.json`. See [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md).
@@ -107,6 +117,9 @@ The engine knows nothing about Ireland or Rome. Everything story-specific lives 
 | Wikipedia REST API | Event images and extracts | No |
 | Wikimedia Commons API | Reconstruction galleries and credits | No |
 | Esri World Imagery | Satellite view for *Then ⟷ Today* | No |
+| MapLibre GL JS 5.6.0 (unpkg) | 3D city view | No |
+| AWS Terrain Tiles (Terrarium) | Elevation for the 3D hills | No |
+| OpenStreetMap (via `tools/osm_footprints.py`, offline) | Real outlines of surviving monuments, ODbL, credited on the map | No |
 
 Nothing needs an API key, so the folder can be hosted as-is on any static host (Cloudflare Pages, GitHub Pages, Netlify). Check Esri's terms of use before a public launch.
 
@@ -115,6 +128,8 @@ Nothing needs an API key, so the folder can be hosted as-is on any static host (
 Dots, territories and battle blocks are drawn on canvas rather than SVG. Event dots are only restyled when their fade step changes, tiles aren't fetched mid-flight, and there are no blur effects over the moving map. The Cannae scene runs at 60fps in Chrome.
 
 ## Accuracy notes
+
+- In the 3D city, landmarks use real outlines where they survive, with heights from the literature; their details (column counts, roof pitch) are generic. Ordinary houses are generated, so the street plan is plausible, not surveyed.
 
 - Event text is written for this project and kept short. Dates and death tolls follow standard sources (CAIN, Polybius, Livy, Wikipedia); the deaths-per-year strip is approximate.
 - Inland borders (the Irish border, Free Derry, every Punic Wars territory) are hand-drawn approximations, clipped to the real coastline. Ancient borders were fuzzy anyway; treat them as a guide.
