@@ -77,6 +77,13 @@
       "subtitle": "1945–1991",
       "blurb": "The Iron Curtain, the Berlin Airlift, Korea, Cuba and Vietnam, proxy wars from Angola to Afghanistan, and the fall of the Wall.",
       "status": "ready"
+    },
+    {
+      "id": "iran-revolution",
+      "title": "The Iranian Revolution",
+      "subtitle": "1951–1981",
+      "blurb": "Oil nationalised, a coup, the Shah's White Revolution, the marches of 1978, Khomeini's return, the hostage crisis and Iraq's invasion.",
+      "status": "ready"
     }
   ],
   "cities": [
@@ -131,6 +138,14 @@
       "when": "Shown in 1975",
       "blurb": "The four sectors, the Airlift's Tempelhof, the Wall and its death strip, Checkpoint Charlie and the Brandenburg Gate, 1945–1990.",
       "threeD": false
+    },
+    {
+      "id": "tehran",
+      "name": "Tehran",
+      "story": "iran-revolution",
+      "at": "1978-12-11",
+      "when": "Shown in December 1978",
+      "blurb": "The city of the revolution: the avenues of the great marches, Jaleh Square, the university, the bazaar, the palaces, Evin prison and the US embassy."
     }
   ]
 }

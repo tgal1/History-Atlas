@@ -1,0 +1,1935 @@
+{
+ "type": "FeatureCollection",
+ "city": {
+  "id": "tehran",
+  "name": "Tehran",
+  "center": [
+   35.722,
+   51.405
+  ],
+  "zoom": 12.5,
+  "radiusKm": 14,
+  "ambience": "urban",
+  "wiki": "Tehran",
+  "summary": [
+   "In the 1970s Tehran grew fast, to about four and a half million people, swollen by oil money and migrants from the countryside. The rich lived in the cool north, in the foothills of the Alborz. The poor crowded the south, near the bazaar and the old city.",
+   "This plan shows the city as it was in 1978, with the names of the time and today's names in brackets: the great avenues of the marches, the squares where crowds gathered and were shot at, the palaces, the prisons, the airport and the embassy at the centre of the hostage crisis."
+  ],
+  "note": "Avenue lines follow today's streets (OSRM and OpenStreetMap). The university, Niavaran, Evin and the airport use OpenStreetMap outlines. The embassy compound, bazaar, Golestan Palace and Mosaddegh's house are drawn by hand and approximate.",
+  "osmCredit": "Monument outlines (c) OpenStreetMap contributors, ODbL"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "built-up",
+    "name": "Built-up Tehran, late 1970s",
+    "kind": "district",
+    "minZoom": 11,
+    "labelZoom": 13,
+    "labelAt": [
+     51.37,
+     35.645
+    ],
+    "description": "The rough extent of the city in 1978, home to about four and a half million people. It had doubled in twenty years as migrants poured in from the villages. The outline is approximate."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.335,
+       35.66
+      ],
+      [
+       51.36,
+       35.64
+      ],
+      [
+       51.42,
+       35.625
+      ],
+      [
+       51.48,
+       35.64
+      ],
+      [
+       51.51,
+       35.68
+      ],
+      [
+       51.51,
+       35.73
+      ],
+      [
+       51.48,
+       35.76
+      ],
+      [
+       51.46,
+       35.8
+      ],
+      [
+       51.42,
+       35.815
+      ],
+      [
+       51.39,
+       35.79
+      ],
+      [
+       51.375,
+       35.75
+      ],
+      [
+       51.35,
+       35.73
+      ],
+      [
+       51.335,
+       35.7
+      ],
+      [
+       51.335,
+       35.66
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "shahreza",
+    "name": "Shahreza Avenue (now Enghelab)",
+    "kind": "road",
+    "widthM": 34,
+    "labelZoom": 14,
+    "description": "The main east-west avenue, named after Reza Shah, father of the last Shah. It passes the University of Tehran. The great marches of 1978 filled it from end to end. It was renamed Enghelab (Revolution) Avenue.",
+    "wiki": "Enghelab Street"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.4481,
+      35.7022
+     ],
+     [
+      51.4196,
+      35.7016
+     ],
+     [
+      51.3924,
+      35.7012
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "eisenhower",
+    "name": "Eisenhower Avenue (now Azadi)",
+    "kind": "road",
+    "widthM": 40,
+    "labelZoom": 14,
+    "description": "The wide western avenue to Shahyad Square and the airport road, named after the US president. Marchers walked its length to the Shahyad Tower on Tasu'a and Ashura. It was renamed Azadi (Freedom) Avenue.",
+    "wiki": "Azadi Street"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.3924,
+      35.7012
+     ],
+     [
+      51.3899,
+      35.701
+     ],
+     [
+      51.3405,
+      35.6999
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pahlavi-ave",
+    "name": "Pahlavi Avenue (now Valiasr)",
+    "kind": "road",
+    "widthM": 30,
+    "labelZoom": 14,
+    "description": "The long, tree-lined avenue climbing from the old city to Tajrish in the foothills of the Alborz, built under Reza Shah. Its northern end ran through the richest districts of the city. After the revolution it was briefly named after Mosaddegh, then Valiasr.",
+    "wiki": "Valiasr Street"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.40602,
+      35.66217
+     ],
+     [
+      51.40555,
+      35.66222
+     ],
+     [
+      51.40492,
+      35.65895
+     ],
+     [
+      51.40457,
+      35.6586
+     ],
+     [
+      51.39863,
+      35.65921
+     ],
+     [
+      51.39813,
+      35.65974
+     ],
+     [
+      51.40144,
+      35.67996
+     ],
+     [
+      51.40683,
+      35.71045
+     ],
+     [
+      51.40707,
+      35.71119
+     ],
+     [
+      51.40739,
+      35.71129
+     ],
+     [
+      51.40758,
+      35.71157
+     ],
+     [
+      51.4075,
+      35.71187
+     ],
+     [
+      51.40714,
+      35.71206
+     ],
+     [
+      51.40682,
+      35.71203
+     ],
+     [
+      51.40652,
+      35.71168
+     ],
+     [
+      51.40669,
+      35.71131
+     ],
+     [
+      51.40707,
+      35.71119
+     ],
+     [
+      51.40739,
+      35.71129
+     ],
+     [
+      51.40758,
+      35.71157
+     ],
+     [
+      51.40713,
+      35.71238
+     ],
+     [
+      51.40867,
+      35.72112
+     ],
+     [
+      51.40952,
+      35.72271
+     ],
+     [
+      51.41019,
+      35.72357
+     ],
+     [
+      51.41065,
+      35.72367
+     ],
+     [
+      51.41441,
+      35.72379
+     ],
+     [
+      51.41503,
+      35.72396
+     ],
+     [
+      51.41606,
+      35.724
+     ],
+     [
+      51.41629,
+      35.72424
+     ],
+     [
+      51.41549,
+      35.72738
+     ],
+     [
+      51.41518,
+      35.72756
+     ],
+     [
+      51.41388,
+      35.72722
+     ],
+     [
+      51.41354,
+      35.72734
+     ],
+     [
+      51.41056,
+      35.73369
+     ],
+     [
+      51.40911,
+      35.73732
+     ],
+     [
+      51.4091,
+      35.73814
+     ],
+     [
+      51.41155,
+      35.74695
+     ],
+     [
+      51.41178,
+      35.7486
+     ],
+     [
+      51.41162,
+      35.75007
+     ],
+     [
+      51.41015,
+      35.75671
+     ],
+     [
+      51.41048,
+      35.7576
+     ],
+     [
+      51.40979,
+      35.75833
+     ],
+     [
+      51.40951,
+      35.75949
+     ],
+     [
+      51.40955,
+      35.7604
+     ],
+     [
+      51.40959,
+      35.76058
+     ],
+     [
+      51.41287,
+      35.76082
+     ],
+     [
+      51.41398,
+      35.76011
+     ],
+     [
+      51.4106,
+      35.75984
+     ],
+     [
+      51.41026,
+      35.75995
+     ],
+     [
+      51.4095,
+      35.75996
+     ],
+     [
+      51.41622,
+      35.7907
+     ],
+     [
+      51.41796,
+      35.79802
+     ],
+     [
+      51.42066,
+      35.80346
+     ],
+     [
+      51.42179,
+      35.80507
+     ],
+     [
+      51.42318,
+      35.80604
+     ],
+     [
+      51.42458,
+      35.80658
+     ],
+     [
+      51.42589,
+      35.80682
+     ],
+     [
+      51.42895,
+      35.80674
+     ],
+     [
+      51.42924,
+      35.80683
+     ],
+     [
+      51.42932,
+      35.80696
+     ],
+     [
+      51.42918,
+      35.80715
+     ],
+     [
+      51.4288,
+      35.80724
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "takht-e-jamshid",
+    "name": "Takht-e Jamshid Avenue (now Taleghani)",
+    "kind": "road",
+    "widthM": 24,
+    "labelZoom": 15,
+    "description": "The avenue past the US embassy compound. During the hostage crisis it filled with crowds and stalls. It was renamed after Ayatollah Taleghani, who died in September 1979.",
+    "wiki": "Mahmoud Taleghani"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.4073,
+      35.7068
+     ],
+     [
+      51.4327,
+      35.7071
+     ],
+     [
+      51.4345,
+      35.7066
+     ],
+     [
+      51.4401,
+      35.7068
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ferdowsi-ave",
+    "name": "Ferdowsi Avenue",
+    "kind": "road",
+    "widthM": 22,
+    "labelZoom": 15,
+    "description": "Running south from Ferdowsi Square towards the old city, past banks, the British embassy and the cinemas and shops of Lalehzar. Many of them burned on 5 November 1978."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.4191,
+      35.7015
+     ],
+     [
+      51.4214,
+      35.6858
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "airport-road",
+    "name": "Airport road",
+    "kind": "road",
+    "widthM": 26,
+    "labelZoom": 15
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.3225,
+      35.6915
+     ],
+     [
+      51.33,
+      35.6965
+     ],
+     [
+      51.3365,
+      35.6993
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "shahyad-square",
+    "name": "Shahyad Square (now Azadi Square)",
+    "kind": "plaza",
+    "radiusM": 230,
+    "labelZoom": 14,
+    "zoom": 16,
+    "wiki": "Azadi Square",
+    "description": [
+     "A huge oval square at the western gate of the city, where the airport road meets Eisenhower Avenue. It was laid out with the Shahyad Tower for the 1971 celebrations.",
+     "On Tasu'a and Ashura in December 1978 the marches ended here. After the revolution it was renamed Azadi (Freedom) Square, and it is still the stage for official rallies."
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.3378,
+     35.6997
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "shahyad-tower",
+    "name": "Shahyad Tower (now Azadi Tower)",
+    "kind": "building",
+    "radiusM": 32,
+    "labelZoom": 15,
+    "zoom": 17,
+    "wiki": "Azadi Tower",
+    "description": [
+     "A 45-metre gateway faced with white marble, opened on 16 October 1971 for the 2,500-year celebrations. Its name means 'Remembrance of the Shahs'. The architect, Hossein Amanat, was in his twenties.",
+     "It mixes Sasanian and Islamic forms. Renamed Azadi (Freedom) Tower in 1979, it became the symbol of the city."
+    ],
+    "from": "1971-10-16"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.33778,
+     35.69975
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "twenty-four-esfand",
+    "name": "24 Esfand Square (now Enghelab Square)",
+    "kind": "plaza",
+    "radiusM": 70,
+    "labelZoom": 15,
+    "wiki": "Enqelab Square",
+    "description": "Where Shahreza Avenue becomes Eisenhower Avenue, just west of the university. It was renamed Enghelab (Revolution) Square."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.3924,
+     35.7012
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ferdowsi-square",
+    "name": "Ferdowsi Square",
+    "kind": "plaza",
+    "radiusM": 55,
+    "labelZoom": 15,
+    "wiki": "Ferdowsi Square",
+    "description": "A roundabout on Shahreza Avenue with a statue of the poet Ferdowsi, at the head of Ferdowsi Avenue."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4191,
+     35.7016
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "fawzieh-square",
+    "name": "Fawzieh Square (now Imam Hossein Square)",
+    "kind": "plaza",
+    "radiusM": 70,
+    "labelZoom": 15,
+    "description": "At the eastern end of Shahreza Avenue, in a working-class district. The Tasu'a and Ashura marches gathered here and at other points across the east and south of the city."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4481,
+     35.7022
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "jaleh-square",
+    "name": "Jaleh Square (now Shohada Square)",
+    "kind": "plaza",
+    "radiusM": 55,
+    "labelZoom": 15,
+    "zoom": 17,
+    "wiki": "Black Friday (1978)",
+    "description": [
+     "On Friday 8 September 1978, the morning after martial law was declared, troops opened fire on a crowd here. The day became known as Black Friday.",
+     "After the revolution the square was renamed Shohada, the Square of the Martyrs."
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4473,
+     35.6896
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "toopkhaneh",
+    "name": "Sepah Square (Toopkhaneh)",
+    "kind": "plaza",
+    "radiusM": 70,
+    "labelZoom": 15,
+    "wiki": "Imam Khomeini Square",
+    "description": "The old cannon square at the heart of Qajar Tehran, between the government quarter and the bazaar. It is now Imam Khomeini Square."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4214,
+     35.6858
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "baharestan-square",
+    "name": "Baharestan Square",
+    "kind": "plaza",
+    "radiusM": 60,
+    "labelZoom": 15
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4335,
+     35.6918
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "university",
+    "name": "University of Tehran",
+    "kind": "building",
+    "osm": "way/385256433",
+    "labelZoom": 14,
+    "zoom": 16,
+    "wiki": "University of Tehran",
+    "description": [
+     "Iran's first modern university, founded in 1934. Its students were at the centre of every protest movement, from the Mosaddegh years to 1978.",
+     "On 4 November 1978 soldiers shot students who were pulling down a statue of the Shah. After the revolution, Friday prayers were held on the campus. The universities were closed in 1980 for a Cultural Revolution."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.394339,
+       35.701185
+      ],
+      [
+       51.396009,
+       35.70121
+      ],
+      [
+       51.395939,
+       35.70133
+      ],
+      [
+       51.395993,
+       35.701345
+      ],
+      [
+       51.396315,
+       35.701436
+      ],
+      [
+       51.396357,
+       35.701448
+      ],
+      [
+       51.396461,
+       35.701225
+      ],
+      [
+       51.396927,
+       35.70124
+      ],
+      [
+       51.398139,
+       35.701269
+      ],
+      [
+       51.397362,
+       35.70316
+      ],
+      [
+       51.395701,
+       35.707001
+      ],
+      [
+       51.393734,
+       35.706455
+      ],
+      [
+       51.392123,
+       35.706008
+      ],
+      [
+       51.394028,
+       35.701848
+      ],
+      [
+       51.394339,
+       35.701185
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "us-embassy",
+    "name": "US embassy compound",
+    "kind": "garden",
+    "labelZoom": 15,
+    "zoom": 17,
+    "wiki": "Embassy of the United States, Tehran",
+    "description": [
+     "A walled compound of about 27 acres, with lawns, offices and staff housing, on Takht-e Jamshid Avenue.",
+     "On 4 November 1979 student followers of Khomeini climbed the gates and took the staff hostage. 52 Americans were held for 444 days. The students called the embassy a 'den of spies' and published shredded documents they had pieced together. The compound later became a museum and a base of the Revolutionary Guards."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.4224,
+       35.707
+      ],
+      [
+       51.4256,
+       35.707
+      ],
+      [
+       51.4256,
+       35.7104
+      ],
+      [
+       51.4245,
+       35.7111
+      ],
+      [
+       51.4224,
+       35.7111
+      ],
+      [
+       51.4224,
+       35.707
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bazaar",
+    "name": "Grand Bazaar",
+    "kind": "market",
+    "labelZoom": 14,
+    "zoom": 16,
+    "wiki": "Grand Bazaar, Tehran",
+    "description": [
+     "Kilometres of covered lanes of shops, warehouses, mosques and seminaries south of the palace. The bazaar merchants were tied to the clergy by faith, family and money.",
+     "They closed their shops in protest in 1963 and were hit hard by the Shah's anti-profiteering campaign in 1975. In 1978 their strikes and money kept the revolution going."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.4175,
+       35.6773
+      ],
+      [
+       51.4262,
+       35.6773
+      ],
+      [
+       51.4262,
+       35.6712
+      ],
+      [
+       51.418,
+       35.6712
+      ],
+      [
+       51.4175,
+       35.6773
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "shah-mosque",
+    "name": "Shah Mosque (now Imam Khomeini Mosque)",
+    "kind": "building",
+    "radiusM": 45,
+    "labelZoom": 16,
+    "wiki": "Emam Mosque (Tehran)",
+    "description": "The great mosque of the bazaar, built in the early 19th century. Prime Minister Ali Razmara was shot dead here on 7 March 1951."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4226,
+     35.6765
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "golestan",
+    "name": "Golestan Palace",
+    "kind": "palace",
+    "labelZoom": 15,
+    "zoom": 17,
+    "wiki": "Golestan Palace",
+    "description": "The Qajar royal palace in the old city, with gardens, tiled halls and the Marble Throne. The Pahlavis used it for state ceremonies, among them the Shah's coronation in 1967."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.4188,
+       35.6806
+      ],
+      [
+       51.4218,
+       35.6806
+      ],
+      [
+       51.4218,
+       35.6788
+      ],
+      [
+       51.4188,
+       35.6788
+      ],
+      [
+       51.4188,
+       35.6806
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "majlis",
+    "name": "Majlis (parliament)",
+    "kind": "palace",
+    "radiusM": 90,
+    "labelZoom": 15,
+    "wiki": "Baharestan",
+    "description": "Iran's parliament, in the Baharestan palace and gardens. Here the Majlis voted to nationalise oil in March 1951 and made Mosaddegh prime minister. After 1979 it became the Islamic Consultative Assembly."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4325,
+     35.6925
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "mosaddegh-house",
+    "name": "Mosaddegh's house",
+    "kind": "building",
+    "radiusM": 35,
+    "labelZoom": 16,
+    "wiki": "Mohammad Mosaddegh",
+    "description": "Mosaddegh's home on Kakh Street, which he used as his office. On 19 August 1953 it was shelled and stormed, and Mosaddegh escaped over the wall. The position is approximate."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4085,
+     35.6935
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "alavi-school",
+    "name": "Alavi School",
+    "kind": "building",
+    "radiusM": 40,
+    "labelZoom": 16,
+    "wiki": "Alavi Institute",
+    "description": "Khomeini's headquarters after his return on 1 February 1979. From here he named Bazargan's provisional government. Revolutionary courts tried the Shah's generals at the nearby Refah School and shot the first four on its roof on 15 February."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4375,
+     35.6967
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "niavaran",
+    "name": "Niavaran Palace",
+    "kind": "palace",
+    "osm": "way/312944563",
+    "labelZoom": 15,
+    "zoom": 16,
+    "wiki": "Niavaran Complex",
+    "description": "The Shah's main residence from the late 1960s, in gardens at the foot of the Alborz in north Tehran. Here President Carter toasted Iran as 'an island of stability' on 31 December 1977."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.472121,
+       35.80697
+      ],
+      [
+       51.47299,
+       35.809601
+      ],
+      [
+       51.472801,
+       35.80964
+      ],
+      [
+       51.472742,
+       35.809652
+      ],
+      [
+       51.470823,
+       35.810041
+      ],
+      [
+       51.470131,
+       35.807585
+      ],
+      [
+       51.470147,
+       35.807411
+      ],
+      [
+       51.470289,
+       35.807268
+      ],
+      [
+       51.470512,
+       35.807213
+      ],
+      [
+       51.472121,
+       35.80697
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "evin",
+    "name": "Evin prison",
+    "kind": "fort",
+    "osm": "way/676621403",
+    "labelZoom": 15,
+    "zoom": 16,
+    "wiki": "Evin Prison",
+    "description": [
+     "A prison on the northern edge of the city, opened in 1972 and used by SAVAK for political prisoners.",
+     "After the revolution the new regime used it for its own opponents. Thousands of political prisoners were executed in Iran's prisons in the 1980s, many of them here."
+    ],
+    "from": "1972"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.38634,
+       35.795493
+      ],
+      [
+       51.385446,
+       35.795925
+      ],
+      [
+       51.384738,
+       35.794997
+      ],
+      [
+       51.38495,
+       35.794805
+      ],
+      [
+       51.385337,
+       35.794562
+      ],
+      [
+       51.385234,
+       35.794455
+      ],
+      [
+       51.385362,
+       35.794379
+      ],
+      [
+       51.385104,
+       35.794087
+      ],
+      [
+       51.385359,
+       35.793945
+      ],
+      [
+       51.385475,
+       35.794088
+      ],
+      [
+       51.385583,
+       35.794027
+      ],
+      [
+       51.385695,
+       35.794153
+      ],
+      [
+       51.385649,
+       35.794249
+      ],
+      [
+       51.385735,
+       35.794357
+      ],
+      [
+       51.385843,
+       35.794308
+      ],
+      [
+       51.385966,
+       35.794735
+      ],
+      [
+       51.385888,
+       35.794895
+      ],
+      [
+       51.38634,
+       35.795493
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "doshan-tappeh",
+    "name": "Doshan Tappeh air base",
+    "kind": "fort",
+    "radiusM": 420,
+    "labelZoom": 14,
+    "wiki": "Homafaran",
+    "description": "An air force base in east Tehran. On the night of 9 February 1979 the Imperial Guard attacked air force technicians here who had cheered Khomeini. The fighting spread across the city and brought the old regime down two days later."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.475,
+     35.703
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "qeytarieh",
+    "name": "Qeytarieh hills",
+    "kind": "hill",
+    "radiusM": 350,
+    "labelZoom": 14,
+    "description": "Open ground in north Tehran where Ayatollah Mofatteh led the Eid al-Fitr prayers on 4 September 1978, before the march across the city."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.4465,
+     35.7905
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "behesht-e-zahra",
+    "name": "Behesht-e Zahra cemetery",
+    "kind": "tomb",
+    "radiusM": 900,
+    "minZoom": 11,
+    "labelZoom": 12,
+    "zoom": 14,
+    "wiki": "Behesht-e Zahra",
+    "description": "Tehran's vast cemetery, south of the city, opened in 1970. Many of those killed in 1978 were buried here. On 1 February 1979 Khomeini came here from the airport and declared, among the graves, that he would appoint a government.",
+    "from": "1970"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.371,
+     35.537
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "mehrabad",
+    "name": "Mehrabad airport",
+    "kind": "district",
+    "osm": "way/175770954",
+    "labelZoom": 13,
+    "zoom": 14,
+    "wiki": "Mehrabad International Airport",
+    "description": "Tehran's international airport. The Shah left from here on 16 January 1979, Khomeini landed here on 1 February, and the 52 American hostages flew out on 20 January 1981. Iraqi jets bombed it on the first day of the war."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       51.263586,
+       35.688002
+      ],
+      [
+       51.268794,
+       35.68654
+      ],
+      [
+       51.272239,
+       35.685562
+      ],
+      [
+       51.273531,
+       35.68517
+      ],
+      [
+       51.275074,
+       35.684692
+      ],
+      [
+       51.282426,
+       35.682544
+      ],
+      [
+       51.289812,
+       35.680448
+      ],
+      [
+       51.29036,
+       35.680516
+      ],
+      [
+       51.290373,
+       35.681043
+      ],
+      [
+       51.291449,
+       35.681
+      ],
+      [
+       51.291443,
+       35.680716
+      ],
+      [
+       51.298267,
+       35.681727
+      ],
+      [
+       51.298299,
+       35.682176
+      ],
+      [
+       51.29934,
+       35.682154
+      ],
+      [
+       51.299348,
+       35.681865
+      ],
+      [
+       51.301681,
+       35.682231
+      ],
+      [
+       51.305919,
+       35.680954
+      ],
+      [
+       51.307463,
+       35.679502
+      ],
+      [
+       51.30744,
+       35.679187
+      ],
+      [
+       51.308073,
+       35.678871
+      ],
+      [
+       51.308322,
+       35.678738
+      ],
+      [
+       51.309458,
+       35.67831
+      ],
+      [
+       51.309476,
+       35.678786
+      ],
+      [
+       51.313083,
+       35.678603
+      ],
+      [
+       51.313716,
+       35.678494
+      ],
+      [
+       51.31414,
+       35.678267
+      ],
+      [
+       51.314607,
+       35.677984
+      ],
+      [
+       51.315261,
+       35.677553
+      ],
+      [
+       51.315449,
+       35.677871
+      ],
+      [
+       51.31539,
+       35.678015
+      ],
+      [
+       51.315221,
+       35.678124
+      ],
+      [
+       51.315052,
+       35.678289
+      ],
+      [
+       51.315028,
+       35.678435
+      ],
+      [
+       51.315108,
+       35.678625
+      ],
+      [
+       51.31524,
+       35.678732
+      ],
+      [
+       51.31536,
+       35.678836
+      ],
+      [
+       51.315739,
+       35.679684
+      ],
+      [
+       51.316559,
+       35.681594
+      ],
+      [
+       51.316762,
+       35.681991
+      ],
+      [
+       51.317006,
+       35.682383
+      ],
+      [
+       51.317436,
+       35.682841
+      ],
+      [
+       51.318053,
+       35.683321
+      ],
+      [
+       51.31825,
+       35.683524
+      ],
+      [
+       51.319526,
+       35.683654
+      ],
+      [
+       51.322927,
+       35.683877
+      ],
+      [
+       51.323589,
+       35.683921
+      ],
+      [
+       51.324365,
+       35.68388
+      ],
+      [
+       51.325534,
+       35.683374
+      ],
+      [
+       51.324842,
+       35.681632
+      ],
+      [
+       51.324949,
+       35.681392
+      ],
+      [
+       51.327916,
+       35.680494
+      ],
+      [
+       51.328232,
+       35.680573
+      ],
+      [
+       51.328713,
+       35.681051
+      ],
+      [
+       51.329064,
+       35.681008
+      ],
+      [
+       51.332915,
+       35.679897
+      ],
+      [
+       51.333677,
+       35.679549
+      ],
+      [
+       51.335831,
+       35.67991
+      ],
+      [
+       51.338499,
+       35.680359
+      ],
+      [
+       51.341246,
+       35.680865
+      ],
+      [
+       51.341656,
+       35.680966
+      ],
+      [
+       51.341848,
+       35.681084
+      ],
+      [
+       51.342046,
+       35.681255
+      ],
+      [
+       51.342252,
+       35.681438
+      ],
+      [
+       51.342346,
+       35.681623
+      ],
+      [
+       51.342445,
+       35.681908
+      ],
+      [
+       51.34249,
+       35.68211
+      ],
+      [
+       51.342514,
+       35.682301
+      ],
+      [
+       51.342512,
+       35.68247
+      ],
+      [
+       51.342501,
+       35.682626
+      ],
+      [
+       51.342476,
+       35.682766
+      ],
+      [
+       51.341932,
+       35.684288
+      ],
+      [
+       51.34172,
+       35.684867
+      ],
+      [
+       51.341642,
+       35.685084
+      ],
+      [
+       51.341523,
+       35.685413
+      ],
+      [
+       51.341342,
+       35.685912
+      ],
+      [
+       51.341145,
+       35.686497
+      ],
+      [
+       51.341043,
+       35.686761
+      ],
+      [
+       51.340944,
+       35.687039
+      ],
+      [
+       51.340773,
+       35.687502
+      ],
+      [
+       51.340658,
+       35.687675
+      ],
+      [
+       51.340517,
+       35.688062
+      ],
+      [
+       51.340393,
+       35.688446
+      ],
+      [
+       51.340361,
+       35.688581
+      ],
+      [
+       51.340328,
+       35.688818
+      ],
+      [
+       51.340294,
+       35.689143
+      ],
+      [
+       51.340269,
+       35.689399
+      ],
+      [
+       51.340315,
+       35.689749
+      ],
+      [
+       51.340265,
+       35.690383
+      ],
+      [
+       51.340229,
+       35.690851
+      ],
+      [
+       51.340165,
+       35.691538
+      ],
+      [
+       51.340085,
+       35.69243
+      ],
+      [
+       51.340055,
+       35.692766
+      ],
+      [
+       51.340024,
+       35.693108
+      ],
+      [
+       51.339976,
+       35.693629
+      ],
+      [
+       51.339931,
+       35.694172
+      ],
+      [
+       51.339873,
+       35.69479
+      ],
+      [
+       51.339844,
+       35.69491
+      ],
+      [
+       51.33975,
+       35.695195
+      ],
+      [
+       51.339592,
+       35.695471
+      ],
+      [
+       51.339491,
+       35.695584
+      ],
+      [
+       51.339322,
+       35.695731
+      ],
+      [
+       51.339158,
+       35.695918
+      ],
+      [
+       51.338756,
+       35.696302
+      ],
+      [
+       51.338605,
+       35.696443
+      ],
+      [
+       51.338324,
+       35.696762
+      ],
+      [
+       51.338153,
+       35.696965
+      ],
+      [
+       51.338058,
+       35.697047
+      ],
+      [
+       51.33772,
+       35.697195
+      ],
+      [
+       51.337449,
+       35.697292
+      ],
+      [
+       51.337146,
+       35.697353
+      ],
+      [
+       51.336719,
+       35.697395
+      ],
+      [
+       51.335915,
+       35.697543
+      ],
+      [
+       51.335635,
+       35.697759
+      ],
+      [
+       51.335423,
+       35.697859
+      ],
+      [
+       51.335029,
+       35.698124
+      ],
+      [
+       51.334537,
+       35.698608
+      ],
+      [
+       51.334109,
+       35.698934
+      ],
+      [
+       51.333728,
+       35.699138
+      ],
+      [
+       51.333651,
+       35.699173
+      ],
+      [
+       51.333313,
+       35.699286
+      ],
+      [
+       51.333187,
+       35.699311
+      ],
+      [
+       51.333042,
+       35.699331
+      ],
+      [
+       51.332764,
+       35.699345
+      ],
+      [
+       51.322774,
+       35.699109
+      ],
+      [
+       51.316553,
+       35.698911
+      ],
+      [
+       51.310798,
+       35.698728
+      ],
+      [
+       51.309848,
+       35.698519
+      ],
+      [
+       51.309623,
+       35.698488
+      ],
+      [
+       51.309355,
+       35.698497
+      ],
+      [
+       51.309081,
+       35.698567
+      ],
+      [
+       51.30884,
+       35.698728
+      ],
+      [
+       51.30832,
+       35.698597
+      ],
+      [
+       51.307708,
+       35.698623
+      ],
+      [
+       51.305696,
+       35.698548
+      ],
+      [
+       51.304361,
+       35.698336
+      ],
+      [
+       51.304119,
+       35.698165
+      ],
+      [
+       51.30395,
+       35.697955
+      ],
+      [
+       51.303913,
+       35.697813
+      ],
+      [
+       51.303877,
+       35.697653
+      ],
+      [
+       51.30386,
+       35.69727
+      ],
+      [
+       51.303295,
+       35.697454
+      ],
+      [
+       51.302778,
+       35.697683
+      ],
+      [
+       51.30189,
+       35.698184
+      ],
+      [
+       51.301746,
+       35.698273
+      ],
+      [
+       51.301499,
+       35.698386
+      ],
+      [
+       51.301224,
+       35.698484
+      ],
+      [
+       51.300996,
+       35.69854
+      ],
+      [
+       51.300861,
+       35.698576
+      ],
+      [
+       51.299204,
+       35.69891
+      ],
+      [
+       51.297135,
+       35.699295
+      ],
+      [
+       51.296664,
+       35.699404
+      ],
+      [
+       51.29652,
+       35.699271
+      ],
+      [
+       51.296336,
+       35.699175
+      ],
+      [
+       51.296245,
+       35.699239
+      ],
+      [
+       51.296194,
+       35.69925
+      ],
+      [
+       51.296047,
+       35.699282
+      ],
+      [
+       51.294736,
+       35.699511
+      ],
+      [
+       51.294756,
+       35.699605
+      ],
+      [
+       51.294781,
+       35.69968
+      ],
+      [
+       51.291978,
+       35.7002
+      ],
+      [
+       51.290242,
+       35.700523
+      ],
+      [
+       51.289991,
+       35.699537
+      ],
+      [
+       51.290127,
+       35.6978
+      ],
+      [
+       51.290028,
+       35.697562
+      ],
+      [
+       51.287448,
+       35.698435
+      ],
+      [
+       51.283602,
+       35.699122
+      ],
+      [
+       51.282248,
+       35.699364
+      ],
+      [
+       51.272738,
+       35.701114
+      ],
+      [
+       51.269431,
+       35.701756
+      ],
+      [
+       51.26726,
+       35.696859
+      ],
+      [
+       51.265939,
+       35.693814
+      ],
+      [
+       51.265575,
+       35.692975
+      ],
+      [
+       51.265374,
+       35.69259
+      ],
+      [
+       51.264887,
+       35.692709
+      ],
+      [
+       51.263586,
+       35.688002
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "lbl-north",
+    "name": "Shemiran (north Tehran)",
+    "kind": "label",
+    "labelZoom": 13
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.43,
+     35.795
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "lbl-south",
+    "name": "South Tehran",
+    "kind": "label",
+    "labelZoom": 13
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.42,
+     35.655
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "lbl-old",
+    "name": "Old city",
+    "kind": "label",
+    "labelZoom": 14
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.414,
+     35.683
+    ]
+   }
+  }
+ ]
+}

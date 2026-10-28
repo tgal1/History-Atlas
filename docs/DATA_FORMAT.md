@@ -49,6 +49,7 @@ DUP | `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colon
 | `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colonial`, `crusades` or `ww2`. Each is a short playlist in `js/audio/music.js`: recorded tracks by Kevin MacLeod (CC BY 4.0) in `audio/music/`, plus Chopin polonaise recordings for WW2 |
 | `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colonial`, `ww2` or `ww1`. Each is a short playlist in `js/audio/music.js`: recorded tracks by Kevin MacLeod (CC BY 4.0) in `audio/music/`, plus Chopin polonaise recordings for WW2 and two 1915 recordings for WW1 |
 | `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colonial`, `ww2` or `coldwar`. Each is a short playlist in `js/audio/music.js`: recorded tracks by Kevin MacLeod (CC BY 4.0) in `audio/music/`, plus Chopin polonaise recordings for WW2 |
+| `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colonial`, `iran` or `ww2`. Each is a short playlist in `js/audio/music.js`: recorded tracks by Kevin MacLeod (CC BY 4.0) in `audio/music/`, plus Chopin polonaise recordings for WW2 |
 
 ## events.json
 
