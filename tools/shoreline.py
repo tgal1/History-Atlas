@@ -89,6 +89,48 @@ def modern_land(area, s, w, n, e):
     return land
 
 
+def period_land(fc, recipe, land, deg):
+    """"mode": "period": the period shore comes from a mapped source, not a hand trace.
+
+        "ohmWater": [2860006]        OpenHistoricalMap water relations; inside their
+                                     outer edge, the land they leave is the period land
+        "periodWater": "ohm-water"   or a sea feature already in the file (a historic
+                                     shoreline clipped to a box); the land it leaves
+                                     inside "zone" is the period land
+        "land": [[[lng, lat], ...]]  or period land polygons, used inside
+                                     "zone", or else within "marginM" of themselves
+        "zoneClip": [s, w, n, e]     optional: keep the zone inside this box
+        "replace": ["ohm-water"]     sea features to drop once merged
+
+    Outside the zone the modern coast stands. Without a zone, modern land that
+    never touches the period land (another borough, the far shore) is left as it is.
+    """
+    if recipe.get("ohmWater"):
+        # A historic water polygon (Leventhal's 1795 Boston): inside its outer
+        # edge its islands and peninsulas are the period land.
+        from ohm_city import overpass as ohm
+        water = unary_union([geom_of(el) for el in ohm("[out:json][timeout:200];("
+                             + "".join(f"relation({r});" for r in recipe["ohmWater"]) + ");out geom;")])
+        zone = unary_union([Polygon(p.exterior) for p in getattr(water, "geoms", [water])])
+        period = zone.difference(water)
+    elif recipe.get("periodWater"):
+        old = next(f for f in fc["features"] if f["properties"].get("id") == recipe["periodWater"])
+        zone = Polygon(recipe["zone"])
+        period = zone.difference(shape(old["geometry"]))
+    else:
+        period = unary_union([Polygon(r) for r in recipe["land"]])
+        if recipe.get("zone"):
+            zone = Polygon(recipe["zone"])
+        else:
+            others = [g for g in getattr(land, "geoms", [land]) if not g.intersects(period)]
+            zone = period.buffer(deg(recipe.get("marginM", 400))).difference(unary_union(others).buffer(deg(30)))
+        if recipe.get("zoneClip"):  # [south, west, north, east]: where the traced land stops
+            cs, cw, cn, ce = recipe["zoneClip"]
+            zone = zone.intersection(box(cw, cs, ce, cn))
+        period = period.intersection(zone)
+    return land.difference(zone).union(period)
+
+
 def main(path):
     fc = json.load(open(path, encoding="utf-8"))
     recipe = fc["city"]["shore"]
@@ -98,16 +140,20 @@ def main(path):
 
     print("Fetching the modern coast from OpenStreetMap...")
     land = modern_land(area, s, w, n, e)
-    # The zone is the modern land in the box, with a margin out into the water
-    # so that every bit of later fill along its shore is covered.
-    zone = land.intersection(Polygon(recipe["zone"])).buffer(deg(recipe.get("marginM", 150)))
-    land = land.difference(zone).union(Polygon(recipe["land"]).intersection(zone))
+    if recipe.get("mode") == "period":
+        land = period_land(fc, recipe, land, deg)
+    else:
+        # The zone is the modern land in the box, with a margin out into the water
+        # so that every bit of later fill along its shore is covered.
+        zone = land.intersection(Polygon(recipe["zone"])).buffer(deg(recipe.get("marginM", 150)))
+        land = land.difference(zone).union(Polygon(recipe["land"]).intersection(zone))
     creeks = unary_union([Polygon(r) for r in recipe.get("water", [])])
     if not creeks.is_empty:
         land = land.difference(creeks)
     sea = area.difference(land).simplify(deg(2))
 
-    out = [f for f in fc["features"] if f["properties"].get("src") != "shore"]
+    out = [f for f in fc["features"] if f["properties"].get("src") != "shore"
+           and f["properties"].get("id") not in recipe.get("replace", [])]
     keep = []
     hand = [f for f in out if f["properties"].get("src") is None and f["properties"].get("kind") in LANDMARKS]
     marks = []
