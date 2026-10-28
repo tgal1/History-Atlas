@@ -10,10 +10,11 @@ Interactive history told on a map. Scrub through time, watch events appear where
 | **Cortés and the Aztecs**, 1519–1522 | 27 | The march from Cuba to Tenochtitlan; La Noche Triste; the siege of Tenochtitlan |
 | **Second World War in Europe**, 1939–1945 | 57 | The Fall of France; Operation Barbarossa; Stalingrad; D-Day |
 | **The American Revolution**, 1765–1783 | 60 | The march to Yorktown; the Battle of Cowpens |
+| **The Crusades**, 1095–1291 | 65 | The First Crusade's march to Jerusalem; the Battle of Hattin |
 
 **City plans.** Zoom into Tenochtitlan, Rome or Carthage (or press *Explore the city* on an event there) and the map turns into a drawn plan of the city at that date: lakes, canals, causeways and bridges, walls, temples, palaces, markets, hills and street blocks. Click anything for a card with a description and a gallery of reconstructions (photos of museum models such as Gismondi's model of imperial Rome, the Tenochtitlan models at the Templo Mayor and the Carthage museum's harbour model, plus historic maps), viewable full screen with credits. The city guide in the panel lists the landmarks. The *Then ⟷ Today* slider blends the ancient plan with modern satellite imagery. Scrub the timeline and the city changes: the Colosseum appears in AD 80, Tenochtitlan's bridges are pulled up in June 1520, Carthage burns in 146 BC and a Roman grid rises on its ruins.
 
-Switch stories with the picker in the top-left, or `?story=punic-wars`, `?story=rome`, `?story=aztecs`, `?story=ww2-europe` or `?story=american-revolution` in the URL. Events shared between stories link across (Cannae in the Rome story opens the full battle in Rome v Carthage).
+Switch stories with the picker in the top-left, or `?story=punic-wars`, `?story=rome`, `?story=aztecs`, `?story=ww2-europe` `?story=american-revolution` or `?story=crusades` in the URL. Events shared between stories link across (Cannae in the Rome story opens the full battle in Rome v Carthage).
 
 ## Run it
 
@@ -90,7 +91,8 @@ history-atlas/
 │   ├── cities/                City plans shared between stories
 │   │   ├── tenochtitlan.geojson
 │   │   ├── rome.geojson
-│   │   └── carthage.geojson
+│   │   ├── carthage.geojson
+│   │   └── jerusalem.geojson  Flat plan of crusader-era Jerusalem
 │   └── stories/
 │       ├── troubles/
 │       │   ├── story.json     Metadata, chapters, categories, factions, intro
@@ -101,7 +103,8 @@ history-atlas/
 │       ├── rome/              Same four files for the Rise and fall of Rome
 │       ├── aztecs/            Same four files for Cortés and the Aztecs
 │       ├── ww2-europe/        Same four files for the Second World War in Europe
-│       └── american-revolution/  Same four files for the American Revolution
+│       ├── american-revolution/  Same four files for the American Revolution
+│       └── crusades/          Same four files for the Crusades
 ├── archive/
 │   └── ask-chat/              The 'Ask the guide' chat, removed for now (see its README)
 ├── docs/

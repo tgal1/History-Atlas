@@ -19,6 +19,7 @@ const MOODS = {
   aztec: [track('night-of-the-owl', 'Night of the Owl'), track('thunderhead', 'Thunderhead')],
   celtic: [track('moorland', 'Moorland'), track('errigal', 'Errigal'), track('decline', 'Decline')],
   colonial: [track('fife-and-drum', 'Fife and Drum'), track('americana', 'Americana')],
+  crusades: [track('ibn-al-noor', 'Ibn Al-Noor'), track('lord-of-the-land', 'Lord of the Land'), track('crusade', 'Crusade')],
   ww2: [
     { url: `${COMMONS}9/9a/Polonaise_militaire_in_A_major-Brunswick_15098-Josef_Hofmann.mp3`, title: "Chopin, 'Military' Polonaise (Josef Hofmann)", credit: 'Public domain recording, Wikimedia Commons' },
     track('night-vigil', 'Night Vigil'),

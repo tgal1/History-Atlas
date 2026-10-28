@@ -42,6 +42,13 @@
       "subtitle": "1765–1783",
       "blurb": "From the Stamp Act riots to Yorktown: thirteen colonies break with Britain, and a colonial revolt becomes a world war.",
       "status": "ready"
+    },
+    {
+      "id": "crusades",
+      "title": "The Crusades",
+      "subtitle": "1095–1291",
+      "blurb": "From Clermont to the fall of Acre: the crusader states, Saladin and Hattin, the sack of Constantinople, and the Mamluks who ended it all.",
+      "status": "ready"
     }
   ],
   "cities": [
@@ -71,6 +78,14 @@
       "when": "Shown in November 1519",
       "blurb": "The Aztec capital on its lake: causeways, canals, chinampa gardens and the Templo Mayor, and its destruction in 1521.",
       "threeD": true
+    },
+    {
+      "id": "jerusalem",
+      "name": "Jerusalem",
+      "story": "crusades",
+      "at": "1150",
+      "when": "Shown in 1150",
+      "blurb": "The walled city under crusader rule: the Holy Sepulchre, the Dome of the Rock as the Templum Domini, the Templars on the Temple Mount, and the sieges of 1099 and 1187."
     }
   ]
 }
