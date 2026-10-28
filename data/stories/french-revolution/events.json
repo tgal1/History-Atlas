@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "estates-general",
+    "date": "1789-05-05",
+    "title": "The Estates-General meets",
+    "place": "Hôtel des Menus-Plaisirs, Versailles",
+    "coords": [
+      48.7997,
+      2.1318
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "France is close to bankrupt after the American war, and Louis XVI calls the Estates-General for the first time since 1614. About 1,200 deputies arrive at Versailles: clergy, nobles and the Third Estate, who speak for everyone else. They argue at once over whether to vote by order or by head.",
+    "significance": "Voting by order let the two privileged estates outvote the Third, which held 98 per cent of the people. The quarrel over procedure became a quarrel over who held power.",
+    "wiki": "Estates General of 1789"
+  },
+  {
+    "id": "tennis-court-oath",
+    "date": "1789-06-20",
+    "title": "The Tennis Court Oath",
+    "place": "Jeu de Paume, Versailles",
+    "coords": [
+      48.8017,
+      2.1259
+    ],
+    "zoom": 16,
+    "category": "politics",
+    "summary": "Three days earlier the Third Estate declared itself the National Assembly. Now locked out of its hall, it gathers in a nearby indoor tennis court. Almost every deputy swears never to separate until France has a constitution.",
+    "significance": "The deputies claimed the nation's authority for themselves. A week later the king gave way and ordered the other two estates to join them.",
+    "wiki": "Tennis Court Oath"
+  },
+  {
+    "id": "bastille",
+    "date": "1789-07-14",
+    "title": "The storming of the Bastille",
+    "place": "The Bastille, Paris",
+    "coords": [
+      48.8532,
+      2.3691
+    ],
+    "zoom": 16,
+    "category": "uprising",
+    "deaths": 100,
+    "stat": "About 98 attackers and several defenders killed",
+    "summary": "A crowd that has seized muskets at the Invalides marches on the Bastille, a royal fortress and prison, for its gunpowder. After a four-hour fight, joined by mutinous soldiers with cannon, the governor surrenders. He is killed and his head paraded on a pike. Only seven prisoners are inside.",
+    "significance": "The king pulled his troops back from Paris and recalled Necker. The fall of a symbol of royal power became the founding day of the Revolution and France's national day.",
+    "wiki": "Storming of the Bastille",
+    "victor": "france"
+  },
+  {
+    "id": "great-fear",
+    "date": "1789-07-25",
+    "circa": true,
+    "title": "The Great Fear",
+    "place": "Mâconnais and Franche-Comté",
+    "coords": [
+      46.31,
+      4.83
+    ],
+    "zoom": 7,
+    "category": "uprising",
+    "summary": "Rumours sweep the countryside that nobles have hired brigands to burn the harvest. Villagers arm themselves. In several regions, including the Mâconnais, Franche-Comté and Dauphiné, peasants storm châteaux and burn the papers that record their feudal dues.",
+    "significance": "The panic forced the Assembly to act on the peasants' grievances within days.",
+    "wiki": "Great Fear"
+  },
+  {
+    "id": "night-of-august-4",
+    "date": "1789-08-04",
+    "title": "The night of 4 August",
+    "place": "National Assembly, Versailles",
+    "coords": [
+      48.7997,
+      2.1318
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "To calm the countryside, liberal nobles propose ending feudal privileges. In a single night session, deputy after deputy gives up the rights of his order, province or town: manorial courts, tithes, hunting rights, tax exemptions and the sale of offices.",
+    "significance": "The old society of orders was abolished on paper in one night, although peasants still had to buy out many dues until 1793.",
+    "wiki": "Abolition of feudalism in France"
+  },
+  {
+    "id": "rights-of-man",
+    "date": "1789-08-26",
+    "title": "Declaration of the Rights of Man",
+    "place": "National Assembly, Versailles",
+    "coords": [
+      48.7997,
+      2.1318
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "The Assembly adopts the Declaration of the Rights of Man and of the Citizen. Men are born and remain free and equal in rights. Sovereignty belongs to the nation. Law is the expression of the general will, and every citizen has the right to take part in making it.",
+    "significance": "It became the preamble to every later French constitution. It said nothing about women's rights or slavery, gaps that critics such as Olympe de Gouges pointed out at once.",
+    "wiki": "Declaration of the Rights of Man and of the Citizen"
+  },
+  {
+    "id": "march-on-versailles",
+    "date": "1789-10-05",
+    "title": "The women's march on Versailles",
+    "place": "Palace of Versailles",
+    "coords": [
+      48.8049,
+      2.1204
+    ],
+    "zoom": 14,
+    "category": "uprising",
+    "summary": "Thousands of Paris market women, angry at the price of bread, march 20 km to Versailles in the rain, followed by the National Guard. At dawn on 6 October a crowd breaks into the palace and kills two of the queen's guards. The royal family is taken back to Paris.",
+    "significance": "The king now lived in the Tuileries under the eyes of Paris, and the Assembly followed him to the capital. The crowd had learned it could move the government.",
+    "wiki": "Women's March on Versailles"
+  },
+  {
+    "id": "fete-de-la-federation",
+    "date": "1790-07-14",
+    "title": "Festival of the Federation",
+    "place": "Champ de Mars, Paris",
+    "coords": [
+      48.8556,
+      2.2986
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "On the first anniversary of the Bastille, delegates of the National Guard from every part of France gather on the Champ de Mars. Some 300,000 people watch Lafayette swear loyalty to the nation, the law and the king, and Louis XVI swear to uphold the constitution.",
+    "significance": "The high point of national unity. That same week the Assembly passed the Civil Constitution of the Clergy, which split the Church and turned much of the countryside against the Revolution.",
+    "wiki": "Fête de la Fédération"
+  },
+  {
+    "id": "varennes",
+    "date": "1791-06-21",
+    "title": "The flight to Varennes",
+    "place": "Varennes-en-Argonne",
+    "coords": [
+      49.2253,
+      5.0347
+    ],
+    "zoom": 13,
+    "category": "politics",
+    "summary": "The royal family slips out of the Tuileries in disguise at night, heading for a loyal army at Montmédy near the border. A postmaster recognises the king from his face on the money. At Varennes the carriage is stopped and the family is escorted back to Paris through silent crowds.",
+    "significance": "The king had shown he rejected the Revolution. Calls for a republic began in earnest.",
+    "wiki": "Flight to Varennes"
+  },
+  {
+    "id": "champ-de-mars-massacre",
+    "date": "1791-07-17",
+    "title": "Massacre of the Champ de Mars",
+    "place": "Champ de Mars, Paris",
+    "coords": [
+      48.8556,
+      2.2986
+    ],
+    "zoom": 15,
+    "category": "uprising",
+    "deaths": 50,
+    "stat": "Perhaps 50 killed",
+    "summary": "A crowd gathers on the Champ de Mars to sign a petition calling for the king to be removed. Martial law is declared. The National Guard under Lafayette fires on the crowd.",
+    "significance": "It split the patriots into those who wanted to keep the monarchy and those who now wanted a republic, and ended Lafayette's standing in Paris.",
+    "wiki": "Champ de Mars massacre"
+  },
+  {
+    "id": "war-declared",
+    "date": "1792-04-20",
+    "title": "France declares war on Austria",
+    "place": "Salle du Manège, Paris",
+    "coords": [
+      48.865,
+      2.3263
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "Austria and Prussia have warned they may act to restore the French king's power. The Girondins in the Legislative Assembly want a war to spread liberty and expose traitors; the king hopes defeat will save him. Almost every deputy votes for war on Austria. Prussia joins Austria within weeks.",
+    "significance": "The war lasted, with short breaks, for 23 years. It radicalised the Revolution and, in time, made the generals its masters.",
+    "wiki": "War of the First Coalition"
+  },
+  {
+    "id": "tuileries",
+    "date": "1792-08-10",
+    "title": "Storming of the Tuileries",
+    "place": "Tuileries Palace, Paris",
+    "coords": [
+      48.862,
+      2.3318
+    ],
+    "zoom": 16,
+    "category": "uprising",
+    "stat": "About 600 Swiss Guards and some 300 attackers killed",
+    "deaths": 900,
+    "summary": "The Prussian commander has threatened to destroy Paris if the royal family is harmed. Sans-culottes from the faubourgs and fédérés from Marseille and Brest attack the Tuileries. The king takes refuge with the Assembly, but his Swiss Guards are cut down.",
+    "significance": "The monarchy fell that day. The Assembly suspended the king and called elections, by all adult men, for a National Convention.",
+    "wiki": "Insurrection of 10 August 1792",
+    "victor": "france"
+  },
+  {
+    "id": "september-massacres",
+    "date": "1792-09-02",
+    "title": "The September Massacres",
+    "place": "Abbaye prison and other jails, Paris",
+    "coords": [
+      48.8536,
+      2.3337
+    ],
+    "zoom": 15,
+    "category": "terror",
+    "deaths": 1300,
+    "stat": "1,100 to 1,400 prisoners killed",
+    "summary": "Verdun has fallen and the Prussians are marching on Paris. Fearing that prisoners will rise up when the volunteers leave for the front, crowds break into the jails. Over five days, makeshift courts condemn and kill about half the prisoners, most of them ordinary criminals.",
+    "significance": "Horror at the killings deepened the split between the Girondins and the Paris radicals, and alarmed opinion abroad.",
+    "wiki": "September Massacres"
+  },
+  {
+    "id": "valmy",
+    "date": "1792-09-20",
+    "title": "Battle of Valmy",
+    "place": "Valmy, Champagne",
+    "coords": [
+      49.0808,
+      4.7653
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "On a misty ridge by a windmill, a French army of regulars and volunteers under Dumouriez and Kellermann faces the Prussians on the road to Paris. A long cannonade follows and the French line holds, shouting 'Vive la nation'. The Prussians, sick with dysentery, turn back.",
+    "significance": "Few men died, but the invasion was stopped. Goethe, who was there, wrote that a new era in world history had begun.",
+    "wiki": "Battle of Valmy",
+    "victor": "france"
+  },
+  {
+    "id": "republic",
+    "date": "1792-09-21",
+    "title": "France becomes a republic",
+    "place": "Salle du Manège, Paris",
+    "coords": [
+      48.865,
+      2.3263
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "On its first day the new National Convention abolishes the monarchy. Documents are dated from Year I of the Republic. Later a new calendar renames the months and replaces the week with ten-day décades.",
+    "significance": "The first French Republic now had to decide what to do with the former king, Citizen Louis Capet.",
+    "wiki": "French First Republic"
+  },
+  {
+    "id": "jemappes",
+    "date": "1792-11-06",
+    "title": "Battle of Jemappes",
+    "place": "Jemappes, near Mons",
+    "coords": [
+      50.4528,
+      3.8889
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "Dumouriez attacks the Austrians dug in on the hills outside Mons. The French have twice the men, and columns of volunteers singing the Marseillaise storm the redoubts.",
+    "significance": "France overran the Austrian Netherlands within weeks. The Convention offered help to all peoples who wished to recover their liberty.",
+    "wiki": "Battle of Jemappes",
+    "victor": "france"
+  },
+  {
+    "id": "execution-of-louis-xvi",
+    "date": "1793-01-21",
+    "title": "Execution of Louis XVI",
+    "place": "Place de la Révolution, Paris",
+    "coords": [
+      48.8656,
+      2.3212
+    ],
+    "zoom": 16,
+    "category": "terror",
+    "summary": "The Convention has found the king guilty of conspiring against liberty, and voted by a narrow majority for death without delay. Louis is driven through silent streets lined with troops and guillotined in front of a huge crowd.",
+    "significance": "Regicide made compromise with the monarchies of Europe impossible. Within weeks France was at war with Britain, the Dutch Republic and Spain too.",
+    "wiki": "Execution of Louis XVI"
+  },
+  {
+    "id": "vendee-rising",
+    "date": "1793-03-11",
+    "title": "The Vendée rises",
+    "place": "Machecoul and Saint-Florent-le-Vieil",
+    "coords": [
+      47.0,
+      -1.25
+    ],
+    "zoom": 8,
+    "category": "uprising",
+    "summary": "A levy of 300,000 men for the army sets off revolt in the west, a deeply Catholic region already angry at the treatment of its priests. Peasants armed with scythes and hunting guns form a 'Catholic and Royal Army' and win a string of battles.",
+    "significance": "The Republic now fought a civil war at home while invaded from abroad.",
+    "wiki": "War in the Vendée"
+  },
+  {
+    "id": "fall-of-girondins",
+    "date": "1793-06-02",
+    "title": "The fall of the Girondins",
+    "place": "Tuileries Palace, Paris",
+    "coords": [
+      48.862,
+      2.3318
+    ],
+    "zoom": 16,
+    "category": "uprising",
+    "summary": "Some 80,000 National Guards and sans-culottes surround the Convention, now sitting in the Tuileries, with their guns trained on it. The deputies give in and order the arrest of 29 Girondin leaders.",
+    "significance": "The Jacobins of the Mountain took control. Lyon, Marseille, Bordeaux and other cities rose against Paris in the Federalist revolts.",
+    "wiki": "Insurrection of 31 May – 2 June 1793"
+  },
+  {
+    "id": "levee-en-masse",
+    "date": "1793-08-23",
+    "title": "The levée en masse",
+    "place": "National Convention, Paris",
+    "coords": [
+      48.862,
+      2.3318
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "The Convention decrees that all French people are in permanent requisition for the war. Young unmarried men will fight, married men forge weapons, women make tents and nurse, old men preach hatred of kings in the squares.",
+    "significance": "France raised armies of more than 700,000 men, far larger than any monarchy could field. It is often called the start of total war.",
+    "wiki": "Levée en masse"
+  },
+  {
+    "id": "law-of-suspects",
+    "date": "1793-09-17",
+    "title": "The Terror: the Law of Suspects",
+    "place": "National Convention, Paris",
+    "coords": [
+      48.862,
+      2.3318
+    ],
+    "zoom": 15,
+    "category": "terror",
+    "summary": "Terror is declared 'the order of the day'. The Law of Suspects allows the arrest of anyone who by conduct, word or connection seems an enemy of liberty. Revolutionary committees in every commune draw up lists. The Committee of Public Safety, led by Robespierre, governs the country.",
+    "significance": "About 17,000 people were officially executed and perhaps 10,000 more died in prison. Some 300,000 were arrested.",
+    "wiki": "Reign of Terror"
+  },
+  {
+    "id": "lyon",
+    "date": "1793-10-09",
+    "title": "Lyon falls to the Republic",
+    "place": "Lyon",
+    "coords": [
+      45.764,
+      4.8357
+    ],
+    "zoom": 12,
+    "category": "terror",
+    "deaths": 1900,
+    "stat": "About 1,900 executed after the siege",
+    "summary": "France's second city rose against the Jacobins in May. After a two-month siege it surrenders. The Convention decrees that 'Lyon made war on liberty; Lyon is no more'. Rich men's houses are pulled down and prisoners are shot by cannon fire in the Brotteaux plain.",
+    "significance": "The repression of Lyon showed how far the Terror would go against fellow citizens.",
+    "wiki": "Siege of Lyon",
+    "victor": "france"
+  },
+  {
+    "id": "marie-antoinette",
+    "date": "1793-10-16",
+    "title": "Execution of Marie Antoinette",
+    "place": "Place de la Révolution, Paris",
+    "coords": [
+      48.8656,
+      2.3212
+    ],
+    "zoom": 16,
+    "category": "terror",
+    "summary": "After a two-day trial before the Revolutionary Tribunal the former queen is taken to the scaffold in an open cart, her hands tied, her hair cut short. Two weeks later 21 Girondin deputies follow her.",
+    "significance": "The Austrian-born queen had long been the most hated figure of the old court.",
+    "wiki": "Marie Antoinette"
+  },
+  {
+    "id": "toulon",
+    "date": "1793-12-19",
+    "title": "Siege of Toulon",
+    "place": "Toulon",
+    "coords": [
+      43.1056,
+      5.893
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "Toulon's royalists have handed the city and the French Mediterranean fleet to the British and Spanish. A 24-year-old artillery captain, Napoleon Bonaparte, places guns on the headland that commands the harbour. The allied fleet sails away, burning part of the French fleet as it goes.",
+    "significance": "Bonaparte was made a brigadier general at 24. The city was savagely punished.",
+    "wiki": "Siege of Toulon (1793)",
+    "victor": "france"
+  },
+  {
+    "id": "savenay",
+    "date": "1793-12-23",
+    "title": "Savenay and the crushing of the Vendée",
+    "place": "Savenay",
+    "coords": [
+      47.3606,
+      -1.9419
+    ],
+    "zoom": 12,
+    "category": "terror",
+    "stat": "Perhaps 170,000 people of the Vendée died between 1793 and 1796; estimates range widely",
+    "summary": "The Vendéan army, trailing its women and children, is destroyed at Savenay after a failed march north to the Channel. In Nantes, prisoners are drowned in the Loire. From January 1794 the 'infernal columns' burn villages and kill civilians across the Vendée.",
+    "significance": "The worst violence of the Revolution happened here, in the countryside, not in Paris. Some historians call it a genocide; most reject the term but not the scale.",
+    "wiki": "Battle of Savenay",
+    "victor": "france"
+  },
+  {
+    "id": "abolition-of-slavery",
+    "date": "1794-02-04",
+    "title": "Slavery abolished in the colonies",
+    "place": "National Convention, Paris",
+    "coords": [
+      48.862,
+      2.3318
+    ],
+    "zoom": 15,
+    "category": "politics",
+    "summary": "Enslaved people in Saint-Domingue, France's richest colony, rose in 1791 and have won their freedom locally. Three deputies from the island, one Black, one white and one of mixed race, take their seats. The Convention abolishes slavery in all French colonies.",
+    "significance": "France was the first great power to abolish colonial slavery. Napoleon restored it in 1802.",
+    "wiki": "Law of 4 February 1794"
+  },
+  {
+    "id": "danton",
+    "date": "1794-04-05",
+    "title": "Danton goes to the guillotine",
+    "place": "Place de la Révolution, Paris",
+    "coords": [
+      48.8656,
+      2.3212
+    ],
+    "zoom": 16,
+    "category": "terror",
+    "summary": "Robespierre's committee strikes left and right. The radical Hébertists are executed in March. Then Georges Danton, the great orator of 1792, and Camille Desmoulins, who now call for mercy, are condemned. 'Show my head to the people,' Danton tells the executioner.",
+    "significance": "The Revolution was devouring its own founders. In June the Law of 22 Prairial removed defence lawyers and witnesses from trials.",
+    "wiki": "Georges Danton"
+  },
+  {
+    "id": "fleurus",
+    "date": "1794-06-26",
+    "title": "Battle of Fleurus",
+    "place": "Fleurus",
+    "coords": [
+      50.4833,
+      4.55
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "General Jourdan's Army of the Sambre-et-Meuse beats the Austrians and their allies. A French observation balloon, L'Entreprenant, watches the battle from above, the first military use of aircraft in a major battle.",
+    "significance": "The Austrian Netherlands fell to France for good. With the danger gone, many in the Convention saw less need for the Terror.",
+    "wiki": "Battle of Fleurus (1794)",
+    "victor": "france"
+  },
+  {
+    "id": "thermidor",
+    "date": "1794-07-27",
+    "title": "The fall of Robespierre",
+    "place": "Hôtel de Ville, Paris",
+    "coords": [
+      48.8566,
+      2.3522
+    ],
+    "zoom": 16,
+    "category": "politics",
+    "summary": "On 9 Thermidor Year II, deputies who fear they are next shout Robespierre down in the Convention and order his arrest. He takes refuge in the Hôtel de Ville, where he is shot in the jaw. Next day he and 21 followers are guillotined without trial.",
+    "significance": "The Terror ended. Prisons emptied, the Jacobin Club was closed and a reaction against the radicals began.",
+    "wiki": "Thermidorian Reaction"
+  },
+  {
+    "id": "vendemiaire",
+    "date": "1795-10-05",
+    "title": "A whiff of grapeshot",
+    "place": "Church of Saint-Roch, Paris",
+    "coords": [
+      48.8653,
+      2.3326
+    ],
+    "zoom": 16,
+    "category": "uprising",
+    "deaths": 300,
+    "stat": "About 300 royalists killed",
+    "summary": "Royalist sections of Paris rise against the Convention's new constitution. General Bonaparte has cannon brought in by a cavalry officer, Joachim Murat, and fires grapeshot into the insurgents on the steps of Saint-Roch.",
+    "significance": "The Convention survived and handed power to a five-man Directory on 2 November. Bonaparte got command of the Army of Italy.",
+    "wiki": "13 Vendémiaire",
+    "victor": "france"
+  },
+  {
+    "id": "lodi",
+    "date": "1796-05-10",
+    "title": "Battle of Lodi",
+    "place": "Bridge over the Adda, Lodi",
+    "coords": [
+      45.3138,
+      9.5035
+    ],
+    "zoom": 13,
+    "category": "battle",
+    "summary": "Bonaparte has knocked Piedmont out of the war in a month. At Lodi his grenadiers storm a narrow bridge over the Adda under Austrian fire. Five days later he rides into Milan.",
+    "significance": "Bonaparte later said Lodi was where he first believed he was a superior man, destined for great things.",
+    "wiki": "Battle of Lodi",
+    "victor": "france"
+  },
+  {
+    "id": "arcole",
+    "date": "1796-11-17",
+    "title": "Battle of Arcole",
+    "place": "Arcole, near Verona",
+    "coords": [
+      45.3592,
+      11.2775
+    ],
+    "zoom": 13,
+    "category": "battle",
+    "summary": "Austrian armies try again and again to relieve their fortress at Mantua. In three days of fighting in the marshes at Arcole, Bonaparte seizes a flag and leads a charge on the bridge. The charge fails, but the Austrians retreat.",
+    "significance": "The image of Bonaparte with the flag, painted by Gros, became one of the first great pieces of Napoleonic propaganda.",
+    "wiki": "Battle of Arcole",
+    "victor": "france"
+  },
+  {
+    "id": "rivoli",
+    "date": "1797-01-14",
+    "title": "Battle of Rivoli",
+    "place": "Rivoli Veronese",
+    "coords": [
+      45.5703,
+      10.8128
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "On the plateau above the Adige, Bonaparte beats the fourth Austrian attempt to relieve Mantua. Mantua surrenders on 2 February, and the French march over the Alps towards Vienna.",
+    "significance": "Austria asked for peace. Bonaparte now made policy in Italy as well as war, setting up 'sister republics' on the French model.",
+    "wiki": "Battle of Rivoli",
+    "victor": "france"
+  },
+  {
+    "id": "campo-formio",
+    "date": "1797-10-17",
+    "title": "Treaty of Campo Formio",
+    "place": "Passariano, Friuli",
+    "coords": [
+      45.9378,
+      13.0089
+    ],
+    "zoom": 12,
+    "category": "treaty",
+    "summary": "Austria gives up Belgium, accepts French control of the left bank of the Rhine and recognises the Cisalpine Republic. In return it takes Venice, an independent republic for a thousand years.",
+    "significance": "Only Britain was still at war with France. The handover of Venice showed that liberty was now traded like any other territory.",
+    "wiki": "Treaty of Campo Formio",
+    "victor": "france"
+  },
+  {
+    "id": "pyramids",
+    "date": "1798-07-21",
+    "title": "Battle of the Pyramids",
+    "place": "Embabeh, opposite Cairo",
+    "coords": [
+      30.075,
+      31.21
+    ],
+    "zoom": 11,
+    "category": "battle",
+    "deaths": 3000,
+    "stat": "Several thousand Mamluks and their troops killed; about 300 French",
+    "summary": "To strike at Britain's route to India, Bonaparte has sailed to Egypt with 35,000 men and a team of scholars. In sight of the pyramids, French infantry squares break the charges of the Mamluk cavalry. Cairo opens its gates.",
+    "significance": "The scholars' work led to the founding of Egyptology and the study of the Rosetta Stone, found the following year.",
+    "wiki": "Battle of the Pyramids",
+    "victor": "france"
+  },
+  {
+    "id": "nile",
+    "date": "1798-08-01",
+    "title": "Battle of the Nile",
+    "place": "Aboukir Bay",
+    "coords": [
+      31.36,
+      30.09
+    ],
+    "zoom": 11,
+    "category": "naval",
+    "deaths": 3000,
+    "stat": "Over 2,000 French sailors killed; 218 British",
+    "summary": "Nelson finds the French fleet anchored in Aboukir Bay and attacks at dusk, sailing some of his ships between the French line and the shore. The flagship L'Orient explodes in the night. Only two French ships of the line escape.",
+    "significance": "Bonaparte's army was trapped in Egypt. The Ottomans, Russia and Austria joined Britain in a Second Coalition.",
+    "wiki": "Battle of the Nile",
+    "victor": "britain"
+  },
+  {
+    "id": "acre",
+    "date": "1799-05-20",
+    "title": "Siege of Acre",
+    "place": "Acre",
+    "coords": [
+      32.9236,
+      35.0682
+    ],
+    "zoom": 13,
+    "category": "battle",
+    "summary": "Bonaparte invades Ottoman Syria. At Jaffa his troops massacre several thousand prisoners. Acre, defended by its governor and a British squadron under Sidney Smith, holds out for two months. Plague breaks out in the French camp, and Bonaparte retreats to Egypt.",
+    "significance": "His eastern dream was over. In August he left his army in Egypt and sailed secretly for France.",
+    "wiki": "Siege of Acre (1799)",
+    "victor": "coalition"
+  },
+  {
+    "id": "brumaire",
+    "date": "1799-11-09",
+    "title": "The coup of 18 Brumaire",
+    "place": "Château de Saint-Cloud",
+    "coords": [
+      48.8432,
+      2.2176
+    ],
+    "zoom": 14,
+    "category": "politics",
+    "summary": "The Directory is unpopular and short of money. With the director Sieyès, Bonaparte moves the two councils out to Saint-Cloud. When deputies shout him down as an outlaw, his brother Lucien calls in the grenadiers, who clear the hall.",
+    "significance": "A new constitution made Bonaparte First Consul, with almost all real power. A referendum approved it.",
+    "wiki": "Coup of 18 Brumaire"
+  },
+  {
+    "id": "marengo",
+    "date": "1800-06-14",
+    "title": "Battle of Marengo",
+    "place": "Marengo, near Alessandria",
+    "coords": [
+      44.897,
+      8.688
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "Bonaparte has crossed the Alps by the Great St Bernard Pass into the rear of the Austrians in Italy. At Marengo he is nearly beaten by early afternoon. Desaix arrives with fresh troops and is killed leading the counter-attack that wins the day.",
+    "significance": "Austria gave up northern Italy again. The victory made the First Consul's rule secure at home.",
+    "wiki": "Battle of Marengo",
+    "victor": "france"
+  },
+  {
+    "id": "concordat",
+    "date": "1801-07-15",
+    "title": "The Concordat with the Pope",
+    "place": "Paris",
+    "coords": [
+      48.8566,
+      2.3322
+    ],
+    "zoom": 13,
+    "category": "treaty",
+    "summary": "Bonaparte and Pope Pius VII make peace between the French state and the Catholic Church. Catholicism is recognised as the religion of most French people. The state pays the clergy and names the bishops; the Church gives up its claim to the lands sold off in the Revolution.",
+    "significance": "It ended the religious war that had split France since 1790, and lasted until 1905.",
+    "wiki": "Concordat of 1801"
+  },
+  {
+    "id": "amiens",
+    "date": "1802-03-25",
+    "title": "Peace of Amiens",
+    "place": "Hôtel de Ville, Amiens",
+    "coords": [
+      49.8941,
+      2.2958
+    ],
+    "zoom": 14,
+    "category": "treaty",
+    "summary": "Austria made peace at Lunéville in 1801. Now Britain signs too. For the first time since 1792, France is at war with no one. British tourists flood to Paris to see the Louvre and the First Consul.",
+    "significance": "The peace lasted 14 months. Britain declared war again in May 1803.",
+    "wiki": "Treaty of Amiens",
+    "victor": "france"
+  },
+  {
+    "id": "vertieres",
+    "date": "1803-11-18",
+    "title": "Battle of Vertières",
+    "place": "Vertières, near Cap-Français, Saint-Domingue",
+    "coords": [
+      19.7304,
+      -72.2153
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "Bonaparte sent an army to retake Saint-Domingue and in 1802 restored slavery in other colonies. Toussaint Louverture was seized and died in a French prison. Yellow fever and a new rising destroy the French army. At Vertières, Jean-Jacques Dessalines's army defeats the last French force.",
+    "significance": "On 1 January 1804 Haiti declared independence, the first state founded by formerly enslaved people. Napoleon had already sold Louisiana to the United States.",
+    "wiki": "Battle of Vertières",
+    "victor": "coalition"
+  },
+  {
+    "id": "civil-code",
+    "date": "1804-03-21",
+    "title": "The Civil Code",
+    "place": "Paris",
+    "coords": [
+      48.8566,
+      2.3322
+    ],
+    "zoom": 13,
+    "category": "politics",
+    "summary": "After years of drafting, with the First Consul often in the chair, one law code replaces the hundreds of local customs of old France. It guarantees equality before the law, property and religious freedom. It also gives husbands authority over their wives and makes divorce harder.",
+    "significance": "Napoleon called it his true glory. The Code spread across his empire and still shapes the law of much of Europe and Latin America.",
+    "wiki": "Napoleonic Code"
+  },
+  {
+    "id": "coronation",
+    "date": "1804-12-02",
+    "title": "Napoleon crowns himself emperor",
+    "place": "Notre-Dame de Paris",
+    "coords": [
+      48.853,
+      2.3499
+    ],
+    "zoom": 16,
+    "category": "politics",
+    "summary": "In May the Senate proclaimed Napoleon Emperor of the French, and a referendum agreed. In Notre-Dame, with Pope Pius VII present, Napoleon takes the crown from the altar and places it on his own head, then crowns Josephine.",
+    "significance": "The Republic had become a hereditary empire in 12 years. Beethoven struck out his dedication of the Eroica symphony in disgust.",
+    "wiki": "Coronation of Napoleon"
+  },
+  {
+    "id": "ulm",
+    "date": "1805-10-20",
+    "title": "Surrender at Ulm",
+    "place": "Ulm",
+    "coords": [
+      48.3984,
+      9.9916
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "stat": "About 23,000 Austrians surrender at Ulm; 60,000 captured in the campaign",
+    "summary": "Napoleon marches the Grande Armée from its camps on the Channel to the Danube in a month. Swinging round behind General Mack's Austrian army, he traps it in Ulm, almost without a battle.",
+    "significance": "The road to Vienna was open. Napoleon's troops entered the city on 13 November.",
+    "wiki": "Ulm campaign",
+    "victor": "france"
+  },
+  {
+    "id": "trafalgar",
+    "date": "1805-10-21",
+    "title": "Battle of Trafalgar",
+    "place": "Off Cape Trafalgar",
+    "coords": [
+      36.25,
+      -6.25
+    ],
+    "zoom": 9,
+    "category": "naval",
+    "deaths": 4900,
+    "stat": "About 4,400 French and Spanish and 450 British killed",
+    "summary": "Nelson's 27 ships attack the 33 of the combined French and Spanish fleet off Cape Trafalgar in two columns, cutting its line. Twenty-two enemy ships are taken or destroyed. Nelson is shot by a French sharpshooter and dies as the battle is won.",
+    "significance": "Britain ruled the seas for the rest of the century. Napoleon never again threatened to invade Britain.",
+    "wiki": "Battle of Trafalgar",
+    "victor": "britain"
+  },
+  {
+    "id": "austerlitz",
+    "date": "1805-12-02",
+    "title": "Battle of Austerlitz",
+    "place": "Pratzen Heights, near Brno",
+    "coords": [
+      49.1286,
+      16.7625
+    ],
+    "zoom": 11,
+    "category": "battle",
+    "deaths": 10000,
+    "stat": "About 16,000 Russian and Austrian and 9,000 French killed or wounded; 11,000 allies captured",
+    "summary": "On the first anniversary of his coronation, Napoleon faces the Russian and Austrian emperors. He weakens his right to tempt them off the Pratzen Heights, then Soult's corps storms the heights out of the morning mist and cuts the allied army in two.",
+    "significance": "Austria made peace at Pressburg, Russia withdrew, and the Third Coalition collapsed. It is often called Napoleon's greatest victory.",
+    "wiki": "Battle of Austerlitz",
+    "victor": "france",
+    "scene": "austerlitz"
+  },
+  {
+    "id": "end-of-holy-roman-empire",
+    "date": "1806-08-06",
+    "title": "The Holy Roman Empire ends",
+    "place": "Hofburg, Vienna",
+    "coords": [
+      48.2066,
+      16.3655
+    ],
+    "zoom": 14,
+    "category": "treaty",
+    "summary": "In July sixteen German princes leave the Empire and form the Confederation of the Rhine under Napoleon's protection. Francis II, already Emperor of Austria, lays down the crown of the Holy Roman Empire, which has lasted a thousand years.",
+    "significance": "Napoleon's reorganisation swept away hundreds of tiny German states, bishoprics and free cities, and opened the road to a united Germany.",
+    "wiki": "Dissolution of the Holy Roman Empire"
+  },
+  {
+    "id": "jena",
+    "date": "1806-10-14",
+    "title": "Jena and Auerstedt",
+    "place": "Jena, Thuringia",
+    "coords": [
+      50.9271,
+      11.5892
+    ],
+    "zoom": 11,
+    "category": "battle",
+    "summary": "Prussia, the army of Frederick the Great, goes to war alone. On one day Napoleon crushes part of its army at Jena, while Davout's single corps beats the main Prussian army at Auerstedt. Napoleon enters Berlin on 27 October.",
+    "significance": "The Prussian state collapsed in weeks. Its humiliation drove the reforms that rebuilt its army for 1813.",
+    "wiki": "Battle of Jena–Auerstedt",
+    "victor": "france"
+  },
+  {
+    "id": "berlin-decree",
+    "date": "1806-11-21",
+    "title": "The Continental System",
+    "place": "Berlin",
+    "coords": [
+      52.5163,
+      13.3777
+    ],
+    "zoom": 12,
+    "category": "treaty",
+    "summary": "From Berlin, Napoleon orders a blockade of the British Isles. No country under French control or allied to France may trade with Britain. Since his navy cannot beat Britain's, he means to ruin it through its trade.",
+    "significance": "Smuggling thrived and the blockade hurt Europe as much as Britain. Enforcing it drew Napoleon into Portugal, Spain and finally Russia.",
+    "wiki": "Continental System"
+  },
+  {
+    "id": "tilsit",
+    "date": "1807-07-07",
+    "title": "Treaties of Tilsit",
+    "place": "On a raft in the Niemen, Tilsit",
+    "coords": [
+      55.087,
+      21.89
+    ],
+    "zoom": 13,
+    "category": "treaty",
+    "summary": "In June Napoleon beat the Russians at Friedland. Now he and Tsar Alexander meet on a raft moored in the River Niemen. Russia becomes France's ally and joins the blockade of Britain. Prussia loses half its land: its Polish lands become the Duchy of Warsaw, and a Kingdom of Westphalia is made for Napoleon's brother Jérôme.",
+    "significance": "The high point of Napoleon's power. Only Britain, Sweden and Portugal were still against him.",
+    "wiki": "Treaties of Tilsit",
+    "victor": "france"
+  },
+  {
+    "id": "dos-de-mayo",
+    "date": "1808-05-02",
+    "title": "The Dos de Mayo",
+    "place": "Puerta del Sol, Madrid",
+    "coords": [
+      40.4169,
+      -3.7035
+    ],
+    "zoom": 15,
+    "category": "uprising",
+    "summary": "French troops are in Spain, supposedly on their way to occupy Portugal. Napoleon has lured the Spanish royal family to Bayonne. When the last princes are taken from Madrid, the people rise. Murat's troops crush the revolt and shoot prisoners the next morning, as Goya later painted.",
+    "significance": "Napoleon made his brother Joseph king of Spain. Province after province rose against him, beginning six years of war.",
+    "wiki": "Dos de Mayo Uprising"
+  },
+  {
+    "id": "bailen",
+    "date": "1808-07-19",
+    "title": "Battle of Bailén",
+    "place": "Bailén, Andalusia",
+    "coords": [
+      38.0937,
+      -3.7765
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "stat": "About 17,600 French soldiers surrender",
+    "summary": "General Dupont's army, loaded with loot from Córdoba, is trapped in the summer heat by the Spanish army of Andalusia under Castaños. After failing to break out, Dupont surrenders his whole force.",
+    "significance": "The first time a Napoleonic army had surrendered in the field. Joseph fled Madrid, and Napoleon came to Spain himself that winter.",
+    "wiki": "Battle of Bailén",
+    "victor": "coalition"
+  },
+  {
+    "id": "zaragoza",
+    "date": "1809-02-20",
+    "title": "Siege of Zaragoza",
+    "place": "Zaragoza",
+    "coords": [
+      41.6488,
+      -0.8891
+    ],
+    "zoom": 13,
+    "category": "battle",
+    "deaths": 54000,
+    "stat": "About 54,000 defenders and townspeople dead, most from typhus",
+    "summary": "Zaragoza beat off a first siege in 1808. In the second, French sappers fight house by house through the city for a month, mining walls and convents as typhus kills thousands inside. The city finally surrenders.",
+    "significance": "The siege became a symbol of Spanish resistance. The French learned that Spain's people, not its armies, were the enemy.",
+    "wiki": "Second siege of Zaragoza",
+    "victor": "france"
+  },
+  {
+    "id": "aspern-essling",
+    "date": "1809-05-22",
+    "title": "Battle of Aspern-Essling",
+    "place": "Aspern and Essling, east of Vienna",
+    "coords": [
+      48.2213,
+      16.498
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "Austria goes to war again. Napoleon takes Vienna and tries to cross the Danube by the island of Lobau. Archduke Charles attacks while the French are only half across, and floating mills sent down the river break the bridge behind them.",
+    "significance": "Napoleon's first personal defeat in a decade. It showed his armies could be beaten.",
+    "wiki": "Battle of Aspern-Essling",
+    "victor": "coalition"
+  },
+  {
+    "id": "wagram",
+    "date": "1809-07-06",
+    "title": "Battle of Wagram",
+    "place": "Deutsch-Wagram, Marchfeld",
+    "coords": [
+      48.2989,
+      16.5647
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "stat": "About 72,000 killed or wounded on both sides",
+    "summary": "Six weeks later Napoleon crosses the Danube in force. Over two days on the Marchfeld plain, some 300,000 men fight one of the largest battles yet seen. A grand battery of over 100 guns and a huge column under Macdonald break the Austrian centre.",
+    "significance": "Austria made peace and gave up more land. In 1810 Napoleon divorced Josephine and married the Austrian emperor's daughter, Marie-Louise.",
+    "wiki": "Battle of Wagram",
+    "victor": "france"
+  },
+  {
+    "id": "torres-vedras",
+    "date": "1810-10-14",
+    "title": "The Lines of Torres Vedras",
+    "place": "Torres Vedras, north of Lisbon",
+    "coords": [
+      39.0918,
+      -9.2589
+    ],
+    "zoom": 10,
+    "category": "campaign",
+    "summary": "Marshal Masséna invades Portugal with 65,000 men. Wellington falls back behind three lines of forts and earthworks built in secret across the hills north of Lisbon. The French stare at them for a month, starving in a stripped countryside, then retreat.",
+    "significance": "Masséna lost about 25,000 men without a major battle. Portugal became Wellington's secure base.",
+    "wiki": "Lines of Torres Vedras",
+    "victor": "coalition"
+  },
+  {
+    "id": "salamanca",
+    "date": "1812-07-22",
+    "title": "Battle of Salamanca",
+    "place": "Los Arapiles, near Salamanca",
+    "coords": [
+      40.897,
+      -5.643
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "For days the armies of Wellington and Marshal Marmont march side by side looking for an opening. When the French left stretches too far, Wellington attacks and routs Marmont's army in about forty minutes.",
+    "significance": "Wellington entered Madrid in August, and the French gave up southern Spain for good.",
+    "wiki": "Battle of Salamanca",
+    "victor": "coalition"
+  },
+  {
+    "id": "niemen",
+    "date": "1812-06-24",
+    "title": "The Grande Armée crosses the Niemen",
+    "place": "Kovno (Kaunas)",
+    "coords": [
+      54.8985,
+      23.9036
+    ],
+    "zoom": 11,
+    "category": "campaign",
+    "stat": "About 450,000 men in the first wave; over 600,000 in all",
+    "summary": "Russia has left the Continental System. Napoleon invades with the largest army Europe has seen, French, German, Polish, Italian and others. The Russians fall back, burning crops and towns as they go.",
+    "significance": "Napoleon hoped for a quick decisive battle. The Russians gave him none for ten weeks.",
+    "wiki": "French invasion of Russia"
+  },
+  {
+    "id": "borodino",
+    "date": "1812-09-07",
+    "title": "Battle of Borodino",
+    "place": "Borodino, west of Moscow",
+    "coords": [
+      55.5167,
+      35.8167
+    ],
+    "zoom": 11,
+    "category": "battle",
+    "deaths": 70000,
+    "stat": "About 70,000 killed or wounded in one day",
+    "summary": "Kutuzov makes a stand 110 km from Moscow. The French take the Great Redoubt and the earthworks called flèches at enormous cost. Napoleon refuses to send in his Guard, and the Russian army withdraws in good order.",
+    "significance": "The bloodiest day of the Napoleonic wars. Napoleon took Moscow a week later, but the Russian army was intact.",
+    "wiki": "Battle of Borodino",
+    "victor": "france"
+  },
+  {
+    "id": "retreat-from-moscow",
+    "date": "1812-10-19",
+    "title": "The retreat from Moscow",
+    "place": "Moscow",
+    "coords": [
+      55.752,
+      37.6175
+    ],
+    "zoom": 9,
+    "category": "campaign",
+    "stat": "Of over 600,000 men who invaded, perhaps 100,000 came back",
+    "summary": "Napoleon entered Moscow on 14 September, and that night fires broke out that burned most of the city. He waits five weeks for Alexander to ask for peace. No answer comes. He leaves with about 100,000 men and is forced back onto the ruined road he came by. Hunger, cold and Cossacks destroy the army.",
+    "significance": "The Grande Armée ceased to exist. Prussia and then Austria turned against Napoleon.",
+    "wiki": "French invasion of Russia",
+    "scene": "retreat-from-moscow",
+    "victor": "coalition"
+  },
+  {
+    "id": "berezina",
+    "date": "1812-11-27",
+    "title": "Crossing the Berezina",
+    "place": "Studzianka, on the Berezina",
+    "coords": [
+      54.3378,
+      28.3534
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "deaths": 25000,
+    "stat": "Perhaps 25,000 soldiers and many civilians lost",
+    "summary": "Three Russian armies close in on the retreating French at the River Berezina. Dutch engineers, standing in freezing water, build two bridges. Most of the fighting men get across. When the bridges are burned, thousands of stragglers are left behind.",
+    "significance": "Napoleon escaped the trap. In French, 'c'est la Bérézina' still means a total disaster.",
+    "wiki": "Battle of Berezina"
+  },
+  {
+    "id": "vitoria",
+    "date": "1813-06-21",
+    "title": "Battle of Vitoria",
+    "place": "Vitoria",
+    "coords": [
+      42.8467,
+      -2.6727
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "summary": "Wellington's British, Portuguese and Spanish army catches King Joseph's retreating army at Vitoria and routs it. The French leave behind their guns and a vast baggage train of treasure and looted paintings.",
+    "significance": "French rule in Spain was over. Beethoven wrote a piece, 'Wellington's Victory', to celebrate it.",
+    "wiki": "Battle of Vitoria",
+    "victor": "coalition"
+  },
+  {
+    "id": "leipzig",
+    "date": "1813-10-19",
+    "title": "Battle of Leipzig",
+    "place": "Leipzig",
+    "coords": [
+      51.3122,
+      12.4133
+    ],
+    "zoom": 11,
+    "category": "battle",
+    "deaths": 90000,
+    "stat": "About 90,000 killed or wounded on both sides over four days",
+    "summary": "Napoleon has raised a new army and won battles in the spring. Now Russia, Prussia, Austria and Sweden close on him at Leipzig. Over four days, the 'Battle of the Nations', more than half a million men fight. Saxon troops change sides. A bridge is blown too early and thousands of French are trapped.",
+    "significance": "The largest battle in Europe before the First World War. Germany was lost to Napoleon, and the allies invaded France.",
+    "wiki": "Battle of Leipzig",
+    "victor": "coalition"
+  },
+  {
+    "id": "fall-of-paris",
+    "date": "1814-03-31",
+    "title": "The allies take Paris",
+    "place": "Montmartre, Paris",
+    "coords": [
+      48.8867,
+      2.3431
+    ],
+    "zoom": 13,
+    "category": "battle",
+    "summary": "Napoleon wins a string of battles in Champagne with a small army of young conscripts, but cannot stop three allied armies. After a day of fighting on the heights of Montmartre and Belleville, Paris surrenders. Tsar Alexander and the King of Prussia ride in.",
+    "significance": "The Senate declared Napoleon deposed. His marshals refused to fight on.",
+    "wiki": "Battle of Paris (1814)",
+    "victor": "coalition"
+  },
+  {
+    "id": "elba",
+    "date": "1814-04-06",
+    "title": "Abdication and exile to Elba",
+    "place": "Palace of Fontainebleau",
+    "coords": [
+      48.4022,
+      2.7006
+    ],
+    "zoom": 14,
+    "category": "politics",
+    "summary": "Napoleon abdicates at Fontainebleau and says farewell to his Old Guard in the courtyard. The allies give him the island of Elba as a tiny kingdom. Louis XVI's brother returns as Louis XVIII, and France goes back to its borders of 1792.",
+    "significance": "The great powers met at the Congress of Vienna to redraw the map of Europe.",
+    "wiki": "Napoleon's first abdication"
+  },
+  {
+    "id": "hundred-days",
+    "date": "1815-03-01",
+    "title": "The Hundred Days",
+    "place": "Golfe-Juan",
+    "coords": [
+      43.565,
+      7.075
+    ],
+    "zoom": 13,
+    "category": "campaign",
+    "summary": "Napoleon escapes from Elba with about 1,000 men and lands near Antibes. He marches north through the Alps. The troops sent to stop him go over to him, and Marshal Ney, who promised to bring him back in an iron cage, joins him too. On 20 March he is back in the Tuileries; Louis XVIII has fled.",
+    "significance": "The allies declared Napoleon an outlaw and gathered their armies on France's borders.",
+    "wiki": "Hundred Days"
+  },
+  {
+    "id": "waterloo",
+    "date": "1815-06-18",
+    "title": "Battle of Waterloo",
+    "place": "Mont-Saint-Jean, near Waterloo",
+    "coords": [
+      50.68,
+      4.412
+    ],
+    "zoom": 12,
+    "category": "battle",
+    "deaths": 50000,
+    "stat": "About 50,000 killed or wounded",
+    "summary": "Two days after beating the Prussians at Ligny, Napoleon attacks Wellington's army on the ridge of Mont-Saint-Jean. It holds all day: at Hougoumont, against d'Erlon's corps, against massed cavalry, and in the evening against the Imperial Guard. Blücher's Prussians arrive from the east in the afternoon. When the Guard falls back, the French army breaks.",
+    "significance": "Wellington called it 'the nearest-run thing you ever saw in your life'. It ended 23 years of war.",
+    "wiki": "Battle of Waterloo",
+    "victor": "coalition"
+  },
+  {
+    "id": "saint-helena",
+    "date": "1815-10-15",
+    "title": "Exile on Saint Helena",
+    "place": "Jamestown, Saint Helena",
+    "coords": [
+      -15.9244,
+      -5.7181
+    ],
+    "zoom": 11,
+    "category": "politics",
+    "summary": "Four days after Waterloo, Napoleon abdicates again. He tries to sail for America, but the Royal Navy blocks Rochefort, and he surrenders to HMS Bellerophon. This time the British send him to Saint Helena, a speck of rock in the South Atlantic 1,900 km from Africa, where he lives at Longwood House with a few companions.",
+    "significance": "He died there on 5 May 1821. The memoirs he dictated turned him into a legend: the soldier of the Revolution who spread its ideas across Europe.",
+    "wiki": "Napoleon's exile to St. Helena"
+  }
+]

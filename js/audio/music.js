@@ -6,6 +6,9 @@
 // Creative Commons Attribution 4.0, and live in audio/music/. The WW2 mood
 // also streams two Chopin polonaise recordings from Wikimedia Commons: Polish
 // Radio played the 'Military' Polonaise during the 1939 siege of Warsaw.
+// The Napoleonic mood streams a public-domain 1907 recording of La
+// Marseillaise and Beethoven's Egmont overture (1810), written for a play
+// about a people rising against foreign rule.
 
 import { audioContext, buses, gain } from './engine.js';
 
@@ -19,6 +22,12 @@ const MOODS = {
   aztec: [track('night-of-the-owl', 'Night of the Owl'), track('thunderhead', 'Thunderhead')],
   celtic: [track('moorland', 'Moorland'), track('errigal', 'Errigal'), track('decline', 'Decline')],
   colonial: [track('fife-and-drum', 'Fife and Drum'), track('americana', 'Americana')],
+  napoleonic: [
+    track('egmont-overture-finale', 'Egmont Overture Finale (Beethoven)'),
+    { url: `${COMMONS}a/ad/French_national_anthem_%28La_Marseillaise%2C_Old_recording_from_1907%29.ogg`, title: 'La Marseillaise (1907 recording)', credit: 'Public domain recording, Wikimedia Commons' },
+    track('hero-down', 'Hero Down'),
+    track('death-of-kings', 'Death of Kings'),
+  ],
   ww2: [
     { url: `${COMMONS}9/9a/Polonaise_militaire_in_A_major-Brunswick_15098-Josef_Hofmann.mp3`, title: "Chopin, 'Military' Polonaise (Josef Hofmann)", credit: 'Public domain recording, Wikimedia Commons' },
     track('night-vigil', 'Night Vigil'),

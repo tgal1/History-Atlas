@@ -99,6 +99,39 @@ const FIGURES = {
     <path d="M15 17.5v11M9.5 23h11M11.1 19.1l7.8 7.8M18.9 19.1l-7.8 7.8" stroke="#5b3b22" stroke-width="0.9"/>
     <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.4, 2.2)}
     <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
+  // Napoleonic line infantry (fusilier): shako with plume and plate, coat with crossbelts, musket and bayonet.
+  fusilier: `${legs(14)}<path d="M10.3 10.5h7.4l1.6 12.5H8.7z" fill="currentColor" ${INK}/>
+    <path d="M11 11.2l6 8M17 11.2l-6 8" stroke="#f4f1e8" stroke-width="1.1"/>${head(14, 7.4)}
+    <path d="M11.3 5.4l0.3-4h4.8l0.3 4z" fill="#22201c" ${INK}/><path d="M16.6 5.3h2.4" stroke="#22201c" stroke-width="1.2"/>
+    <circle cx="14" cy="3.6" r="0.9" fill="#d9b44a"/><path d="M14 1.4V-0.6" stroke="#c8372d" stroke-width="1.8"/>
+    <path d="M9 23L25 6" fill="none" stroke="#6b4a2b" stroke-width="2.2"/><path d="M25 6l4-4" stroke="#c9ccd1" stroke-width="1.2"/>`,
+  // Cuirassier: heavy horse, steel breastplate, crested helmet with a horsehair mane, straight sword.
+  cuirassier: `<path d="M8 22l-1.5 7M11 23l0.5 6M19 23l-1 6M22 22l2 7" fill="none" ${INK}/>
+    <path d="M5 17c0-3 3-5 8-5h7l4-5 4 2-2 3-3 2c0 4-2 8-7 8h-6c-3 0-5-2-5-5z" fill="#4a3526" ${INK}/>
+    <path d="M5 17l-3 5" fill="none" ${INK}/>
+    <path d="M12 12l1-5h5l1 5z" fill="currentColor" ${INK}/><path d="M12.9 11.2l0.7-3.6h3.8l0.7 3.6z" fill="#c9ccd1" ${INK}/>${head(15.5, 4.4, 2.4)}
+    <path d="M13.1 3.6a2.4 2.4 0 0 1 4.8 0z" fill="#c9ccd1" ${INK}/><path d="M16.5 1.6c-2.4-0.6-4.6 0.6-5.6 3.2" fill="none" stroke="#22201c" stroke-width="1.3"/>
+    <path d="M18 9l10-6" stroke="#c9ccd1" stroke-width="1.5" stroke-linecap="round"/>`,
+  // Hussar: light horse, fur busby with a plume, pelisse, curved sabre.
+  hussar: `<path d="M9 22l-1 7M12 23v6M19 23l-1 6M22 22l1.5 7" fill="none" ${INK}/>
+    <path d="M6 18c0-3 3-5 7-5h6l4-5 3.5 2-2 3-2.5 2c0 3.5-2 7-6 7h-5c-3 0-5-1.5-5-4z" fill="#a0784f" ${INK}/>
+    <path d="M12.5 13l0.8-5.5h4.4l0.8 5.5z" fill="currentColor" ${INK}/><path d="M12.3 8.2l-1.6 4.2" stroke="#e9e1cc" stroke-width="1.6"/>${head(15.5, 5.6, 2.3)}
+    <rect x="13.6" y="0.4" width="3.8" height="3.6" rx="1" fill="#22201c"/><path d="M14.6 0.6V-1" stroke="#f4f1e8" stroke-width="1.4"/>
+    <path d="M18 10q5-1 9-6.5" fill="none" stroke="#c9ccd1" stroke-width="1.4" stroke-linecap="round"/>`,
+  // Cossack: small shaggy horse, tall fur cap, long lance.
+  cossack: `<path d="M9 22l-1 7M12 23v6M19 23l-1 6M22 22l1.5 7" fill="none" ${INK}/>
+    <path d="M6 18c0-3 3-5 7-5h6l4-5 3.5 2-2 3-2.5 2c0 3.5-2 7-6 7h-5c-3 0-5-1.5-5-4z" fill="#7d5c3c" ${INK}/>
+    <path d="M13 13l0.5-5h4l0.5 5z" fill="currentColor" ${INK}/>${head(15.5, 5.6, 2.3)}
+    <path d="M13.6 3.8l0.4-3.4h3.2l0.4 3.4z" fill="${DARK}" ${INK}/>
+    <path d="M4 15L31 6" fill="none" stroke="#5b3b22" stroke-width="1.3"/><path d="M29 6.7l2.6-0.9" stroke="#c9ccd1" stroke-width="1.3"/>`,
+  // Napoleonic field gun: a 12-pounder on its carriage, the gunner in a shako with the rammer.
+  'field-gun': `<path d="M3 27L15 20" stroke="#6b4a2b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M11.5 17.8l18-4 0.8 3.4-18 3.4z" fill="#8a6a2e" ${INK}/>
+    <circle cx="15" cy="23" r="5.8" fill="none" stroke="#4a3526" stroke-width="2.2"/>
+    <path d="M15 17.2v11.6M9.2 23h11.6M10.9 18.9l8.2 8.2M19.1 18.9l-8.2 8.2" stroke="#4a3526" stroke-width="0.9"/>
+    <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.6, 2.2)}
+    <path d="M3.6 8.6l0.3-3.4h3l0.3 3.4z" fill="#22201c"/>
+    <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
   // A fortified camp: tents behind a palisade.
   camp: `<path d="M4 20l6-9 6 9zM14 20l6-9 6 9z" fill="#e9e1cc" ${INK}/>
     <path d="M2 22h28v4H2z" fill="currentColor" ${INK}/>${[5, 10, 15, 20, 25].map((x) => `<path d="M${x} 22v-3" stroke="#5b3b22" stroke-width="1.4"/>`).join('')}`,
@@ -131,6 +164,7 @@ export function columnSvg(type, size) {
   if (type === 'army-elephants') return `${figureSvg('elephant', size * 1.15)}${figureSvg('spear', size)}${figureSvg('cavalry', size)}`;
   if (type === 'army') return `${figureSvg('cavalry', size)}${figureSvg('legionary', size)}${figureSvg('legionary', size)}`;
   if (type === 'conquistadors') return `${figureSvg('cavalry', size)}${figureSvg('conquistador', size)}${figureSvg('mexica', size)}`;
+  if (type === 'army-napoleonic') return `${figureSvg('cuirassier', size)}${figureSvg('fusilier', size)}${figureSvg('field-gun', size)}`;
   if (type === 'army-musket') return `${figureSvg('dragoon', size)}${figureSvg('line-infantry', size)}${figureSvg('cannon', size)}`;
   return `${figureSvg(type, size)}${figureSvg(type, size)}${figureSvg(type, size)}`;
 }
