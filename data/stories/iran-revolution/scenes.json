@@ -1,0 +1,142 @@
+{
+  "ashura-march": {
+    "title": "Ashura march, Tehran, 11 December 1978",
+    "note": "Route and timings are approximate. Marchers came from all over the city; this shows the main column along Shahreza and Eisenhower Avenues.",
+    "duration": 8,
+    "unitLabel": "Hour",
+    "playSeconds": 30,
+    "view": {"bounds": [[35.68, 51.325], [35.72, 51.46]]},
+    "figures": {"default": "marcher"},
+    "tracks": [
+      {
+        "id": "head",
+        "label": "Head of the march",
+        "color": "#5aa9ff",
+        "type": "marcher",
+        "route": "road",
+        "keyframes": [
+          {"t": 0, "at": [35.7022, 51.4475]},
+          {"t": 2, "at": [35.7016, 51.4196], "via": [], "viaSource": "osrm"},
+          {"t": 3.4, "at": [35.7012, 51.3924], "via": [], "viaSource": "osrm"},
+          {"t": 6, "at": [35.6999, 51.3405], "via": [], "viaSource": "osrm"},
+          {"t": 8, "at": [35.6999, 51.3405]}
+        ]
+      },
+      {
+        "id": "tail",
+        "label": "Tail of the march",
+        "color": "#8cc4ff",
+        "type": "marcher",
+        "route": "road",
+        "keyframes": [
+          {"t": 0, "at": [35.7022, 51.4475]},
+          {"t": 2.2, "at": [35.7022, 51.4475]},
+          {"t": 4.4, "at": [35.7016, 51.4196], "via": [], "viaSource": "osrm"},
+          {"t": 6, "at": [35.7012, 51.3924], "via": [], "viaSource": "osrm"},
+          {"t": 8, "at": [35.7005, 51.36], "via": [[35.70041, 51.36022], [35.69651, 51.3585]], "viaSource": "osrm"}
+        ]
+      }
+    ],
+    "markers": [
+      {"t": 0, "at": [35.7022, 51.4481], "label": "Fawzieh Square", "color": "#9fb3c8"},
+      {"t": 2, "at": [35.7016, 51.4191], "label": "Ferdowsi Square", "color": "#9fb3c8"},
+      {"t": 3, "at": [35.7041, 51.3951], "label": "University of Tehran", "color": "#9fb3c8"},
+      {
+        "t": 6,
+        "at": [35.6997, 51.3378],
+        "label": "Shahyad Square: the resolution is read",
+        "color": "#ffd166",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "Morning of Ashura. Crowds gather in the east and south of the city and set off west along Shahreza Avenue."
+      },
+      {
+        "t": 1.5,
+        "text": "Marshals from the mosques keep order. Women march in their own sections, many in black chadors."
+      },
+      {"t": 3, "text": "Past the University of Tehran. The government has agreed to keep troops away from the route."},
+      {
+        "t": 4.5,
+        "text": "The column fills Eisenhower Avenue for kilometres. Estimates for Tehran run from a few hundred thousand to two million."
+      },
+      {
+        "t": 6,
+        "text": "At Shahyad Square a seventeen-point resolution is read: Khomeini is leader, and the monarchy must end."
+      },
+      {"t": 7, "text": "The crowds disperse peacefully. Five weeks later the Shah leaves Iran."}
+    ]
+  },
+  "khomeini-return": {
+    "title": "Khomeini's return, 1 February 1979",
+    "note": "Route and timings are approximate. The crowds slowed the motorcade so much that Khomeini made the last part of the journey by helicopter.",
+    "duration": 6,
+    "unitLabel": "Hour",
+    "playSeconds": 24,
+    "view": {"bounds": [[35.52, 51.3], [35.72, 51.46]]},
+    "tracks": [
+      {
+        "id": "motorcade",
+        "label": "Khomeini's motorcade and the crowds",
+        "color": "#4cae6a",
+        "type": "marcher",
+        "route": "road",
+        "keyframes": [
+          {"t": 0, "at": [35.6915, 51.3225]},
+          {"t": 0.6, "at": [35.6915, 51.3225]},
+          {
+            "t": 1.6,
+            "at": [35.6999, 51.3405],
+            "via": [[35.69762, 51.33811], [35.70628, 51.33776], [35.70321, 51.34345]],
+            "viaSource": "osrm"
+          },
+          {"t": 3, "at": [35.7012, 51.3924], "via": [[35.69959, 51.33532], [35.70101, 51.39831]], "viaSource": "osrm"},
+          {
+            "t": 4.6,
+            "at": [35.645, 51.405],
+            "via": [
+              [35.69331, 51.39212], [35.69565, 51.37845], [35.65484, 51.38199], [35.64534, 51.39273], [35.64938, 51.39869], [35.64323, 51.40743]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 5.2, "at": [35.537, 51.371], "route": "straight"},
+          {"t": 6, "at": [35.537, 51.371]}
+        ]
+      }
+    ],
+    "markers": [
+      {"t": 0, "at": [35.6915, 51.3225], "label": "Mehrabad airport", "color": "#9fb3c8"},
+      {"t": 1.6, "at": [35.6997, 51.3378], "label": "Shahyad Square", "color": "#9fb3c8"},
+      {"t": 4.6, "at": [35.645, 51.405], "label": "Helicopter takes over", "color": "#9fb3c8"},
+      {
+        "t": 5.2,
+        "at": [35.537, 51.371],
+        "label": "Behesht-e Zahra: 'I will appoint a government'",
+        "color": "#ffd166",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "9:30 in the morning. Khomeini's chartered Air France jet lands at Mehrabad after fifteen years of exile."
+      },
+      {
+        "t": 0.6,
+        "text": "He speaks briefly at the airport, then sets off into the city. Millions of people line the streets."
+      },
+      {"t": 2, "text": "The car crawls along Eisenhower Avenue. People climb onto it and the crowd closes round it."},
+      {
+        "t": 4.6,
+        "text": "The motorcade can barely move. A helicopter lifts Khomeini the rest of the way to the cemetery."
+      },
+      {
+        "t": 5.2,
+        "text": "At Behesht-e Zahra, among the graves of the year's dead, he calls Bakhtiar's government illegal and says he will appoint his own."
+      }
+    ]
+  }
+}

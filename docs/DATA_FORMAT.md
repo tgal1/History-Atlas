@@ -44,7 +44,7 @@ A date given only to the year or month is shown at that precision ("218 BC", "Oc
 | `ask.defaultQuestions[]` | Not used at the moment (kept for the archived chat) |
 | `sources[]` | `{ label, url }` shown on the intro card |
 | `ambience` | Soundscapes: `{ "default": "countryside", "byCategory": { "battle": "battle" }, "scene": "battle" }`. `default` plays in the overview, `byCategory` on an event of that category, `scene` during an animated scene. Names are listed under *Sound* below |
-| `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colonial` or `ww2`. Each is a short playlist in `js/audio/music.js`: recorded tracks by Kevin MacLeod (CC BY 4.0) in `audio/music/`, plus Chopin polonaise recordings for WW2 |
+| `music` | Background music: `roman`, `carthage`, `aztec`, `celtic`, `colonial`, `iran` or `ww2`. Each is a short playlist in `js/audio/music.js`: recorded tracks by Kevin MacLeod (CC BY 4.0) in `audio/music/`, plus Chopin polonaise recordings for WW2 |
 
 ## events.json
 
