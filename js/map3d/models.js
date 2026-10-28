@@ -1005,7 +1005,7 @@ const RECIPES = {
   // A city gate: two towers astride the road and the gatehouse over the
   // arch. "angle" is the bearing of the wall. "sealed" makes a walled-up
   // double gate with two domes (the Golden Gate).
-  gate(shape, m, out, ctx) {
+  'city-gate'(shape, m, out, ctx) {
     const u = bearingVec(m.angle ?? 90);
     const box = { c: shape.centre, u, v: [-u[1], u[0]] };
     const H = m.h ?? 14;
@@ -1211,7 +1211,7 @@ const RECIPES = {
   },
 
   // A walled compound of lawns and trees (the US embassy).
-  compound(shape, m, out, ctx) {
+  'embassy-compound'(shape, m, out, ctx) {
     for (const poly of shape.polys) {
       const ring = poly[0];
       flat(out, ring, C.garden);
@@ -1291,7 +1291,7 @@ const RECIPES = {
 
   // The Brandenburg Gate: six pairs of Doric columns on wall piers, an
   // entablature and attic, the Quadriga on top, and lower wings either side.
-  gate(shape, m, out) {
+  'brandenburg-gate'(shape, m, out) {
     const box = obb(shape.points);
     const H = m.h ?? 26;
     const k = H / 26;
@@ -1445,7 +1445,7 @@ const RECIPES = {
   // A domed church on its own outline: the Berliner Dom, with a central dome
   // on a drum and four corner towers; with "towers": false, a church under
   // one dome (St Hedwig's) or a domed tower (the Gendarmenmarkt towers).
-  cathedral(shape, m, out) {
+  'domed-church'(shape, m, out) {
     const box = obb(shape.points);
     const H = m.h ?? 98;
     const stone = m.colour ?? '#cfc3a8';
@@ -1943,7 +1943,7 @@ Object.assign(RECIPES, {
   // Options: towers (0, 1, 2), towerH, towerTop ('flat', 'spire', 'dome'),
   // aisles, transept, apse (false to leave out), crossing (0..1 along the
   // nave, from the east), spire (height above the ridge at the crossing).
-  cathedral(shape, m, out, ctx) {
+  'gothic-cathedral'(shape, m, out, ctx) {
     const box = face(obb(shape.points), shape, m, ctx); // +u points to the west front
     const { hl, hw } = box;
     const H = m.h ?? 30;
@@ -2220,4 +2220,410 @@ function starBead(out, c, b, h, colour) {
     return [c[0] + rr * Math.cos(a), c[1] + rr * Math.sin(a)];
   });
   [0.35, 0.75, 1, 0.75, 0.35].forEach((k, i) => part(out, star((h / 2) * k), b + (h * i) / 5, b + (h * (i + 1)) / 5, colour));
+}
+
+// ---------- Vietnam (Saigon, Hue, Hanoi) ----------
+// French colonial buildings in ochre with hipped tiled roofs, twin-towered
+// cathedrals, 1960s modernist blocks with sun screens, the Nguyen emperors'
+// gates and pavilions at Hue, and a few things of the war: flags, a tank, a
+// helicopter, runways and hangars.
+
+STYLE.vietnamese = { wall: '#e2b45e', hall: '#dcae5c', roof: '#a5563a', flatRoof: false };
+
+const VN = {
+  ochre: '#e2b45e', cream: '#efe2c2', trim: '#f4ede0', tile: '#a5563a', concrete: '#d9d5cb', concreteShade: '#c4bfb3',
+  imperial: '#d9a62e', imperialGreen: '#5d8a63', lacquer: '#8a2c22', brickRed: '#a24a32', granite: '#8f8d88',
+  olive: '#596043', runway: '#8e8b84', steel: '#5b5f60',
+};
+
+// A hipped roof as stacked slabs shrinking on all four sides.
+export function hipRoof(out, box, hl, hw, base, rise, c, layers = 5) {
+  for (let i = 0; i < layers; i++) {
+    const k = i / layers;
+    const w = hw * (1 - k);
+    const l = Math.max(hl - hw * k, w * 0.3);
+    part(out, rectIn(box, -l, l, -w, w), base + rise * k, base + rise * (k + 1 / layers), c);
+  }
+}
+
+// A broad-crowned tropical tree (tamarind, banyan) or an areca palm.
+export function vnTree(out, q, r) {
+  if (r() < 0.3) {
+    const h = between(r, 9, 14);
+    part(out, circle(q, 0.25, 5), 0, h, C.trunk);
+    part(out, circle(q, between(r, 1.8, 2.4), 7), h - 0.6, h + 0.6, '#5d8a46');
+    return;
+  }
+  const h = between(r, 4, 7);
+  part(out, circle(q, 0.4, 5), 0, h, C.trunk);
+  part(out, circle(q, between(r, 3.5, 6), 10), h, h + between(r, 3, 4.5), r() < 0.5 ? '#5f8a46' : '#6c9450');
+}
+
+// A polyline moved sideways by t metres (left of the direction of travel).
+function offsetLine(line, t) {
+  return line.map((q, i) => {
+    const a = line[Math.max(0, i - 1)];
+    const b = line[Math.min(line.length - 1, i + 1)];
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    return [q[0] - ((b[1] - a[1]) / len) * t, q[1] + ((b[0] - a[0]) / len) * t];
+  });
+}
+
+Object.assign(RECIPES, {
+  // A French colonial public building: ochre walls over a pale plinth, white
+  // cornice, hipped tiled roof; optional end pavilions and a central clock
+  // tower (the post office, city halls, the opera houses).
+  colonial(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 14;
+    const wall = m.colour ?? VN.ochre;
+    const roof = m.roof ?? VN.tile;
+    const { hl, hw } = box;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, 1.2, VN.cream);
+    part(out, rectIn(box, -hl, hl, -hw, hw), 1.2, H - 0.8, wall);
+    part(out, rectIn(box, -hl - 0.4, hl + 0.4, -hw - 0.4, hw + 0.4), H - 0.8, H, VN.trim);
+    if (!m.flat) hipRoof(out, box, hl, hw, H, Math.min(hw * 0.55, m.rise ?? 7), roof, 4);
+    if (m.ends) {
+      for (const s of [-1, 1]) {
+        const e = { c: at(box, s * (hl - m.ends / 2), 0), u: box.u, v: box.v };
+        part(out, rectIn(e, -m.ends / 2, m.ends / 2, -hw - 1, hw + 1), 0, H + 2, wall);
+        hipRoof(out, e, m.ends / 2, hw + 1, H + 2, Math.min(hw * 0.5, 6), roof, 4);
+      }
+    }
+    if (m.tower) {
+      const tw = m.towerW ?? clamp(hw * 0.5, 4, 9);
+      const tb = { c: at(box, m.towerAt ?? 0, 0), u: box.u, v: box.v };
+      part(out, rectIn(tb, -tw / 2, tw / 2, -tw / 2, tw / 2), H, m.tower - tw * 0.6, wall);
+      part(out, rectIn(tb, -tw * 0.55, tw * 0.55, -tw * 0.55, tw * 0.55), m.tower - tw * 0.6, m.tower - tw * 0.5, VN.trim);
+      hipRoof(out, tb, tw * 0.5, tw * 0.5, m.tower - tw * 0.5, tw * 0.5, m.towerRoof ?? roof, 4);
+    }
+  },
+
+  // A twin-towered cathedral: nave with a pitched roof, two square towers at
+  // the front with spires (Notre-Dame in Saigon, St Joseph's in Hanoi).
+  'twin-cathedral'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 57;
+    const wall = m.colour ?? VN.brickRed;
+    const roof = m.roof ?? '#6e6a64';
+    const { hl, hw } = box;
+    const ts = clamp(hw * 0.55, 5, 9);
+    const wallH = m.wallH ?? 18;
+    part(out, rectIn(box, -hl, hl - ts, -hw, hw), 0, wallH, wall);
+    gable(out, box, -hl - 0.3, hl - ts, hw + 0.3, wallH, hw * 0.55, roof, 4);
+    part(out, rectIn(box, hl - ts, hl, -hw + ts, hw - ts), 0, wallH + 4, wall);
+    for (const side of [-1, 1]) {
+      const tb = { c: at(box, hl - ts / 2, side * (hw - ts / 2)), u: box.u, v: box.v };
+      const top = m.spire === false ? H : H * 0.62;
+      part(out, rectIn(tb, -ts / 2, ts / 2, -ts / 2, ts / 2), 0, top, wall);
+      if (m.spire === false) continue;
+      for (let k = 0; k < 7; k++) {
+        const s = (ts / 2) * (1 - k / 7.5);
+        part(out, rectIn(tb, -s, s, -s, s), top + (k * (H - top)) / 7, top + ((k + 1) * (H - top)) / 7, m.spireColour ?? '#5f6466');
+      }
+    }
+  },
+
+  // A 1960s modernist block: floor slabs round a dark glazed core behind a
+  // screen of concrete fins, a flat roof, an optional helipad or roof
+  // pavilion (Independence Palace, the US Embassy, the Caravelle).
+  modern(shape, m, out) {
+    const H = m.h ?? 18;
+    const floors = m.floors ?? Math.max(1, Math.round(H / 3.6));
+    const fh = H / floors;
+    const slab = m.colour ?? VN.concrete;
+    const core = m.core ?? '#6f7c80';
+    for (const poly of shape.polys ?? []) {
+      const ring = poly[0];
+      if (Math.abs(area(ring)) < 40) continue;
+      const inner = isConvexish(ring) ? scaleRing(ring, m.inset ?? 0.94) : ring;
+      part(out, inner, 0, H, core);
+      for (let f = 1; f <= floors; f++) part(out, ring, f * fh - 0.5, f * fh, slab);
+      if (m.fins !== false) for (const q of alongPath(ring, m.fins ?? 2.4, 0.35, 0.6, { closed: true })) part(out, q, m.podium ? fh : 0, H, slab);
+      if (m.podium) part(out, ring, 0, fh - 0.5, VN.concreteShade);
+    }
+    const box = obb(shape.points);
+    if (m.roofTop) part(out, rectIn(box, -box.hl * m.roofTop, box.hl * m.roofTop, -box.hw * 0.4, box.hw * 0.4), H, H + 3.5, slab);
+    if (m.helipad) {
+      const c = m.helipad === true ? box.c : at(box, m.helipad[0], m.helipad[1]);
+      const b = H + (m.roofTop ? 3.5 : 0);
+      part(out, circle(c, m.padR ?? 7, 20), b, b + 0.6, '#55595a');
+      part(out, circle(c, (m.padR ?? 7) * 0.55, 20), b + 0.6, b + 0.7, '#e8e4dc');
+    }
+  },
+
+  // An imperial gate of the Nguyen dynasty: a brick and stone base pierced by
+  // passages, sometimes with forward wings, and a timber pavilion on top with
+  // one or two tiers of roof (the Noon Gate at Hue, the citadel gates).
+  'vn-gate'(shape, m, out) {
+    // Passages run through the long axis; the front (+v) faces "facing".
+    const box = obb(shape.points);
+    if (m.facing != null) {
+      const f = bearingVec(m.facing);
+      if (f[0] * box.v[0] + f[1] * box.v[1] < 0) box.v = [-box.v[0], -box.v[1]];
+    }
+    const { hl, hw } = box;
+    const B = m.base ?? 8;
+    const n = m.passages ?? 1;
+    const pw = m.passageW ?? 4;
+    const stone = m.colour ?? '#a39a8a';
+    // Piers between the passages, then a solid band over them.
+    const centres = n === 1 ? [0] : Array.from({ length: n }, (_, i) => -hl * 0.45 + (0.9 * hl * i) / (n - 1));
+    let s = -hl;
+    for (const c of centres) {
+      part(out, rectIn(box, s, c - pw / 2, -hw, hw), 0, B, stone);
+      s = c + pw / 2;
+    }
+    part(out, rectIn(box, s, hl, -hw, hw), 0, B, stone);
+    part(out, rectIn(box, -hl, hl, -hw, hw), B * 0.7, B, stone);
+    part(out, rectIn(box, -hl - 0.3, hl + 0.3, -hw - 0.3, hw + 0.3), B, B + 0.6, '#cfc6b4');
+    if (m.wings) {
+      // Wings reach forward from both ends, each with a gallery.
+      const [len, wid] = m.wings;
+      for (const side of [-1, 1]) {
+        const wb = { c: at(box, side * (hl - wid / 2), hw + len / 2), u: box.u, v: box.v };
+        part(out, rectIn(wb, -wid / 2, wid / 2, -len / 2, len / 2), 0, B, stone);
+        part(out, rectIn(wb, -wid / 2 + 2, wid / 2 - 2, -len / 2 + 2, len / 2 - 2), B, B + 3.5, VN.lacquer);
+        hipRoof(out, { c: wb.c, u: wb.v, v: wb.u }, len / 2 - 1, wid / 2 - 1, B + 3.5, 2.5, VN.imperialGreen, 3);
+      }
+    }
+    // The pavilion: lacquered posts, a lower roof all round, an upper storey and roof.
+    const pl = hl * (m.pavilion ?? 0.7);
+    const pw2 = hw * 0.8;
+    const P = m.pavilionH ?? 4.5;
+    for (const q of alongPath(rectIn(box, -pl, pl, -pw2, pw2), 3.2, 0.5, 0.5, { closed: true })) part(out, q, B + 0.6, B + 0.6 + P, VN.lacquer);
+    part(out, rectIn(box, -pl * 0.8, pl * 0.8, -pw2 * 0.7, pw2 * 0.7), B + 0.6, B + 0.6 + P, '#b78a52');
+    hipRoof(out, box, pl + 1.5, pw2 + 1.5, B + 0.6 + P, 2, m.roof ?? VN.imperial, 3);
+    if (m.tiers === 1) return;
+    const top = B + 2.6 + P;
+    part(out, rectIn(box, -pl * 0.62, pl * 0.62, -pw2 * 0.55, pw2 * 0.55), top, top + P * 0.7, VN.lacquer);
+    hipRoof(out, box, pl * 0.72, pw2 * 0.68, top + P * 0.7, 3, m.roof ?? VN.imperial, 4);
+  },
+
+  // A palace hall or temple pavilion: a stone platform, a ring of red
+  // lacquered posts, and one or two tiers of tiled roof (Thai Hoa Palace).
+  'vn-pavilion'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const { hl, hw } = box;
+    const H = m.h ?? 10;
+    const plat = m.platform ?? 1.2;
+    const roof = m.roof ?? VN.imperial;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, plat, '#bdb3a0');
+    const eave = plat + H * 0.42;
+    for (const q of alongPath(rectIn(box, -hl + 1, hl - 1, -hw + 1, hw - 1), 3.5, 0.6, 0.6, { closed: true })) part(out, q, plat, eave, VN.lacquer);
+    part(out, rectIn(box, -hl + 2.5, hl - 2.5, -hw + 2.5, hw - 2.5), plat, eave, m.colour ?? '#b98a50');
+    if (m.tiers === 2) {
+      hipRoof(out, box, hl + 0.8, hw + 0.8, eave, H * 0.14, roof, 2);
+      const up = eave + H * 0.14;
+      part(out, rectIn(box, -hl * 0.7, hl * 0.7, -hw * 0.55, hw * 0.55), up, up + H * 0.12, VN.lacquer);
+      hipRoof(out, box, hl * 0.82, hw * 0.65, up + H * 0.12, H - (up + H * 0.12), roof, 4);
+    } else hipRoof(out, box, hl + 0.8, hw + 0.8, eave, H - eave, roof, 5);
+  },
+
+  // The Flag Tower at Hue: three stepped brick terraces with a flagpole.
+  'flag-tower'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 17.4;
+    const { hl, hw } = box;
+    for (let k = 0; k < 3; k++) {
+      const s = 1 - k * 0.2;
+      part(out, rectIn(box, -hl * s, hl * s, -hw * s, hw * s), (H * k) / 3, (H * (k + 1)) / 3, k === 2 ? '#a58a72' : '#8f7a66');
+    }
+    part(out, rectIn(box, -hl * 0.25, hl * 0.25, -hw * 0.25, hw * 0.25), H, H + 3, '#cfc6b4');
+  },
+
+  // A flag on a pole. stripes are colours from the top down; the pole stands
+  // on the point and the flag flies towards the bearing "facing".
+  flag(shape, m, out) {
+    const c = shape.centre;
+    const base = m.base ?? 0;
+    const top = base + (m.pole ?? 20);
+    const u = bearingVec(m.facing ?? 90);
+    const box = { c, u, v: [-u[1], u[0]] };
+    part(out, circle(c, m.poleR ?? 0.35, 6), base, top, '#d8d4cc');
+    const w = m.w ?? 6;
+    const h = m.fh ?? w * 0.66;
+    const stripes = m.stripes ?? ['#da251d'];
+    stripes.forEach((col, i) => {
+      const z1 = top - 0.3 - (h * i) / stripes.length;
+      part(out, rectIn(box, 0.4, 0.4 + w, -0.12, 0.12), z1 - h / stripes.length, z1, col);
+    });
+  },
+
+  // The Ho Chi Minh Mausoleum: a stepped granite plinth, a hall ringed by
+  // square columns, and a heavy stepped roof.
+  mausoleum(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 21.6;
+    const { hl, hw } = box;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, H * 0.12, '#7d7b77');
+    part(out, rectIn(box, -hl * 0.88, hl * 0.88, -hw * 0.88, hw * 0.88), H * 0.12, H * 0.22, '#8a8884');
+    const c0 = H * 0.22;
+    const c1 = H * 0.72;
+    for (const q of alongPath(rectIn(box, -hl * 0.78, hl * 0.78, -hw * 0.78, hw * 0.78), 3.4, 1.2, 1.2, { closed: true })) part(out, q, c0, c1, VN.granite);
+    part(out, rectIn(box, -hl * 0.62, hl * 0.62, -hw * 0.62, hw * 0.62), c0, c1, '#5d5b58');
+    part(out, rectIn(box, -hl * 0.82, hl * 0.82, -hw * 0.82, hw * 0.82), c1, H * 0.86, VN.granite);
+    part(out, rectIn(box, -hl * 0.7, hl * 0.7, -hw * 0.7, hw * 0.7), H * 0.86, H * 0.93, '#9a9893');
+    part(out, rectIn(box, -hl * 0.58, hl * 0.58, -hw * 0.58, hw * 0.58), H * 0.93, H, '#a4a29d');
+  },
+
+  // A steel truss railway and road bridge on stone piers (Long Bien,
+  // Truong Tien). "gaps" lists spans, counted from the line's start, that are down.
+  'truss-bridge'(shape, m, out, ctx) {
+    const w = m.w ?? ctx.p.widthM ?? 10;
+    const d = m.deck ?? 9;
+    const th = m.truss ?? 8;
+    const span = m.span ?? 76;
+    const col = m.colour ?? VN.steel;
+    const cut = new Set(m.gaps ?? []);
+    for (const line of shape.lines ?? []) {
+      const len = pathLength(line);
+      const n = Math.max(1, Math.round(len / span));
+      for (let i = 0; i < n; i++) {
+        if (cut.has(i)) continue;
+        const piece = subPath(line, (len * i) / n + 1, (len * (i + 1)) / n - 1);
+        if (piece.length < 2) continue;
+        for (const q of strips(piece, w)) part(out, q, d - 0.8, d, '#6b6660');
+        for (const side of [-1, 1]) {
+          const edge = offsetLine(piece, (side * w) / 2);
+          for (const q of strips(edge, 0.6)) part(out, q, d + th - 0.6, d + th, col);
+          for (const q of alongPath(edge, 4.5, 0.4, 0.4)) part(out, q, d, d + th, col);
+        }
+      }
+      for (let i = 0; i <= n; i++) {
+        const q = pointAt(line, (len * i) / n);
+        if (q) part(out, rectIn({ c: q.p, u: q.u, v: [-q.u[1], q.u[0]] }, -2.5, 2.5, -w / 2 - 1, w / 2 + 1), 0, d - 0.8, '#9c9384');
+      }
+    }
+  },
+
+  // An airfield runway or taxiway: a paved strip along a line, or a paved area.
+  runway(shape, m, out, ctx) {
+    const w = m.w ?? ctx.p.widthM ?? 45;
+    for (const line of shape.lines ?? []) for (const q of strips(line, w)) flat(out, q, m.colour ?? VN.runway);
+    for (const poly of shape.polys ?? []) flat(out, poly, m.colour ?? VN.runway);
+  },
+
+  // A hangar with a curved roof.
+  hangar(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 14;
+    const { hl, hw } = box;
+    const wallH = H * 0.45;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, wallH, m.colour ?? '#a9aaa4');
+    const layers = 6;
+    for (let i = 0; i < layers; i++) {
+      const a0 = (i / layers) * (Math.PI / 2);
+      const a1 = ((i + 1) / layers) * (Math.PI / 2);
+      const half = hw * Math.cos((a0 + a1) / 2);
+      part(out, rectIn(box, -hl, hl, -half, half), wallH + (H - wallH) * Math.sin(a0), wallH + (H - wallH) * Math.sin(a1), m.roof ?? '#8f9290');
+    }
+  },
+
+  // A park or palace garden of tropical trees; "spacing" in metres.
+  'vn-park'(shape, m, out, ctx) {
+    for (const poly of shape.polys ?? []) {
+      flat(out, poly, C.garden);
+      const box = obb(poly[0]);
+      const step = m.spacing ?? 18;
+      for (let s = -box.hl; s < box.hl; s += step) {
+        for (let t = -box.hw; t < box.hw; t += step) {
+          const q = at(box, s + between(ctx.r, 0, step * 0.8), t + between(ctx.r, 0, step * 0.8));
+          if (inRing(q, poly[0]) && ctx.r() < 0.7 && ctx.isFree?.(q, 6) !== false) vnTree(out, q, ctx.r);
+        }
+      }
+    }
+  },
+
+  // A walled compound (a prison, a barracks): a high wall round the outline,
+  // a gatehouse, and rows of long low blocks inside (Hoa Lo).
+  'walled-compound'(shape, m, out) {
+    const ring = shape.main?.[0];
+    if (!ring) return;
+    const H = m.wallH ?? 5;
+    const colour = m.colour ?? '#cfc3a8';
+    for (const q of strips([...ring, ring[0]], m.wallW ?? 0.8)) part(out, q, 0, H, colour);
+    const box = obb(ring);
+    const rows = Math.max(1, Math.floor((box.hw * 2 - 10) / 14));
+    for (let i = 0; i < rows; i++) {
+      const t = -box.hw + 8 + i * 14;
+      const blk = rectIn(box, -box.hl * 0.75, box.hl * 0.75, t, t + 7);
+      if (blk.every((q) => inRing(q, ring))) {
+        part(out, blk, 0, m.h ?? 7, m.blocks ?? '#b9ad94');
+        part(out, blk, m.h ?? 7, (m.h ?? 7) + 0.4, m.roof ?? '#8c4a35');
+      }
+    }
+  },
+
+  // Wreckage: torn pieces of an aircraft lying half in water (the B-52 in Huu Tiep lake).
+  wreck(shape, m, out, ctx) {
+    const c = shape.centre;
+    const u = bearingVec(m.facing ?? 60);
+    const box = { c, u, v: [-u[1], u[0]] };
+    const col = m.colour ?? '#6d6f6c';
+    part(out, rectIn(box, -9, 6, -1.6, 1.6), 0, 1.6, col);
+    part(out, rectIn(box, -3, 3, 1.6, 16), 0, 0.6, col);
+    part(out, rectIn(box, 9, 14, -2, 2), 0, 3.5, col);
+    for (let i = 0; i < 6; i++) {
+      const q = at(box, between(ctx.r, -14, 16), between(ctx.r, -12, 12));
+      part(out, circle(q, between(ctx.r, 0.6, 1.4), 5), 0, between(ctx.r, 0.3, 1), '#5a5c59');
+    }
+  },
+
+  // A T-54 tank, or a column of them: tracks, hull, turret and gun.
+  tank(shape, m, out) {
+    const u = bearingVec(m.facing ?? 0);
+    const v = [-u[1], u[0]];
+    const col = m.colour ?? VN.olive;
+    for (let i = 0; i < (m.count ?? 1); i++) {
+      const box = { c: [shape.centre[0] - u[0] * i * 10, shape.centre[1] - u[1] * i * 10], u, v };
+      for (const t of [-1.35, 1.35]) part(out, rectIn(box, -3.2, 3.2, t - 0.3, t + 0.3), 0, 1.0, '#3e4033');
+      part(out, rectIn(box, -3.1, 3.1, -1.6, 1.6), 0.4, 1.5, col);
+      part(out, circle(at(box, 0.6, 0), 1.25, 12), 1.5, 2.3, col);
+      part(out, rectIn(box, 1.8, 5.6, -0.09, 0.09), 1.85, 2.03, col);
+    }
+  },
+
+  // A helicopter on a roof or pad: fuselage, tail boom and rotor disc.
+  helicopter(shape, m, out) {
+    const u = bearingVec(m.facing ?? 0);
+    const box = { c: shape.centre, u, v: [-u[1], u[0]] };
+    const b = m.base ?? 0;
+    const col = m.colour ?? '#5b6150';
+    part(out, rectIn(box, -2, 3, -1.1, 1.1), b + 0.4, b + 2.4, col);
+    part(out, rectIn(box, -8, -2, -0.25, 0.25), b + 1.5, b + 2.1, col);
+    part(out, circle(shape.centre, 7, 16), b + 2.9, b + 3.0, '#3a3c38');
+  },
+});
+
+// The stretch of a path from distance a to distance b along it.
+function subPath(line, a, b) {
+  const out = [];
+  let s = 0;
+  for (let i = 1; i < line.length; i++) {
+    const [p, q] = [line[i - 1], line[i]];
+    const len = Math.hypot(q[0] - p[0], q[1] - p[1]);
+    const lerp = (d) => [p[0] + ((q[0] - p[0]) * (d - s)) / len, p[1] + ((q[1] - p[1]) * (d - s)) / len];
+    if (len > 0 && s + len >= a && s <= b) {
+      if (!out.length) out.push(lerp(Math.max(a, s)));
+      out.push(lerp(Math.min(b, s + len)));
+    }
+    s += len;
+  }
+  return out;
+}
+
+// The point d metres along a path, with the direction there.
+function pointAt(line, d) {
+  let s = 0;
+  for (let i = 1; i < line.length; i++) {
+    const [p, q] = [line[i - 1], line[i]];
+    const len = Math.hypot(q[0] - p[0], q[1] - p[1]);
+    if (len > 0 && s + len >= d - 1e-6) {
+      const k = Math.max(0, Math.min(1, (d - s) / len));
+      return { p: [p[0] + (q[0] - p[0]) * k, p[1] + (q[1] - p[1]) * k], u: [(q[0] - p[0]) / len, (q[1] - p[1]) / len] };
+    }
+    s += len;
+  }
+  return null;
 }

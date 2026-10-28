@@ -1074,7 +1074,7 @@
     "to": "1219-03-19",
     "description": "Today's Jaffa Gate, beside the citadel. The road from the port of Jaffa and the pilgrims' road came in here.",
     "model": {
-     "type": "gate",
+     "type": "city-gate",
      "angle": 2
     }
    },
@@ -1094,7 +1094,7 @@
     "to": "1219-03-19",
     "description": "Today's Damascus Gate, the main gate on the north side. Crusaders named it after the first Christian martyr, said to have been stoned outside.",
     "model": {
-     "type": "gate",
+     "type": "city-gate",
      "angle": 43
     }
    },
@@ -1114,7 +1114,7 @@
     "to": "1219-03-19",
     "description": "Today's Herod's Gate. Near here, on 15 July 1099, Godfrey's men crossed from their siege tower onto the wall. Saladin's miners broke through close by in 1187.",
     "model": {
-     "type": "gate",
+     "type": "city-gate",
      "angle": 69
     }
    },
@@ -1134,7 +1134,7 @@
     "to": "1219-03-19",
     "description": "Today's Lions' Gate, leading down to the Kidron valley and the Mount of Olives.",
     "model": {
-     "type": "gate",
+     "type": "city-gate",
      "angle": 173
     }
    },
@@ -1154,7 +1154,7 @@
     "to": "1219-03-19",
     "description": "A walled-up gate into the Temple Mount. The crusaders opened it twice a year, on Palm Sunday and on the feast of the Exaltation of the Cross.",
     "model": {
-     "type": "gate",
+     "type": "city-gate",
      "angle": 174,
      "sealed": true,
      "terrace": {
@@ -1185,7 +1185,7 @@
     "to": "1219-03-19",
     "description": "The south gate, facing Mount Zion. Raymond of Toulouse's men attacked this side in 1099.",
     "model": {
-     "type": "gate",
+     "type": "city-gate",
      "angle": 95
     }
    },
