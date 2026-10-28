@@ -4,7 +4,7 @@
 
 import { createStore } from './core/store.js';
 import { createPlayer, sleep } from './core/player.js';
-import { configureCalendar, formatDate, formatEventDate, parseDate } from './core/time.js';
+import { configureCalendar, formatDate, formatEventDate, parseDate, spokenDate } from './core/time.js';
 import { loadCatalog, loadStory } from './data/loader.js';
 import { createMapView } from './map/mapView.js';
 import { createEventLayer } from './map/eventLayer.js';
@@ -78,7 +78,8 @@ async function boot() {
   const battleSounds = createBattleSounds();
   for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, () => soundtrack.unlock(), { capture: true });
   let speaking = Promise.resolve();
-  const narrateEvent = (ev) => [`${formatEventDate(ev)}. ${ev.title}.`, ev.summary, ev.significance ?? ''].join(' ');
+  // Keep in step with texts() in tools/render_narration.py.
+  const narrateEvent = (ev) => [`${spokenDate(ev)}. ${ev.title}.`, ev.summary, ev.significance ?? ''].join(' ').trim();
   const paragraphs = (x) => (Array.isArray(x) ? x : [x ?? '']).join(' ');
 
   // ---------- Timeline & controls ----------
@@ -206,7 +207,7 @@ async function boot() {
 
   // ---------- Selection ----------
   function select(ev, { narrate = true } = {}) {
-    speaking = narrate ? soundtrack.narrate(narrateEvent(ev)) : Promise.resolve();
+    speaking = narrate ? soundtrack.narrate(narrateEvent(ev), `events/${storyId}/${ev.id}`) : Promise.resolve();
     store.set({ activeId: ev.id, t: ev.t });
     player.resync(ev.t);
     const i = events.indexOf(ev);
@@ -371,7 +372,7 @@ async function boot() {
     if (!city) return;
     stopTour();
     closeScene();
-    if (narrate) soundtrack.narrate(`${city.name}. ${paragraphs(city.summary)}`);
+    if (narrate) soundtrack.narrate(`${city.name}. ${paragraphs(city.summary)}`, `cities/${city.id}/_city`);
     const fromEvent = byId.get(store.get().activeId);
     if (fromEvent) lastCityFromEvent = fromEvent;
     panel.renderCity(city, cityLayer.landmarksAt(city, store.get().t), {
@@ -388,7 +389,7 @@ async function boot() {
     stopTour();
     panel.renderPlace(feature, city, { onBack: () => openCity(city, { fly: false, narrate: false }) });
     showPanel();
-    soundtrack.narrate(`${feature.properties.name}. ${paragraphs(feature.properties.description)}`);
+    soundtrack.narrate(`${feature.properties.name}. ${paragraphs(feature.properties.description)}`, `cities/${city.id}/${feature.properties.id}`);
     if (city3d.isOpen) { city3d.flyTo(feature); return; }
     const zoom = Math.max(view.map.getZoom(), feature.properties.zoom ?? 15);
     view.map.flyTo(labelPoint(feature), zoom, { duration: 1.2 });

@@ -29,7 +29,7 @@ export function createAudioPanel(button, panel, soundtrack) {
     </label>
     <p class="fine sp-music"></p>
     <button class="btn ghost sp-test" type="button">Test the voice</button>
-    <p class="fine">Voices come from your browser (Edge has the most natural ones). Soundscapes are generated as you listen; music is from the period where any survives.</p>`;
+    <p class="fine">Studio voices are recorded with Kokoro; other voices come from your browser. Soundscapes are generated as you listen; music credits are shown above.</p>`;
 
   const $ = (sel) => panel.querySelector(sel);
   const voiceSelect = $('[data-k="voice"]');
@@ -41,7 +41,7 @@ export function createAudioPanel(button, panel, soundtrack) {
       return;
     }
     const current = s.voice ?? voices[0]?.name;
-    voiceSelect.innerHTML = voices.map((v) => `<option value="${esc(v.name)}" ${v.name === current ? 'selected' : ''}>${esc(v.name.replace(/^Microsoft /, '').replace(/ - English.*$/, ''))} (${esc(v.lang)})</option>`).join('');
+    voiceSelect.innerHTML = voices.map((v) => `<option value="${esc(v.name)}" ${v.name === current ? 'selected' : ''}>${esc(v.label ?? `${v.name.replace(/^Microsoft /, '').replace(/ - English.*$/, '')} (${v.lang})`)}</option>`).join('');
     if (!s.voice && voices[0]) narrator.setVoice(voices[0].name);
   }
   narrator.onVoices(fillVoices);
@@ -73,7 +73,7 @@ export function createAudioPanel(button, panel, soundtrack) {
   $('.sp-test').addEventListener('click', () => {
     soundtrack.unlock();
     if (!s.sound) soundtrack.update({ sound: true });
-    narrator.speak('This is how I will narrate the story.');
+    narrator.speak('This is how I will narrate the story.', '_test');
   });
 
   const close = () => { panel.hidden = true; button.setAttribute('aria-expanded', 'false'); };

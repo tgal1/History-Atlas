@@ -63,10 +63,33 @@ export function createSoundscapes() {
   };
 }
 
+// Every soundscape is held near the same loudness, so moving from a quiet
+// shore to a battle never jumps out of the speakers.
+const TARGET_RMS = 0.022;
+
 function startGroup(name) {
   const ctx = audioContext();
   const out = gain(0);
-  out.connect(buses.ambience);
+  const level = gain(1);
+  out.connect(level).connect(buses.ambience);
+  const meter = ctx.createAnalyser();
+  meter.fftSize = 2048;
+  out.connect(meter);
+  const samples = new Float32Array(meter.fftSize);
+  let energy = 0;
+  let measured = 0;
+  const levelTimer = setInterval(() => {
+    meter.getFloatTimeDomainData(samples);
+    let sum = 0;
+    for (const v of samples) sum += v * v;
+    // Slow running average, so single clangs don't pump the level.
+    energy = measured ? energy * 0.85 + (sum / samples.length) * 0.15 : sum / samples.length;
+    measured++;
+    const rms = Math.sqrt(energy);
+    if (measured > 2 && rms > 1e-4) level.gain.setTargetAtTime(Math.max(0.12, Math.min(2.5, TARGET_RMS / rms)), ctx.currentTime, 1.2);
+  }, 250);
+  // Start quiet and let the meter bring it up, rather than blasting first.
+  level.gain.value = 0.3;
   const L = {
     dead: false,
     sources: [],
@@ -84,6 +107,7 @@ function startGroup(name) {
     name,
     stop() {
       L.dead = true;
+      clearInterval(levelTimer);
       L.cancels.forEach((c) => c());
       out.gain.cancelScheduledValues(ctx.currentTime);
       out.gain.setTargetAtTime(0, ctx.currentTime, 0.7);
@@ -259,9 +283,10 @@ const LAYERS = {
   // A murmuring crowd: each "voice" is noise through a vowel-like filter that
   // hops between formants in syllable-sized steps.
   crowd(L, out, { voices = 10, excited = false }) {
-    const FORMANTS = [300, 420, 560, 700, 850, 1100, 1400, 1800, 2300];
-    const mix = gain(excited ? 1.4 : 1);
-    mix.connect(filter('lowpass', excited ? 3000 : 2200)).connect(out);
+    // Low vowel formants only and a dark filter: a murmur, not a hiss.
+    const FORMANTS = [280, 380, 500, 620, 750, 900, 1100];
+    const mix = gain(excited ? 1.2 : 1);
+    mix.connect(filter('lowpass', excited ? 1600 : 1300)).connect(out);
     for (let v = 0; v < voices; v++) {
       const scale = rand(0.8, 1.25);
       const f = filter('bandpass', 600, 6);
@@ -279,7 +304,7 @@ const LAYERS = {
         o.frequency.setValueAtTime(rand(160, 320), t);
         const g = gain(0);
         const hold = rand(0.2, 0.6);
-        envelope(g.gain, t, 0.35, 0.08, 0.4, hold);
+        envelope(g.gain, t, 0.2, 0.08, 0.4, hold);
         const vib = osc('sine', 5.5);
         const depth = gain(6);
         vib.connect(depth).connect(o.frequency);
@@ -318,11 +343,11 @@ const LAYERS = {
         index.gain.exponentialRampToValueAtTime(1, t0 + decay);
         mod.connect(index).connect(car.frequency);
         const g = gain(0);
-        envelope(g.gain, t0, 0.4, 0.002, decay);
-        car.connect(g).connect(p);
+        envelope(g.gain, t0, 0.25, 0.002, decay);
+        car.connect(filter('lowpass', 3500)).connect(g).connect(p);
         car.start(t0); mod.start(t0);
         car.stop(t0 + decay + 0.1); mod.stop(t0 + decay + 0.1);
-        hiss(t0, 'highpass', 3000, 0.7, 0.001, 0.03, 0.3, p);
+        hiss(t0, 'highpass', 3000, 0.7, 0.001, 0.03, 0.1, p);
       }
     });
   },
@@ -406,7 +431,7 @@ const LAYERS = {
     L.add(noise()).connect(filter('lowpass', 400)).connect(g).connect(out);
     L.add(lfo(g.gain, 0.3, 0.12));
     L.every(0.1, 0.35, (t) => {
-      for (let i = 0; i < Math.floor(rand(2, 6)); i++) hiss(t + rand(0, 0.25), 'bandpass', rand(1500, 4000), 2, 0.002, 0.03, rand(0.2, 0.5), out);
+      for (let i = 0; i < Math.floor(rand(1, 4)); i++) hiss(t + rand(0, 0.25), 'bandpass', rand(1200, 3000), 2, 0.002, 0.03, rand(0.1, 0.25), out);
     });
   },
 

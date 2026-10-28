@@ -59,9 +59,10 @@ export function createSoundtrack() {
     get nowPlaying() { return music.nowPlaying; },
     // True when events should be read aloud (and the tour should wait for the voice).
     get narrating() { return settings.sound && settings.narration && narrator.supported; },
-    narrate(text) {
+    // key: where a studio recording of this text would be, e.g. "events/rome/founding".
+    narrate(text, key) {
       if (!this.narrating) return Promise.resolve();
-      return narrator.speak(text);
+      return narrator.speak(text, key);
     },
     cancel() { narrator.cancel(); },
     update(changes) {

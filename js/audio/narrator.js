@@ -1,30 +1,59 @@
-// Narration with the browser's own text-to-speech voices. Which voices exist
-// depends on the browser and system: Edge's "Natural" voices are the best,
-// Chrome adds a few Google voices. Text is spoken a sentence at a time,
-// because some browsers cut off long utterances.
+// Narration. Two kinds of voice:
+//
+//   studio   recordings made with Kokoro (tools/render_narration.py), the
+//            same natural voice in every browser. Each voice has a manifest
+//            listing what has been recorded.
+//   browser  the browser's own text-to-speech: Edge's "Natural" voices are
+//            good, others vary. Used for anything not recorded yet.
+//
+// Browser speech is spoken a sentence at a time, because some browsers cut
+// off long utterances.
 
 import { duck } from './engine.js';
 
+const STUDIO = [
+  { name: 'studio:bm_george', label: 'George, British (studio)', lang: 'en-GB', id: 'bm_george' },
+  { name: 'studio:af_heart', label: 'Heart, American (studio)', lang: 'en-US', id: 'af_heart' },
+];
+
 export function createNarrator() {
   const synth = window.speechSynthesis ?? null;
-  let voices = [];
-  let voice = null;
+  let browserVoices = [];
+  let studio = []; // studio voices whose recordings exist
+  const manifests = new Map();
+  let voice = null; // a browser voice or a studio entry
   let rate = 1;
   let run = 0; // bumps on every speak/cancel so stale callbacks are ignored
+  let playing = null;
   const listeners = new Set();
+
+  const all = () => [...studio, ...browserVoices];
+  const emit = () => listeners.forEach((fn) => fn(all()));
 
   function loadVoices() {
     if (!synth) return;
-    voices = synth.getVoices()
+    browserVoices = synth.getVoices()
       .filter((v) => v.lang?.toLowerCase().startsWith('en'))
       .sort((a, b) => rank(b) - rank(a) || a.name.localeCompare(b.name));
-    if (voice && !voices.includes(voice)) voice = voices.find((v) => v.name === voice.name) ?? null;
-    listeners.forEach((fn) => fn(voices));
+    if (voice && !voice.id && !browserVoices.includes(voice)) voice = browserVoices.find((v) => v.name === voice.name) ?? null;
+    emit();
   }
   if (synth) {
     loadVoices();
     synth.addEventListener?.('voiceschanged', loadVoices);
   }
+
+  // Which studio voices have recordings on this site.
+  Promise.all(STUDIO.map((s) => fetch(`audio/narration/${s.id}/manifest.json`)
+    .then((r) => (r.ok ? r.json() : null))
+    .then((m) => { if (m) manifests.set(s.id, m); return m ? s : null; })
+    .catch(() => null)))
+    .then((found) => {
+      studio = found.filter(Boolean);
+      if (pendingName) setVoice(pendingName);
+      emit();
+    });
+  let pendingName = null;
 
   // Prefer neural voices, then online ones, and British or American English.
   function rank(v) {
@@ -38,10 +67,43 @@ export function createNarrator() {
     return s;
   }
 
-  function speak(text) {
+  function setVoice(name) {
+    pendingName = name;
+    voice = all().find((v) => v.name === name) ?? null;
+  }
+
+  // key: where the recording would be, e.g. "events/rome/founding".
+  function speak(text, key) {
     cancel();
-    if (!synth || !text) return Promise.resolve();
+    if (!text) return Promise.resolve();
+    const s = voice?.id ? voice : !voice ? studio[0] : null;
+    if (s && key && manifests.get(s.id)?.[key]) return playRecording(`audio/narration/${s.id}/${key}.mp3`);
+    return speakBrowser(text);
+  }
+
+  function playRecording(url) {
     const id = ++run;
+    const el = new Audio(url);
+    el.playbackRate = rate;
+    el.preservesPitch = true;
+    playing = el;
+    duck(true);
+    return new Promise((resolve) => {
+      const done = () => {
+        if (id === run) { duck(false); playing = null; }
+        resolve();
+      };
+      el.addEventListener('ended', done, { once: true });
+      el.addEventListener('error', done, { once: true });
+      el.addEventListener('pause', () => { if (id !== run || el.ended) done(); }, { once: true });
+      el.play().catch(done);
+    });
+  }
+
+  function speakBrowser(text) {
+    if (!synth) return Promise.resolve();
+    const id = ++run;
+    const bv = voice && !voice.id ? voice : browserVoices[0] ?? null;
     const sentences = text.replace(/\s+/g, ' ').match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) ?? [text];
     duck(true);
     return new Promise((resolve) => {
@@ -53,8 +115,8 @@ export function createNarrator() {
       };
       for (const s of sentences) {
         const u = new SpeechSynthesisUtterance(s.trim());
-        if (voice) u.voice = voice;
-        u.lang = voice?.lang ?? 'en-GB';
+        if (bv) u.voice = bv;
+        u.lang = bv?.lang ?? 'en-GB';
         u.rate = rate;
         u.onend = done;
         u.onerror = () => { left = 1; done(); };
@@ -72,19 +134,20 @@ export function createNarrator() {
 
   function cancel() {
     run++;
+    if (playing) { playing.pause(); playing = null; }
     if (synth && (synth.speaking || synth.pending)) synth.cancel();
     duck(false);
   }
 
   return {
-    supported: Boolean(synth),
-    get voices() { return voices; },
+    supported: Boolean(synth) || STUDIO.length > 0,
+    get voices() { return all(); },
     get voice() { return voice; },
-    setVoice(name) { voice = voices.find((v) => v.name === name) ?? null; },
-    setRate(r) { rate = r; },
-    onVoices(fn) { listeners.add(fn); fn(voices); },
+    setVoice,
+    setRate(r) { rate = r; if (playing) playing.playbackRate = r; },
+    onVoices(fn) { listeners.add(fn); fn(all()); },
     speak,
     cancel,
-    get speaking() { return Boolean(synth?.speaking); },
+    get speaking() { return Boolean(playing) || Boolean(synth?.speaking); },
   };
 }

@@ -66,4 +66,16 @@ export function formatEventDate(ev) {
   return `${ev.circa ? 'c. ' : ''}${formatDate(ev.t, ev.precision)}`;
 }
 
-export const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+// The date as a narrator would say it: "30 January 1972", "Around 237 BC".
+// Keep in step with spoken_date() in tools/render_narration.py.
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export function spokenDate(ev) {
+  const m = DATE_RE.exec(String(ev.date).trim());
+  if (!m) return formatEventDate(ev);
+  const label = yearLabel(Number(m[1]));
+  const text = m[3] ? `${Number(m[3])} ${MONTH_NAMES[Number(m[2]) - 1]} ${label}`
+    : m[2] ? `${MONTH_NAMES[Number(m[2]) - 1]} ${label}` : label;
+  return ev.circa ? `Around ${text}` : text;
+}
+
+export const clamp =(v, lo, hi) => Math.min(hi, Math.max(lo, v));

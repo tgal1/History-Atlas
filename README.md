@@ -38,7 +38,7 @@ Open http://127.0.0.1:8765. Opening `index.html` directly from disk will not wor
 | `#event-id` in the URL | Deep link to an event, e.g. `/#bloody-sunday` |
 | Stories & cities | Menu to switch story or jump straight into a city |
 | View in 3D | Rome, Carthage and Tenochtitlan as 3D cities with terrain, landmark models and generated houses. Right-drag or Ctrl+drag to tilt and turn |
-| Sound | Narration (pick a voice and speed), a soundscape for where you are (calm Mediterranean shore, jungle, harbour, air raid...), music from the period, and battle sounds that follow the animation (hooves, marching, clashing blades, musket volleys) |
+| Sound | Narration (studio voices recorded with Kokoro, or your browser's own), a soundscape for where you are (calm Mediterranean shore, jungle, harbour, air raid...), music to suit each story, and battle sounds that follow the animation (hooves, marching, clashing blades, musket volleys) |
 | `?story=rome&city=rome&t=150&view=3d` | Deep link to a city at a date, optionally in 3D |
 
 ## Project layout
@@ -110,7 +110,7 @@ history-atlas/
     ├── serve.py               No-cache local dev server
     ├── osm_footprints.py      Refreshes monument outlines from OpenStreetMap
     ├── route_scenes.py        Routes scene marches along roads (OSRM)
-    └── midi_to_json.py        Turns a MIDI score into a note list for the music player
+    └── render_narration.py    Records the narration with Kokoro voices
 ```
 
 The engine knows nothing about Ireland or Rome. Everything story-specific lives in `data/stories/<id>/`. A new story is a new folder plus its `status` set to `"ready"` in `catalog.json`. See [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md).
@@ -129,7 +129,7 @@ The engine knows nothing about Ireland or Rome. Everything story-specific lives 
 | AWS Terrain Tiles (Terrarium) | Elevation for the 3D hills | No |
 | OpenStreetMap (via `tools/osm_footprints.py`, offline) | Real outlines of surviving monuments, ODbL, credited on the map | No |
 
-Narration uses the browser's built-in voices and soundscapes are synthesised with the Web Audio API. Music is period material from Wikimedia Commons: the Seikilos epitaph and First Delphic Hymn (public domain scores), the Londonderry Air and Yankee Doodle (CC0 settings by Rabanus Flavus), played on synthesised instruments, and two Chopin polonaise recordings streamed from Commons (public domain, and CC0). Nothing needs an API key, so the folder can be hosted as-is on any static host (Cloudflare Pages, GitHub Pages, Netlify). Check Esri's terms of use before a public launch.
+Narration uses the browser's built-in voices and soundscapes are synthesised with the Web Audio API. Music is by Kevin MacLeod (incompetech.com), licensed under Creative Commons Attribution 4.0 ("Teller of the Tales", "Anguish", "Ancient Rite", "Return of the Mummy", "Night of the Owl", "Thunderhead", "Moorland", "Errigal", "Decline", "Fife and Drum", "Americana", "Night Vigil"), plus two Chopin polonaise recordings streamed from Wikimedia Commons (public domain, and CC0). Studio narration is recorded with Kokoro (Apache 2.0) by `tools/render_narration.py`. Nothing needs an API key, so the folder can be hosted as-is on any static host (Cloudflare Pages, GitHub Pages, Netlify). Check Esri's terms of use before a public launch.
 
 ## Performance
 
