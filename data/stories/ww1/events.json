@@ -1,0 +1,497 @@
+[
+  {
+    "id": "sarajevo", "date": "1914-06-28", "title": "Assassination in Sarajevo", "place": "Latin Bridge, Sarajevo",
+    "coords": [43.8578, 18.4289], "zoom": 15, "category": "politics", "deaths": 2,
+    "summary": "Gavrilo Princip, a 19-year-old Bosnian Serb, shoots Archduke Franz Ferdinand, heir to the Austro-Hungarian throne, and his wife Sophie. Princip's group had been armed by the Black Hand, a secret society of Serbian army officers.",
+    "significance": "Austria-Hungary blamed Serbia and resolved to crush it. The two deaths lit the fuse of a European war.",
+    "wiki": "Assassination of Archduke Franz Ferdinand"
+  },
+  {
+    "id": "ultimatum", "date": "1914-07-23", "title": "The ultimatum to Serbia", "place": "Belgrade",
+    "coords": [44.8125, 20.4612], "zoom": 7, "category": "politics",
+    "summary": "Germany has promised Austria-Hungary its full support, the 'blank cheque' of 5 July. Vienna now sends Serbia ten demands and gives it 48 hours to accept. Serbia accepts almost all of them, but not quite all.",
+    "significance": "The ultimatum was written to be refused. Russia, Serbia's protector, began to prepare its army.",
+    "wiki": "Ultimatum of July 23, 1914"
+  },
+  {
+    "id": "war-on-serbia", "date": "1914-07-28", "title": "Austria-Hungary declares war on Serbia", "place": "Vienna",
+    "coords": [48.2082, 16.3738], "zoom": 6, "category": "politics",
+    "summary": "Austria-Hungary declares war on Serbia. That night its gunboats on the Danube shell Belgrade. On 30 July Russia orders its whole army to mobilise.",
+    "significance": "The alliances now pulled the great powers in one by one: Germany behind Austria-Hungary, France behind Russia.",
+    "wiki": "July Crisis"
+  },
+  {
+    "id": "germany-declares", "date": "1914-08-01", "title": "Germany declares war on Russia and France", "place": "Berlin",
+    "coords": [52.5163, 13.3777], "zoom": 6, "category": "politics",
+    "summary": "Germany demands that Russia stop mobilising. When it does not, Germany declares war on Russia on 1 August, and on Russia's ally France on 3 August.",
+    "significance": "Germany had only one war plan, the Schlieffen Plan: knock out France in six weeks by marching through neutral Belgium, then turn on Russia.",
+    "wiki": "Schlieffen Plan"
+  },
+  {
+    "id": "belgium-invaded", "date": "1914-08-04", "title": "Germany invades Belgium; Britain declares war", "place": "Liège",
+    "coords": [50.6326, 5.5797], "zoom": 8, "category": "west",
+    "summary": "German troops cross into neutral Belgium and attack the ring of forts around Liège. Britain had guaranteed Belgian neutrality in 1839. When Germany ignores its ultimatum, Britain declares war at 11 pm.",
+    "significance": "The German chancellor called the 1839 treaty 'a scrap of paper'. It brought Britain and its empire into the war.",
+    "wiki": "German invasion of Belgium (1914)"
+  },
+  {
+    "id": "mons", "date": "1914-08-23", "title": "The Battle of Mons", "place": "Mons",
+    "coords": [50.4542, 3.9567], "zoom": 10, "category": "west",
+    "summary": "The small British Expeditionary Force meets the German First Army along the Mons canal. Fast, accurate British rifle fire holds the Germans for a day. Then the BEF joins the French in a long retreat south.",
+    "significance": "Britain's first battle of the war. The day before, in the Battle of the Frontiers, the French army lost about 27,000 men killed, the worst day in its history.",
+    "wiki": "Battle of Mons"
+  },
+  {
+    "id": "leuven", "date": "1914-08-25", "title": "The burning of Leuven", "place": "Leuven",
+    "coords": [50.8798, 4.7005], "zoom": 13, "category": "home", "deaths": 248,
+    "summary": "German troops, wrongly convinced that civilians are firing on them, burn the university town over five days. The library and its 230,000 books are destroyed and 248 people are killed.",
+    "significance": "In August 1914 German troops killed about 6,500 Belgian and French civilians. 'The rape of Belgium' became a powerful theme of Allied propaganda.",
+    "wiki": "Sack of Louvain"
+  },
+  {
+    "id": "tannenberg", "date": "1914-08-26", "title": "The Battle of Tannenberg", "place": "Near Allenstein, East Prussia",
+    "coords": [53.59, 20.29], "zoom": 8, "category": "east", "victor": "germany",
+    "stat": "About 30,000 Russians killed or wounded and 92,000 captured",
+    "summary": "Two Russian armies invade East Prussia faster than Germany expected. Reading Russian radio messages sent without code, Hindenburg and Ludendorff surround General Samsonov's Second Army. By 30 August it has ceased to exist, and Samsonov has shot himself.",
+    "significance": "Hindenburg and Ludendorff became national heroes and later ran Germany's war. But the invasion had drawn German troops east just as the decisive battle in the west began.",
+    "wiki": "Battle of Tannenberg"
+  },
+  {
+    "id": "lemberg", "date": "1914-09-03", "title": "Russia takes Lemberg", "place": "Lemberg (Lviv), Galicia",
+    "coords": [49.8397, 24.0297], "zoom": 8, "category": "east", "victor": "russia",
+    "summary": "In the Battle of Galicia the Russians rout four Austro-Hungarian armies and take Lemberg, the capital of Austrian Galicia. The Austrians fall back 150 kilometres to the Carpathians, leaving the fortress of Przemyśl under siege.",
+    "significance": "Austria-Hungary lost about 400,000 men in a month, including many of its trained officers. From now on it needed German help to survive.",
+    "wiki": "Battle of Galicia"
+  },
+  {
+    "id": "marne", "date": "1914-09-06", "title": "The First Battle of the Marne", "place": "Between Paris and Verdun",
+    "coords": [48.95, 3.45], "zoom": 8, "category": "west", "victor": "allies", "scene": "western-front-1914",
+    "stat": "About 500,000 killed and wounded on both sides",
+    "summary": "The German right wing swings east of Paris and exposes its flank. Joffre's French armies and the British counter-attack along the Marne, and Paris taxis help rush troops to the front. On 9 September the Germans order a retreat to the river Aisne.",
+    "significance": "The Schlieffen Plan had failed. Germany now faced the long war on two fronts that it had tried to avoid.",
+    "wiki": "First Battle of the Marne"
+  },
+  {
+    "id": "race-to-the-sea", "date": "1914-09-17", "title": "The race to the sea", "place": "Picardy, Artois and Flanders",
+    "coords": [50.3, 2.78], "zoom": 7, "category": "west",
+    "summary": "Both sides dig in on the Aisne. Each then tries to get round the other's open northern flank. Battles at Albert, Arras and Lille push the open flank north, until in October it reaches the North Sea.",
+    "significance": "When there was no more room to manoeuvre, the war of movement in the west was over.",
+    "wiki": "Race to the Sea"
+  },
+  {
+    "id": "first-ypres", "date": "1914-10-19", "title": "The First Battle of Ypres", "place": "Ypres",
+    "coords": [50.8503, 2.8851], "zoom": 10, "category": "west",
+    "summary": "Germany makes a last attempt to break through in Flanders. The Belgians open sluices to flood the Yser plain, and British, French and Belgian troops just hold Ypres. Many of the German dead are young student volunteers.",
+    "significance": "Britain's small regular army was all but destroyed. A line of trenches now ran unbroken from the North Sea to Switzerland.",
+    "wiki": "First Battle of Ypres"
+  },
+  {
+    "id": "ottoman-war", "date": "1914-10-29", "title": "The Ottoman Empire joins the war", "place": "Odessa",
+    "coords": [46.4825, 30.7233], "zoom": 6, "category": "sea",
+    "summary": "Ottoman warships, led by the German battlecruiser Goeben, shell Odessa, Sevastopol and other Russian ports on the Black Sea. In early November Russia, Britain and France declare war on the Ottoman Empire.",
+    "significance": "The war spread to the Caucasus, Mesopotamia, Egypt and the Dardanelles. Britain landed troops at Basra in November.",
+    "wiki": "Black Sea raid"
+  },
+  {
+    "id": "kolubara", "date": "1914-12-03", "title": "Serbia's victory on the Kolubara", "place": "Kolubara river, Serbia",
+    "coords": [44.38, 20.26], "zoom": 8, "category": "east", "victor": "allies",
+    "summary": "Austria-Hungary invades Serbia three times in 1914, and takes Belgrade on 2 December. The next day the Serbian army counter-attacks on the Kolubara river and drives the invaders out. Belgrade is free again by 15 December.",
+    "significance": "A humiliation for Austria-Hungary, which lost over 200,000 men in Serbia in 1914.",
+    "wiki": "Battle of Kolubara"
+  },
+  {
+    "id": "sarikamish", "date": "1914-12-22", "title": "Disaster at Sarıkamış", "place": "Sarıkamış, Caucasus",
+    "coords": [40.33, 42.59], "zoom": 8, "category": "south", "victor": "russia",
+    "summary": "Enver Pasha, the Ottoman war minister, leads the Third Army over snowbound mountains to encircle the Russians. Tens of thousands of his men freeze or starve on the way, and the Russians counter-attack.",
+    "significance": "Of about 90,000 Ottoman soldiers, perhaps 60,000 were lost. Ottoman leaders blamed the Armenians for helping Russia, a prelude to the genocide of 1915.",
+    "wiki": "Battle of Sarikamish"
+  },
+  {
+    "id": "christmas-truce", "date": "1914-12-25", "title": "The Christmas truce", "place": "Ploegsteert, Flanders",
+    "coords": [50.73, 2.88], "zoom": 11, "category": "west", "ambience": "quiet",
+    "summary": "Along parts of the British front, German and British soldiers stop firing. They sing carols, meet in no man's land, swap cigarettes and bury their dead. In a few places they kick a football about.",
+    "significance": "It never happened again on such a scale. Commanders on both sides made sure of that.",
+    "wiki": "Christmas truce"
+  },
+  {
+    "id": "dardanelles", "date": "1915-03-18", "title": "The naval attack on the Dardanelles", "place": "The Narrows, Dardanelles",
+    "coords": [40.1, 26.36], "zoom": 9, "category": "sea", "victor": "ottoman",
+    "summary": "British and French battleships try to force the Dardanelles strait and reach Constantinople. A line of mines laid in secret ten days earlier sinks three battleships and cripples three more.",
+    "significance": "The navies gave up. The Allies decided to land an army on the Gallipoli peninsula instead.",
+    "wiki": "Naval operations in the Dardanelles campaign"
+  },
+  {
+    "id": "gas-ypres", "date": "1915-04-22", "title": "Poison gas at Ypres", "place": "Langemark, near Ypres",
+    "coords": [50.91, 2.92], "zoom": 11, "category": "west",
+    "summary": "At about 5 pm the Germans open thousands of cylinders of chlorine. A greenish-yellow cloud drifts onto French colonial and territorial troops, who break and run. Canadian troops help close the gap.",
+    "significance": "The first mass use of poison gas. Both sides soon used it, and by 1918 gas shells were routine.",
+    "wiki": "Second Battle of Ypres"
+  },
+  {
+    "id": "armenian-genocide", "date": "1915-04-24", "title": "The Armenian genocide begins", "place": "Constantinople",
+    "coords": [41.0136, 28.955], "zoom": 6, "category": "home", "deaths": 1000000,
+    "stat": "Estimates: 600,000 to 1.5 million Armenians killed",
+    "summary": "Ottoman authorities arrest more than 200 Armenian leaders in Constantinople; most are later killed. Over the following months Armenians across Anatolia are massacred, or sent on death marches into the Syrian desert.",
+    "significance": "Most of the Armenian people of Anatolia were destroyed. Assyrians and Greeks were also killed in large numbers. Turkey still rejects the word genocide.",
+    "wiki": "Armenian genocide"
+  },
+  {
+    "id": "gallipoli-landings", "date": "1915-04-25", "title": "Landings at Gallipoli", "place": "Anzac Cove, Gallipoli",
+    "coords": [40.2464, 26.2783], "zoom": 10, "category": "south",
+    "summary": "British and French troops land at Cape Helles, the tip of the peninsula. Further north, Australians and New Zealanders, the ANZACs, land at a cove soon named after them. Ottoman troops under Mustafa Kemal hold the ridges above.",
+    "significance": "The beachheads never got far inland. 25 April is now Anzac Day, the main day of remembrance in Australia and New Zealand.",
+    "wiki": "Landing at Anzac Cove"
+  },
+  {
+    "id": "gorlice", "date": "1915-05-02", "title": "Breakthrough at Gorlice–Tarnów", "place": "Gorlice, Galicia",
+    "coords": [49.655, 21.16], "zoom": 8, "category": "east", "victor": "germany",
+    "summary": "After a four-hour bombardment by some 1,500 guns, German and Austro-Hungarian armies under General Mackensen break the Russian line in western Galicia. The Russian Third Army collapses.",
+    "significance": "It began the Great Retreat. By September Russia had lost Galicia, Poland and Lithuania, and well over a million men killed, wounded or captured.",
+    "wiki": "Gorlice–Tarnów offensive"
+  },
+  {
+    "id": "lusitania", "date": "1915-05-07", "title": "The sinking of the Lusitania", "place": "Off the Old Head of Kinsale, Ireland",
+    "coords": [51.42, -8.55], "zoom": 8, "category": "sea", "deaths": 1198, "ambience": "sombre",
+    "summary": "The German submarine U-20 torpedoes the British liner off the south coast of Ireland. She sinks in 18 minutes. 1,198 people die, 128 of them Americans.",
+    "significance": "American fury forced Germany to rein in its U-boats for a time. It helped turn opinion in the United States against Germany.",
+    "wiki": "Sinking of RMS Lusitania"
+  },
+  {
+    "id": "italy-enters", "date": "1915-05-23", "title": "Italy declares war on Austria-Hungary", "place": "Rome",
+    "coords": [41.9028, 12.4964], "zoom": 6, "category": "politics",
+    "summary": "In the secret Treaty of London, Britain and France promise Italy Austrian lands: Trentino, South Tyrol, Trieste, Istria and much of Dalmatia. Italy leaves its old alliance with Germany and Austria-Hungary and declares war on Austria-Hungary.",
+    "significance": "A new front opened in the Alps and along the Isonzo river.",
+    "wiki": "Treaty of London (1915)"
+  },
+  {
+    "id": "isonzo", "date": "1915-06-23", "title": "The First Battle of the Isonzo", "place": "Isonzo river, near Gorizia",
+    "coords": [45.94, 13.62], "zoom": 9, "category": "south",
+    "summary": "General Cadorna launches the first of eleven Italian offensives along the Isonzo, aimed at Gorizia and Trieste. Attacking uphill across the bare limestone of the Carso, the Italians gain almost nothing.",
+    "significance": "In two and a half years the Isonzo battles cost Italy hundreds of thousands of men for a few kilometres of ground.",
+    "wiki": "First Battle of the Isonzo"
+  },
+  {
+    "id": "warsaw", "date": "1915-08-05", "title": "The Germans take Warsaw", "place": "Warsaw",
+    "coords": [52.2297, 21.0122], "zoom": 8, "category": "east", "victor": "germany",
+    "summary": "As the Russian armies pull out of Poland, German troops enter Warsaw. The great fortresses fall one after another: Novogeorgievsk, Kovno, Brest-Litovsk.",
+    "significance": "Russian Poland was lost for good. Millions of refugees fled east into Russia.",
+    "wiki": "Great Retreat (Russia)"
+  },
+  {
+    "id": "suvla", "date": "1915-08-06", "title": "The August offensive at Gallipoli", "place": "Suvla Bay and Sari Bair",
+    "coords": [40.27, 26.27], "zoom": 10, "category": "south",
+    "summary": "The Allies try again. Australians storm the Ottoman trenches at Lone Pine, New Zealanders briefly hold the heights of Chunuk Bair, and a new British force lands at Suvla Bay. Slow leadership at Suvla throws away the surprise.",
+    "significance": "It was the last real chance to win at Gallipoli. By December the Allies had decided to leave.",
+    "wiki": "Battle of Sari Bair"
+  },
+  {
+    "id": "serbia-falls", "date": "1915-10-07", "title": "Serbia overrun", "place": "Belgrade",
+    "coords": [44.82, 20.46], "zoom": 7, "category": "east", "victor": "germany",
+    "summary": "German and Austro-Hungarian armies cross the Danube and the Sava, and Belgrade falls on 9 October. On 14 October Bulgaria joins the Central Powers and attacks from the east. An Allied force landed at Salonika arrives too late to help.",
+    "significance": "The Serbian army, the old king and thousands of civilians retreated over the Albanian mountains in winter. About 150,000 soldiers reached the coast, where Allied ships took them to Corfu.",
+    "wiki": "Serbian campaign (1915)"
+  },
+  {
+    "id": "gallipoli-evacuation", "date": "1916-01-09", "title": "Gallipoli abandoned", "place": "Cape Helles",
+    "coords": [40.045, 26.18], "zoom": 10, "category": "south", "victor": "ottoman", "deaths": 100000,
+    "stat": "Deaths: about 44,000 Allied and at least 56,000 Ottoman soldiers",
+    "summary": "The last Allied troops leave Cape Helles; Anzac and Suvla were emptied in December. The evacuations, done at night, are the best-run part of the campaign. Almost no one is lost.",
+    "significance": "The failure had already helped push Winston Churchill out of the Admiralty. Mustafa Kemal, later Atatürk, became a national hero.",
+    "wiki": "Gallipoli campaign"
+  },
+  {
+    "id": "erzurum", "date": "1916-02-16", "title": "Russia takes Erzurum", "place": "Erzurum",
+    "coords": [39.9043, 41.2679], "zoom": 8, "category": "south", "victor": "russia",
+    "summary": "In a winter offensive General Yudenich storms the forts of Erzurum, the main Ottoman fortress in the east. Trebizond on the Black Sea falls in April.",
+    "significance": "Russia held eastern Anatolia until its own army fell apart in 1917.",
+    "wiki": "Erzurum offensive"
+  },
+  {
+    "id": "verdun", "date": "1916-02-21", "title": "The Battle of Verdun", "place": "Fort Douaumont, Verdun",
+    "coords": [49.2167, 5.4389], "zoom": 10, "category": "west", "deaths": 300000, "ambience": "sombre",
+    "stat": "About 700,000 killed and wounded, roughly 300,000 of them killed",
+    "summary": "After a bombardment by 1,200 guns, the German Fifth Army attacks the fortress city of Verdun. Fort Douaumont falls on 25 February. General Pétain takes over the defence and keeps lorries moving day and night up the one road in, the Voie Sacrée.",
+    "significance": "The German commander Falkenhayn later claimed he meant to bleed the French army white. The battle lasted ten months; by December the French had won back most of the lost ground. Most French divisions served there.",
+    "wiki": "Battle of Verdun"
+  },
+  {
+    "id": "easter-rising", "date": "1916-04-24", "title": "The Easter Rising", "place": "General Post Office, Dublin",
+    "coords": [53.3494, -6.2603], "zoom": 14, "category": "politics", "deaths": 485,
+    "stat": "About 485 killed, more than half of them civilians",
+    "summary": "Irish republicans seize the General Post Office and other buildings in Dublin and proclaim an Irish Republic. The British army crushes the rising in six days.",
+    "significance": "The executions of its leaders turned Irish opinion towards independence.",
+    "wiki": "Easter Rising"
+  },
+  {
+    "id": "kut", "date": "1916-04-29", "title": "Surrender at Kut", "place": "Kut, Mesopotamia",
+    "coords": [32.5056, 45.8247], "zoom": 9, "category": "south", "victor": "ottoman",
+    "summary": "A British and Indian force that had advanced up the Tigris towards Baghdad is besieged at Kut for almost five months. Every attempt to relieve it fails, and about 13,000 men surrender.",
+    "significance": "Thousands of the prisoners died on forced marches and in captivity. Britain sent a far larger army, which took Baghdad in 1917.",
+    "wiki": "Siege of Kut"
+  },
+  {
+    "id": "jutland", "date": "1916-05-31", "title": "The Battle of Jutland", "place": "North Sea, off Denmark",
+    "coords": [56.7, 5.9], "zoom": 6, "category": "sea", "deaths": 8645,
+    "stat": "6,094 British and 2,551 German sailors killed",
+    "summary": "The British Grand Fleet and the German High Seas Fleet meet off Denmark, about 250 warships in all. Three British battlecruisers blow up. Britain loses more ships and men, but the German fleet runs for home.",
+    "significance": "Germany never again risked a fleet battle. Britain kept control of the North Sea and its blockade of Germany.",
+    "wiki": "Battle of Jutland"
+  },
+  {
+    "id": "brusilov", "date": "1916-06-04", "title": "The Brusilov Offensive", "place": "Lutsk, Volhynia",
+    "coords": [50.7472, 25.3254], "zoom": 7, "category": "east", "victor": "russia",
+    "summary": "General Brusilov attacks along a 300-kilometre front after short, surprise bombardments. The Austro-Hungarian line collapses. Lutsk and Czernowitz fall and hundreds of thousands of prisoners are taken.",
+    "significance": "Russia's greatest success of the war. It forced Germany to send troops east from Verdun, and brought Romania in on the Allied side. But Russia's own heavy losses broke its army's spirit.",
+    "wiki": "Brusilov offensive"
+  },
+  {
+    "id": "arab-revolt", "date": "1916-06-10", "title": "The Arab Revolt", "place": "Mecca",
+    "coords": [21.4225, 39.8262], "zoom": 7, "category": "south",
+    "summary": "Sharif Hussein of Mecca rises against Ottoman rule, encouraged by British promises of Arab independence. His sons Faisal and Abdullah lead the tribal forces. British officers advise them, among them T. E. Lawrence.",
+    "significance": "The revolt tied down Ottoman troops along the Hejaz railway. Its leaders felt betrayed when Britain and France divided the region after the war, as they had agreed in secret in the Sykes–Picot Agreement.",
+    "wiki": "Arab Revolt"
+  },
+  {
+    "id": "somme", "date": "1916-07-01", "title": "The first day of the Somme", "place": "Thiepval, Somme",
+    "coords": [50.05, 2.69], "zoom": 11, "category": "west", "deaths": 19240, "ambience": "sombre", "scene": "somme-first-day",
+    "stat": "British: 57,470 casualties, 19,240 of them killed",
+    "summary": "After a week-long bombardment, 13 British divisions attack at 7.30 am, with the French alongside. The wire is often uncut, and the German machine gunners have survived in deep dugouts.",
+    "significance": "The worst day in the history of the British army. Only in the south, next to the French, were the first objectives taken. The battle went on until November.",
+    "wiki": "First day on the Somme"
+  },
+  {
+    "id": "romania-enters", "date": "1916-08-27", "title": "Romania joins the Allies", "place": "Bucharest",
+    "coords": [44.4268, 26.1025], "zoom": 6, "category": "politics",
+    "summary": "Encouraged by the Brusilov Offensive and promised Transylvania, Romania declares war on Austria-Hungary and sends its army over the Carpathians.",
+    "significance": "Within weeks German, Austro-Hungarian, Bulgarian and Ottoman armies struck back from two sides.",
+    "wiki": "Romanian campaign (1916)"
+  },
+  {
+    "id": "flers", "date": "1916-09-15", "title": "The first tanks", "place": "Flers, Somme",
+    "coords": [50.0469, 2.8217], "zoom": 12, "category": "west",
+    "summary": "The British use tanks for the first time, at Flers–Courcelette. Of 49 available, 32 reach the start line and fewer still get into action. Some help take the village of Flers; most break down or get stuck.",
+    "significance": "Tanks were still too few and too unreliable to break through. Their real debut came at Cambrai a year later.",
+    "wiki": "Battle of Flers–Courcelette"
+  },
+  {
+    "id": "bucharest", "date": "1916-12-06", "title": "Bucharest falls", "place": "Bucharest",
+    "coords": [44.4268, 26.1025], "zoom": 7, "category": "east", "victor": "germany",
+    "summary": "General Mackensen's armies, coming from Bulgaria and through the Carpathian passes, enter Bucharest. The Romanian army and government retreat to Moldavia.",
+    "significance": "Germany gained Romania's oil and wheat, though British agents had wrecked many of the oil wells first.",
+    "wiki": "Battle of Bucharest"
+  },
+  {
+    "id": "u-boats", "date": "1917-02-01", "title": "Unrestricted submarine warfare", "place": "The Western Approaches",
+    "coords": [49.5, -8.0], "zoom": 5, "category": "sea",
+    "summary": "Germany announces that its U-boats will sink any ship, neutral or not, in the waters around Britain and France. In April they sink over 860,000 tons of shipping.",
+    "significance": "Germany gambled that it could starve Britain out before America made a difference. Convoys, brought in from May, defeated the U-boats.",
+    "wiki": "Atlantic U-boat campaign of World War I"
+  },
+  {
+    "id": "zimmermann", "date": "1917-03-01", "title": "The Zimmermann telegram", "place": "Washington",
+    "coords": [38.8977, -77.0365], "zoom": 5, "category": "politics",
+    "summary": "The German foreign minister, Arthur Zimmermann, had offered Mexico an alliance, and the return of Texas, New Mexico and Arizona, if the United States entered the war. British codebreakers in Room 40 read the telegram. Now it is published in American newspapers.",
+    "significance": "Zimmermann admitted it was genuine. With the U-boat campaign, it turned American opinion towards war.",
+    "wiki": "Zimmermann telegram"
+  },
+  {
+    "id": "february-revolution", "date": "1917-03-08", "title": "Revolution in Russia", "place": "Petrograd",
+    "coords": [59.9343, 30.3351], "zoom": 6, "category": "politics",
+    "summary": "Bread riots and strikes in Petrograd become a revolution when soldiers join the crowds. On 15 March Tsar Nicholas II abdicates. A Provisional Government takes over and promises to fight on.",
+    "significance": "Russia's calendar ran 13 days behind the West's, so this is known as the February Revolution.",
+    "wiki": "February Revolution"
+  },
+  {
+    "id": "baghdad", "date": "1917-03-11", "title": "The British take Baghdad", "place": "Baghdad",
+    "coords": [33.3152, 44.3661], "zoom": 8, "category": "south", "victor": "allies",
+    "summary": "General Maude's army, rebuilt after the surrender at Kut, retakes Kut and pushes up the Tigris. On 11 March it enters Baghdad.",
+    "significance": "The first great city of the Ottoman Arab lands to fall.",
+    "wiki": "Capture of Baghdad (1917)"
+  },
+  {
+    "id": "america-joins", "date": "1917-04-06", "title": "The United States enters the war", "place": "Washington",
+    "coords": [38.8899, -77.0091], "zoom": 5, "category": "politics",
+    "summary": "President Wilson asks Congress for war to make the world 'safe for democracy'. Congress declares war on Germany on 6 April.",
+    "significance": "The American army was small, and it took a year for its troops to reach France in large numbers. By the armistice there were about two million there.",
+    "wiki": "American entry into World War I"
+  },
+  {
+    "id": "vimy", "date": "1917-04-09", "title": "Arras and Vimy Ridge", "place": "Vimy Ridge",
+    "coords": [50.379, 2.774], "zoom": 11, "category": "west", "victor": "allies",
+    "summary": "The British open the Battle of Arras. All four Canadian divisions attack together for the first time and take Vimy Ridge, which had held out against French attacks since 1914.",
+    "significance": "The ridge became a symbol of Canadian nationhood. The wider battle of Arras bogged down with heavy losses.",
+    "wiki": "Battle of Vimy Ridge"
+  },
+  {
+    "id": "nivelle", "date": "1917-04-16", "title": "The Nivelle Offensive and the French mutinies", "place": "Chemin des Dames",
+    "coords": [49.44, 3.65], "zoom": 10, "category": "west",
+    "summary": "General Nivelle promises to break the German line within 48 hours on the Chemin des Dames ridge. The attack fails with over 100,000 French casualties in the first days. In May whole units refuse to attack.",
+    "significance": "Pétain replaced Nivelle. He improved leave and food and halted the big offensives. Several dozen mutineers were shot.",
+    "wiki": "Nivelle offensive"
+  },
+  {
+    "id": "gotha-raid", "date": "1917-06-13", "title": "Bombers over London", "place": "Poplar, East London",
+    "coords": [51.5133, -0.017], "zoom": 11, "category": "home", "deaths": 162, "ambience": "air-raid",
+    "summary": "Fourteen German Gotha bombers attack London in daylight. A bomb falls on a school in Poplar and kills 18 children. 162 people die in the raid.",
+    "significance": "Zeppelin and bomber raids killed about 1,400 people in Britain during the war. They led to the creation of the Royal Air Force in 1918.",
+    "wiki": "Strategic bombing during World War I"
+  },
+  {
+    "id": "aqaba", "date": "1917-07-06", "title": "The Arabs take Aqaba", "place": "Aqaba",
+    "coords": [29.5267, 35.0078], "zoom": 10, "category": "south", "victor": "arab",
+    "summary": "Arab forces led by Auda abu Tayi, with T. E. Lawrence, cross the desert and take the port of Aqaba from the land side, where its guns could not reach them.",
+    "significance": "Aqaba became the base for the Arab army's raids on the Hejaz railway, on the right flank of the British advance into Palestine.",
+    "wiki": "Battle of Aqaba"
+  },
+  {
+    "id": "passchendaele", "date": "1917-07-31", "title": "Passchendaele", "place": "Passchendaele, near Ypres",
+    "coords": [50.9, 3.02], "zoom": 11, "category": "west", "ambience": "sombre",
+    "stat": "Estimates range from about 200,000 to 400,000 killed and wounded on each side",
+    "summary": "Haig launches the Third Battle of Ypres to break out of the salient. The heaviest rain in years turns the shell-torn ground into a swamp in which men and horses drown. Canadian troops take the ruins of Passchendaele village on 6 November.",
+    "significance": "The British advanced about eight kilometres. The losses are still argued over.",
+    "wiki": "Battle of Passchendaele"
+  },
+  {
+    "id": "caporetto", "date": "1917-10-24", "title": "Caporetto", "place": "Caporetto (Kobarid)",
+    "coords": [46.2475, 13.5786], "zoom": 10, "category": "south", "victor": "austria",
+    "summary": "Austro-Hungarian and German troops, using gas and new infiltration tactics, break the Italian line at Caporetto. The Italian army retreats over 100 kilometres to the Piave, losing about 300,000 men, most of them taken prisoner.",
+    "significance": "Italy held on the Piave, with British and French help. A young German officer, Erwin Rommel, made his name here.",
+    "wiki": "Battle of Caporetto"
+  },
+  {
+    "id": "beersheba", "date": "1917-10-31", "title": "The charge at Beersheba", "place": "Beersheba",
+    "coords": [31.2518, 34.7913], "zoom": 11, "category": "south", "victor": "allies",
+    "summary": "General Allenby attacks the Ottoman line from Gaza to Beersheba. At dusk the Australian 4th Light Horse Brigade charges the trenches on horseback and takes Beersheba and its wells.",
+    "significance": "With Beersheba gone, the Gaza line fell within a week.",
+    "wiki": "Battle of Beersheba (1917)"
+  },
+  {
+    "id": "october-revolution", "date": "1917-11-07", "title": "The Bolsheviks seize power", "place": "Winter Palace, Petrograd",
+    "coords": [59.9398, 30.3146], "zoom": 12, "category": "politics",
+    "summary": "Lenin's Bolsheviks overthrow the Provisional Government in Petrograd. Their first decree calls for peace at once, and an armistice with Germany follows in December.",
+    "significance": "Russia left the war and slid into civil war. Germany could move its armies west.",
+    "wiki": "October Revolution"
+  },
+  {
+    "id": "cambrai", "date": "1917-11-20", "title": "Tanks at Cambrai", "place": "Flesquières, near Cambrai",
+    "coords": [50.128, 3.12], "zoom": 11, "category": "west",
+    "summary": "Nearly 400 British fighting tanks attack without the usual days of bombardment and break into the Hindenburg Line, advancing up to six kilometres. Church bells ring in Britain. Ten days later a German counter-attack retakes most of the ground.",
+    "significance": "Cambrai showed how tanks, surprise and accurate artillery could break a trench line. Both sides learned from it.",
+    "wiki": "Battle of Cambrai (1917)"
+  },
+  {
+    "id": "jerusalem", "date": "1917-12-09", "title": "Jerusalem falls", "place": "Jerusalem",
+    "coords": [31.7767, 35.2345], "zoom": 12, "category": "south", "victor": "allies",
+    "summary": "The Ottoman army leaves Jerusalem and the mayor surrenders the city. On 11 December General Allenby enters through the Jaffa Gate on foot, as a mark of respect.",
+    "significance": "Lloyd George had wanted Jerusalem as a Christmas present for Britain. A month earlier the Balfour Declaration had promised a Jewish national home in Palestine.",
+    "wiki": "Battle of Jerusalem"
+  },
+  {
+    "id": "brest-litovsk", "date": "1918-03-03", "title": "The Treaty of Brest-Litovsk", "place": "Brest-Litovsk",
+    "coords": [52.0976, 23.7341], "zoom": 7, "category": "politics", "victor": "germany",
+    "summary": "When peace talks stall, German armies advance almost unopposed through February. The Bolsheviks then sign a harsh peace. Russia gives up Poland, the Baltic lands, Finland and Ukraine, with about a third of its people and most of its coal.",
+    "significance": "Germany kept around a million men in the east to hold its new empire. The armistice of November cancelled the treaty.",
+    "wiki": "Treaty of Brest-Litovsk"
+  },
+  {
+    "id": "michael", "date": "1918-03-21", "title": "The German spring offensive", "place": "St-Quentin",
+    "coords": [49.85, 3.29], "zoom": 9, "category": "west", "victor": "germany",
+    "summary": "In thick fog, after a five-hour hurricane bombardment, German storm troops attack the British Fifth Army. In two weeks they advance about 60 kilometres, the biggest move in the west since 1914, but fail to take Amiens.",
+    "significance": "Ludendorff struck again in Flanders in April and on the Aisne in May. Each attack gained ground and cost Germany its best soldiers.",
+    "wiki": "German spring offensive"
+  },
+  {
+    "id": "second-marne", "date": "1918-07-18", "title": "The tide turns on the Marne", "place": "Villers-Cotterêts and Château-Thierry",
+    "coords": [49.2, 3.3], "zoom": 9, "category": "west", "victor": "allies",
+    "summary": "Ludendorff's last offensive, on both sides of Reims, is stopped on 15 July. Three days later French and American divisions, led by hundreds of light tanks, strike into the side of the German salient on the Marne.",
+    "significance": "The Germans never attacked again. From now on the Allies held the initiative.",
+    "wiki": "Second Battle of the Marne"
+  },
+  {
+    "id": "amiens", "date": "1918-08-08", "title": "Amiens: the black day of the German army", "place": "East of Amiens",
+    "coords": [49.86, 2.6], "zoom": 10, "category": "west", "victor": "allies",
+    "summary": "Australian, Canadian, British and French troops attack east of Amiens with over 500 tanks and hundreds of aircraft. They advance up to 12 kilometres in a day, and thousands of German soldiers surrender.",
+    "significance": "Ludendorff called it the black day of the German army. It began the Hundred Days, the Allied advance that ended the war.",
+    "wiki": "Battle of Amiens (1918)"
+  },
+  {
+    "id": "dobro-pole", "date": "1918-09-15", "title": "Breakthrough in Macedonia", "place": "Dobro Pole",
+    "coords": [41.1, 21.92], "zoom": 9, "category": "east", "victor": "allies",
+    "summary": "Serbian and French troops storm the mountain ridge of Dobro Pole and break the Bulgarian line. The Bulgarian army falls apart, and on 29 September Bulgaria signs an armistice.",
+    "significance": "The first of Germany's allies to give up. The way to the Danube and Austria-Hungary lay open.",
+    "wiki": "Battle of Dobro Pole"
+  },
+  {
+    "id": "megiddo", "date": "1918-09-19", "title": "Megiddo and Damascus", "place": "Megiddo, Palestine",
+    "coords": [32.585, 35.18], "zoom": 8, "category": "south", "victor": "allies",
+    "summary": "Allenby breaks through on the coast and sends his cavalry deep behind the Ottoman lines. Three Ottoman armies are destroyed. Arab forces and Australian horsemen reach Damascus on 1 October.",
+    "significance": "The Ottoman Empire signed an armistice at Mudros on 30 October. Britain and France then divided its Arab lands between them.",
+    "wiki": "Battle of Megiddo (1918)"
+  },
+  {
+    "id": "meuse-argonne", "date": "1918-09-26", "title": "The Meuse–Argonne offensive", "place": "Montfaucon, Argonne",
+    "coords": [49.27, 5.14], "zoom": 9, "category": "west", "victor": "allies", "deaths": 26277,
+    "stat": "26,277 Americans killed",
+    "summary": "More than a million American soldiers attack between the Argonne forest and the Meuse. In 47 days of fighting through broken, wooded country they push north towards Sedan.",
+    "significance": "The largest and deadliest battle in American history. Two weeks earlier the Americans had cut off the St-Mihiel salient.",
+    "wiki": "Meuse–Argonne offensive"
+  },
+  {
+    "id": "hindenburg-line", "date": "1918-09-29", "title": "Breaking the Hindenburg Line", "place": "St-Quentin Canal, Riqueval",
+    "coords": [49.95, 3.24], "zoom": 11, "category": "west", "victor": "allies",
+    "summary": "British, Australian and American troops attack the strongest part of the German defences. The British 46th Division crosses the St-Quentin Canal at Riqueval, some men wearing lifebelts from cross-Channel ferries.",
+    "significance": "The same day Ludendorff and Hindenburg told the Kaiser that Germany must seek an armistice.",
+    "wiki": "Battle of St Quentin Canal"
+  },
+  {
+    "id": "flu", "date": "1918-10", "title": "The flu pandemic", "place": "Brest, France, and around the world",
+    "coords": [48.3904, -4.4861], "zoom": 6, "category": "home", "deaths": 25000000,
+    "stat": "Estimates: 25 to 50 million deaths worldwide",
+    "summary": "A new and deadlier wave of influenza appears almost at once in late August 1918 in Brest, in Freetown in Sierra Leone and in Boston. Unusually, it kills healthy young adults. October 1918 is its worst month.",
+    "significance": "The pandemic killed more people than the war. Wartime censorship hid it, so neutral Spain's newspapers reported it first, and it became known as Spanish flu.",
+    "wiki": "Spanish flu"
+  },
+  {
+    "id": "vittorio-veneto", "date": "1918-10-24", "title": "Vittorio Veneto", "place": "Vittorio Veneto, on the Piave",
+    "coords": [45.98, 12.3], "zoom": 9, "category": "south", "victor": "allies",
+    "summary": "Italian, British and French troops attack across the Piave. The Austro-Hungarian army, whose soldiers are leaving for their new national states, falls apart.",
+    "significance": "Austria-Hungary signed an armistice at Villa Giusti on 3 November. Italy took several hundred thousand prisoners.",
+    "wiki": "Battle of Vittorio Veneto"
+  },
+  {
+    "id": "empire-breaks-up", "date": "1918-10-28", "title": "Austria-Hungary falls apart", "place": "Prague",
+    "coords": [50.0755, 14.4378], "zoom": 6, "category": "politics",
+    "summary": "Czechoslovakia declares independence in Prague. In the next few days a South Slav state is proclaimed in Zagreb, Hungary breaks away, and Poles take over western Galicia. Emperor Karl gives up power on 11 November.",
+    "significance": "The Habsburg monarchy, centuries old, vanished in a fortnight. Its peoples now had states of their own, but with large minorities inside the new borders.",
+    "wiki": "Dissolution of Austria-Hungary"
+  },
+  {
+    "id": "revolution-germany", "date": "1918-11-09", "title": "Revolution in Germany", "place": "Berlin",
+    "coords": [52.5186, 13.3762], "zoom": 7, "category": "politics",
+    "summary": "Sailors at Kiel mutiny rather than sail on a last, hopeless sortie, and councils of workers and soldiers spread across Germany. On 9 November a republic is proclaimed in Berlin, and Kaiser Wilhelm II flees to the Netherlands.",
+    "significance": "The generals who had asked for an armistice later blamed defeat on a 'stab in the back' by civilians at home. The Nazis made use of the myth.",
+    "wiki": "German revolution of 1918–1919"
+  },
+  {
+    "id": "armistice", "date": "1918-11-11", "title": "The Armistice", "place": "Forest of Compiègne",
+    "coords": [49.4275, 2.9067], "zoom": 13, "category": "politics", "deaths": 2738, "ambience": "quiet",
+    "stat": "About 2,700 men killed on the last morning",
+    "summary": "In a railway carriage in the forest of Compiègne, German delegates sign the armistice at about 5 am. The guns fall silent at 11 o'clock. Some units go on attacking until the last minute.",
+    "significance": "Germany had to hand over its heavy weapons and its fleet, and pull back behind the Rhine. About ten million soldiers had died in the war.",
+    "wiki": "Armistice of 11 November 1918"
+  },
+  {
+    "id": "versailles", "date": "1919-06-28", "title": "The Treaty of Versailles", "place": "Hall of Mirrors, Versailles",
+    "coords": [48.8049, 2.1204], "zoom": 14, "category": "politics",
+    "summary": "Five years to the day after Sarajevo, Germany signs the peace treaty in the Hall of Mirrors. It loses Alsace-Lorraine, land to Poland and all its colonies. Its army is cut to 100,000 men, and it must accept blame for the war and pay reparations.",
+    "significance": "Germans of every party called it a dictated peace. The peace conference, which opened in Paris in January, also set up the League of Nations.",
+    "wiki": "Treaty of Versailles"
+  },
+  {
+    "id": "new-map", "date": "1919-09-10", "title": "A new map of Europe", "place": "Central and eastern Europe",
+    "coords": [49.0, 19.0], "zoom": 5, "category": "politics",
+    "summary": "The Treaty of Saint-Germain with Austria confirms the end of the Habsburg empire. Poland, Czechoslovakia, the Kingdom of Serbs, Croats and Slovenes, Finland and the Baltic states now stand between Germany and Russia. Treaties with Bulgaria later in 1919, and with Hungary and the Ottoman Empire in 1920, complete the settlement.",
+    "significance": "The new borders followed nationality where the victors chose, and strategy where they did not. Millions of Germans and Hungarians found themselves minorities in new states.",
+    "wiki": "Treaty of Saint-Germain-en-Laye (1919)"
+  }
+]

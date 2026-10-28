@@ -1,0 +1,2945 @@
+{
+ "western-front-1914": {
+  "title": "The Western Front, August – November 1914",
+  "note": "Schematic. Armies are shown as single blocks; positions and dates are simplified. Day 0 is 4 August 1914.",
+  "duration": 100,
+  "unitLabel": "Day",
+  "playSeconds": 64,
+  "view": {
+   "bounds": [
+    [
+     48.2,
+     1.0
+    ],
+    [
+     51.5,
+     7.6
+    ]
+   ]
+  },
+  "cameras": [
+   {
+    "t": 0,
+    "bounds": [
+     [
+      49.4,
+      2.8
+     ],
+     [
+      51.4,
+      7.2
+     ]
+    ]
+   },
+   {
+    "t": 19,
+    "bounds": [
+     [
+      48.4,
+      1.6
+     ],
+     [
+      51.0,
+      6.8
+     ]
+    ]
+   },
+   {
+    "t": 28,
+    "bounds": [
+     [
+      48.5,
+      2.0
+     ],
+     [
+      49.8,
+      5.4
+     ]
+    ]
+   },
+   {
+    "t": 42,
+    "bounds": [
+     [
+      48.6,
+      1.4
+     ],
+     [
+      51.0,
+      5.8
+     ]
+    ]
+   },
+   {
+    "t": 58,
+    "bounds": [
+     [
+      49.7,
+      1.6
+     ],
+     [
+      51.5,
+      5.0
+     ]
+    ]
+   },
+   {
+    "t": 92,
+    "bounds": [
+     [
+      48.2,
+      1.0
+     ],
+     [
+      51.5,
+      7.6
+     ]
+    ]
+   }
+  ],
+  "figures": {
+   "germany": "pickelhaube",
+   "allies": "poilu",
+   "default": "poilu"
+  },
+  "lines": [
+   {
+    "label": "Franco-German border (1871)",
+    "color": "#2f3440",
+    "weight": 2,
+    "dash": "6 6",
+    "labelIndex": 6,
+    "points": [
+     [
+      49.48,
+      5.93
+     ],
+     [
+      49.33,
+      5.97
+     ],
+     [
+      49.15,
+      5.98
+     ],
+     [
+      48.98,
+      6.02
+     ],
+     [
+      48.9,
+      6.2
+     ],
+     [
+      48.8,
+      6.45
+     ],
+     [
+      48.62,
+      6.82
+     ],
+     [
+      48.52,
+      7.1
+     ],
+     [
+      48.35,
+      7.1
+     ],
+     [
+      48.15,
+      7.08
+     ],
+     [
+      47.95,
+      6.95
+     ],
+     [
+      47.8,
+      6.85
+     ]
+    ]
+   }
+  ],
+  "units": [
+   {
+    "id": "g1",
+    "label": "German 1st Army (Kluck)",
+    "side": "germany",
+    "w": 45000,
+    "d": 15000,
+    "trail": true,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.8,
+       6.2
+      ],
+      "angle": 270
+     },
+     {
+      "t": 12,
+      "at": [
+       50.85,
+       5.4
+      ]
+     },
+     {
+      "t": 16,
+      "at": [
+       50.85,
+       4.35
+      ]
+     },
+     {
+      "t": 19,
+      "at": [
+       50.55,
+       3.95
+      ],
+      "angle": 220
+     },
+     {
+      "t": 22,
+      "at": [
+       50.1,
+       3.4
+      ],
+      "angle": 200
+     },
+     {
+      "t": 27,
+      "at": [
+       49.45,
+       2.75
+      ],
+      "angle": 180
+     },
+     {
+      "t": 30,
+      "at": [
+       48.98,
+       3.05
+      ],
+      "angle": 160
+     },
+     {
+      "t": 32,
+      "at": [
+       48.84,
+       3.15
+      ]
+     },
+     {
+      "t": 34,
+      "at": [
+       49.05,
+       2.98
+      ],
+      "angle": 270
+     },
+     {
+      "t": 36,
+      "at": [
+       49.1,
+       3.05
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.48,
+       2.95
+      ],
+      "angle": 250
+     },
+     {
+      "t": 100,
+      "at": [
+       49.48,
+       2.95
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g2",
+    "label": "German 2nd Army (Bülow)",
+    "side": "germany",
+    "w": 40000,
+    "d": 15000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.45,
+       6.2
+      ],
+      "angle": 270
+     },
+     {
+      "t": 12,
+      "at": [
+       50.55,
+       5.35
+      ]
+     },
+     {
+      "t": 17,
+      "at": [
+       50.45,
+       4.85
+      ]
+     },
+     {
+      "t": 19,
+      "at": [
+       50.35,
+       4.45
+      ],
+      "angle": 225
+     },
+     {
+      "t": 25,
+      "at": [
+       49.9,
+       3.65
+      ],
+      "angle": 200
+     },
+     {
+      "t": 30,
+      "at": [
+       49.12,
+       3.45
+      ],
+      "angle": 180
+     },
+     {
+      "t": 32,
+      "at": [
+       48.92,
+       3.6
+      ]
+     },
+     {
+      "t": 36,
+      "at": [
+       49.05,
+       3.72
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.38,
+       3.85
+      ],
+      "angle": 200
+     },
+     {
+      "t": 100,
+      "at": [
+       49.38,
+       3.85
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g3",
+    "label": "German 3rd Army",
+    "side": "germany",
+    "w": 35000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.25,
+       6.15
+      ],
+      "angle": 270
+     },
+     {
+      "t": 18,
+      "at": [
+       50.25,
+       4.95
+      ],
+      "angle": 260
+     },
+     {
+      "t": 25,
+      "at": [
+       49.75,
+       4.4
+      ],
+      "angle": 200
+     },
+     {
+      "t": 32,
+      "at": [
+       48.88,
+       4.2
+      ],
+      "angle": 180
+     },
+     {
+      "t": 36,
+      "at": [
+       48.95,
+       4.25
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.27,
+       4.4
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       49.27,
+       4.4
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g4",
+    "label": "German 4th Army",
+    "side": "germany",
+    "w": 35000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.9,
+       6.1
+      ],
+      "angle": 270
+     },
+     {
+      "t": 18,
+      "at": [
+       49.8,
+       5.4
+      ],
+      "angle": 240
+     },
+     {
+      "t": 26,
+      "at": [
+       49.45,
+       4.85
+      ],
+      "angle": 200
+     },
+     {
+      "t": 32,
+      "at": [
+       48.85,
+       4.7
+      ]
+     },
+     {
+      "t": 36,
+      "at": [
+       48.9,
+       4.75
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.25,
+       4.8
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       49.25,
+       4.8
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g5",
+    "label": "German 5th Army (Crown Prince)",
+    "side": "germany",
+    "w": 35000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.55,
+       6.25
+      ],
+      "angle": 250
+     },
+     {
+      "t": 18,
+      "at": [
+       49.5,
+       5.7
+      ],
+      "angle": 240
+     },
+     {
+      "t": 26,
+      "at": [
+       49.35,
+       5.3
+      ]
+     },
+     {
+      "t": 32,
+      "at": [
+       48.95,
+       5.1
+      ],
+      "angle": 200
+     },
+     {
+      "t": 36,
+      "at": [
+       49.0,
+       5.1
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.3,
+       5.25
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       49.3,
+       5.25
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g6",
+    "label": "German 6th Army",
+    "side": "germany",
+    "w": 45000,
+    "d": 15000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       48.95,
+       6.95
+      ],
+      "angle": 240
+     },
+     {
+      "t": 14,
+      "at": [
+       48.92,
+       6.8
+      ]
+     },
+     {
+      "t": 16,
+      "at": [
+       48.85,
+       6.6
+      ]
+     },
+     {
+      "t": 22,
+      "at": [
+       48.75,
+       6.45
+      ]
+     },
+     {
+      "t": 42,
+      "at": [
+       48.78,
+       6.5
+      ]
+     },
+     {
+      "t": 50,
+      "at": [
+       50.0,
+       2.95
+      ],
+      "angle": 270
+     },
+     {
+      "t": 58,
+      "at": [
+       50.3,
+       2.95
+      ]
+     },
+     {
+      "t": 66,
+      "at": [
+       50.6,
+       3.05
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       50.6,
+       3.05
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g7",
+    "label": "German 7th Army",
+    "side": "germany",
+    "w": 30000,
+    "d": 12000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       48.2,
+       7.6
+      ],
+      "angle": 250
+     },
+     {
+      "t": 16,
+      "at": [
+       48.25,
+       7.25
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       48.3,
+       7.2
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gcav",
+    "label": "German cavalry (Marwitz)",
+    "side": "germany",
+    "w": 15000,
+    "d": 8000,
+    "type": "cavalry-1914",
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.7,
+       6.0
+      ],
+      "angle": 270
+     },
+     {
+      "t": 8,
+      "at": [
+       50.75,
+       5.2
+      ]
+     },
+     {
+      "t": 16,
+      "at": [
+       50.75,
+       4.1
+      ]
+     },
+     {
+      "t": 22,
+      "at": [
+       50.25,
+       3.1
+      ],
+      "angle": 220
+     },
+     {
+      "t": 27,
+      "at": [
+       49.6,
+       2.6
+      ],
+      "angle": 190
+     },
+     {
+      "t": 30,
+      "at": [
+       49.05,
+       2.85
+      ]
+     },
+     {
+      "t": 36,
+      "at": [
+       49.25,
+       2.9
+      ],
+      "angle": 250
+     },
+     {
+      "t": 40,
+      "at": [
+       49.6,
+       2.8
+      ]
+     },
+     {
+      "t": 52,
+      "at": [
+       50.1,
+       2.8
+      ],
+      "angle": 270
+     },
+     {
+      "t": 62,
+      "at": [
+       50.55,
+       2.95
+      ]
+     },
+     {
+      "t": 72,
+      "at": [
+       50.75,
+       2.85
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       50.75,
+       2.85
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gsiege",
+    "label": "Siege howitzers",
+    "side": "germany",
+    "w": 7000,
+    "d": 5000,
+    "type": "gun-1914",
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.7,
+       5.75
+      ],
+      "angle": 270,
+      "strength": 0
+     },
+     {
+      "t": 5,
+      "strength": 0
+     },
+     {
+      "t": 6,
+      "strength": 1
+     },
+     {
+      "t": 12,
+      "at": [
+       50.65,
+       5.7
+      ]
+     },
+     {
+      "t": 13,
+      "at": [
+       50.52,
+       4.98
+      ]
+     },
+     {
+      "t": 21
+     },
+     {
+      "t": 23,
+      "at": [
+       50.32,
+       4.08
+      ]
+     },
+     {
+      "t": 34
+     },
+     {
+      "t": 35,
+      "strength": 0
+     },
+     {
+      "t": 54,
+      "at": [
+       51.12,
+       4.55
+      ],
+      "strength": 0
+     },
+     {
+      "t": 55,
+      "strength": 1
+     },
+     {
+      "t": 67
+     },
+     {
+      "t": 68,
+      "strength": 0
+     }
+    ]
+   },
+   {
+    "id": "greserve",
+    "label": "Reserve corps (new 4th Army)",
+    "side": "germany",
+    "w": 35000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       51.05,
+       3.75
+      ],
+      "angle": 270,
+      "strength": 0
+     },
+     {
+      "t": 70,
+      "strength": 0
+     },
+     {
+      "t": 72,
+      "strength": 1
+     },
+     {
+      "t": 77,
+      "at": [
+       50.95,
+       3.08
+      ]
+     },
+     {
+      "t": 88,
+      "at": [
+       50.92,
+       2.98
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       50.92,
+       2.98
+      ]
+     }
+    ]
+   },
+   {
+    "id": "belgians",
+    "label": "Belgian army",
+    "side": "allies",
+    "w": 35000,
+    "d": 12000,
+    "type": "soldier",
+    "color": "#c9a227",
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.85,
+       4.85
+      ],
+      "angle": 90
+     },
+     {
+      "t": 12,
+      "at": [
+       50.9,
+       4.7
+      ]
+     },
+     {
+      "t": 16,
+      "at": [
+       51.15,
+       4.45
+      ],
+      "angle": 120
+     },
+     {
+      "t": 62,
+      "at": [
+       51.15,
+       4.45
+      ]
+     },
+     {
+      "t": 66,
+      "at": [
+       51.12,
+       3.7
+      ],
+      "angle": 90
+     },
+     {
+      "t": 72,
+      "at": [
+       51.08,
+       2.8
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       51.08,
+       2.8
+      ]
+     }
+    ]
+   },
+   {
+    "id": "bef",
+    "label": "British Expeditionary Force",
+    "side": "allies",
+    "w": 25000,
+    "d": 12000,
+    "type": "tommy",
+    "color": "#5b8fe0",
+    "trail": true,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.25,
+       3.95
+      ],
+      "angle": 20,
+      "strength": 0
+     },
+     {
+      "t": 14,
+      "strength": 0
+     },
+     {
+      "t": 16,
+      "strength": 1
+     },
+     {
+      "t": 19,
+      "at": [
+       50.45,
+       3.95
+      ]
+     },
+     {
+      "t": 22,
+      "at": [
+       50.1,
+       3.55
+      ],
+      "angle": 30
+     },
+     {
+      "t": 27,
+      "at": [
+       49.3,
+       2.8
+      ]
+     },
+     {
+      "t": 30,
+      "at": [
+       48.8,
+       2.95
+      ]
+     },
+     {
+      "t": 33,
+      "at": [
+       48.86,
+       3.15
+      ],
+      "angle": 20
+     },
+     {
+      "t": 36,
+      "at": [
+       49.0,
+       3.3
+      ],
+      "angle": 10
+     },
+     {
+      "t": 40,
+      "at": [
+       49.38,
+       3.55
+      ]
+     },
+     {
+      "t": 56,
+      "at": [
+       49.38,
+       3.55
+      ]
+     },
+     {
+      "t": 64,
+      "at": [
+       50.7,
+       2.55
+      ],
+      "angle": 90
+     },
+     {
+      "t": 72,
+      "at": [
+       50.68,
+       2.82
+      ]
+     },
+     {
+      "t": 77,
+      "at": [
+       50.85,
+       2.88
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       50.85,
+       2.88
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f5",
+    "label": "French 5th Army (Lanrezac)",
+    "side": "allies",
+    "w": 40000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.75,
+       4.55
+      ],
+      "angle": 0
+     },
+     {
+      "t": 16,
+      "at": [
+       50.3,
+       4.5
+      ]
+     },
+     {
+      "t": 19,
+      "at": [
+       50.3,
+       4.45
+      ]
+     },
+     {
+      "t": 25,
+      "at": [
+       49.85,
+       3.7
+      ],
+      "angle": 20
+     },
+     {
+      "t": 30,
+      "at": [
+       48.78,
+       3.5
+      ],
+      "angle": 0
+     },
+     {
+      "t": 33,
+      "at": [
+       48.82,
+       3.5
+      ]
+     },
+     {
+      "t": 36,
+      "at": [
+       48.92,
+       3.55
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.22,
+       3.92
+      ],
+      "angle": 20
+     },
+     {
+      "t": 100,
+      "at": [
+       49.25,
+       3.95
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f4",
+    "label": "French 4th Army",
+    "side": "allies",
+    "w": 40000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.55,
+       4.95
+      ],
+      "angle": 20
+     },
+     {
+      "t": 18,
+      "at": [
+       49.85,
+       5.35
+      ],
+      "angle": 30
+     },
+     {
+      "t": 22,
+      "at": [
+       49.65,
+       5.0
+      ]
+     },
+     {
+      "t": 32,
+      "at": [
+       48.75,
+       4.62
+      ],
+      "angle": 10
+     },
+     {
+      "t": 36,
+      "at": [
+       48.82,
+       4.65
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.12,
+       4.6
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       49.12,
+       4.6
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f3",
+    "label": "French 3rd Army",
+    "side": "allies",
+    "w": 35000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.2,
+       5.5
+      ],
+      "angle": 40
+     },
+     {
+      "t": 18,
+      "at": [
+       49.45,
+       5.7
+      ]
+     },
+     {
+      "t": 22,
+      "at": [
+       49.25,
+       5.45
+      ]
+     },
+     {
+      "t": 32,
+      "at": [
+       48.92,
+       5.18
+      ],
+      "angle": 330
+     },
+     {
+      "t": 40,
+      "at": [
+       49.15,
+       5.35
+      ],
+      "angle": 20
+     },
+     {
+      "t": 100,
+      "at": [
+       49.15,
+       5.35
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f2",
+    "label": "French 2nd Army (Castelnau)",
+    "side": "allies",
+    "w": 40000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       48.65,
+       6.4
+      ],
+      "angle": 60
+     },
+     {
+      "t": 14,
+      "at": [
+       48.85,
+       6.7
+      ]
+     },
+     {
+      "t": 16,
+      "at": [
+       48.78,
+       6.45
+      ]
+     },
+     {
+      "t": 22,
+      "at": [
+       48.72,
+       6.3
+      ]
+     },
+     {
+      "t": 42,
+      "at": [
+       48.72,
+       6.3
+      ]
+     },
+     {
+      "t": 50,
+      "at": [
+       49.75,
+       2.7
+      ],
+      "angle": 90
+     },
+     {
+      "t": 58,
+      "at": [
+       49.95,
+       2.7
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       49.95,
+       2.7
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f1",
+    "label": "French 1st Army",
+    "side": "allies",
+    "w": 40000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       48.4,
+       6.75
+      ],
+      "angle": 60
+     },
+     {
+      "t": 14,
+      "at": [
+       48.55,
+       7.05
+      ]
+     },
+     {
+      "t": 17,
+      "at": [
+       48.45,
+       6.75
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       48.45,
+       6.75
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f6",
+    "label": "French 6th Army (Maunoury)",
+    "side": "allies",
+    "w": 35000,
+    "d": 14000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.85,
+       2.4
+      ],
+      "angle": 90,
+      "strength": 0
+     },
+     {
+      "t": 22,
+      "strength": 0
+     },
+     {
+      "t": 25,
+      "strength": 1
+     },
+     {
+      "t": 30,
+      "at": [
+       48.98,
+       2.62
+      ],
+      "angle": 60
+     },
+     {
+      "t": 33,
+      "at": [
+       49.05,
+       2.88
+      ],
+      "angle": 90
+     },
+     {
+      "t": 36,
+      "at": [
+       49.12,
+       3.0
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.45,
+       2.85
+      ],
+      "angle": 20
+     },
+     {
+      "t": 46,
+      "at": [
+       49.6,
+       2.75
+      ],
+      "angle": 70
+     },
+     {
+      "t": 100,
+      "at": [
+       49.6,
+       2.75
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f9",
+    "label": "French 9th Army (Foch)",
+    "side": "allies",
+    "w": 30000,
+    "d": 12000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.2,
+       4.1
+      ],
+      "angle": 20,
+      "strength": 0
+     },
+     {
+      "t": 25,
+      "strength": 0
+     },
+     {
+      "t": 27,
+      "strength": 1
+     },
+     {
+      "t": 32,
+      "at": [
+       48.8,
+       3.95
+      ],
+      "angle": 10
+     },
+     {
+      "t": 36,
+      "at": [
+       48.86,
+       4.0
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.2,
+       4.15
+      ],
+      "angle": 20
+     },
+     {
+      "t": 100,
+      "at": [
+       49.2,
+       4.15
+      ]
+     }
+    ]
+   },
+   {
+    "id": "f10",
+    "label": "French 10th Army",
+    "side": "allies",
+    "w": 30000,
+    "d": 12000,
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       50.25,
+       2.62
+      ],
+      "angle": 90,
+      "strength": 0
+     },
+     {
+      "t": 56,
+      "strength": 0
+     },
+     {
+      "t": 58,
+      "strength": 1
+     },
+     {
+      "t": 62,
+      "at": [
+       50.3,
+       2.72
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       50.3,
+       2.72
+      ]
+     }
+    ]
+   },
+   {
+    "id": "fcav",
+    "label": "French cavalry (Sordet)",
+    "side": "allies",
+    "w": 15000,
+    "d": 8000,
+    "type": "cavalry-1914",
+    "keyframes": [
+     {
+      "t": 0,
+      "at": [
+       49.7,
+       4.9
+      ],
+      "angle": 30
+     },
+     {
+      "t": 8,
+      "at": [
+       50.4,
+       5.3
+      ]
+     },
+     {
+      "t": 16,
+      "at": [
+       50.45,
+       4.3
+      ]
+     },
+     {
+      "t": 22,
+      "at": [
+       49.95,
+       3.1
+      ],
+      "angle": 200
+     },
+     {
+      "t": 30,
+      "at": [
+       48.95,
+       2.55
+      ]
+     },
+     {
+      "t": 40,
+      "at": [
+       49.4,
+       2.7
+      ],
+      "angle": 30
+     },
+     {
+      "t": 52,
+      "at": [
+       50.1,
+       2.6
+      ],
+      "angle": 90
+     },
+     {
+      "t": 62,
+      "at": [
+       50.55,
+       2.7
+      ]
+     },
+     {
+      "t": 100,
+      "at": [
+       50.55,
+       2.7
+      ]
+     }
+    ]
+   }
+  ],
+  "markers": [
+   {
+    "t": 0,
+    "at": [
+     48.857,
+     2.352
+    ],
+    "label": "Paris",
+    "color": "#2f6fd0"
+   },
+   {
+    "t": 1,
+    "until": 13,
+    "at": [
+     50.63,
+     5.57
+    ],
+    "label": "Liège forts besieged",
+    "color": "#e8603c",
+    "pulse": true
+   },
+   {
+    "t": 16,
+    "until": 22,
+    "at": [
+     50.85,
+     4.35
+    ],
+    "label": "20 Aug: Brussels occupied",
+    "color": "#6a7182"
+   },
+   {
+    "t": 18,
+    "until": 24,
+    "at": [
+     49.72,
+     5.45
+    ],
+    "label": "22 Aug: Battle of the Frontiers",
+    "color": "#e8603c",
+    "pulse": true
+   },
+   {
+    "t": 19,
+    "until": 24,
+    "at": [
+     50.454,
+     3.956
+    ],
+    "label": "23 Aug: Mons",
+    "color": "#e8603c"
+   },
+   {
+    "t": 21,
+    "until": 27,
+    "at": [
+     50.88,
+     4.7
+    ],
+    "label": "25 Aug: Leuven burned",
+    "color": "#7a1f1f"
+   },
+   {
+    "t": 22,
+    "until": 27,
+    "at": [
+     50.1,
+     3.55
+    ],
+    "label": "26 Aug: Le Cateau",
+    "color": "#e8603c"
+   },
+   {
+    "t": 33,
+    "until": 38,
+    "at": [
+     49.13,
+     2.8
+    ],
+    "label": "7 Sep: Paris taxis bring troops",
+    "color": "#2f6fd0"
+   },
+   {
+    "t": 36,
+    "until": 42,
+    "at": [
+     48.95,
+     3.45
+    ],
+    "label": "9 Sep: German retreat ordered",
+    "color": "#2f6fd0",
+    "pulse": true
+   },
+   {
+    "t": 67,
+    "until": 74,
+    "at": [
+     51.22,
+     4.4
+    ],
+    "label": "10 Oct: Antwerp falls",
+    "color": "#6a7182"
+   },
+   {
+    "t": 77,
+    "until": 100,
+    "at": [
+     50.85,
+     2.885
+    ],
+    "label": "Ypres",
+    "color": "#e8603c",
+    "pulse": true
+   },
+   {
+    "t": 84,
+    "until": 100,
+    "at": [
+     51.1,
+     2.78
+    ],
+    "label": "Yser plain flooded",
+    "color": "#2a5f8f"
+   }
+  ],
+  "captions": [
+   {
+    "t": 0,
+    "text": "4 August 1914. Germany's armies march west. The Schlieffen Plan sends a huge right wing through Belgium to sweep round Paris, while the left holds in Lorraine."
+   },
+   {
+    "t": 2,
+    "text": "The forts of Liège hold out for twelve days, until huge German and Austrian siege howitzers smash them. The Belgian army falls back to Antwerp."
+   },
+   {
+    "t": 14,
+    "text": "The French attack too, as their Plan XVII demands: into Lorraine and the Ardennes. Machine guns and artillery cut them down. On 22 August alone about 27,000 French soldiers are killed."
+   },
+   {
+    "t": 19,
+    "text": "23 August: the British fight at Mons, then retreat beside the French Fifth Army. For two weeks the Allies fall back towards Paris."
+   },
+   {
+    "t": 27,
+    "text": "German armies close on Paris. But to keep touch with its neighbour, Kluck's First Army swings east of the city instead of round it."
+   },
+   {
+    "t": 33,
+    "text": "6 September. Joffre strikes. The new French Sixth Army hits Kluck's flank on the Ourcq. The British and the French Fifth Army push into a gap opening between the German armies."
+   },
+   {
+    "t": 36,
+    "text": "9 September. Fearing a breakthrough, the Germans order a retreat. They dig in on the heights above the Aisne, and the Allies cannot shift them."
+   },
+   {
+    "t": 44,
+    "text": "Now each side tries to get round the other's northern flank. Armies are moved north by rail, and the race to the sea leapfrogs through Picardy and Artois."
+   },
+   {
+    "t": 62,
+    "text": "Antwerp falls on 10 October. The Belgian army escapes along the coast to the Yser. The British move north to Flanders."
+   },
+   {
+    "t": 76,
+    "text": "From 19 October Germany throws its last fresh corps at Ypres. The Belgians open the sluices and flood the Yser plain. The line holds."
+   },
+   {
+    "t": 94,
+    "text": "By November a line of trenches runs some 700 kilometres from the North Sea to Switzerland. It will barely move for three and a half years."
+   }
+  ]
+ },
+ "somme-first-day": {
+  "title": "The first day of the Somme, 1 July 1916",
+  "note": "Schematic. Corps and divisions are shown as single blocks; positions and times are approximate. Hour 1 starts at 6 am.",
+  "duration": 18,
+  "unitLabel": "Hour",
+  "playSeconds": 56,
+  "frame": {
+   "origin": [
+    50.03,
+    2.7
+   ]
+  },
+  "view": {
+   "xy": [
+    [
+     -6500,
+     -11500
+    ],
+    [
+     12500,
+     13000
+    ]
+   ]
+  },
+  "dimMap": true,
+  "cameras": [
+   {
+    "t": 0,
+    "xy": [
+     [
+      -6500,
+      -11500
+     ],
+     [
+      12500,
+      13000
+     ]
+    ]
+   },
+   {
+    "t": 1.2,
+    "xy": [
+     [
+      -6500,
+      -2000
+     ],
+     [
+      2500,
+      10000
+     ]
+    ]
+   },
+   {
+    "t": 4.3,
+    "xy": [
+     [
+      -1500,
+      -9000
+     ],
+     [
+      11500,
+      1500
+     ]
+    ]
+   },
+   {
+    "t": 6,
+    "xy": [
+     [
+      -1000,
+      -11500
+     ],
+     [
+      12500,
+      1500
+     ]
+    ]
+   },
+   {
+    "t": 9,
+    "xy": [
+     [
+      -6500,
+      -11500
+     ],
+     [
+      12500,
+      13000
+     ]
+    ]
+   },
+   {
+    "t": 14.5,
+    "xy": [
+     [
+      -6500,
+      -2000
+     ],
+     [
+      2500,
+      10000
+     ]
+    ]
+   },
+   {
+    "t": 17,
+    "xy": [
+     [
+      -6500,
+      -11500
+     ],
+     [
+      12500,
+      13000
+     ]
+    ]
+   }
+  ],
+  "figures": {
+   "allies": "tommy",
+   "germany": "pickelhaube",
+   "default": "tommy"
+  },
+  "lines": [
+   {
+    "label": "River Ancre",
+    "color": "#5aa9ff",
+    "weight": 3,
+    "labelIndex": 4,
+    "xy": [
+     [
+      2400,
+      7000
+     ],
+     [
+      900,
+      5200
+     ],
+     [
+      -1200,
+      5900
+     ],
+     [
+      -2650,
+      4250
+     ],
+     [
+      -2200,
+      1100
+     ],
+     [
+      -3300,
+      -800
+     ],
+     [
+      -3430,
+      -3340
+     ],
+     [
+      -4500,
+      -5200
+     ]
+    ]
+   },
+   {
+    "label": "River Somme",
+    "color": "#5aa9ff",
+    "weight": 4,
+    "labelIndex": 1,
+    "xy": [
+     [
+      1200,
+      -10000
+     ],
+     [
+      5000,
+      -9300
+     ],
+     [
+      8200,
+      -7600
+     ],
+     [
+      9300,
+      -9500
+     ],
+     [
+      12000,
+      -10500
+     ],
+     [
+      16000,
+      -11000
+     ]
+    ]
+   },
+   {
+    "label": "British and French front line",
+    "color": "#2f6fd0",
+    "weight": 2,
+    "dash": "6 4",
+    "labelIndex": 0,
+    "xy": [
+     [
+      -4300,
+      12500
+     ],
+     [
+      -4300,
+      10500
+     ],
+     [
+      -3500,
+      9000
+     ],
+     [
+      -3500,
+      7500
+     ],
+     [
+      -3800,
+      6200
+     ],
+     [
+      -3600,
+      5300
+     ],
+     [
+      -2700,
+      4300
+     ],
+     [
+      -2300,
+      3600
+     ],
+     [
+      -1900,
+      2600
+     ],
+     [
+      -1500,
+      1500
+     ],
+     [
+      -1000,
+      500
+     ],
+     [
+      -700,
+      -600
+     ],
+     [
+      700,
+      -1500
+     ],
+     [
+      500,
+      -2800
+     ],
+     [
+      600,
+      -3900
+     ],
+     [
+      2000,
+      -4400
+     ],
+     [
+      4000,
+      -4700
+     ],
+     [
+      6000,
+      -4700
+     ],
+     [
+      7200,
+      -5000
+     ],
+     [
+      7900,
+      -6500
+     ],
+     [
+      8300,
+      -8700
+     ],
+     [
+      9200,
+      -10800
+     ],
+     [
+      9300,
+      -12500
+     ]
+    ]
+   },
+   {
+    "label": "German front line",
+    "color": "#2f3440",
+    "weight": 2,
+    "labelIndex": 0,
+    "xy": [
+     [
+      -3900,
+      12500
+     ],
+     [
+      -3800,
+      10500
+     ],
+     [
+      -3100,
+      9000
+     ],
+     [
+      -3150,
+      7500
+     ],
+     [
+      -3450,
+      6200
+     ],
+     [
+      -3250,
+      5300
+     ],
+     [
+      -2350,
+      4400
+     ],
+     [
+      -1900,
+      3700
+     ],
+     [
+      -1500,
+      2600
+     ],
+     [
+      -1100,
+      1500
+     ],
+     [
+      -600,
+      500
+     ],
+     [
+      -300,
+      -400
+     ],
+     [
+      1000,
+      -1200
+     ],
+     [
+      900,
+      -2700
+     ],
+     [
+      900,
+      -3600
+     ],
+     [
+      2100,
+      -4000
+     ],
+     [
+      4000,
+      -4300
+     ],
+     [
+      6000,
+      -4300
+     ],
+     [
+      7400,
+      -4700
+     ],
+     [
+      8200,
+      -6300
+     ],
+     [
+      8600,
+      -8700
+     ],
+     [
+      9600,
+      -10800
+     ],
+     [
+      9700,
+      -12500
+     ]
+    ]
+   }
+  ],
+  "units": [
+   {
+    "id": "vii",
+    "label": "VII Corps (Gommecourt)",
+    "side": "allies",
+    "w": 2800,
+    "d": 500,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -4700,
+       11700
+      ],
+      "angle": 90
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "xy": [
+       -4000,
+       11500
+      ],
+      "strength": 0.8
+     },
+     {
+      "t": 9,
+      "xy": [
+       -3850,
+       11400
+      ],
+      "strength": 0.6
+     },
+     {
+      "t": 13,
+      "xy": [
+       -4600,
+       11650
+      ],
+      "strength": 0.45
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "viii",
+    "label": "VIII Corps (Serre, Beaumont-Hamel)",
+    "side": "allies",
+    "w": 5000,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -4300,
+       7600
+      ],
+      "angle": 95
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "xy": [
+       -3650,
+       7600
+      ],
+      "strength": 0.55
+     },
+     {
+      "t": 3,
+      "xy": [
+       -3800,
+       7600
+      ],
+      "strength": 0.4
+     },
+     {
+      "t": 6,
+      "xy": [
+       -4300,
+       7600
+      ]
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "nfld",
+    "label": "Newfoundland Regiment",
+    "side": "allies",
+    "w": 600,
+    "d": 200,
+    "color": "#7fb0ff",
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -4600,
+       5200
+      ],
+      "angle": 100,
+      "strength": 0
+     },
+     {
+      "t": 3.2,
+      "strength": 0
+     },
+     {
+      "t": 3.3,
+      "strength": 1
+     },
+     {
+      "t": 3.7,
+      "xy": [
+       -3750,
+       5150
+      ],
+      "strength": 0.15
+     },
+     {
+      "t": 4,
+      "xy": [
+       -3850,
+       5150
+      ],
+      "strength": 0.1
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "ulster",
+    "label": "36th (Ulster) Division",
+    "side": "allies",
+    "w": 1600,
+    "d": 500,
+    "trail": true,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -2900,
+       3500
+      ],
+      "angle": 100
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "xy": [
+       -1600,
+       3450
+      ],
+      "strength": 0.9
+     },
+     {
+      "t": 4,
+      "xy": [
+       -800,
+       3700
+      ],
+      "strength": 0.7
+     },
+     {
+      "t": 8,
+      "xy": [
+       -1450,
+       3500
+      ],
+      "strength": 0.55
+     },
+     {
+      "t": 15,
+      "xy": [
+       -1550,
+       3450
+      ],
+      "strength": 0.5
+     },
+     {
+      "t": 16.5,
+      "xy": [
+       -2900,
+       3500
+      ],
+      "strength": 0.4
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "32nd",
+    "label": "32nd Division (Thiepval)",
+    "side": "allies",
+    "w": 1800,
+    "d": 500,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -2300,
+       1700
+      ],
+      "angle": 90
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2.2,
+      "xy": [
+       -1500,
+       1600
+      ],
+      "strength": 0.6
+     },
+     {
+      "t": 4,
+      "xy": [
+       -1750,
+       1500
+      ],
+      "strength": 0.45
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "iii",
+    "label": "III Corps (Ovillers, La Boisselle)",
+    "side": "allies",
+    "w": 3200,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -1400,
+       -1400
+      ],
+      "angle": 70
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "xy": [
+       -250,
+       -950
+      ],
+      "strength": 0.5
+     },
+     {
+      "t": 3,
+      "xy": [
+       -800,
+       -1200
+      ],
+      "strength": 0.35
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "xv",
+    "label": "XV Corps (Fricourt, Mametz)",
+    "side": "allies",
+    "w": 3500,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       1600,
+       -4900
+      ],
+      "angle": 20
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 3,
+      "xy": [
+       2200,
+       -4000
+      ],
+      "strength": 0.8
+     },
+     {
+      "t": 10,
+      "xy": [
+       2600,
+       -3500
+      ],
+      "strength": 0.7
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "xiii",
+    "label": "XIII Corps (Montauban)",
+    "side": "allies",
+    "w": 3000,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       5200,
+       -5300
+      ],
+      "angle": 0
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 3,
+      "xy": [
+       5400,
+       -4000
+      ],
+      "strength": 0.9
+     },
+     {
+      "t": 4.5,
+      "xy": [
+       5700,
+       -2900
+      ],
+      "strength": 0.85
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "fr-xx",
+    "label": "French XX Corps",
+    "side": "allies",
+    "w": 2500,
+    "d": 600,
+    "type": "soldier",
+    "color": "#4f86c6",
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       7700,
+       -7000
+      ],
+      "angle": 70
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 3,
+      "xy": [
+       8700,
+       -6500
+      ],
+      "strength": 0.95
+     },
+     {
+      "t": 6,
+      "xy": [
+       9300,
+       -6200
+      ],
+      "strength": 0.9
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-2gr",
+    "label": "2nd Guard Reserve Division",
+    "side": "germany",
+    "w": 2800,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -3400,
+       11900
+      ],
+      "angle": 270
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "xy": [
+       -3500,
+       11800
+      ],
+      "strength": 0.9
+     },
+     {
+      "t": 13,
+      "xy": [
+       -3400,
+       11900
+      ],
+      "strength": 0.75
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-52",
+    "label": "52nd Division (Serre)",
+    "side": "germany",
+    "w": 2000,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -2600,
+       8800
+      ],
+      "angle": 275
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "strength": 0.9
+     },
+     {
+      "t": 6,
+      "strength": 0.85
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-26bh",
+    "label": "26th Reserve Division (Beaumont-Hamel)",
+    "side": "germany",
+    "w": 2800,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -2850,
+       6000
+      ],
+      "angle": 280
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "strength": 0.85
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-26th",
+    "label": "26th Reserve Division (Thiepval)",
+    "side": "germany",
+    "w": 2800,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       -1000,
+       2600
+      ],
+      "angle": 280
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "xy": [
+       -800,
+       2700
+      ],
+      "strength": 0.7
+     },
+     {
+      "t": 4,
+      "xy": [
+       -450,
+       2900
+      ],
+      "strength": 0.6
+     },
+     {
+      "t": 15,
+      "xy": [
+       -1000,
+       2700
+      ],
+      "strength": 0.6
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-ov",
+    "label": "Reserve regiments (Ovillers, La Boisselle)",
+    "side": "germany",
+    "w": 3000,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       350,
+       -650
+      ],
+      "angle": 250
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "strength": 0.8
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-28",
+    "label": "28th Reserve Division (Fricourt, Mametz)",
+    "side": "germany",
+    "w": 3500,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       2100,
+       -3300
+      ],
+      "angle": 200
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 3,
+      "xy": [
+       2400,
+       -2850
+      ],
+      "strength": 0.6
+     },
+     {
+      "t": 10,
+      "xy": [
+       2800,
+       -2350
+      ],
+      "strength": 0.45
+     },
+     {
+      "t": 18
+     }
+    ]
+   },
+   {
+    "id": "g-12",
+    "label": "12th Division (Montauban)",
+    "side": "germany",
+    "w": 3000,
+    "d": 600,
+    "keyframes": [
+     {
+      "t": 0,
+      "xy": [
+       5600,
+       -3700
+      ],
+      "angle": 180
+     },
+     {
+      "t": 1.5
+     },
+     {
+      "t": 2,
+      "strength": 0.8
+     },
+     {
+      "t": 4.5,
+      "xy": [
+       5850,
+       -1600
+      ],
+      "strength": 0.35
+     },
+     {
+      "t": 18
+     }
+    ]
+   }
+  ],
+  "markers": [
+   {
+    "t": 0,
+    "xy": [
+     -3430,
+     -3340
+    ],
+    "label": "Albert",
+    "color": "#2f6fd0"
+   },
+   {
+    "t": 0,
+    "xy": [
+     -1000,
+     2700
+    ],
+    "label": "Thiepval",
+    "color": "#555555"
+   },
+   {
+    "t": 1.33,
+    "until": 3,
+    "xy": [
+     -3500,
+     5900
+    ],
+    "label": "7.20: Hawthorn Ridge mine",
+    "color": "#e8603c",
+    "pulse": true
+   },
+   {
+    "t": 1.47,
+    "until": 3.5,
+    "xy": [
+     1180,
+     -1660
+    ],
+    "label": "7.28: Lochnagar mine",
+    "color": "#e8603c",
+    "pulse": true
+   },
+   {
+    "t": 2,
+    "until": 16.5,
+    "xy": [
+     -1430,
+     3560
+    ],
+    "label": "Schwaben Redoubt",
+    "color": "#c98a12"
+   },
+   {
+    "t": 3.25,
+    "until": 6,
+    "xy": [
+     -4100,
+     5000
+    ],
+    "label": "9.15: Newfoundland Regiment",
+    "color": "#7a1f1f",
+    "pulse": true
+   },
+   {
+    "t": 4.5,
+    "until": 18,
+    "xy": [
+     6080,
+     -2670
+    ],
+    "label": "Montauban taken",
+    "color": "#2f6fd0"
+   },
+   {
+    "t": 10,
+    "until": 18,
+    "xy": [
+     3070,
+     -3780
+    ],
+    "label": "Mametz taken",
+    "color": "#2f6fd0"
+   },
+   {
+    "t": 4,
+    "until": 18,
+    "xy": [
+     10500,
+     -10800
+    ],
+    "label": "French gains south of the Somme",
+    "color": "#4f86c6"
+   }
+  ],
+  "captions": [
+   {
+    "t": 0,
+    "text": "1 July 1916, 6 am. For a week some 1,500 British guns have fired over a million and a half shells at the German lines. The last hour is the heaviest."
+   },
+   {
+    "t": 1.33,
+    "text": "7.20 am. A huge mine explodes under Hawthorn Ridge, near Beaumont-Hamel. It warns the Germans that the attack is coming."
+   },
+   {
+    "t": 1.47,
+    "text": "7.28 am. More mines go up, the biggest at La Boisselle. It leaves the Lochnagar crater, still there today."
+   },
+   {
+    "t": 1.5,
+    "text": "7.30 am. Whistles blow. Along 25 kilometres British infantry climb out and cross no man's land in long lines, many at a walk."
+   },
+   {
+    "t": 2,
+    "text": "In the north the German machine gunners come up from deep dugouts in time. At Serre, Beaumont-Hamel and Ovillers whole battalions are cut down in no man's land."
+   },
+   {
+    "t": 3.25,
+    "text": "9.15 am. The Newfoundland Regiment attacks at Beaumont-Hamel from the reserve trenches. Of about 800 men, only 68 answer the roll call next day."
+   },
+   {
+    "t": 4,
+    "text": "At Thiepval the 36th (Ulster) Division storms the Schwaben Redoubt and pushes on towards the German second line. With no one beside it, it is shelled from three sides."
+   },
+   {
+    "t": 4.5,
+    "text": "In the south it goes better. Next to the French, the 18th and 30th Divisions take Montauban by late morning. Mametz falls in the afternoon."
+   },
+   {
+    "t": 6,
+    "text": "The French, with far more heavy guns per kilometre, take all their objectives on both banks of the Somme."
+   },
+   {
+    "t": 9,
+    "text": "At Gommecourt, a diversion, the 56th Division gets into the German lines but is driven out by evening."
+   },
+   {
+    "t": 15,
+    "text": "After dark the Ulstermen, out of bombs and ammunition, are forced back from the Schwaben Redoubt."
+   },
+   {
+    "t": 17,
+    "text": "By midnight the British have 57,470 casualties, 19,240 of them dead. The battle goes on for four and a half months."
+   }
+  ]
+ }
+}

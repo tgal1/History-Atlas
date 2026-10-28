@@ -21,6 +21,11 @@ Switch stories with the picker in the top-left, or `?story=punic-wars`, `?story=
 **City plans.** Zoom into Tenochtitlan, Rome or Carthage (or press *Explore the city* on an event there) and the map turns into a drawn plan of the city at that date: lakes, canals, causeways and bridges, walls, temples, palaces, markets, hills and street blocks. Click anything for a card with a description and a gallery of reconstructions (photos of museum models such as Gismondi's model of imperial Rome, the Tenochtitlan models at the Templo Mayor and the Carthage museum's harbour model, plus historic maps), viewable full screen with credits. The city guide in the panel lists the landmarks. The *Then ⟷ Today* slider blends the ancient plan with modern satellite imagery. Scrub the timeline and the city changes: the Colosseum appears in AD 80, Tenochtitlan's bridges are pulled up in June 1520, Carthage burns in 146 BC and a Roman grid rises on its ruins.
 
 Switch stories with the picker in the top-left, or `?story=punic-wars`, `?story=rome`, `?story=aztecs`, `?story=ww2-europe` `?story=american-revolution` or `?story=crusades` in the URL. Events shared between stories link across (Cannae in the Rome story opens the full battle in Rome v Carthage).
+| **The First World War**, 1914–1919 | 69 | The Western Front in 1914, from the Schlieffen Plan to the race to the sea; the first day of the Somme |
+
+**City plans.** Zoom into Tenochtitlan, Rome or Carthage (or press *Explore the city* on an event there) and the map turns into a drawn plan of the city at that date: lakes, canals, causeways and bridges, walls, temples, palaces, markets, hills and street blocks. Click anything for a card with a description and a gallery of reconstructions (photos of museum models such as Gismondi's model of imperial Rome, the Tenochtitlan models at the Templo Mayor and the Carthage museum's harbour model, plus historic maps), viewable full screen with credits. The city guide in the panel lists the landmarks. The *Then ⟷ Today* slider blends the ancient plan with modern satellite imagery. Scrub the timeline and the city changes: the Colosseum appears in AD 80, Tenochtitlan's bridges are pulled up in June 1520, Carthage burns in 146 BC and a Roman grid rises on its ruins.
+
+Switch stories with the picker in the top-left, or `?story=punic-wars`, `?story=rome`, `?story=aztecs`, `?story=ww2-europe`, `?story=american-revolution` or `?story=ww1` in the URL. Events shared between stories link across (Cannae in the Rome story opens the full battle in Rome v Carthage).
 
 ## Run it
 
@@ -112,6 +117,7 @@ history-atlas/
 │       ├── american-revolution/  Same four files for the American Revolution
 │       └── civil-war/         Same four files for the American Civil War
 │       └── crusades/          Same four files for the Crusades
+│       └── ww1/               Same four files for the First World War
 ├── archive/
 │   └── ask-chat/              The 'Ask the guide' chat, removed for now (see its README)
 ├── docs/

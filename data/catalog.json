@@ -63,6 +63,13 @@
       "subtitle": "1095–1291",
       "blurb": "From Clermont to the fall of Acre: the crusader states, Saladin and Hattin, the sack of Constantinople, and the Mamluks who ended it all.",
       "status": "ready"
+    },
+    {
+      "id": "ww1",
+      "title": "The First World War",
+      "subtitle": "1914–1918, and the peace of 1919",
+      "blurb": "Sarajevo, the Marne, Gallipoli, Verdun and the Somme, revolution in Russia, the Hundred Days and the new map of Europe.",
+      "status": "ready"
     }
   ],
   "cities": [
