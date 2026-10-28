@@ -1,6 +1,6 @@
 // Map key: event categories, plus whichever territories are active now.
 
-export function createLegend(el, story) {
+export function createLegend(el, story, { collapsed = false } = {}) {
   const cats = Object.values(story.categories)
     .map((c) => `<li><i class="dot" style="--c:${c.color}"></i>${c.label}</li>`).join('');
   el.innerHTML = `
@@ -11,6 +11,8 @@ export function createLegend(el, story) {
       <p class="fine">Bigger dots, more deaths. Dots fade as time moves on.</p>
     </div>`;
   const toggle = el.querySelector('.legend-toggle');
+  el.classList.toggle('collapsed', collapsed);
+  toggle.setAttribute('aria-expanded', String(!collapsed));
   toggle.addEventListener('click', () => {
     const open = el.classList.toggle('collapsed') === false;
     toggle.setAttribute('aria-expanded', String(open));

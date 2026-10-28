@@ -54,8 +54,10 @@ async function boot() {
   const view = createMapView($('#map'), story, {
     overlayPadding: () => {
       const mapBox = $('#map').getBoundingClientRect();
-      if (mapBox.width < 760) return { topLeft: [10, $('.hud').getBoundingClientRect().bottom - mapBox.top + 10] };
-      const left = Math.max($('.hud').getBoundingClientRect().right, $('#legend').getBoundingClientRect().right);
+      const hud = $('.hud').getBoundingClientRect();
+      // When the title box spans most of the map (phones, tablets), keep clear below it instead of beside it.
+      if (hud.width > mapBox.width * 0.55) return { topLeft: [10, hud.bottom - mapBox.top + 10] };
+      const left = Math.max(hud.right, $('#legend').getBoundingClientRect().right);
       return { topLeft: [left - mapBox.left + 10, 20], bottomRight: [20, 20] };
     },
   });
@@ -67,7 +69,20 @@ async function boot() {
   const cityLayer = createCityLayer(view.map, cities, { onSelect: (feature, city) => showPlace(feature, city) });
   const city3d = createCity3D($('#city3d'), { onSelect: (feature, city) => showPlace(feature, city) });
   const labels = createLabelLayer(view.map, story.mapLabels);
-  const legend = createLegend($('#legend'), story);
+  // On a phone or a short screen the key starts folded, so it doesn't eat the map.
+  const legend = createLegend($('#legend'), story, { collapsed: matchMedia('(max-width: 820px), (max-height: 520px)').matches });
+
+  // Sizes the layout needs: the title box's height (narrow screens put the city
+  // buttons under it) and the city buttons' (the key keeps clear of them).
+  const measureLayout = () => {
+    document.documentElement.style.setProperty('--hud-h', `${$('.hud').offsetHeight}px`);
+    document.documentElement.style.setProperty('--tools-h', `${$('.map-top').offsetHeight}px`);
+  };
+  const layout = new ResizeObserver(measureLayout);
+  layout.observe($('.hud'));
+  layout.observe($('.map-top'));
+  addEventListener('resize', measureLayout);
+  measureLayout();
 
   // ---------- Sound ----------
   // Narration, soundscape and music. Browsers only allow audio after a click,
@@ -147,7 +162,7 @@ async function boot() {
     const mapBox = $('#map').getBoundingClientRect();
     const hud = $('.hud').getBoundingClientRect();
     const bar = $('#scene-bar').getBoundingClientRect();
-    const narrow = mapBox.width < 760;
+    const narrow = hud.width > mapBox.width * 0.55;
     return {
       topLeft: narrow ? [20, hud.bottom - mapBox.top + 10] : [hud.right - mapBox.left + 20, 30],
       bottomRight: [30, mapBox.bottom - bar.top + 20],
@@ -266,6 +281,7 @@ async function boot() {
       shownEra = era;
       $('#era-title').textContent = era.title;
       $('#era-text').textContent = era.text;
+      measureLayout();
     }
   }
 
@@ -314,6 +330,7 @@ async function boot() {
     chip.hidden = !chipCity;
     if (chipCity) chip.innerHTML = `Explore <strong>${chipCity.name}</strong> &rarr;`;
     $('#btn-3d').hidden = !chipCity?.view3d;
+    measureLayout();
   }
   $('#city-chip').addEventListener('click', () => chipCity && openCity(chipCity));
   $('#btn-3d').addEventListener('click', () => (city3d.isOpen ? close3D() : chipCity && open3D(chipCity)));
@@ -331,6 +348,7 @@ async function boot() {
     $('#btn-3d').innerHTML = '&larr; Back to the flat map';
     updateSound();
     $('#then-now').hidden = false;
+    measureLayout();
     city3d.setImagery(Number($('#then-now input').value) / 100);
     city3d.open(city, {
       center: near ? [here.lat, here.lng] : city.center,

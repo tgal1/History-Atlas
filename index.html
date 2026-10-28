@@ -22,31 +22,37 @@
     <p class="hint3d">Drag to move · right-drag or Ctrl+drag to tilt and turn · click a building</p>
   </div>
 
-  <!-- Story title and current chapter -->
-  <header class="hud">
-    <div class="hud-top">
-      <span class="brand">History Atlas</span>
-      <button id="btn-menu" class="menu-btn" aria-haspopup="dialog">&#9776; Stories &amp; cities</button>
-    </div>
-    <h1 id="story-title"></h1>
-    <p id="story-subtitle" class="hud-sub"></p>
-    <div class="hud-era">
-      <span class="eyebrow">Chapter</span>
-      <strong id="era-title"></strong>
-      <p id="era-text"></p>
-    </div>
-  </header>
-
-  <aside id="legend" class="legend"></aside>
-  <div class="city-tools">
-    <button id="city-chip" class="city-chip" hidden></button>
-    <button id="btn-3d" class="city-chip btn-3d" hidden>View in 3D</button>
+  <!-- Left column: story title and chapter on top, the key at the bottom.
+       One column, so the two can never overlap; the key scrolls if space runs out. -->
+  <div class="left-rail">
+    <header class="hud">
+      <div class="hud-top">
+        <span class="brand">History Atlas</span>
+        <button id="btn-menu" class="menu-btn" aria-haspopup="dialog">&#9776; Stories &amp; cities</button>
+      </div>
+      <h1 id="story-title"></h1>
+      <p id="story-subtitle" class="hud-sub"></p>
+      <div class="hud-era">
+        <span class="eyebrow">Chapter</span>
+        <strong id="era-title"></strong>
+        <p id="era-text"></p>
+      </div>
+    </header>
+    <aside id="legend" class="legend"></aside>
   </div>
-  <!-- Blend the drawn city plan with modern satellite imagery -->
-  <div id="then-now" class="then-now" hidden>
-    <span>Then</span>
-    <input type="range" min="0" max="100" value="0" aria-label="Blend the ancient plan with today's satellite view">
-    <span>Today</span>
+
+  <!-- City buttons, centred in the free strip between the title and the panel -->
+  <div class="map-top">
+    <div class="city-tools">
+      <button id="city-chip" class="city-chip" hidden></button>
+      <button id="btn-3d" class="city-chip btn-3d" hidden>View in 3D</button>
+    </div>
+    <!-- Blend the drawn city plan with modern satellite imagery -->
+    <div id="then-now" class="then-now" hidden>
+      <span>Then</span>
+      <input type="range" min="0" max="100" value="0" aria-label="Blend the ancient plan with today's satellite view">
+      <span>Today</span>
+    </div>
   </div>
 
   <!-- Event card, intro and city guide -->

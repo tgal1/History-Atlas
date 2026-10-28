@@ -63,6 +63,8 @@ export function createCity3D(container, { onSelect }) {
       map.addControl(new ml.NavigationControl({ visualizePitch: true }), 'top-right');
       wireEvents();
       await new Promise((resolve) => map.once('load', resolve));
+      // On a phone the credits start folded behind their (i) button, off the small map.
+      if (matchMedia('(max-width: 820px)').matches) container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
     } else {
       map.resize();
       map.jumpTo(startAt);
