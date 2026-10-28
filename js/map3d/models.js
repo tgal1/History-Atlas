@@ -28,6 +28,7 @@ const STYLE = {
   punic: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   mexica: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   colonial: { wall: '#b9785a', hall: '#a8553d', roof: '#4f4a45', flatRoof: false },
+  berlin: { wall: '#d6ccb8', hall: '#cfc7b5', roof: '#6d6861', flatRoof: true },
 };
 
 const DEFAULT_MODEL = {
@@ -860,7 +861,294 @@ const RECIPES = {
       }
     }
   },
+
+  // ---------- Berlin, 1945 to 1990 ----------
+  // The Wall along a line. gen 1: the first wall of 1961, breeze blocks and
+  // slabs topped with barbed wire. gen 75: the 3.6 m concrete segments of the
+  // "Grenzmauer 75", some painted on the western face; "broken" for the
+  // months after November 1989, chipped and with gaps. "hinterland": the
+  // lower wall on the East Berlin side of the death strip.
+  'border-wall'(shape, m, out, ctx) {
+    const r = ctx.r;
+    for (const line of shape.lines) {
+      if (m.gen === 1) {
+        for (const q of strips(line, 0.8)) part(out, q, 0, 2.4, '#a9a59c');
+        for (const q of alongPath(line, 4, 0.15, 1.3)) part(out, q, 2.4, 3, '#5d5853');
+      } else if (m.gen === 'hinterland') {
+        for (const q of strips(line, 0.5)) part(out, q, 0, 2.9, '#d3cec2');
+      } else {
+        for (const q of alongPath(line, 12, 12, 1.2)) {
+          if (m.broken && r() < 0.12) continue;
+          const top = m.broken ? between(r, 2.4, 3.4) : 3.4;
+          part(out, q, 0, top, r() < (m.broken ? 0.55 : 0.3) ? GRAFFITI[Math.floor(r() * GRAFFITI.length)] : '#e2e0d8');
+          part(out, q, top, top + 0.3, '#cfcdc5');
+        }
+      }
+    }
+  },
+
+  // Raked sand between the walls, so footprints show.
+  'death-strip'(shape, m, out) {
+    for (const poly of shape.polys) flat(out, poly, m.colour ?? '#f3eddc');
+  },
+
+  // Floodlights every 30 m beside the patrol road.
+  'strip-lamps'(shape, m, out, ctx) {
+    const off = (ctx.p.widthM ?? 3.5) / 2 + 1;
+    for (const line of shape.lines) {
+      for (const { c, u, v } of stations(line, m.step ?? 30)) {
+        const box = { c: [c[0] + v[0] * off, c[1] + v[1] * off], u, v };
+        part(out, rectIn(box, -0.15, 0.15, -0.15, 0.15), 0, 8.4, '#5b5e60');
+        part(out, rectIn(box, -0.1, 0.1, -1.8, 0), 8.1, 8.4, '#5b5e60');
+        part(out, rectIn(box, -0.35, 0.35, -2.1, -1.4), 7.8, 8.2, '#ece6c4');
+      }
+    }
+  },
+
+  // One watchtower at each point of the line: the slender BT-11 with an
+  // eight-sided cab, or the squat square BT-9.
+  watchtowers(shape, m, out, ctx) {
+    const r = ctx.r;
+    for (const c of shape.points) {
+      const box = { c, u: [1, 0], v: [0, 1] };
+      const tall = r() < 0.6;
+      const [half, shaft, cab] = tall ? [1.1, 9.4, 2] : [2.1, 7.6, 2.4];
+      part(out, rectIn(box, -half, half, -half, half), 0, shaft, '#d9d7cf');
+      const ring = tall ? circle(c, cab, 8, Math.PI / 8) : rectIn(box, -cab, cab, -cab, cab);
+      part(out, ring, shaft, shaft + 0.5, '#d9d7cf');
+      part(out, ring, shaft + 0.5, shaft + 1.7, '#3f474c');
+      part(out, tall ? circle(c, cab + 0.2, 8, Math.PI / 8) : rectIn(box, -cab - 0.2, cab + 0.2, -cab - 0.2, cab + 0.2), shaft + 1.7, shaft + 2.1, '#cfcdc5');
+      part(out, circle(c, 0.4, 8), shaft + 2.1, shaft + 2.7, '#5b5e60');
+    }
+  },
+
+  // The Brandenburg Gate: six pairs of Doric columns on wall piers, an
+  // entablature and attic, the Quadriga on top, and lower wings either side.
+  gate(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 26;
+    const k = H / 26;
+    const { hl, hw } = box;
+    const L = Math.min(hl, 20.5);
+    const stone = '#e2d6bb';
+    for (let i = 0; i < 6; i++) {
+      const s = -L + 1.2 + (i * (2 * L - 2.4)) / 5;
+      part(out, rectIn(box, s - 1.1, s + 1.1, -hw + 1.8, hw - 1.8), 0, 13.5 * k, stone);
+      for (const t of [-hw + 0.9, hw - 0.9]) part(out, circle(at(box, s, t), 0.85, 12), 0, 13.5 * k, C.marble);
+    }
+    part(out, rectIn(box, -L, L, -hw, hw), 13.5 * k, 17 * k, stone);
+    part(out, rectIn(box, -L * 0.78, L * 0.78, -hw + 1, hw - 1), 17 * k, 20 * k, stone);
+    part(out, rectIn(box, -4.5, 4.5, -3.2, 3.2), 20 * k, 21.4 * k, stone);
+    part(out, rectIn(box, -3.6, 3.6, -2.2, 2.2), 21.4 * k, 24.2 * k, '#6f8f7c');
+    part(out, rectIn(box, -0.6, 0.6, -0.6, 0.6), 24.2 * k, H, '#6f8f7c');
+    if (hl > L + 4) {
+      for (const sgn of [-1, 1]) {
+        const [s0, s1] = [sgn * (L + 0.5), sgn * hl].sort((a, b) => a - b);
+        part(out, rectIn(box, s0, s1, -hw * 0.75, hw * 0.75), 0, 11 * k, stone);
+        part(out, rectIn(box, s0, s1, -hw * 0.75, hw * 0.75), 11 * k, 12 * k, '#cfc3a6');
+      }
+    }
+  },
+
+  // The Reichstag: a sandstone block with four corner towers and a west
+  // portico. "ruin": the burnt-out shell of 1945 to 1961, walls broken off
+  // and no roof. Otherwise the plain rebuilding of 1961 to 1973, no dome.
+  reichstag(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const r = ctx.r;
+    const { hl, hw } = box;
+    const wall = m.ruin ? '#a79b84' : '#d7cdb6';
+    const front = hl - 9;
+    const main = rectIn(box, -hl, front, -hw, hw);
+    if (m.ruin) {
+      part(out, [main, rectIn(box, -hl + 3, front - 3, -hw + 3, hw - 3).reverse()], 0, 14, wall);
+      for (const q of alongPath(rectIn(box, -hl + 1.5, front - 1.5, -hw + 1.5, hw - 1.5), 7, 6.6, 3, { closed: true })) {
+        if (r() > 0.1) part(out, q, 14, between(r, 16, 22), wall);
+      }
+      part(out, [rectIn(box, -22, 18, -20, 20), rectIn(box, -20, 16, -18, 18).reverse()], 0, between(r, 15, 19), wall);
+    } else {
+      part(out, main, 0, 22, wall);
+      part(out, main, 22, 23, '#8e8a83');
+    }
+    for (const s of [-hl + 10, front - 10]) {
+      for (const t of [-hw + 10, hw - 10]) part(out, rectIn(box, s - 10, s + 10, t - 10, t + 10), 0, m.ruin ? between(r, 25, 31) : 28, wall);
+    }
+    // Portico: a stair, six columns and a pediment.
+    part(out, rectIn(box, front, hl, -22, 22), 0, 4, wall);
+    columnsBetween(out, box, hl - 2.5, -18, hl - 2.5, 18, 6, 1.1, 4, 20, m.ruin ? '#b3a78f' : C.stone);
+    part(out, rectIn(box, front - 2, hl - 1, -20, 20), 20, 22.5, wall);
+    if (!m.ruin) gable(out, { c: at(box, hl - 5.5, 0), u: box.v, v: [-box.v[1], box.v[0]] }, -20, 20, 4.5, 22.5, 4, wall, 3);
+  },
+
+  // The iron frame of the Reichstag dome, left standing after the 1945
+  // fighting until it was blown up in 1954.
+  'dome-frame'(shape, m, out) {
+    const c = shape.centre;
+    const box = { c, u: [1, 0], v: [0, 1] };
+    const col = '#4a4440';
+    part(out, [rectIn(box, -17, 17, -17, 17), rectIn(box, -15, 15, -15, 15).reverse()], 22, 32, '#a79b84');
+    const ribs = 12;
+    const steps = 7;
+    for (let i = 0; i < ribs; i++) {
+      const a = (i / ribs) * Math.PI * 2;
+      for (let k = 0; k < steps; k++) {
+        const th = ((k + 0.5) / steps) * (Math.PI / 2);
+        const q = [c[0] + 15 * Math.cos(th) * Math.cos(a), c[1] + 15 * Math.cos(th) * Math.sin(a)];
+        part(out, circle(q, 0.35, 4), 32 + 22 * Math.sin((k / steps) * (Math.PI / 2)), 32 + 22 * Math.sin(((k + 1) / steps) * (Math.PI / 2)), col);
+      }
+    }
+    for (const k of [2, 4]) {
+      const th = (k / steps) * (Math.PI / 2);
+      const R = 15 * Math.cos(th);
+      const z = 32 + 22 * Math.sin(th);
+      part(out, [circle(c, R + 0.25, 36), circle(c, R - 0.25, 36).reverse()], z - 0.3, z + 0.3, col);
+    }
+  },
+
+  // A burnt-out palace: the lower storeys stand, the upper walls broken off.
+  shell(shape, m, out, ctx) {
+    const H = m.h ?? 28;
+    const r = ctx.r;
+    const wall = m.colour ?? '#a49883';
+    for (const poly of shape.polys) {
+      part(out, poly, 0, H * 0.5, wall);
+      for (const ring of poly) {
+        for (const q of alongPath(ring, 6, 5.8, 1.6, { closed: true })) if (r() > 0.15) part(out, q, H * 0.5, between(r, H * 0.62, H), wall);
+      }
+    }
+  },
+
+  // The Fernsehturm: a tapering concrete shaft, the steel sphere at 200 m,
+  // the red and white antenna to 368 m, and the pavilion round its foot.
+  'tv-tower'(shape, m, out) {
+    const c = shape.centre;
+    const k = (m.h ?? 368) / 368;
+    const concrete = '#dddbd5';
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      const box = { c, u: [Math.cos(a), Math.sin(a)], v: [-Math.sin(a), Math.cos(a)] };
+      part(out, rectIn(box, 14, 44, -9, 9), 0, 9, '#ebe8e1');
+      part(out, rectIn(box, 14, 44, -9, 9), 9, 10, '#a8a39b');
+    }
+    const n = 12;
+    for (let i = 0; i < n; i++) part(out, circle(c, 16 - (11.4 * i) / n, 24), (248 * k * i) / n, (248 * k * (i + 1)) / n, concrete);
+    const R = 16 * k;
+    const z0 = 213 * k;
+    const layers = 12;
+    for (let i = 0; i < layers; i++) {
+      const za = -R + (2 * R * i) / layers;
+      const zb = za + (2 * R) / layers;
+      const zm = (za + zb) / 2;
+      part(out, circle(c, Math.sqrt(R * R - zm * zm), 28), z0 + za, z0 + zb, zm > -3 * k && zm < 4 * k ? '#3a434a' : '#aab2b7');
+    }
+    part(out, circle(c, 3.2 * k, 16), 248 * k, 280 * k, concrete);
+    for (let i = 0; i < 8; i++) {
+      const b = 280 + i * 11;
+      part(out, circle(c, (1.6 - i * 0.1) * k, 10), b * k, (b + 11) * k, i % 2 ? '#f1efe9' : '#c6402f');
+    }
+  },
+
+  // The Palast der Republik: bronze mirrored glass between white stone ends.
+  palast(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 32;
+    const { hl, hw } = box;
+    const white = '#ecebe5';
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, 4, white);
+    part(out, rectIn(box, -hl + 14, hl - 14, -hw, hw), 4, H - 3, '#8a6b3f');
+    for (const s of [-hl, hl - 14]) part(out, rectIn(box, s, s + 14, -hw, hw), 4, H - 3, white);
+    part(out, rectIn(box, -hl, hl, -hw, hw), H - 3, H, white);
+    part(out, rectIn(box, -hl + 1, hl - 1, -hw + 1, hw - 1), H, H + 0.6, '#cfccc4');
+  },
+
+  // Checkpoint Charlie: the Allied guard hut in the middle of Friedrichstrasse,
+  // the sign facing the border, a flagpole.
+  checkpoint(shape, m, out) {
+    const c = shape.centre;
+    const a = ((m.angle ?? 0) * Math.PI) / 180;
+    const box = { c, u: [Math.cos(a), Math.sin(a)], v: [-Math.sin(a), Math.cos(a)] };
+    part(out, rectIn(box, -2, 2, -1.4, 1.4), 0, 2.6, '#f2f0ea');
+    part(out, rectIn(box, -2.3, 2.3, -1.7, 1.7), 2.6, 2.9, '#c9c6bd');
+    for (const s of [-2.6, 2.6]) part(out, rectIn(box, s - 0.1, s + 0.1, 5.9, 6.1), 0, 4, '#6b6e70');
+    part(out, rectIn(box, -3, 3, 5.95, 6.05), 4, 6.2, '#f6f4ee');
+    part(out, circle(at(box, 3.2, -2.2), 0.12, 6), 0, 8, '#9a9a96');
+    part(out, rectIn({ c: at(box, 3.2, -2.2), u: box.v, v: box.u }, 0, 1.6, -0.03, 0.03), 7, 8, '#b5452f');
+  },
+
+  // A domed church on its own outline: the Berliner Dom, with a central dome
+  // on a drum and four corner towers; with "towers": false, a church under
+  // one dome (St Hedwig's) or a domed tower (the Gendarmenmarkt towers).
+  cathedral(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 98;
+    const stone = m.colour ?? '#cfc3a8';
+    const copper = '#6f8f7c';
+    const base = H * (m.drum ?? 0.33);
+    for (const poly of shape.polys) part(out, poly, 0, base, stone);
+    const R = Math.min(box.hw, box.hl) * (m.towers === false ? 0.85 : 0.42);
+    part(out, circle(box.c, R, 32), base, H * 0.6, stone);
+    dome(out, box.c, R, H * 0.6, H * 0.27, copper, 7);
+    part(out, circle(box.c, R * 0.16, 12), H * 0.87, H * 0.96, stone);
+    part(out, circle(box.c, R * 0.07, 8), H * 0.96, H, '#c9a94a');
+    if (m.towers === false) return;
+    for (const s of [-1, 1]) {
+      for (const t of [-1, 1]) {
+        const c = at(box, s * (box.hl - 7), t * (box.hw - 7));
+        part(out, rectIn({ c, u: box.u, v: box.v }, -6, 6, -6, 6), base, H * 0.55, stone);
+        dome(out, c, 5.5, H * 0.55, H * 0.1, copper, 4);
+      }
+    }
+  },
+
+  // A wooden memorial cross.
+  cross(shape, m, out) {
+    const box = { c: shape.centre, u: [1, 0], v: [0, 1] };
+    part(out, rectIn(box, -0.13, 0.13, -0.13, 0.13), 0, m.h ?? 3.2, C.wood);
+    part(out, rectIn(box, -0.9, 0.9, -0.12, 0.12), 2.2, 2.45, C.wood);
+  },
+
+  // The Soviet War Memorial in the Tiergarten: a curved colonnade, a soldier
+  // on a tall pillar at its centre, and two tanks on plinths in front.
+  'soviet-memorial'(shape, m, out) {
+    const c = shape.centre;
+    const f = bearingVec(m.facing ?? 0);
+    const phi = Math.atan2(f[1], f[0]);
+    const arc = circle(c, 24, 16, phi + Math.PI * 0.6, phi + Math.PI * 1.4);
+    const stone = '#b7ab98';
+    for (const q of alongPath(arc, 5.5, 2.2, 2.2)) part(out, q, 0, 7, stone);
+    for (const q of strips(arc, 2.6)) part(out, q, 7, 8.2, stone);
+    const back = [c[0] - f[0] * 24, c[1] - f[1] * 24];
+    const box = { c: back, u: f, v: [-f[1], f[0]] };
+    part(out, rectIn(box, -1.6, 1.6, -1.6, 1.6), 0, 13, '#a89c88');
+    part(out, circle(back, 1.1, 10), 13, 21, '#5b5a4c');
+    for (const t of [-14, 14]) {
+      const tb = { c: [c[0] + f[0] * 26 + f[1] * t, c[1] + f[1] * 26 - f[0] * t], u: f, v: [-f[1], f[0]] };
+      part(out, rectIn(tb, -3.5, 3.5, -2, 2), 0, 3, stone);
+      part(out, rectIn(tb, -3.2, 3.2, -1.6, 1.6), 3, 5, '#4c5a40');
+      part(out, rectIn(tb, -1.4, 1.2, -1.1, 1.1), 5, 6.1, '#4c5a40');
+      part(out, rectIn(tb, 1.2, 5, -0.15, 0.15), 5.4, 5.7, '#4c5a40');
+    }
+  },
 };
+
+const GRAFFITI = ['#c9b28a', '#9fb3c4', '#c79a8c', '#a9bf9a', '#d8c27a', '#b7a0c0'];
+
+// Points every `step` metres along a path, with the direction there.
+function stations(path, step, offset = step / 2) {
+  const out = [];
+  let carry = offset;
+  for (let i = 1; i < path.length; i++) {
+    const [ax, ay] = path[i - 1];
+    const [bx, by] = path[i];
+    const len = Math.hypot(bx - ax, by - ay);
+    if (len < 1e-6) continue;
+    const u = [(bx - ax) / len, (by - ay) / len];
+    let d = carry;
+    for (; d <= len; d += step) out.push({ c: [ax + u[0] * d, ay + u[1] * d], u, v: [-u[1], u[0]] });
+    carry = d - len;
+  }
+  return out;
+}
 
 function isConvexish(ring) {
   return isConvex(ring) || Math.abs(area(ring)) / (obb(ring).hl * obb(ring).hw * 4) > 0.8;

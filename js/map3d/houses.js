@@ -32,6 +32,8 @@ const SHINGLE = ['#6b5d4f', '#5e5348', '#74675a'];
 const ROMAN_ROOFS = ['#a9532f', '#b5603a', '#9e4b2b', '#ba6a43', '#a55a36', '#b2573a'];
 const FLAT_ROOFS = ['#ddd3bf', '#d6cbb4', '#e2d9c6', '#d9cfba'];
 const WHITE = ['#f0ebe0', '#ece4d4', '#e6dccb', '#f3eee4'];
+const BERLIN_PLASTER = ['#cfc4ae', '#c3b8a4', '#d8ccb4', '#bbb1a1', '#ccbfa5', '#ddd2bb'];
+const BERLIN_ROOFS = ['#8e877d', '#827c73', '#989086'];
 
 // House types: plot size (m2), height, colours, roof thickness, and an
 // optional open courtyard (a hole in the roof) as a share of the plot.
@@ -50,6 +52,13 @@ const TYPES = {
   clapboard: { area: [280, 620], h: (r) => between(r, 5.4, 6.8), walls: ['#e6dfd0', '#d8cdb8', '#c9b89a', '#b9c2c4', '#d9c7a1'], roofs: SHINGLE, rt: 0.05, pitched: true },
   warehouse: { area: [300, 700], h: (r) => Math.floor(between(r, 3, 4.7)) * 3 + 0.6, walls: ['#8f4a35', '#9a5a44', '#7d5a45'], roofs: SLATE, rt: 0.05, pitched: true },
   rubble: { area: [150, 500], rubble: true },
+  // Berlin, 1945 to 1990: soot-grey tenements round courtyards, East Berlin's
+  // concrete panel blocks, plain post-war buildings and bomb sites.
+  altbau: { area: [900, 2600], h: (r) => Math.floor(between(r, 4, 6.4)) * 3.2, walls: BERLIN_PLASTER, roofs: BERLIN_ROOFS, rt: 1.6 },
+  mietskaserne: { area: [1400, 3200], h: (r) => Math.floor(between(r, 4, 6.4)) * 3.2, walls: BERLIN_PLASTER, roofs: BERLIN_ROOFS, rt: 1.6, court: { min: 900, k: 0.5, p: 0.9 } },
+  plattenbau: { area: [900, 2400], h: (r) => (r() < 0.75 ? 6 : 11) * 3.2, walls: ['#e2dfd6', '#d8d5cb', '#ebe7dc', '#d2cfc4', '#dfd8c9'], roofs: ['#a9a59d', '#b3afa6'], rt: 0.6 },
+  postwar: { area: [600, 1600], h: (r) => Math.floor(between(r, 3, 7)) * 3.2, walls: ['#ece8de', '#e2ddd0', '#d8d1c2', '#e8dfcb'], roofs: ['#9a958c', '#a29d93'], rt: 0.6 },
+  gap: { area: [250, 900], rubble: true },
 };
 
 // Share of each type by setting. A fabric can override with "mix".
@@ -74,6 +83,11 @@ const STYLES = {
     hill: { calli: 0.74, noble: 0.12, garden: 0.08, hut: 0.06 },
     outer: { calli: 0.55, hut: 0.22, garden: 0.23 },
   },
+  berlin: {
+    centre: { mietskaserne: 0.72, postwar: 0.1, gap: 0.1, garden: 0.08 },
+    hill: { mietskaserne: 0.72, postwar: 0.1, gap: 0.1, garden: 0.08 },
+    outer: { mietskaserne: 0.5, postwar: 0.2, gap: 0.1, garden: 0.2 },
+  },
 };
 
 export const HOUSE_INFO = {
@@ -89,12 +103,19 @@ export const HOUSE_INFO = {
   georgian: 'A Georgian brick house: two or three storeys, sash windows, a slate or shingle roof. The merchant class built these.',
   clapboard: 'A timber-framed house clad in painted clapboard, the commonest home in a colonial town.',
   warehouse: 'A brick warehouse by the waterfront, where cargoes of rum, molasses, cloth and tea were stored.',
+  altbau: 'A building from before the war, most often a tenement of five storeys round its courtyards, with shops at street level. Many still bore bullet and shell scars from 1945.',
+  mietskaserne: 'A Mietskaserne ("rental barracks"): a five-storey tenement of the late 1800s, its flats packed round a chain of narrow back courtyards.',
+  plattenbau: 'A Plattenbau: flats assembled from factory-made concrete panels. East Berlin rebuilt its bombed centre with them from the 1960s, up to the 25-storey towers of Leipziger Strasse.',
+  postwar: 'A building of the 1950s to 1980s, put up on a plot cleared after the war.',
+  gap: 'A bomb site. In the 1950s and 60s many plots in central Berlin were still rubble or cleared ground.',
 };
 export const HOUSE_LABEL = {
   insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
   'punic-house': 'Courtyard house', 'punic-tall': 'Tall house', workshop: 'Workshops',
   calli: 'Calli (family compound)', noble: "Noble's house", rubble: 'Ruins',
   georgian: 'Georgian brick house', clapboard: 'Clapboard house', warehouse: 'Warehouse',
+  altbau: 'Pre-war building', mietskaserne: 'Mietskaserne (tenement)', plattenbau: 'Plattenbau (panel block)',
+  postwar: 'Post-war building', gap: 'Bomb site',
 };
 
 export async function generateHouses(city, frame) {
@@ -119,6 +140,7 @@ export async function generateHouses(city, frame) {
     const isTown = p.kind === 'town' && f.geometry.type === 'Point' && p.radiusM;
     if (!p.fabric && !isTown) continue;
     const fabric = p.fabric ?? {};
+    if (fabric.footprints) { footprintHouses(f, frame, index, houses, extras); continue; }
     const style = fabric.style ?? city.style3d ?? 'roman';
     const r = rng(hashString(p.id ?? p.name));
     const base = { t0: p.t0, t1: p.t1 };
@@ -286,6 +308,43 @@ function orchard(g, plot, r) {
       part(g, circle(q, between(r, 2, 2.8), 7), 0.8, between(r, 3.6, 4.8), '#7f915a');
     }
   }
+}
+
+// Real building outlines (Berlin, from OpenStreetMap): each polygon of the
+// area is one building of the fabric's "footprints" type, raised to its own
+// height from "h" (one per polygon, in metres). A dated area with "gapFrom"
+// (a decimal year) stands on a bomb site until it is built: rubble until
+// 1955, then cleared ground. Landmarks still clear the ground they stand on;
+// streets and the Wall don't, since these outlines are where buildings stood.
+function footprintHouses(f, frame, index, houses, extras) {
+  const p = f.properties;
+  const { footprints: type, h: heights = [], gapFrom } = p.fabric;
+  const T = TYPES[type];
+  const r = rng(hashString(p.id));
+  const areas = { near: (b) => index.near(b).filter((o) => !o.line) };
+  const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+  polys.forEach((poly, i) => {
+    const rings = poly.map((ring) => open(ring.map(frame.toXY)));
+    const outer = ccw(rings[0]);
+    const life = lifespan(outer, { t0: p.t0, t1: p.t1 }, areas, f);
+    if (life) {
+      houses.push({
+        rings: [outer, ...rings.slice(1)], h: round1(heights[i] ?? T.h(r)),
+        c: T.walls[Math.floor(r() * T.walls.length)], roof: T.roofs[Math.floor(r() * T.roofs.length)], rt: T.rt, type, t0: life[0], t1: life[1],
+      });
+    }
+    if (gapFrom == null || !(p.t0 > gapFrom)) return;
+    const ruins = Math.min(p.t0, 1955.5);
+    extras.flats.push({ rings: [outer], c: '#c8bda6', t0: gapFrom, t1: ruins });
+    if (p.t0 > ruins) extras.flats.push({ rings: [outer], c: '#cbc7a6', t0: ruins, t1: p.t0 });
+    const box = obb(outer);
+    for (let k = Math.min(6, Math.floor(Math.abs(area(outer)) / 160)); k > 0; k--) {
+      const q = at(box, between(r, -box.hl, box.hl), between(r, -box.hw, box.hw));
+      if (!inRing(q, outer)) continue;
+      const l = between(r, 2, 6);
+      extras.parts.push({ rings: [rectIn({ c: q, u: box.u, v: box.v }, -l, l, -l * 0.6, l * 0.6)], b: 0, h: between(r, 0.6, 2.2), c: C.rubble, t0: gapFrom, t1: ruins });
+    }
+  });
 }
 
 // ---------- Layouts ----------
