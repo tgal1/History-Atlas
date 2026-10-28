@@ -85,14 +85,14 @@
     "wiki": "Armistice of 22 June 1940"
   },
   {
-    "id": "battle-of-britain", "date": "1940-07-10", "title": "The Battle of Britain", "place": "Skies over southern England",
+    "id": "battle-of-britain", "ambience": "air-raid", "date": "1940-07-10", "title": "The Battle of Britain", "place": "Skies over southern England",
     "coords": [51.3, 0.5], "zoom": 7, "category": "battle", "victor": "western",
     "summary": "The Luftwaffe tries to destroy the Royal Air Force to prepare an invasion. Radar, a well-organised defence system and Hurricane and Spitfire fighters hold it off through the summer.",
     "significance": "Hitler postponed the invasion indefinitely. Churchill: 'Never was so much owed by so many to so few.'",
     "wiki": "Battle of Britain"
   },
   {
-    "id": "blitz", "date": "1940-09-07", "title": "The Blitz", "place": "London",
+    "id": "blitz", "ambience": "air-raid", "date": "1940-09-07", "title": "The Blitz", "place": "London",
     "coords": [51.51, -0.09], "zoom": 9, "category": "bombing",
     "stat": "Over 40,000 British civilians killed",
     "summary": "Germany switches to bombing London, at first for 57 nights in a row, then Coventry, Liverpool, Glasgow and other cities until May 1941. Londoners shelter in the Underground.",

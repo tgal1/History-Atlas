@@ -23,6 +23,37 @@ body.playing .play-btn { animation: glow 2s infinite; }
 .tl-date { font-family: var(--font-display); font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .tl-options { margin-left: auto; display: flex; align-items: center; gap: 14px; }
 
+/* Sound button and its pop-up */
+.sound-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 13px; font-weight: 600;
+}
+.sound-btn:hover { background: var(--surface-3); }
+.sound-btn.off { color: var(--muted); }
+.sound-panel {
+  position: fixed; z-index: 1200;
+  right: calc(var(--panel-w) + 16px); bottom: calc(var(--tl-h) + 8px);
+  width: 280px;
+  display: grid; gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.sound-panel[hidden] { display: none; }
+body.panel-closed .sound-panel { right: 16px; }
+.sp-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sp-now { font-size: 12px; color: var(--accent); }
+.sp-field { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+.sp-field output { color: var(--text); margin-left: 4px; }
+.sp-field select, .sp-field input { width: 100%; }
+.sp-field input[type="range"] { accent-color: var(--accent); }
+.sp-test { justify-self: start; padding: 6px 12px; font-size: 13px; }
+.sound-panel .fine { margin: 0; }
+
 .tl-track {
   position: relative;
   flex: 1;
@@ -105,4 +136,6 @@ body.playing .play-btn { animation: glow 2s infinite; }
   .tl-date-wrap { min-width: 0; }
   .tl-options .toggle { display: none; }
   .tl-era span { display: none; }
+  .sound-btn span { display: none; }
+  .sound-panel { left: 16px; right: 16px; width: auto; }
 }

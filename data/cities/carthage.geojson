@@ -1,7 +1,7 @@
 {
  "type": "FeatureCollection",
  "city": {
-  "id": "carthage",
+  "id": "carthage", "ambience": "harbour",
   "name": "Carthage",
   "center": [36.851, 10.324],
   "zoom": 14.5,

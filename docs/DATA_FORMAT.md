@@ -43,6 +43,8 @@ A date given only to the year or month is shown at that precision ("218 BC", "Oc
 | `ask.persona` | Not used at the moment (kept for the archived chat): who the guide is |
 | `ask.defaultQuestions[]` | Not used at the moment (kept for the archived chat) |
 | `sources[]` | `{ label, url }` shown on the intro card |
+| `ambience` | Soundscapes: `{ "default": "countryside", "byCategory": { "battle": "battle" }, "scene": "battle" }`. `default` plays in the overview, `byCategory` on an event of that category, `scene` during an animated scene. Names are listed under *Sound* below |
+| `music` | Background music mood: `celtic`, `roman`, `carthage`, `aztec` or `ww2` |
 
 ## events.json
 
@@ -79,6 +81,7 @@ An array. Order doesn't matter; the loader sorts by date.
 | `wiki` | no | English Wikipedia article title. Supplies the image and extract. If the title misses, a search is used |
 | `questions` | no | Not used at the moment (kept for the archived chat) |
 | `scene` | no | Key into `scenes.json`. Adds a "Watch it unfold" button and auto-plays during the tour |
+| `ambience` | no | Soundscape for this event, overriding its category's, e.g. `"jungle"` for Cortés's landing on the Gulf coast |
 
 The loader logs a console warning for missing ids, bad coordinates, unknown categories or unknown scenes.
 
@@ -250,3 +253,14 @@ Each keyframe lists only what changes; everything else carries forward. Angles t
 **lines** are static features such as rivers or walls. `dash` (e.g. `"6 6"`) draws them dashed, as for the Aztec aqueduct. Close a ring by repeating the first point (the Alesia siege walls). `labelIndex` picks which point carries the label, so labels don't collide.
 
 Unit names sit just above their block. Remember that strength is interpolated: to make a unit appear suddenly at `t: 4.5`, give it `strength: 0` at `t: 4.4` as well as at `t: 0`.
+
+## Sound
+
+The *Sound* button in the timeline bar controls narration, the soundscape and the music. Nothing plays until the first click, as browsers require.
+
+- **Narration** reads each event aloud (date, title, summary, why it matters) with the browser's own voices; the tour waits for the voice to finish. Opening a city or a place reads its description.
+- **Soundscapes** are synthesised in the browser, so there are no sound files to license or host. Names: `countryside`, `highlands`, `jungle`, `lake`, `sea`, `harbour`, `city`, `lake-city`, `market`, `battle`, `conquest-battle` (drums, conch shells, the odd gunshot), `naval`, `siege`, `march`, `war`, `air-raid`, `town`, `quiet`, `sombre` (near silence, no music), `urban`, `tense-urban` (helicopters and sirens, no gunfire), `protest`, `silence`.
+- **Choosing a soundscape**: inside a city, the city file's `"ambience"` in its `city` member (default `city`); during an animated scene, the story's `ambience.scene`; on an event, the event's `ambience`, then `ambience.byCategory`; otherwise `ambience.default`.
+- **Music** follows `story.music` and is muted for `sombre` and `silence`.
+
+Choose sounds with care for recent or painful events: the Troubles uses patrols and sirens rather than gunfire, and Holocaust events are `sombre`.

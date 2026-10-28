@@ -243,5 +243,7 @@
       "label": "Wikipedia (images and further reading)",
       "url": "https://en.wikipedia.org/wiki/World_War_II"
     }
-  ]
+  ],
+  "ambience": {"default": "war", "byCategory": {"invasion": "war", "battle": "war", "bombing": "air-raid", "liberation": "town", "holocaust": "sombre", "politics": "quiet"}, "scene": "war"},
+  "music": "ww2"
 }

@@ -183,7 +183,7 @@
     "wiki": "Siege of Saguntum"
   },
   {
-    "id": "alps",
+    "id": "alps", "ambience": "highlands",
     "date": "-217-10",
     "title": "Hannibal crosses the Alps",
     "place": "The Alps",

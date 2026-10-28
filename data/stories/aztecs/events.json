@@ -1,6 +1,6 @@
 [
   {
-    "id": "sails-from-cuba",
+    "id": "sails-from-cuba", "ambience": "sea",
     "date": "1519-02-18",
     "title": "Cortés sails from Cuba",
     "place": "Cape San Antonio, western Cuba",
@@ -13,7 +13,7 @@
     "questions": ["Why did Velázquez try to stop Cortés?"]
   },
   {
-    "id": "aguilar",
+    "id": "aguilar", "ambience": "sea",
     "date": "1519-03-04",
     "circa": true,
     "title": "A shipwrecked Spaniard joins at Cozumel",
@@ -26,7 +26,7 @@
     "wiki": "Gerónimo de Aguilar"
   },
   {
-    "id": "centla",
+    "id": "centla", "ambience": "jungle",
     "date": "1519-03-14",
     "title": "Battle of Centla; Malintzin joins",
     "place": "Centla, Tabasco",
@@ -40,7 +40,7 @@
     "questions": ["Who was La Malinche, and how is she remembered?"]
   },
   {
-    "id": "landing",
+    "id": "landing", "ambience": "jungle",
     "date": "1519-04-22",
     "title": "Landing at San Juan de Ulúa",
     "place": "Present-day Veracruz",
@@ -53,7 +53,7 @@
     "questions": ["Did the Aztecs think Cortés was a god?"]
   },
   {
-    "id": "cempoala",
+    "id": "cempoala", "ambience": "jungle",
     "date": "1519-06",
     "circa": true,
     "title": "The Totonacs rebel against the Aztecs",
@@ -66,7 +66,7 @@
     "wiki": "Cempoala"
   },
   {
-    "id": "ships-scuttled",
+    "id": "ships-scuttled", "ambience": "jungle",
     "date": "1519-08-01",
     "circa": true,
     "title": "Cortés scuttles his ships",
@@ -79,7 +79,7 @@
     "wiki": "Hernán Cortés"
   },
   {
-    "id": "march-begins",
+    "id": "march-begins", "ambience": "jungle",
     "date": "1519-08-16",
     "title": "The march inland begins",
     "place": "Cempoala",
@@ -169,7 +169,7 @@
     "wiki": "Massacre in the Great Temple of Tenochtitlan"
   },
   {
-    "id": "narvaez",
+    "id": "narvaez", "ambience": "jungle",
     "date": "1520-05-28",
     "title": "Cortés defeats Narváez",
     "place": "Cempoala",
@@ -261,7 +261,7 @@
     "wiki": "Cuauhtémoc"
   },
   {
-    "id": "brigantines",
+    "id": "brigantines", "ambience": "lake",
     "date": "1521-04-28",
     "title": "Thirteen brigantines launched",
     "place": "Texcoco",

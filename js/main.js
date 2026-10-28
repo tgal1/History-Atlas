@@ -18,6 +18,8 @@ import { createEventPanel } from './ui/eventPanel.js';
 import { createSceneBar } from './ui/sceneBar.js';
 import { createLegend } from './ui/legend.js';
 import { createMenu } from './ui/menu.js';
+import { createAudioPanel } from './ui/audioPanel.js';
+import { createSoundtrack } from './audio/soundtrack.js';
 
 const $ = (s) => document.querySelector(s);
 
@@ -65,6 +67,17 @@ async function boot() {
   const city3d = createCity3D($('#city3d'), { onSelect: (feature, city) => showPlace(feature, city) });
   const labels = createLabelLayer(view.map, story.mapLabels);
   const legend = createLegend($('#legend'), story);
+
+  // ---------- Sound ----------
+  // Narration, soundscape and music. Browsers only allow audio after a click,
+  // so the first click or key press anywhere switches it on.
+  const soundtrack = createSoundtrack();
+  createAudioPanel($('#btn-sound'), $('#sound-panel'), soundtrack);
+  soundtrack.setMood(story.music ?? null);
+  for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, () => soundtrack.unlock(), { capture: true });
+  let speaking = Promise.resolve();
+  const narrateEvent = (ev) => [`${formatEventDate(ev)}. ${ev.title}.`, ev.summary, ev.significance ?? ''].join(' ');
+  const paragraphs = (x) => (Array.isArray(x) ? x : [x ?? '']).join(' ');
 
   // ---------- Timeline & controls ----------
   const timeline = createTimeline($('#tl-track'), {
@@ -114,6 +127,7 @@ async function boot() {
     sceneBar.setPlaying(true);
     document.body.classList.add('in-scene');
     document.body.classList.toggle('scene-dim', Boolean(scene.dimMap));
+    updateSound();
     await view.flyToBounds(scene.cameras?.[0]?.bounds ?? scene.view.bounds, { padding: overlayPadding() });
     if (signal?.aborted) return;
     scenePlayer.play();
@@ -140,6 +154,7 @@ async function boot() {
     scenePlayer.clear();
     sceneBar.hide();
     document.body.classList.remove('in-scene', 'scene-dim');
+    updateSound();
   }
 
   // ---------- Tour ----------
@@ -162,8 +177,15 @@ async function boot() {
       if (signal.aborted) return;
     }
     const pace = SPEEDS[store.get().speed];
-    const readMs = 3500 + (ev.summary.length + (ev.significance?.length ?? 0) * 0.6) * 22;
-    await sleep(readMs * pace.dwell, signal);
+    if (soundtrack.narrating) {
+      // Wait for the narrator to finish, then a short breath.
+      await Promise.race([speaking, new Promise((resolve) => signal.addEventListener('abort', resolve, { once: true }))]);
+      if (signal.aborted) return;
+      await sleep(1200 * pace.dwell, signal);
+    } else {
+      const readMs = 3500 + (ev.summary.length + (ev.significance?.length ?? 0) * 0.6) * 22;
+      await sleep(readMs * pace.dwell, signal);
+    }
     if (signal.aborted) return;
     closeScene();
     // Skip the zoom-out when the next stop is just down the road.
@@ -174,11 +196,13 @@ async function boot() {
 
   function stopTour() {
     tour?.abort();
+    soundtrack.cancel();
     if (store.get().playing) player.pause();
   }
 
   // ---------- Selection ----------
-  function select(ev) {
+  function select(ev, { narrate = true } = {}) {
+    speaking = narrate ? soundtrack.narrate(narrateEvent(ev)) : Promise.resolve();
     store.set({ activeId: ev.id, t: ev.t });
     player.resync(ev.t);
     const i = events.indexOf(ev);
@@ -223,6 +247,7 @@ async function boot() {
     cityLayer.update(s.t, zoom);
     if (city3d.isOpen) city3d.update(s.t);
     updateCityChip(s.t, zoom);
+    updateSound();
     timeline.setTime(s.t);
     timeline.setActive(s.activeId);
     // On an event, show its date as precisely as the data knows it;
@@ -248,7 +273,22 @@ async function boot() {
     }
   });
   view.map.on('zoomend', () => render(store.get()));
-  view.map.on('moveend', () => updateCityChip(store.get().t, view.map.getZoom()));
+  view.map.on('moveend', () => { updateCityChip(store.get().t, view.map.getZoom()); updateSound(); });
+
+  // ---------- Soundscape ----------
+  // Inside a city: its own sounds. During a battle scene: the story's battle
+  // sounds. On an event: the event's, or its category's. Otherwise the story's.
+  function updateSound() {
+    const amb = story.ambience ?? {};
+    const s = store.get();
+    const city = city3d.isOpen ? openCity3D : view.map.getZoom() >= 12.5 ? chipCity : null;
+    const ev = byId.get(s.activeId);
+    let name;
+    if (city) name = city.ambience ?? 'city';
+    else if (document.body.classList.contains('in-scene')) name = amb.scene ?? 'battle';
+    else if (ev) name = ev.ambience ?? amb.byCategory?.[ev.category] ?? amb.default;
+    soundtrack.setScene(name ?? amb.default ?? 'countryside');
+  }
 
   // ---------- City plans ----------
   // Zoomed into a city: fade the base map so the plan reads like a drawn map,
@@ -272,7 +312,9 @@ async function boot() {
   $('#btn-3d').addEventListener('click', () => (city3d.isOpen ? close3D() : chipCity && open3D(chipCity)));
 
   // ---------- 3D city ----------
+  let openCity3D = null;
   function open3D(city) {
+    openCity3D = city;
     stopTour();
     closeScene();
     const here = view.map.getCenter();
@@ -280,6 +322,7 @@ async function boot() {
     document.body.classList.add('view-3d');
     $('#btn-3d').hidden = false;
     $('#btn-3d').innerHTML = '&larr; Back to the flat map';
+    updateSound();
     $('#then-now').hidden = false;
     city3d.setImagery(Number($('#then-now input').value) / 100);
     city3d.open(city, {
@@ -299,6 +342,7 @@ async function boot() {
     $('#btn-3d').textContent = 'View in 3D';
     setThenNow(Number($('#then-now input').value) / 100);
     updateCityChip(store.get().t, view.map.getZoom());
+    updateSound();
   }
 
   // Then ⟷ Today: fade the drawn plan over modern satellite imagery.
@@ -317,10 +361,11 @@ async function boot() {
   });
 
   let lastCityFromEvent = null;
-  function openCity(city, { fly = true } = {}) {
+  function openCity(city, { fly = true, narrate = true } = {}) {
     if (!city) return;
     stopTour();
     closeScene();
+    if (narrate) soundtrack.narrate(`${city.name}. ${paragraphs(city.summary)}`);
     const fromEvent = byId.get(store.get().activeId);
     if (fromEvent) lastCityFromEvent = fromEvent;
     panel.renderCity(city, cityLayer.landmarksAt(city, store.get().t), {
@@ -335,8 +380,9 @@ async function boot() {
 
   function showPlace(feature, city) {
     stopTour();
-    panel.renderPlace(feature, city, { onBack: () => openCity(city, { fly: false }) });
+    panel.renderPlace(feature, city, { onBack: () => openCity(city, { fly: false, narrate: false }) });
     showPanel();
+    soundtrack.narrate(`${feature.properties.name}. ${paragraphs(feature.properties.description)}`);
     if (city3d.isOpen) { city3d.flyTo(feature); return; }
     const zoom = Math.max(view.map.getZoom(), feature.properties.zoom ?? 15);
     view.map.flyTo(labelPoint(feature), zoom, { duration: 1.2 });
@@ -368,6 +414,7 @@ async function boot() {
     else if (e.key === 'ArrowRight') step(1);
     else if (e.key === 'ArrowLeft') step(-1);
     else if (e.key === 'Escape') {
+      soundtrack.cancel();
       if (city3d.isOpen) { close3D(); return; }
       stopTour();
       closeScene();
@@ -377,7 +424,7 @@ async function boot() {
   });
 
   // Handy from the browser console when authoring a story.
-  window.atlas = { story, events, scenes, store, map: view.map, scenePlayer, city3d };
+  window.atlas = { story, events, scenes, store, map: view.map, scenePlayer, city3d, soundtrack };
 
   // ---------- Start ----------
   const startId = decodeURIComponent(location.hash.slice(1));
@@ -388,11 +435,11 @@ async function boot() {
     store.set({ t });
     player.resync(t);
     view.map.setView(startCity.center, startCity.zoom, { animate: false });
-    openCity(startCity, { fly: false });
+    openCity(startCity, { fly: false, narrate: false });
     if (params.get('view') === '3d' && startCity.view3d) open3D(startCity);
   } else if (byId.has(startId)) {
     const ev = byId.get(startId);
-    select(ev);
+    select(ev, { narrate: false });
     view.map.setView(ev.coords, ev.zoom ?? 13);
   } else {
     panel.renderIntro();

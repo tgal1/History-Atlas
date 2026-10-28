@@ -226,5 +226,7 @@
   "cities": [
     "carthage",
     "rome"
-  ]
+  ],
+  "ambience": {"default": "countryside", "byCategory": {"battle": "battle", "naval": "naval", "siege": "siege", "campaign": "march", "politics": "quiet"}, "scene": "battle"},
+  "music": "carthage"
 }

@@ -186,5 +186,7 @@
       "label": "Wikipedia (images and further reading)",
       "url": "https://en.wikipedia.org/"
     }
-  ]
+  ],
+  "ambience": {"default": "urban", "byCategory": {"protest": "protest", "violence": "tense-urban", "security": "tense-urban", "politics": "quiet", "peace": "town"}, "scene": "protest"},
+  "music": "celtic"
 }

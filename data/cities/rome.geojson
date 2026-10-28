@@ -1,7 +1,7 @@
 {
  "type": "FeatureCollection",
  "city": {
-  "id": "rome",
+  "id": "rome", "ambience": "city",
   "name": "Rome",
   "center": [41.893, 12.487],
   "zoom": 14,

@@ -1,7 +1,7 @@
 {
  "type": "FeatureCollection",
  "city": {
-  "id": "tenochtitlan",
+  "id": "tenochtitlan", "ambience": "lake-city",
   "name": "Tenochtitlan",
   "center": [19.432, -99.14],
   "zoom": 14,

@@ -306,5 +306,7 @@
   "cities": [
     "rome",
     "carthage"
-  ]
+  ],
+  "ambience": {"default": "countryside", "byCategory": {"battle": "battle", "siege": "siege", "politics": "city", "people": "city", "culture": "city"}, "scene": "battle"},
+  "music": "roman"
 }
