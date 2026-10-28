@@ -9,6 +9,15 @@
 //   cameras – optional [{ t, bounds }]: the camera moves when scene time reaches t
 //
 // All positions arrive as [lat, lng]; the loader converts local metres first.
+// A keyframe's "via" is the path taken to reach it (roads, a coastline), so
+// movement follows the land instead of cutting straight across it.
+//
+// Units are drawn as a faint footprint filled with little figures (soldiers,
+// riders, canoes, tanks: see unitIcons.js) that thin out as strength falls.
+
+import { figureSvg, figureFor, columnSvg } from './unitIcons.js';
+
+const FIG = 22; // figure size in pixels
 
 export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera }) {
   let scene = null;
@@ -53,9 +62,9 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
       const color = colorOf(track);
       const trail = L.polyline([], { pane: 'scene', color, weight: 4, opacity: 0.85, lineCap: 'round' }).addTo(layer);
       const head = L.marker(track.keyframes[0].at, {
-        pane: 'scene', interactive: false, icon: labelIcon('scene-unit', color, track.label),
+        pane: 'scene', interactive: false, icon: L.divIcon({ className: 'scene-col', iconSize: null }),
       }).addTo(layer);
-      return { track, trail, head };
+      return { track, trail, head, color, mode: null, west: false };
     });
 
     units = sc.units.map((unit) => {
@@ -73,8 +82,13 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
           icon: L.divIcon({ className: 'scene-block-label', html: `<span>${unit.label}</span>`, iconSize: null }),
         }).addTo(layer)
         : null;
-      return { unit, trail, body, front, label };
+      const figs = L.marker(unit.keyframes[0].at, {
+        pane: 'scene', interactive: false, keyboard: false,
+        icon: L.divIcon({ className: 'unit-figs', iconSize: null, html: '' }),
+      }).addTo(layer);
+      return { unit, trail, body, front, label, figs, type: figureFor(unit, sc), color, count: -1, west: unit.keyframes[0].angle > 180 };
     });
+    map.on('zoomend', render);
 
     markers = sc.markers.map((m) => ({
       m,
@@ -91,26 +105,43 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
   }
 
   function render() {
+    if (!scene) return;
     const cam = cameraAt(st);
     if (cam !== cameraIndex) {
       cameraIndex = cam;
       if (cam >= 0) onCamera?.(scene.cameras[cam].bounds);
     }
 
-    for (const { track, trail, head } of tracks) {
-      const { pos, path } = samplePath(track.keyframes, st);
-      trail.setLatLngs(path);
-      head.setLatLng(pos);
+    for (const tr of tracks) {
+      const { pos, path, leg: current } = samplePath(tr.track.keyframes, st);
+      tr.trail.setLatLngs(path);
+      tr.head.setLatLng(pos);
+      // Ships on sea legs, the marching column on land, facing the way it's going.
+      const mode = current?.route === 'sea' ? 'ship' : tr.track.type ?? figureFor(tr.track, scene);
+      const p0 = map.latLngToLayerPoint(path.at(-2) ?? pos);
+      const p1 = map.latLngToLayerPoint(pos);
+      if (Math.abs(p1.x - p0.x) > 0.5) tr.west = p1.x < p0.x;
+      if (mode !== tr.mode) {
+        tr.mode = mode;
+        const name = tr.track.label ? `<span class="name" style="--c:${tr.color}">${tr.track.label}</span>` : '';
+        tr.head.setIcon(L.divIcon({
+          className: 'scene-col', iconSize: null,
+          html: `<div class="col-figs" style="color:${tr.color}">${columnSvg(mode, FIG)}</div>${name}`,
+        }));
+      }
+      tr.head.getElement()?.classList.toggle('west', tr.west);
     }
 
-    for (const { unit, trail, body, front, label } of units) {
+    for (const u of units) {
+      const { unit, trail, body, front, label } = u;
       const s = sampleUnit(unit.keyframes, st);
       const { corners, frontEdge } = block(s);
       const visible = s.strength > 0.02;
       body.setLatLngs(visible ? corners : []);
-      body.setStyle({ fillOpacity: 0.15 + 0.6 * s.strength, opacity: 0.4 + 0.6 * s.strength });
+      body.setStyle({ fillOpacity: 0.06 + 0.2 * s.strength, opacity: 0.25 + 0.4 * s.strength });
       front.setLatLngs(visible ? frontEdge : []);
-      front.setStyle({ opacity: 0.9 * s.strength });
+      front.setStyle({ opacity: 0.6 * s.strength });
+      drawFigures(u, s, corners, visible);
       if (trail) trail.setLatLngs(samplePath(unit.keyframes, st).path);
       if (label) {
         label.setLatLng(s.at);
@@ -164,7 +195,43 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
     render();
   }
 
+  // Fill a unit's footprint with figures in rows, front rank first.
+  function drawFigures(u, s, corners, visible) {
+    u.figs.setLatLng(s.at);
+    const el = u.figs.getElement();
+    if (!el) return;
+    if (!visible) { el.style.display = 'none'; return; }
+    el.style.display = '';
+    const c0 = map.latLngToLayerPoint(s.at);
+    const [fl, fr, , bl] = corners.map((ll) => map.latLngToLayerPoint(ll).subtract(c0));
+    const cols = Math.max(1, Math.min(10, Math.round(fl.distanceTo(fr) / (FIG * 0.8))));
+    const rows = Math.max(1, Math.min(3, Math.round(fl.distanceTo(bl) / (FIG * 0.9))));
+    const count = cols * rows;
+    if (count !== u.count) {
+      u.count = count;
+      el.innerHTML = Array.from({ length: count }, () => `<div class="fig" style="color:${u.color}">${figureSvg(u.type, FIG)}</div>`).join('');
+    }
+    const east = Math.sin((s.angle * Math.PI) / 180);
+    if (Math.abs(east) > 0.2) u.west = east < 0;
+    const shown = Math.max(1, Math.ceil(count * s.strength));
+    let i = 0;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++, i++) {
+        const fig = el.children[i];
+        const a = (c + 0.5) / cols;
+        const b = (r + 0.5) / rows;
+        const x = fl.x + (fr.x - fl.x) * a + (bl.x - fl.x) * b;
+        const y = fl.y + (fr.y - fl.y) * a + (bl.y - fl.y) * b;
+        fig.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)${u.west ? ' scaleX(-1)' : ''}`;
+        fig.style.zIndex = String(Math.round(y + 500));
+        fig.style.display = i < shown ? '' : 'none';
+      }
+    }
+    el.style.opacity = String(0.4 + 0.6 * s.strength);
+  }
+
   function clear() {
+    map.off('zoomend', render);
     playing = false;
     layer?.remove();
     layer = null;
@@ -190,21 +257,49 @@ function lerpAngle(a, b, f) {
   return a + diff * f;
 }
 
-// Position at scene time t, plus the trail travelled so far.
+// The points of the leg from keyframe a to b, and the distance along it at each.
+function leg(a, b) {
+  if (!b._leg || b._from !== a.at) {
+    const pts = [a.at, ...(b.via ?? []), b.at];
+    const cum = [0];
+    for (let i = 1; i < pts.length; i++) {
+      const dy = pts[i][0] - pts[i - 1][0];
+      const dx = (pts[i][1] - pts[i - 1][1]) * Math.cos((pts[i][0] * Math.PI) / 180);
+      cum.push(cum[i - 1] + Math.hypot(dx, dy));
+    }
+    b._leg = { pts, cum };
+    b._from = a.at;
+  }
+  return b._leg;
+}
+
+// The point a fraction f of the way along a leg (by distance), and the waypoints passed.
+function along(a, b, f) {
+  const { pts, cum } = leg(a, b);
+  const total = cum.at(-1);
+  if (total === 0 || pts.length === 2) return { pos: lerpLatLng(a.at, b.at, f), passed: [] };
+  const d = f * total;
+  let i = 1;
+  while (i < cum.length - 1 && cum[i] < d) i++;
+  const seg = cum[i] - cum[i - 1] || 1;
+  return { pos: lerpLatLng(pts[i - 1], pts[i], (d - cum[i - 1]) / seg), passed: pts.slice(1, i) };
+}
+
+// Position at scene time t, the trail travelled so far, and the keyframe ending the current leg.
 function samplePath(keyframes, t) {
   const path = [keyframes[0].at];
-  if (t <= keyframes[0].t) return { pos: keyframes[0].at, path };
+  if (t <= keyframes[0].t) return { pos: keyframes[0].at, path, leg: keyframes[1] };
   for (let i = 1; i < keyframes.length; i++) {
     const a = keyframes[i - 1];
     const b = keyframes[i];
     if (t < b.t) {
-      const pos = lerpLatLng(a.at, b.at, (t - a.t) / (b.t - a.t));
-      path.push(pos);
-      return { pos, path };
+      const { pos, passed } = along(a, b, (t - a.t) / (b.t - a.t));
+      path.push(...passed, pos);
+      return { pos, path, leg: b };
     }
-    path.push(b.at);
+    path.push(...leg(a, b).pts.slice(1));
   }
-  return { pos: keyframes[keyframes.length - 1].at, path };
+  return { pos: keyframes[keyframes.length - 1].at, path, leg: keyframes[keyframes.length - 1] };
 }
 
 function sampleUnit(keyframes, t) {
@@ -215,7 +310,7 @@ function sampleUnit(keyframes, t) {
     if (t < b.t) {
       const f = (t - a.t) / (b.t - a.t);
       return {
-        at: lerpLatLng(a.at, b.at, f),
+        at: along(a, b, f).pos,
         angle: lerpAngle(a.angle, b.angle, f),
         w: lerp(a.w, b.w, f),
         d: lerp(a.d, b.d, f),

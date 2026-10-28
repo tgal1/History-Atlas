@@ -191,6 +191,34 @@ body.scene-dim .leaflet-tile-pane { opacity: 0.4; }
   font-size: 12px; font-weight: 600;
 }
 .scene-marker .name { font-weight: 500; color: var(--muted); left: 10px; top: -9px; }
+
+/* Little figures: a column at the head of a march, ranks inside a battle unit. */
+.scene-col, .unit-figs { pointer-events: none; }
+.col-figs {
+  position: absolute; left: 0; bottom: 4px;
+  display: flex; align-items: flex-end;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+}
+.col-figs svg { margin-left: -9px; }
+.col-figs svg:first-child { margin-left: 0; }
+.scene-col.west .col-figs { transform: translateX(-50%) scaleX(-1); }
+.scene-col .name {
+  position: absolute; left: 50%; top: 4px; transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 1px 7px;
+  border-radius: 4px;
+  border-left: 3px solid var(--c);
+  background: rgba(11, 14, 19, 0.85);
+  font-size: 12px; font-weight: 600;
+}
+.unit-figs .fig {
+  position: absolute; left: -11px; top: -18px; /* feet on the point */
+  width: 22px; height: 22px;
+  transform-origin: 11px 18px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+}
+.unit-figs .fig svg { display: block; }
 .scene-marker.pulse .name { color: var(--danger); font-weight: 600; }
 
 /* ---------- Legend ---------- */

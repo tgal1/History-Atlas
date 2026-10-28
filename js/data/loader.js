@@ -84,6 +84,21 @@ function normaliseCity(fc) {
   return city;
 }
 
+// Chaikin corner-cutting, two passes, keeping the end points.
+function roundCorners(points) {
+  let pts = points;
+  for (let pass = 0; pass < 2; pass++) {
+    const out = [pts[0]];
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [a, b] = [pts[i], pts[i + 1]];
+      out.push([0.75 * a[0] + 0.25 * b[0], 0.75 * a[1] + 0.25 * b[1]], [0.25 * a[0] + 0.75 * b[0], 0.25 * a[1] + 0.75 * b[1]]);
+    }
+    out.push(pts.at(-1));
+    pts = out;
+  }
+  return pts;
+}
+
 function distanceKm([lat1, lng1], [lat2, lng2]) {
   const dLat = (lat2 - lat1) * 111.32;
   const dLng = (lng2 - lng1) * 111.32 * Math.cos(((lat1 + lat2) / 2) * (Math.PI / 180));
@@ -130,6 +145,14 @@ function normaliseScene(scene) {
   scene.lines ??= [];
   scene.tracks.forEach((tr) => tr.keyframes.forEach(fix));
   scene.units.forEach((u) => u.keyframes.forEach(fix));
+  // "via": the path taken to reach a keyframe. Sea legs are hand-placed, so round their corners.
+  for (const item of [...scene.tracks, ...scene.units]) {
+    item.keyframes.forEach((k, i) => {
+      if (origin && k.viaXy) k.via = k.viaXy.map(toLatLng);
+      const prev = item.keyframes[i - 1];
+      if (k.via?.length && prev?.at && k.at && k.route === 'sea') k.via = roundCorners([prev.at, ...k.via, k.at]).slice(1, -1);
+    });
+  }
   scene.markers.forEach(fix);
   scene.lines.forEach((ln) => { if (origin && ln.xy) ln.points = ln.xy.map(toLatLng); });
 

@@ -5,265 +5,628 @@
     "duration": 37.8,
     "unitLabel": "Week",
     "playSeconds": 44,
-    "cameras": [
-      { "t": 0, "bounds": [[17.6, -99.4], [22.6, -84.4]] },
-      { "t": 24.5, "bounds": [[18.9, -99.3], [19.9, -96.0]] }
-    ],
+    "cameras": [{"t": 0, "bounds": [[17.6, -99.4], [22.6, -84.4]]}, {"t": 24.5, "bounds": [[18.9, -99.3], [19.9, -96.0]]}],
     "tracks": [
-      { "id": "cortes", "label": "Cortés", "side": "spanish",
+      {
+        "id": "cortes",
+        "label": "Cortés",
+        "side": "spanish",
         "keyframes": [
-          { "t": 0.0, "at": [21.87, -84.95] },
-          { "t": 1.0, "at": [20.42, -86.92] },
-          { "t": 2.0, "at": [20.42, -86.92] },
-          { "t": 3.4, "at": [18.45, -92.65] },
-          { "t": 4.5, "at": [18.45, -92.65] },
-          { "t": 9.0, "at": [19.21, -96.13] },
-          { "t": 14.7, "at": [19.44, -96.40] },
-          { "t": 15.5, "at": [19.66, -96.40] },
-          { "t": 25.0, "at": [19.66, -96.40] },
-          { "t": 25.6, "at": [19.44, -96.40] },
-          { "t": 26.6, "at": [19.54, -96.92] },
-          { "t": 27.2, "at": [19.47, -97.25] },
-          { "t": 27.7, "at": [19.73, -97.62] },
-          { "t": 28.0, "at": [19.43, -97.95] },
-          { "t": 30.5, "at": [19.43, -97.95] },
-          { "t": 31.0, "at": [19.31, -98.24] },
-          { "t": 33.4, "at": [19.31, -98.24] },
-          { "t": 33.7, "at": [19.06, -98.30] },
-          { "t": 36.6, "at": [19.06, -98.30] },
-          { "t": 36.9, "at": [19.08, -98.65] },
-          { "t": 37.1, "at": [19.12, -98.77] },
-          { "t": 37.4, "at": [19.36, -99.09] },
-          { "t": 37.6, "at": [19.4335, -99.1335] }
-        ] }
+          {"t": 0.0, "at": [21.87, -84.95]},
+          {"t": 1.0, "at": [20.42, -86.92], "route": "sea"},
+          {"t": 2.0, "at": [20.42, -86.92]},
+          {
+            "t": 3.4,
+            "at": [18.45, -92.65],
+            "route": "sea",
+            "via": [
+              [20.9, -86.75], [21.65, -87.0], [21.75, -88.3], [21.55, -89.6], [21.1, -90.45], [20.2, -90.7],
+              [19.3, -91.4], [18.75, -92.2], [18.6, -92.6]
+            ]
+          },
+          {"t": 4.5, "at": [18.45, -92.65]},
+          {
+            "t": 9.0,
+            "at": [19.21, -96.13],
+            "route": "sea",
+            "via": [[18.75, -93.4], [18.4, -94.2], [18.35, -94.7], [18.85, -95.3], [19.0, -95.8]]
+          },
+          {
+            "t": 14.7,
+            "at": [19.44, -96.4],
+            "via": [
+              [19.21373, -96.12965], [19.21416, -96.12442], [19.21769, -96.13276], [19.21358, -96.1621], [19.21611, -96.16878], [19.2141, -96.20503],
+              [19.22556, -96.24152], [19.25579, -96.27071], [19.29524, -96.29498], [19.30904, -96.31016], [19.31867, -96.30987], [19.35081, -96.32647],
+              [19.35586, -96.34183], [19.37714, -96.37505], [19.4112, -96.38845], [19.43589, -96.37954], [19.43547, -96.38929], [19.44268, -96.40093]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 15.5,
+            "at": [19.66, -96.4],
+            "via": [
+              [19.44268, -96.40093], [19.43547, -96.38929], [19.43589, -96.37954], [19.44916, -96.37728], [19.5012, -96.38964], [19.54337, -96.38962],
+              [19.5657, -96.39729], [19.58512, -96.39007], [19.59899, -96.39828], [19.62194, -96.40043], [19.62604, -96.41186], [19.63409, -96.41956],
+              [19.63915, -96.39877]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 25.0, "at": [19.66, -96.4]},
+          {
+            "t": 25.6,
+            "at": [19.44, -96.4],
+            "via": [
+              [19.63915, -96.39877], [19.63416, -96.41974], [19.62604, -96.41186], [19.62194, -96.40043], [19.59869, -96.39828], [19.58507, -96.39016],
+              [19.56523, -96.39733], [19.54328, -96.38969], [19.50067, -96.38966], [19.44981, -96.37736], [19.43598, -96.37982], [19.43547, -96.38929],
+              [19.44268, -96.40093]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 26.6,
+            "at": [19.54, -96.92],
+            "via": [
+              [19.44268, -96.40093], [19.43547, -96.38929], [19.43598, -96.37982], [19.4152, -96.38837], [19.38786, -96.38069], [19.36802, -96.38842],
+              [19.33807, -96.46661], [19.34108, -96.47604], [19.33856, -96.49456], [19.34648, -96.53896], [19.36659, -96.55931], [19.3675, -96.58135],
+              [19.39252, -96.61152], [19.40158, -96.6306], [19.41527, -96.64069], [19.42893, -96.65871], [19.43639, -96.6754], [19.44076, -96.70656],
+              [19.45143, -96.72294], [19.45099, -96.731], [19.47068, -96.78378], [19.49964, -96.82285], [19.49952, -96.84095], [19.50774, -96.85503],
+              [19.50881, -96.86926]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 27.2,
+            "at": [19.47, -97.25],
+            "via": [
+              [19.54407, -96.92763], [19.55005, -96.92973], [19.58054, -96.92927], [19.58975, -96.93645], [19.60278, -96.96048], [19.61086, -96.96332],
+              [19.62069, -96.97381], [19.63733, -96.97892], [19.64245, -96.98511], [19.63539, -96.99133], [19.64072, -96.9957], [19.6446, -97.00781],
+              [19.64224, -97.01921], [19.63448, -97.02728], [19.62271, -97.03063], [19.6287, -97.04024], [19.62048, -97.06152], [19.62568, -97.06983],
+              [19.63055, -97.11335], [19.62358, -97.19365], [19.5939, -97.24825], [19.56914, -97.2492], [19.56318, -97.24446], [19.54268, -97.27756],
+              [19.53102, -97.26781], [19.48175, -97.26089], [19.47578, -97.25266]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 27.7,
+            "at": [19.73, -97.62],
+            "via": [
+              [19.47578, -97.25266], [19.48175, -97.26089], [19.53102, -97.26781], [19.54268, -97.27756], [19.56322, -97.2444], [19.57043, -97.24922],
+              [19.59377, -97.2465], [19.56143, -97.30632], [19.52604, -97.4074], [19.508, -97.49636], [19.51797, -97.50415], [19.5377, -97.49911],
+              [19.57086, -97.49956], [19.58146, -97.51534], [19.58704, -97.53195], [19.60394, -97.53966], [19.59986, -97.55317], [19.60609, -97.58265],
+              [19.61058, -97.58521], [19.61611, -97.60644], [19.62891, -97.59889], [19.70086, -97.59861], [19.70566, -97.60183], [19.70246, -97.61015],
+              [19.70865, -97.61672]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 28.0,
+            "at": [19.43, -97.95],
+            "via": [
+              [19.70865, -97.61672], [19.70246, -97.61015], [19.70625, -97.60089], [19.70327, -97.59911], [19.65144, -97.59719], [19.62794, -97.59901],
+              [19.58881, -97.61871], [19.5348, -97.6378], [19.43833, -97.63977], [19.42202, -97.6358], [19.412, -97.64968], [19.40868, -97.66686],
+              [19.40001, -97.67275], [19.38975, -97.69743], [19.37786, -97.70978], [19.37543, -97.72066], [19.35968, -97.7318], [19.30759, -97.80445],
+              [19.31299, -97.83865], [19.31651, -97.90724], [19.33033, -97.92358], [19.32849, -97.92883], [19.3996, -97.96951], [19.42049, -97.96661]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 30.5, "at": [19.43, -97.95]},
+          {
+            "t": 31.0,
+            "at": [19.31, -98.24],
+            "via": [
+              [19.42061, -97.96649], [19.41485, -97.96925], [19.41415, -97.98368], [19.43341, -98.01127], [19.39476, -98.06007], [19.40076, -98.06991],
+              [19.40708, -98.09533], [19.39708, -98.10457], [19.37596, -98.14751], [19.38003, -98.16236], [19.39175, -98.16931], [19.39379, -98.17693],
+              [19.3707, -98.18085], [19.36193, -98.18898], [19.34905, -98.19225], [19.33856, -98.20889], [19.3357, -98.22308], [19.33884, -98.22958],
+              [19.32794, -98.24847], [19.31756, -98.24496], [19.31413, -98.23922], [19.30686, -98.24079]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 33.4, "at": [19.31, -98.24]},
+          {
+            "t": 33.7,
+            "at": [19.06, -98.3],
+            "via": [
+              [19.31275, -98.24003], [19.30409, -98.24116], [19.29069, -98.2503], [19.28324, -98.24618], [19.26501, -98.26272], [19.23888, -98.27445],
+              [19.19737, -98.2609], [19.17851, -98.27196], [19.14183, -98.26861], [19.09933, -98.28495], [19.07612, -98.28935], [19.07417, -98.29705],
+              [19.06533, -98.30172], [19.05963, -98.29528]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 36.6, "at": [19.06, -98.3]},
+          {
+            "t": 36.9,
+            "at": [19.08, -98.65],
+            "via": [
+              [19.06191, -98.30701], [19.05485, -98.31055], [19.05845, -98.31844], [19.04245, -98.38363], [19.0527, -98.40096], [19.05485, -98.43094],
+              [19.04994, -98.44524], [19.05599, -98.46416], [19.07163, -98.47742], [19.07277, -98.49797], [19.08495, -98.51514], [19.08364, -98.52244],
+              [19.08716, -98.53082], [19.0818, -98.53272], [19.07828, -98.54156], [19.07831, -98.57156], [19.08465, -98.58469], [19.08578, -98.59422],
+              [19.08316, -98.59666], [19.08825, -98.59731], [19.09185, -98.60874], [19.08905, -98.61085], [19.09192, -98.62138], [19.08804, -98.62078],
+              [19.0911, -98.63517]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 37.1,
+            "at": [19.12, -98.77],
+            "via": [
+              [19.08507, -98.65915], [19.07961, -98.66676], [19.08732, -98.66854], [19.09745, -98.68285], [19.09225, -98.68373], [19.08768, -98.67893],
+              [19.07705, -98.68909], [19.07234, -98.68706], [19.06895, -98.69856], [19.07498, -98.70052], [19.08485, -98.74108], [19.10076, -98.75382],
+              [19.11036, -98.77622]
+            ],
+            "viaSource": "osrm"
+          },
+          {
+            "t": 37.4,
+            "at": [19.36, -99.09],
+            "via": [
+              [19.12911, -98.76828], [19.18196, -98.79158], [19.19517, -98.80575], [19.19585, -98.81302], [19.20389, -98.81365], [19.20616, -98.82483],
+              [19.22241, -98.83215], [19.25183, -98.87729], [19.27382, -98.88323], [19.29281, -98.88157], [19.29107, -98.91953], [19.35856, -98.99562],
+              [19.3522, -99.01578], [19.34526, -99.02157], [19.34219, -99.05391]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 37.6, "at": [19.4335, -99.1335], "route": "straight"}
+        ],
+        "route": "road",
+        "type": "conquistadors"
+      }
     ],
     "markers": [
-      { "t": 1.0, "at": [20.42, -86.92], "label": "Cozumel: Aguilar joins", "color": "#2f86d6" },
-      { "t": 3.4, "at": [18.45, -92.65], "label": "Centla: first battle; Malintzin joins", "color": "#e8603c" },
-      { "t": 9.0, "at": [19.21, -96.13], "label": "Moctezuma's envoys", "color": "#1d8a7e" },
-      { "t": 14.7, "at": [19.44, -96.40], "label": "Cempoala: Totonac allies", "color": "#e07b2c" },
-      { "t": 15.5, "at": [19.66, -96.40], "label": "Villa Rica: ships scuttled", "color": "#c8372d" },
-      { "t": 28.0, "at": [19.43, -97.95], "label": "Battles with Tlaxcala", "color": "#e8603c", "pulse": true, "until": 31.0 },
-      { "t": 31.0, "at": [19.31, -98.24], "label": "Tlaxcala: alliance", "color": "#d6a21f" },
-      { "t": 34.6, "at": [19.06, -98.30], "label": "Cholula massacre", "color": "#a32020", "pulse": true },
-      { "t": 36.9, "at": [19.08, -98.65], "label": "Pass between the volcanoes", "color": "#7a5a2a" },
-      { "t": 37.6, "at": [19.4335, -99.1335], "label": "Moctezuma meets Cortés", "color": "#1d8a7e", "pulse": true }
+      {"t": 1.0, "at": [20.42, -86.92], "label": "Cozumel: Aguilar joins", "color": "#2f86d6"},
+      {"t": 3.4, "at": [18.45, -92.65], "label": "Centla: first battle; Malintzin joins", "color": "#e8603c"},
+      {"t": 9.0, "at": [19.21, -96.13], "label": "Moctezuma's envoys", "color": "#1d8a7e"},
+      {"t": 14.7, "at": [19.44, -96.4], "label": "Cempoala: Totonac allies", "color": "#e07b2c"},
+      {"t": 15.5, "at": [19.66, -96.4], "label": "Villa Rica: ships scuttled", "color": "#c8372d"},
+      {
+        "t": 28.0,
+        "at": [19.43, -97.95],
+        "label": "Battles with Tlaxcala",
+        "color": "#e8603c",
+        "pulse": true,
+        "until": 31.0
+      },
+      {"t": 31.0, "at": [19.31, -98.24], "label": "Tlaxcala: alliance", "color": "#d6a21f"},
+      {"t": 34.6, "at": [19.06, -98.3], "label": "Cholula massacre", "color": "#a32020", "pulse": true},
+      {"t": 36.9, "at": [19.08, -98.65], "label": "Pass between the volcanoes", "color": "#7a5a2a"},
+      {"t": 37.6, "at": [19.4335, -99.1335], "label": "Moctezuma meets Cortés", "color": "#1d8a7e", "pulse": true}
     ],
     "captions": [
-      { "t": 0.0, "text": "18 February 1519. Eleven ships leave the western tip of Cuba, against the governor's orders." },
-      { "t": 1.0, "text": "On Cozumel they pick up Gerónimo de Aguilar, a shipwrecked Spaniard who has lived among the Maya for eight years." },
-      { "t": 3.4, "text": "In Tabasco the Chontal Maya fight and lose. Among twenty women handed over afterwards is Malintzin, who speaks Nahuatl." },
-      { "t": 9.0, "text": "Good Friday, 22 April: landing on the coast. Moctezuma's envoys bring gold and ask the strangers to leave." },
-      { "t": 14.7, "text": "At Cempoala, the Totonacs, chafing under Aztec tribute, become the first allies." },
-      { "t": 16.0, "text": "A town is founded at Villa Rica. The ships are stripped and run aground: there is no way back to Cuba." },
-      { "t": 25.6, "text": "16 August: about 300 Spaniards and their Totonac allies climb from the hot coast toward the high plateau." },
-      { "t": 28.0, "text": "Early September: days of desperate battles against the armies of Tlaxcala." },
-      { "t": 31.0, "text": "23 September: Tlaxcala makes peace and becomes Cortés' crucial ally against its old Aztec enemy." },
-      { "t": 34.0, "text": "October: in the holy city of Cholula, an Aztec ally, the Spaniards and Tlaxcalans massacre thousands." },
-      { "t": 36.8, "text": "Early November: through the pass between the volcanoes Popocatépetl and Iztaccíhuatl, the Valley of Mexico opens up below, its lakes full of towns." },
-      { "t": 37.5, "text": "8 November 1519: on the causeway into Tenochtitlan, Moctezuma comes out in person to meet Cortés." }
+      {
+        "t": 0.0,
+        "text": "18 February 1519. Eleven ships leave the western tip of Cuba, against the governor's orders."
+      },
+      {
+        "t": 1.0,
+        "text": "On Cozumel they pick up Gerónimo de Aguilar, a shipwrecked Spaniard who has lived among the Maya for eight years."
+      },
+      {
+        "t": 3.4,
+        "text": "In Tabasco the Chontal Maya fight and lose. Among twenty women handed over afterwards is Malintzin, who speaks Nahuatl."
+      },
+      {
+        "t": 9.0,
+        "text": "Good Friday, 22 April: landing on the coast. Moctezuma's envoys bring gold and ask the strangers to leave."
+      },
+      {"t": 14.7, "text": "At Cempoala, the Totonacs, chafing under Aztec tribute, become the first allies."},
+      {
+        "t": 16.0,
+        "text": "A town is founded at Villa Rica. The ships are stripped and run aground: there is no way back to Cuba."
+      },
+      {
+        "t": 25.6,
+        "text": "16 August: about 300 Spaniards and their Totonac allies climb from the hot coast toward the high plateau."
+      },
+      {"t": 28.0, "text": "Early September: days of desperate battles against the armies of Tlaxcala."},
+      {
+        "t": 31.0,
+        "text": "23 September: Tlaxcala makes peace and becomes Cortés' crucial ally against its old Aztec enemy."
+      },
+      {
+        "t": 34.0,
+        "text": "October: in the holy city of Cholula, an Aztec ally, the Spaniards and Tlaxcalans massacre thousands."
+      },
+      {
+        "t": 36.8,
+        "text": "Early November: through the pass between the volcanoes Popocatépetl and Iztaccíhuatl, the Valley of Mexico opens up below, its lakes full of towns."
+      },
+      {
+        "t": 37.5,
+        "text": "8 November 1519: on the causeway into Tenochtitlan, Moctezuma comes out in person to meet Cortés."
+      }
     ]
   },
-
   "noche-triste": {
     "title": "La Noche Triste, 30 June – 1 July 1520",
     "note": "Schematic. The positions of the causeway gaps and the timings are approximate.",
     "duration": 6,
     "unitLabel": "Hour",
     "playSeconds": 36,
-    "frame": { "origin": [19.4335, -99.1335] },
-    "view": { "xy": [[-6200, -900], [700, 3200]] },
+    "frame": {"origin": [19.4335, -99.1335]},
+    "view": {"xy": [[-6200, -900], [700, 3200]]},
     "lines": [
-      { "label": "Tlacopan causeway", "color": "#6b4a22", "weight": 7, "labelIndex": 4,
-        "xy": [[0, 0], [-600, 150], [-1100, 250], [-1850, 400], [-2700, 850], [-4000, 1650], [-4778, 2059], [-5828, 2727]] }
+      {
+        "label": "Tlacopan causeway",
+        "color": "#6b4a22",
+        "weight": 7,
+        "labelIndex": 4,
+        "xy": [[0, 0], [-600, 150], [-1100, 250], [-1850, 400], [-2700, 850], [-4000, 1650], [-4778, 2059], [-5828, 2727]]
+      }
     ],
     "tracks": [
-      { "id": "vanguard", "label": "Vanguard (Sandoval) with the portable bridge", "side": "spanish",
+      {
+        "id": "vanguard",
+        "label": "Vanguard (Sandoval) with the portable bridge",
+        "side": "spanish",
         "keyframes": [
-          { "t": 0.0, "xy": [0, 0] }, { "t": 0.5, "xy": [-600, 150] }, { "t": 1.0, "xy": [-1100, 250] },
-          { "t": 1.6, "xy": [-1850, 400] }, { "t": 2.3, "xy": [-2700, 850] }, { "t": 3.2, "xy": [-4000, 1650] },
-          { "t": 3.8, "xy": [-4778, 2059] }, { "t": 5.0, "xy": [-5828, 2727] } ] },
-      { "id": "cortes", "label": "Cortés", "side": "spanish",
+          {"t": 0.0, "xy": [0, 0]},
+          {"t": 0.5, "xy": [-600, 150]},
+          {"t": 1.0, "xy": [-1100, 250]},
+          {"t": 1.6, "xy": [-1850, 400]},
+          {"t": 2.3, "xy": [-2700, 850]},
+          {"t": 3.2, "xy": [-4000, 1650]},
+          {"t": 3.8, "xy": [-4778, 2059]},
+          {"t": 5.0, "xy": [-5828, 2727]}
+        ],
+        "type": "conquistador"
+      },
+      {
+        "id": "cortes",
+        "label": "Cortés",
+        "side": "spanish",
         "keyframes": [
-          { "t": 0.1, "xy": [0, 0] }, { "t": 0.7, "xy": [-600, 150] }, { "t": 1.3, "xy": [-1100, 250] },
-          { "t": 2.0, "xy": [-1850, 400] }, { "t": 2.7, "xy": [-2700, 850] }, { "t": 3.6, "xy": [-4100, 1700] },
-          { "t": 4.2, "xy": [-4778, 2059] } ] },
-      { "id": "rearguard", "label": "Rearguard (Alvarado) and Tlaxcalans", "side": "tlaxcala",
+          {"t": 0.1, "xy": [0, 0]},
+          {"t": 0.7, "xy": [-600, 150]},
+          {"t": 1.3, "xy": [-1100, 250]},
+          {"t": 2.0, "xy": [-1850, 400]},
+          {"t": 2.7, "xy": [-2700, 850]},
+          {"t": 3.6, "xy": [-4100, 1700]},
+          {"t": 4.2, "xy": [-4778, 2059]}
+        ],
+        "type": "conquistador"
+      },
+      {
+        "id": "rearguard",
+        "label": "Rearguard (Alvarado) and Tlaxcalans",
+        "side": "tlaxcala",
         "keyframes": [
-          { "t": 0.4, "xy": [0, 0] }, { "t": 1.1, "xy": [-600, 150] }, { "t": 1.8, "xy": [-1000, 230] },
-          { "t": 2.6, "xy": [-1500, 330] }, { "t": 3.4, "xy": [-1850, 400] }, { "t": 4.2, "xy": [-2700, 850] },
-          { "t": 5.0, "xy": [-4500, 1900] }, { "t": 5.6, "xy": [-4778, 2059] } ] }
+          {"t": 0.4, "xy": [0, 0]},
+          {"t": 1.1, "xy": [-600, 150]},
+          {"t": 1.8, "xy": [-1000, 230]},
+          {"t": 2.6, "xy": [-1500, 330]},
+          {"t": 3.4, "xy": [-1850, 400]},
+          {"t": 4.2, "xy": [-2700, 850]},
+          {"t": 5.0, "xy": [-4500, 1900]},
+          {"t": 5.6, "xy": [-4778, 2059]}
+        ],
+        "type": "mexica"
+      }
     ],
     "units": [
-      { "id": "canoes-north", "label": "Mexica canoes", "side": "aztec", "w": 1400, "d": 220,
+      {
+        "id": "canoes-north",
+        "label": "Mexica canoes",
+        "side": "aztec",
+        "w": 1400,
+        "d": 220,
         "keyframes": [
-          { "t": 0, "xy": [-2000, 1700], "angle": 160, "strength": 0 },
-          { "t": 0.9, "strength": 0 },
-          { "t": 1.2, "xy": [-1900, 1300], "strength": 1 },
-          { "t": 2.0, "xy": [-1700, 800] },
-          { "t": 4.0, "xy": [-2600, 1350] },
-          { "t": 5.2, "xy": [-3900, 2200] }
-        ] },
-      { "id": "canoes-south", "label": "Mexica canoes", "side": "aztec", "w": 1400, "d": 220,
+          {"t": 0, "xy": [-2000, 1700], "angle": 160, "strength": 0},
+          {"t": 0.9, "strength": 0},
+          {"t": 1.2, "xy": [-1900, 1300], "strength": 1},
+          {"t": 2.0, "xy": [-1700, 800]},
+          {"t": 4.0, "xy": [-2600, 1350]},
+          {"t": 5.2, "xy": [-3900, 2200]}
+        ]
+      },
+      {
+        "id": "canoes-south",
+        "label": "Mexica canoes",
+        "side": "aztec",
+        "w": 1400,
+        "d": 220,
         "keyframes": [
-          { "t": 0, "xy": [-1900, -700], "angle": 340, "strength": 0 },
-          { "t": 0.9, "strength": 0 },
-          { "t": 1.2, "xy": [-1800, -350], "strength": 1 },
-          { "t": 2.0, "xy": [-1500, 0] },
-          { "t": 4.0, "xy": [-2800, 450] },
-          { "t": 5.2, "xy": [-4300, 1350] }
-        ] },
-      { "id": "warriors", "label": "Mexica warriors in pursuit", "side": "aztec", "w": 500, "d": 300,
+          {"t": 0, "xy": [-1900, -700], "angle": 340, "strength": 0},
+          {"t": 0.9, "strength": 0},
+          {"t": 1.2, "xy": [-1800, -350], "strength": 1},
+          {"t": 2.0, "xy": [-1500, 0]},
+          {"t": 4.0, "xy": [-2800, 450]},
+          {"t": 5.2, "xy": [-4300, 1350]}
+        ]
+      },
+      {
+        "id": "warriors",
+        "label": "Mexica warriors in pursuit",
+        "side": "aztec",
+        "w": 500,
+        "d": 300,
         "keyframes": [
-          { "t": 0, "xy": [200, 300], "angle": 270, "strength": 0 },
-          { "t": 0.7, "strength": 0 },
-          { "t": 0.9, "xy": [100, 250], "strength": 1 },
-          { "t": 2.0, "xy": [-600, 200] },
-          { "t": 3.5, "xy": [-1400, 330], "angle": 280 },
-          { "t": 4.5, "xy": [-2300, 700], "angle": 300 },
-          { "t": 5.5, "xy": [-3300, 1300], "strength": 0.6 }
-        ] }
+          {"t": 0, "xy": [200, 300], "angle": 270, "strength": 0},
+          {"t": 0.7, "strength": 0},
+          {"t": 0.9, "xy": [100, 250], "strength": 1},
+          {"t": 2.0, "xy": [-600, 200]},
+          {"t": 3.5, "xy": [-1400, 330], "angle": 280},
+          {"t": 4.5, "xy": [-2300, 700], "angle": 300},
+          {"t": 5.5, "xy": [-3300, 1300], "strength": 0.6}
+        ]
+      }
     ],
     "markers": [
-      { "t": 0, "xy": [0, 0], "label": "Palace of Axayacatl", "color": "#c8372d" },
-      { "t": 0, "xy": [-5828, 2727], "label": "Tlacopan (mainland)", "color": "#6b4a22" },
-      { "t": 0.9, "xy": [150, -200], "label": "Drums at the Great Temple", "color": "#1d8a7e", "pulse": true, "until": 2.5 },
-      { "t": 1.0, "xy": [-1100, 250], "label": "First gap: the portable bridge jams", "color": "#c8372d" },
-      { "t": 1.8, "xy": [-1850, 400], "label": "Gap choked with bodies, horses and gold", "color": "#a32020", "pulse": true },
-      { "t": 3.3, "xy": [-1850, 520], "label": "'Alvarado's leap' (legend)", "color": "#d6a21f" },
-      { "t": 4.3, "xy": [-4778, 2200], "label": "Popotla: Cortés weeps under a tree (legend)", "color": "#c8372d" }
+      {"t": 0, "xy": [0, 0], "label": "Palace of Axayacatl", "color": "#c8372d"},
+      {"t": 0, "xy": [-5828, 2727], "label": "Tlacopan (mainland)", "color": "#6b4a22"},
+      {
+        "t": 0.9,
+        "xy": [150, -200],
+        "label": "Drums at the Great Temple",
+        "color": "#1d8a7e",
+        "pulse": true,
+        "until": 2.5
+      },
+      {"t": 1.0, "xy": [-1100, 250], "label": "First gap: the portable bridge jams", "color": "#c8372d"},
+      {
+        "t": 1.8,
+        "xy": [-1850, 400],
+        "label": "Gap choked with bodies, horses and gold",
+        "color": "#a32020",
+        "pulse": true
+      },
+      {"t": 3.3, "xy": [-1850, 520], "label": "'Alvarado's leap' (legend)", "color": "#d6a21f"},
+      {"t": 4.3, "xy": [-4778, 2200], "label": "Popotla: Cortés weeps under a tree (legend)", "color": "#c8372d"}
     ],
     "captions": [
-      { "t": 0.0, "text": "Night of 30 June 1520. Moctezuma is dead and the city has risen. Cortés decides to slip out in the dark and rain along the Tlacopan causeway, the shortest road to the mainland." },
-      { "t": 0.5, "text": "The column carries a portable wooden bridge to span the gaps where the Mexica have removed the causeway bridges. Many soldiers are weighed down with gold." },
-      { "t": 0.9, "text": "They are spotted. Drums sound from the Great Temple, and canoes pour out across the lake." },
-      { "t": 1.4, "text": "The bridge jams fast in the first gap and cannot be carried forward. Behind it the column packs together." },
-      { "t": 2.0, "text": "Attacked from canoes on both sides, men are dragged into the water. The next gaps fill with bodies, horses, baggage and gold until survivors can cross on top of them." },
-      { "t": 3.0, "text": "The rearguard under Alvarado and the Tlaxcalans suffer worst. Legend says Alvarado vaulted a gap on his lance; the spot is still called Puente de Alvarado." },
-      { "t": 4.2, "text": "At Popotla the survivors regroup. Spanish tradition says Cortés sat under a tree and wept." },
-      { "t": 5.0, "text": "Perhaps half or more of the Spaniards, and thousands of Tlaxcalan allies, were killed, captured or drowned. The Spaniards called it the Noche Triste, the sad night." }
-    ]
+      {
+        "t": 0.0,
+        "text": "Night of 30 June 1520. Moctezuma is dead and the city has risen. Cortés decides to slip out in the dark and rain along the Tlacopan causeway, the shortest road to the mainland."
+      },
+      {
+        "t": 0.5,
+        "text": "The column carries a portable wooden bridge to span the gaps where the Mexica have removed the causeway bridges. Many soldiers are weighed down with gold."
+      },
+      {"t": 0.9, "text": "They are spotted. Drums sound from the Great Temple, and canoes pour out across the lake."},
+      {
+        "t": 1.4,
+        "text": "The bridge jams fast in the first gap and cannot be carried forward. Behind it the column packs together."
+      },
+      {
+        "t": 2.0,
+        "text": "Attacked from canoes on both sides, men are dragged into the water. The next gaps fill with bodies, horses, baggage and gold until survivors can cross on top of them."
+      },
+      {
+        "t": 3.0,
+        "text": "The rearguard under Alvarado and the Tlaxcalans suffer worst. Legend says Alvarado vaulted a gap on his lance; the spot is still called Puente de Alvarado."
+      },
+      {"t": 4.2, "text": "At Popotla the survivors regroup. Spanish tradition says Cortés sat under a tree and wept."},
+      {
+        "t": 5.0,
+        "text": "Perhaps half or more of the Spaniards, and thousands of Tlaxcalan allies, were killed, captured or drowned. The Spaniards called it the Noche Triste, the sad night."
+      }
+    ],
+    "figures": {"aztec": "mexica", "spanish": "conquistador", "tlaxcala": "mexica", "allies": "mexica"}
   },
-
   "siege": {
     "title": "The siege of Tenochtitlan, May–August 1521",
     "note": "Schematic. Allied numbers are uncertain, and the movements are simplified.",
     "duration": 12,
     "unitLabel": "Week",
     "playSeconds": 48,
-    "frame": { "origin": [19.4346, -99.1332] },
-    "view": { "xy": [[-7000, -9800], [6500, 6500]] },
+    "frame": {"origin": [19.4346, -99.1332]},
+    "view": {"xy": [[-7000, -9800], [6500, 6500]]},
     "lines": [
-      { "label": "Tlacopan causeway", "color": "#6b4a22", "weight": 6, "labelIndex": 3,
-        "xy": [[-700, 100], [-1100, 250], [-1850, 400], [-2700, 850], [-4000, 1650], [-4778, 2059], [-5900, 2600]] },
-      { "label": "Iztapalapa causeway", "color": "#6b4a22", "weight": 6, "labelIndex": 3,
-        "xy": [[0, -700], [-100, -2500], [-200, -4964], [1500, -6500], [4326, -8527]] },
-      { "label": "Coyoacán causeway", "color": "#6b4a22", "weight": 6, "labelIndex": 1,
-        "xy": [[-200, -4964], [-1500, -7000], [-3024, -9418]] },
-      { "label": "Tepeyac causeway", "color": "#6b4a22", "weight": 6, "labelIndex": 1,
-        "xy": [[-200, 2300], [700, 3900], [1596, 5610]] },
-      { "label": "Aqueduct from Chapultepec", "color": "#3b8fd9", "weight": 3, "dash": "6 6", "labelIndex": 0,
-        "xy": [[-4935, -1625], [-3000, -500], [-1200, 0]] }
+      {
+        "label": "Tlacopan causeway",
+        "color": "#6b4a22",
+        "weight": 6,
+        "labelIndex": 3,
+        "xy": [[-700, 100], [-1100, 250], [-1850, 400], [-2700, 850], [-4000, 1650], [-4778, 2059], [-5900, 2600]]
+      },
+      {
+        "label": "Iztapalapa causeway",
+        "color": "#6b4a22",
+        "weight": 6,
+        "labelIndex": 3,
+        "xy": [[0, -700], [-100, -2500], [-200, -4964], [1500, -6500], [4326, -8527]]
+      },
+      {
+        "label": "Coyoacán causeway",
+        "color": "#6b4a22",
+        "weight": 6,
+        "labelIndex": 1,
+        "xy": [[-200, -4964], [-1500, -7000], [-3024, -9418]]
+      },
+      {
+        "label": "Tepeyac causeway",
+        "color": "#6b4a22",
+        "weight": 6,
+        "labelIndex": 1,
+        "xy": [[-200, 2300], [700, 3900], [1596, 5610]]
+      },
+      {
+        "label": "Aqueduct from Chapultepec",
+        "color": "#3b8fd9",
+        "weight": 3,
+        "dash": "6 6",
+        "labelIndex": 0,
+        "xy": [[-4935, -1625], [-3000, -500], [-1200, 0]]
+      }
     ],
     "units": [
-      { "id": "mexica", "label": "Mexica defenders (Cuauhtémoc)", "side": "aztec", "w": 3000, "d": 3200,
+      {
+        "id": "mexica",
+        "label": "Mexica defenders (Cuauhtémoc)",
+        "side": "aztec",
+        "w": 3000,
+        "d": 3200,
         "keyframes": [
-          { "t": 0, "xy": [0, 500], "angle": 0 },
-          { "t": 3, "xy": [0, 600], "strength": 0.95 },
-          { "t": 6, "xy": [-100, 900], "w": 2500, "d": 2700, "strength": 0.8 },
-          { "t": 9, "xy": [-300, 1350], "w": 1700, "d": 1700, "strength": 0.6 },
-          { "t": 11, "xy": [-400, 1800], "w": 900, "d": 900, "strength": 0.4 },
-          { "t": 11.9, "xy": [-400, 1830], "w": 450, "d": 450, "strength": 0.2 }
-        ] },
-      { "id": "canoe-fleet", "label": "Mexica canoe fleet", "side": "aztec", "w": 1600, "d": 400,
+          {"t": 0, "xy": [0, 500], "angle": 0},
+          {"t": 3, "xy": [0, 600], "strength": 0.95},
+          {"t": 6, "xy": [-100, 900], "w": 2500, "d": 2700, "strength": 0.8},
+          {"t": 9, "xy": [-300, 1350], "w": 1700, "d": 1700, "strength": 0.6},
+          {"t": 11, "xy": [-400, 1800], "w": 900, "d": 900, "strength": 0.4},
+          {"t": 11.9, "xy": [-400, 1830], "w": 450, "d": 450, "strength": 0.2}
+        ]
+      },
+      {
+        "id": "canoe-fleet",
+        "label": "Mexica canoe fleet",
+        "side": "aztec",
+        "w": 1600,
+        "d": 400,
         "keyframes": [
-          { "t": 0, "xy": [4200, -2400], "angle": 120 },
-          { "t": 0.7, "xy": [4500, -2900], "strength": 0.6 },
-          { "t": 1.1, "xy": [5600, -2600], "strength": 0 }
-        ] },
-      { "id": "alvarado", "label": "Alvarado", "side": "spanish", "w": 500, "d": 200,
+          {"t": 0, "xy": [4200, -2400], "angle": 120},
+          {"t": 0.7, "xy": [4500, -2900], "strength": 0.6},
+          {"t": 1.1, "xy": [5600, -2600], "strength": 0}
+        ]
+      },
+      {
+        "id": "alvarado",
+        "label": "Alvarado",
+        "side": "spanish",
+        "w": 500,
+        "d": 200,
         "keyframes": [
-          { "t": 0, "xy": [-5600, 2400], "angle": 100 },
-          { "t": 0.6, "xy": [-4800, -1300], "angle": 180 },
-          { "t": 1.0, "xy": [-5600, 2400], "angle": 100 },
-          { "t": 3, "xy": [-3600, 1650] },
-          { "t": 6, "xy": [-2200, 800] },
-          { "t": 9, "xy": [-1100, 1100], "angle": 60 },
-          { "t": 11.5, "xy": [-800, 1700] }
-        ] },
-      { "id": "allies-west", "label": "Tlaxcalan allies", "side": "tlaxcala", "w": 900, "d": 400,
+          {"t": 0, "xy": [-5600, 2400], "angle": 100},
+          {"t": 0.6, "xy": [-4800, -1300], "angle": 180},
+          {"t": 1.0, "xy": [-5600, 2400], "angle": 100},
+          {"t": 3, "xy": [-3600, 1650]},
+          {"t": 6, "xy": [-2200, 800]},
+          {"t": 9, "xy": [-1100, 1100], "angle": 60},
+          {"t": 11.5, "xy": [-800, 1700]}
+        ]
+      },
+      {
+        "id": "allies-west",
+        "label": "Tlaxcalan allies",
+        "side": "tlaxcala",
+        "w": 900,
+        "d": 400,
         "keyframes": [
-          { "t": 0, "xy": [-6200, 3100], "angle": 100 },
-          { "t": 3, "xy": [-4300, 2200] },
-          { "t": 6, "xy": [-2900, 1300] },
-          { "t": 9, "xy": [-1700, 1300], "angle": 60 },
-          { "t": 11.5, "xy": [-1300, 2000] }
-        ] },
-      { "id": "olid", "label": "Olid", "side": "spanish", "w": 500, "d": 200,
+          {"t": 0, "xy": [-6200, 3100], "angle": 100},
+          {"t": 3, "xy": [-4300, 2200]},
+          {"t": 6, "xy": [-2900, 1300]},
+          {"t": 9, "xy": [-1700, 1300], "angle": 60},
+          {"t": 11.5, "xy": [-1300, 2000]}
+        ]
+      },
+      {
+        "id": "olid",
+        "label": "Olid",
+        "side": "spanish",
+        "w": 500,
+        "d": 200,
         "keyframes": [
-          { "t": 0, "xy": [-3024, -9000], "angle": 30 },
-          { "t": 0.6, "xy": [-4500, -1900], "angle": 0 },
-          { "t": 1.0, "xy": [-3024, -9000], "angle": 30 },
-          { "t": 2.5, "xy": [-700, -5600] },
-          { "t": 5, "xy": [-200, -3000], "angle": 0 },
-          { "t": 9, "xy": [-100, -800] },
-          { "t": 11.5, "xy": [-200, 900] }
-        ] },
-      { "id": "allies-south", "label": "Allies from the lakeshore towns", "side": "allies", "w": 1000, "d": 400,
+          {"t": 0, "xy": [-3024, -9000], "angle": 30},
+          {"t": 0.6, "xy": [-4500, -1900], "angle": 0},
+          {"t": 1.0, "xy": [-3024, -9000], "angle": 30},
+          {"t": 2.5, "xy": [-700, -5600]},
+          {"t": 5, "xy": [-200, -3000], "angle": 0},
+          {"t": 9, "xy": [-100, -800]},
+          {"t": 11.5, "xy": [-200, 900]}
+        ]
+      },
+      {
+        "id": "allies-south",
+        "label": "Allies from the lakeshore towns",
+        "side": "allies",
+        "w": 1000,
+        "d": 400,
         "keyframes": [
-          { "t": 0, "xy": [-2400, -9300], "angle": 30 },
-          { "t": 2.5, "xy": [-400, -6200] },
-          { "t": 5, "xy": [500, -3300], "angle": 0 },
-          { "t": 9, "xy": [600, -900] },
-          { "t": 11.5, "xy": [500, 800] }
-        ] },
-      { "id": "sandoval", "label": "Sandoval", "side": "spanish", "w": 500, "d": 200, "trail": true,
+          {"t": 0, "xy": [-2400, -9300], "angle": 30},
+          {"t": 2.5, "xy": [-400, -6200]},
+          {"t": 5, "xy": [500, -3300], "angle": 0},
+          {"t": 9, "xy": [600, -900]},
+          {"t": 11.5, "xy": [500, 800]}
+        ]
+      },
+      {
+        "id": "sandoval",
+        "label": "Sandoval",
+        "side": "spanish",
+        "w": 500,
+        "d": 200,
+        "trail": true,
         "keyframes": [
-          { "t": 0, "xy": [4326, -8300], "angle": 300 },
-          { "t": 1.0, "xy": [300, -5100] },
-          { "t": 1.4, "xy": [-2700, -8000], "angle": 270 },
-          { "t": 2.2, "xy": [-6400, -1000], "angle": 0 },
-          { "t": 2.8, "xy": [-5200, 4600], "angle": 60 },
-          { "t": 3.4, "xy": [1500, 5400], "angle": 200 },
-          { "t": 6, "xy": [1100, 4000] },
-          { "t": 10, "xy": [300, 2700] },
-          { "t": 11.5, "xy": [0, 2300] }
-        ] }
+          {"t": 0, "xy": [4326, -8300], "angle": 300},
+          {"t": 1.0, "xy": [300, -5100]},
+          {"t": 1.4, "xy": [-2700, -8000], "angle": 270},
+          {"t": 2.2, "xy": [-6400, -1000], "angle": 0},
+          {"t": 2.8, "xy": [-5200, 4600], "angle": 60},
+          {"t": 3.4, "xy": [1500, 5400], "angle": 200},
+          {"t": 6, "xy": [1100, 4000]},
+          {"t": 10, "xy": [300, 2700]},
+          {"t": 11.5, "xy": [0, 2300]}
+        ]
+      }
     ],
     "tracks": [
-      { "id": "brigantines", "label": "13 brigantines (Cortés)", "side": "spanish",
+      {
+        "id": "brigantines",
+        "label": "13 brigantines (Cortés)",
+        "side": "spanish",
         "keyframes": [
-          { "t": 0.0, "at": [19.39, -98.99] },
-          { "t": 0.7, "xy": [4600, -3000] },
-          { "t": 1.2, "xy": [700, -4800] },
-          { "t": 4.0, "xy": [2400, -1000] },
-          { "t": 8.0, "xy": [2000, 1500] },
-          { "t": 11.9, "xy": [700, 2300] }
-        ] }
+          {"t": 0.0, "at": [19.39, -98.99]},
+          {"t": 0.7, "xy": [4600, -3000]},
+          {"t": 1.2, "xy": [700, -4800]},
+          {"t": 4.0, "xy": [2400, -1000]},
+          {"t": 8.0, "xy": [2000, 1500]},
+          {"t": 11.9, "xy": [700, 2300]}
+        ],
+        "type": "ship"
+      }
     ],
     "markers": [
-      { "t": 0, "xy": [0, 0], "label": "Great Temple", "color": "#1d8a7e" },
-      { "t": 0, "xy": [-5900, 2600], "label": "Tlacopan", "color": "#6b4a22" },
-      { "t": 0, "xy": [-3024, -9418], "label": "Coyoacán", "color": "#6b4a22" },
-      { "t": 0, "xy": [4326, -8527], "label": "Iztapalapa", "color": "#6b4a22" },
-      { "t": 0, "xy": [1596, 5610], "label": "Tepeyac", "color": "#6b4a22" },
-      { "t": 0.6, "xy": [-4935, -1625], "label": "Chapultepec springs: aqueduct cut", "color": "#3b8fd9", "pulse": true, "until": 2 },
-      { "t": 0.7, "xy": [4500, -2900], "label": "Canoe fleet smashed", "color": "#c8372d", "pulse": true, "until": 2 },
-      { "t": 5.3, "xy": [-500, 1400], "label": "30 June: Cortés nearly captured", "color": "#a32020", "pulse": true, "until": 6.5 },
-      { "t": 9, "xy": [-400, 2050], "label": "Tlatelolco: the last stand", "color": "#1d8a7e" },
-      { "t": 11.85, "xy": [900, 2500], "label": "Cuauhtémoc captured in his canoe", "color": "#c8372d", "pulse": true }
+      {"t": 0, "xy": [0, 0], "label": "Great Temple", "color": "#1d8a7e"},
+      {"t": 0, "xy": [-5900, 2600], "label": "Tlacopan", "color": "#6b4a22"},
+      {"t": 0, "xy": [-3024, -9418], "label": "Coyoacán", "color": "#6b4a22"},
+      {"t": 0, "xy": [4326, -8527], "label": "Iztapalapa", "color": "#6b4a22"},
+      {"t": 0, "xy": [1596, 5610], "label": "Tepeyac", "color": "#6b4a22"},
+      {
+        "t": 0.6,
+        "xy": [-4935, -1625],
+        "label": "Chapultepec springs: aqueduct cut",
+        "color": "#3b8fd9",
+        "pulse": true,
+        "until": 2
+      },
+      {"t": 0.7, "xy": [4500, -2900], "label": "Canoe fleet smashed", "color": "#c8372d", "pulse": true, "until": 2},
+      {
+        "t": 5.3,
+        "xy": [-500, 1400],
+        "label": "30 June: Cortés nearly captured",
+        "color": "#a32020",
+        "pulse": true,
+        "until": 6.5
+      },
+      {"t": 9, "xy": [-400, 2050], "label": "Tlatelolco: the last stand", "color": "#1d8a7e"},
+      {"t": 11.85, "xy": [900, 2500], "label": "Cuauhtémoc captured in his canoe", "color": "#c8372d", "pulse": true}
     ],
     "captions": [
-      { "t": 0.0, "text": "May 1521. Cortés has around 900 Spaniards, 13 brigantines and, by his own account, tens of thousands of Indigenous allies, above all Tlaxcalans." },
-      { "t": 0.6, "text": "26 May: Alvarado and Olid cut the aqueduct from the springs of Chapultepec. The city of perhaps 200,000 people now depends on brackish lake water." },
-      { "t": 0.9, "text": "The brigantines smash the Mexica canoe fleet. From now on Cortés controls the lake." },
-      { "t": 1.4, "text": "Three divisions hold the causeways: Alvarado at Tlacopan, Olid at Coyoacán, Sandoval at Iztapalapa. Sandoval then marches round to Tepeyac to close the last road out." },
-      { "t": 3.6, "text": "Each day the attackers fight their way in along the causeways; each night the defenders reopen the breaches. Cortés begins demolishing the city house by house to fill the canals." },
-      { "t": 5.3, "text": "30 June: an assault toward the Tlatelolco market is ambushed. Cortés is nearly captured; dozens of Spaniards are taken and sacrificed in sight of their comrades." },
-      { "t": 7.0, "text": "Hunger and disease ravage the city. More towns join Cortés as Mexica power collapses." },
-      { "t": 9.0, "text": "The defenders are forced back into Tlatelolco, the market twin city to the north." },
-      { "t": 11.0, "text": "Almost the whole city is in ruins, its canals full of the dead." },
-      { "t": 11.8, "text": "13 August 1521: Cuauhtémoc tries to escape by canoe and is captured by a brigantine. The siege is over." }
-    ]
+      {
+        "t": 0.0,
+        "text": "May 1521. Cortés has around 900 Spaniards, 13 brigantines and, by his own account, tens of thousands of Indigenous allies, above all Tlaxcalans."
+      },
+      {
+        "t": 0.6,
+        "text": "26 May: Alvarado and Olid cut the aqueduct from the springs of Chapultepec. The city of perhaps 200,000 people now depends on brackish lake water."
+      },
+      {"t": 0.9, "text": "The brigantines smash the Mexica canoe fleet. From now on Cortés controls the lake."},
+      {
+        "t": 1.4,
+        "text": "Three divisions hold the causeways: Alvarado at Tlacopan, Olid at Coyoacán, Sandoval at Iztapalapa. Sandoval then marches round to Tepeyac to close the last road out."
+      },
+      {
+        "t": 3.6,
+        "text": "Each day the attackers fight their way in along the causeways; each night the defenders reopen the breaches. Cortés begins demolishing the city house by house to fill the canals."
+      },
+      {
+        "t": 5.3,
+        "text": "30 June: an assault toward the Tlatelolco market is ambushed. Cortés is nearly captured; dozens of Spaniards are taken and sacrificed in sight of their comrades."
+      },
+      {"t": 7.0, "text": "Hunger and disease ravage the city. More towns join Cortés as Mexica power collapses."},
+      {"t": 9.0, "text": "The defenders are forced back into Tlatelolco, the market twin city to the north."},
+      {"t": 11.0, "text": "Almost the whole city is in ruins, its canals full of the dead."},
+      {
+        "t": 11.8,
+        "text": "13 August 1521: Cuauhtémoc tries to escape by canoe and is captured by a brigantine. The siege is over."
+      }
+    ],
+    "figures": {"aztec": "mexica", "spanish": "conquistador", "tlaxcala": "mexica", "allies": "mexica"}
   }
 }

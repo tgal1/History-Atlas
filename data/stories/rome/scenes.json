@@ -6,119 +6,219 @@
     "unitLabel": "Stage",
     "playSeconds": 44,
     "dimMap": true,
-    "frame": { "origin": [47.537, 4.500] },
-    "view": { "xy": [[-6200, -3300], [3600, 3700]] },
-
+    "frame": {"origin": [47.537, 4.5]},
+    "view": {"xy": [[-6200, -3300], [3600, 3700]]},
     "lines": [
-      { "label": "Inner wall: 11 Roman miles", "color": "#8a5a24", "weight": 4, "labelIndex": 10,
-        "xy": [[2600, 0], [2252, 1100], [1300, 1905], [0, 2200], [-1300, 1905], [-2252, 1100], [-2600, 0],
-               [-2252, -1100], [-1300, -1905], [0, -2200], [1300, -1905], [2252, -1100], [2600, 0]] },
-      { "label": "Outer wall: 14 Roman miles", "color": "#8a5a24", "weight": 4, "labelIndex": 11,
-        "xy": [[3300, 0], [2858, 1450], [1650, 2511], [0, 2900], [-1650, 2511], [-2858, 1450], [-3300, 0],
-               [-2858, -1450], [-1650, -2511], [0, -2900], [1650, -2511], [2858, -1450], [3300, 0]] },
-      { "label": "Ose", "color": "#3b8fd9", "weight": 3, "xy": [[3600, 700], [1500, 750], [0, 650], [-1500, 500], [-2900, 300]] },
-      { "label": "Oze", "color": "#3b8fd9", "weight": 3, "xy": [[3600, -750], [1500, -700], [0, -650], [-1500, -450], [-2900, -200]] }
+      {
+        "label": "Inner wall: 11 Roman miles",
+        "color": "#8a5a24",
+        "weight": 4,
+        "labelIndex": 10,
+        "xy": [
+          [2600, 0], [2252, 1100], [1300, 1905], [0, 2200], [-1300, 1905], [-2252, 1100],
+          [-2600, 0], [-2252, -1100], [-1300, -1905], [0, -2200], [1300, -1905], [2252, -1100],
+          [2600, 0]
+        ]
+      },
+      {
+        "label": "Outer wall: 14 Roman miles",
+        "color": "#8a5a24",
+        "weight": 4,
+        "labelIndex": 11,
+        "xy": [
+          [3300, 0], [2858, 1450], [1650, 2511], [0, 2900], [-1650, 2511], [-2858, 1450],
+          [-3300, 0], [-2858, -1450], [-1650, -2511], [0, -2900], [1650, -2511], [2858, -1450],
+          [3300, 0]
+        ]
+      },
+      {
+        "label": "Ose",
+        "color": "#3b8fd9",
+        "weight": 3,
+        "xy": [[3600, 700], [1500, 750], [0, 650], [-1500, 500], [-2900, 300]]
+      },
+      {
+        "label": "Oze",
+        "color": "#3b8fd9",
+        "weight": 3,
+        "xy": [[3600, -750], [1500, -700], [0, -650], [-1500, -450], [-2900, -200]]
+      }
     ],
-
     "units": [
-      { "id": "gauls-inside", "label": "Vercingetorix's army", "side": "gauls", "w": 1600, "d": 500,
+      {
+        "id": "gauls-inside",
+        "label": "Vercingetorix's army",
+        "side": "gauls",
+        "w": 1600,
+        "d": 500,
         "keyframes": [
-          { "t": 0, "xy": [0, 0], "angle": 0 },
-          { "t": 1.5, "xy": [0, 0], "strength": 0.85 },
-          { "t": 4.2, "xy": [0, 0], "strength": 0.75 },
-          { "t": 4.6, "xy": [-900, 700], "angle": 315, "w": 900, "d": 450 },
-          { "t": 5.0, "xy": [-1250, 1000] },
-          { "t": 5.6, "xy": [-600, 450], "strength": 0.5 },
-          { "t": 6.0, "xy": [0, 0], "angle": 0, "w": 1400, "d": 450, "strength": 0.4 }
-        ] },
-
-      { "id": "legions-n", "label": "Legions", "side": "rome", "w": 1300, "d": 150,
-        "keyframes": [ { "t": 0, "xy": [0, 2550], "angle": 180 } ] },
-      { "id": "legions-e", "side": "rome", "w": 1300, "d": 150,
-        "keyframes": [ { "t": 0, "xy": [2950, 0], "angle": 270 } ] },
-      { "id": "legions-s", "side": "rome", "w": 1300, "d": 150,
-        "keyframes": [ { "t": 0, "xy": [0, -2550], "angle": 0 } ] },
-      { "id": "legions-w", "side": "rome", "w": 1300, "d": 150,
-        "keyframes": [ { "t": 0, "xy": [-2950, 0], "angle": 90 } ] },
-      { "id": "legions-rea", "label": "Camp below Mont Réa", "side": "rome", "w": 600, "d": 160,
+          {"t": 0, "xy": [0, 0], "angle": 0},
+          {"t": 1.5, "xy": [0, 0], "strength": 0.85},
+          {"t": 4.2, "xy": [0, 0], "strength": 0.75},
+          {"t": 4.6, "xy": [-900, 700], "angle": 315, "w": 900, "d": 450},
+          {"t": 5.0, "xy": [-1250, 1000]},
+          {"t": 5.6, "xy": [-600, 450], "strength": 0.5},
+          {"t": 6.0, "xy": [0, 0], "angle": 0, "w": 1400, "d": 450, "strength": 0.4}
+        ]
+      },
+      {
+        "id": "legions-n",
+        "label": "Legions",
+        "side": "rome",
+        "w": 1300,
+        "d": 150,
+        "keyframes": [{"t": 0, "xy": [0, 2550], "angle": 180}]
+      },
+      {"id": "legions-e", "side": "rome", "w": 1300, "d": 150, "keyframes": [{"t": 0, "xy": [2950, 0], "angle": 270}]},
+      {"id": "legions-s", "side": "rome", "w": 1300, "d": 150, "keyframes": [{"t": 0, "xy": [0, -2550], "angle": 0}]},
+      {"id": "legions-w", "side": "rome", "w": 1300, "d": 150, "keyframes": [{"t": 0, "xy": [-2950, 0], "angle": 90}]},
+      {
+        "id": "legions-rea",
+        "label": "Camp below Mont Réa",
+        "side": "rome",
+        "w": 600,
+        "d": 160,
         "keyframes": [
-          { "t": 0, "xy": [-2100, 1800], "angle": 315 },
-          { "t": 4.4, "strength": 1 },
-          { "t": 4.9, "strength": 0.55 },
-          { "t": 5.4, "strength": 0.8 }
-        ] },
-      { "id": "labienus", "label": "Labienus (6 cohorts)", "side": "rome", "color": "#e0675d", "w": 500, "d": 120,
+          {"t": 0, "xy": [-2100, 1800], "angle": 315},
+          {"t": 4.4, "strength": 1},
+          {"t": 4.9, "strength": 0.55},
+          {"t": 5.4, "strength": 0.8}
+        ]
+      },
+      {
+        "id": "labienus",
+        "label": "Labienus (6 cohorts)",
+        "side": "rome",
+        "color": "#e0675d",
+        "w": 500,
+        "d": 120,
         "keyframes": [
-          { "t": 0, "xy": [0, 2550], "angle": 270, "strength": 0 },
-          { "t": 4.4, "xy": [0, 2550], "strength": 0 },
-          { "t": 4.5, "xy": [0, 2550], "strength": 1 },
-          { "t": 5.0, "xy": [-1750, 2150], "angle": 315 }
-        ] },
-      { "id": "caesar-cav", "label": "Caesar and the German cavalry", "side": "rome", "color": "#e0675d", "w": 700, "d": 110, "trail": true,
+          {"t": 0, "xy": [0, 2550], "angle": 270, "strength": 0},
+          {"t": 4.4, "xy": [0, 2550], "strength": 0},
+          {"t": 4.5, "xy": [0, 2550], "strength": 1},
+          {"t": 5.0, "xy": [-1750, 2150], "angle": 315}
+        ]
+      },
+      {
+        "id": "caesar-cav",
+        "label": "Caesar and the German cavalry",
+        "side": "rome",
+        "color": "#e0675d",
+        "w": 700,
+        "d": 110,
+        "trail": true,
         "keyframes": [
-          { "t": 0, "xy": [-200, -3150], "angle": 270, "strength": 0 },
-          { "t": 2.0, "xy": [-200, -3150], "strength": 0 },
-          { "t": 2.1, "xy": [-200, -3150], "strength": 1 },
-          { "t": 2.5, "xy": [-3600, -1300], "angle": 250 },
-          { "t": 3.0, "xy": [-3700, -1200] },
-          { "t": 4.6, "xy": [-3700, -400], "angle": 0 },
-          { "t": 5.0, "xy": [-3950, 1500], "angle": 20 },
-          { "t": 5.4, "xy": [-3200, 3150], "angle": 120 },
-          { "t": 6.0, "xy": [-3000, 3200] }
-        ] },
-
-      { "id": "relief-main", "label": "Gallic relief army", "side": "gauls", "color": "#5b97bf", "w": 2000, "d": 600,
+          {"t": 0, "xy": [-200, -3150], "angle": 270, "strength": 0},
+          {"t": 2.0, "xy": [-200, -3150], "strength": 0},
+          {"t": 2.1, "xy": [-200, -3150], "strength": 1},
+          {"t": 2.5, "xy": [-3600, -1300], "angle": 250},
+          {"t": 3.0, "xy": [-3700, -1200]},
+          {"t": 4.6, "xy": [-3700, -400], "angle": 0},
+          {"t": 5.0, "xy": [-3950, 1500], "angle": 20},
+          {"t": 5.4, "xy": [-3200, 3150], "angle": 120},
+          {"t": 6.0, "xy": [-3000, 3200]}
+        ]
+      },
+      {
+        "id": "relief-main",
+        "label": "Gallic relief army",
+        "side": "gauls",
+        "color": "#5b97bf",
+        "w": 2000,
+        "d": 600,
         "keyframes": [
-          { "t": 0, "xy": [-6000, -1600], "angle": 90, "strength": 0 },
-          { "t": 1.8, "xy": [-6000, -1600], "strength": 0 },
-          { "t": 2.2, "xy": [-5200, -900], "strength": 1 },
-          { "t": 3.0, "xy": [-4300, -400] },
-          { "t": 3.5, "xy": [-4900, -700], "strength": 0.85 },
-          { "t": 4.4, "xy": [-4100, -300] },
-          { "t": 5.0, "xy": [-4200, -400], "strength": 0.7 },
-          { "t": 5.6, "xy": [-5600, -900], "strength": 0.3, "angle": 270 },
-          { "t": 6.0, "xy": [-6400, -1300], "strength": 0 }
-        ] },
-      { "id": "relief-cav", "label": "Gallic cavalry", "side": "gauls", "color": "#5b97bf", "w": 900, "d": 150,
+          {"t": 0, "xy": [-6000, -1600], "angle": 90, "strength": 0},
+          {"t": 1.8, "xy": [-6000, -1600], "strength": 0},
+          {"t": 2.2, "xy": [-5200, -900], "strength": 1},
+          {"t": 3.0, "xy": [-4300, -400]},
+          {"t": 3.5, "xy": [-4900, -700], "strength": 0.85},
+          {"t": 4.4, "xy": [-4100, -300]},
+          {"t": 5.0, "xy": [-4200, -400], "strength": 0.7},
+          {"t": 5.6, "xy": [-5600, -900], "strength": 0.3, "angle": 270},
+          {"t": 6.0, "xy": [-6400, -1300], "strength": 0}
+        ]
+      },
+      {
+        "id": "relief-cav",
+        "label": "Gallic cavalry",
+        "side": "gauls",
+        "color": "#5b97bf",
+        "w": 900,
+        "d": 150,
         "keyframes": [
-          { "t": 0, "xy": [-6000, -2600], "angle": 60, "strength": 0 },
-          { "t": 1.8, "xy": [-6000, -2600], "strength": 0 },
-          { "t": 2.2, "xy": [-5000, -1900], "strength": 1 },
-          { "t": 2.5, "xy": [-4000, -1400] },
-          { "t": 3.0, "xy": [-4800, -1900], "strength": 0.5, "angle": 240 },
-          { "t": 3.4, "xy": [-6000, -2600], "strength": 0 }
-        ] },
-      { "id": "vercassivellaunus", "label": "Vercassivellaunus (60,000 picked men)", "side": "gauls", "color": "#5b97bf", "w": 900, "d": 400, "trail": true,
+          {"t": 0, "xy": [-6000, -2600], "angle": 60, "strength": 0},
+          {"t": 1.8, "xy": [-6000, -2600], "strength": 0},
+          {"t": 2.2, "xy": [-5000, -1900], "strength": 1},
+          {"t": 2.5, "xy": [-4000, -1400]},
+          {"t": 3.0, "xy": [-4800, -1900], "strength": 0.5, "angle": 240},
+          {"t": 3.4, "xy": [-6000, -2600], "strength": 0}
+        ]
+      },
+      {
+        "id": "vercassivellaunus",
+        "label": "Vercassivellaunus (60,000 picked men)",
+        "side": "gauls",
+        "color": "#5b97bf",
+        "w": 900,
+        "d": 400,
+        "trail": true,
         "keyframes": [
-          { "t": 0, "xy": [-5200, -800], "angle": 0, "strength": 0 },
-          { "t": 3.3, "xy": [-5200, -800], "strength": 0 },
-          { "t": 3.5, "xy": [-5200, -800], "strength": 1 },
-          { "t": 4.0, "xy": [-5000, 2700], "angle": 60 },
-          { "t": 4.4, "xy": [-3100, 2800], "angle": 135 },
-          { "t": 4.9, "xy": [-2650, 2350] },
-          { "t": 5.4, "xy": [-2750, 2550], "strength": 0.55 },
-          { "t": 5.8, "xy": [-4300, 3500], "angle": 300, "strength": 0.15 },
-          { "t": 6.0, "xy": [-4800, 3600], "strength": 0 }
-        ] }
+          {"t": 0, "xy": [-5200, -800], "angle": 0, "strength": 0},
+          {"t": 3.3, "xy": [-5200, -800], "strength": 0},
+          {"t": 3.5, "xy": [-5200, -800], "strength": 1},
+          {"t": 4.0, "xy": [-5000, 2700], "angle": 60},
+          {"t": 4.4, "xy": [-3100, 2800], "angle": 135},
+          {"t": 4.9, "xy": [-2650, 2350]},
+          {"t": 5.4, "xy": [-2750, 2550], "strength": 0.55},
+          {"t": 5.8, "xy": [-4300, 3500], "angle": 300, "strength": 0.15},
+          {"t": 6.0, "xy": [-4800, 3600], "strength": 0}
+        ]
+      }
     ],
-
     "markers": [
-      { "t": 0, "xy": [1100, 330], "label": "Alesia", "color": "#3f7fa6" },
-      { "t": 4.4, "until": 5.6, "xy": [-2100, 1800], "label": "The weak point", "color": "#c8372d", "pulse": true },
-      { "t": 5.7, "xy": [0, -350], "label": "Vercingetorix surrenders", "color": "#3f7fa6", "pulse": true }
+      {"t": 0, "xy": [1100, 330], "label": "Alesia", "color": "#3f7fa6"},
+      {"t": 4.4, "until": 5.6, "xy": [-2100, 1800], "label": "The weak point", "color": "#c8372d", "pulse": true},
+      {"t": 5.7, "xy": [0, -350], "label": "Vercingetorix surrenders", "color": "#3f7fa6", "pulse": true}
     ],
-
     "captions": [
-      { "t": 0.0, "text": "Summer 52 BC. Caesar traps Vercingetorix and, by Caesar's count, 80,000 Gauls in the hilltop town of Alesia, between two rivers." },
-      { "t": 0.6, "text": "Instead of storming it, the Romans dig. An inner ring of ditches, ramparts and towers, 11 Roman miles round, seals the town in." },
-      { "t": 1.2, "text": "Knowing a huge relief army is coming, Caesar builds a second ring, 14 miles round, facing outward. His army is now besieger and besieged." },
-      { "t": 1.7, "text": "Food runs short. The Gauls send the town's women and children out; Caesar will not let them through, and they are left between the walls." },
-      { "t": 2.1, "text": "The relief army arrives from the west: 250,000 infantry and 8,000 cavalry, Caesar claims, almost certainly an exaggeration." },
-      { "t": 2.5, "text": "A great cavalry battle on the plain. Caesar's German horsemen break the Gallic cavalry." },
-      { "t": 3.1, "text": "Attacks on the outer wall are thrown back. At night Vercassivellaunus leads 60,000 picked men round to the north, toward the camp below Mont Réa, where the walls are weakest." },
-      { "t": 4.4, "text": "At noon they attack the camp from outside while Vercingetorix attacks from inside. Caesar sends Labienus with six cohorts to hold it." },
-      { "t": 5.0, "text": "Caesar, recognisable by his scarlet cloak, leads cavalry out round the walls and falls on the attackers from behind. The relief army collapses." },
-      { "t": 5.7, "text": "Next day Vercingetorix surrenders. Gaul is Rome's. Six years later he is paraded in Caesar's triumph and executed." }
-    ]
+      {
+        "t": 0.0,
+        "text": "Summer 52 BC. Caesar traps Vercingetorix and, by Caesar's count, 80,000 Gauls in the hilltop town of Alesia, between two rivers."
+      },
+      {
+        "t": 0.6,
+        "text": "Instead of storming it, the Romans dig. An inner ring of ditches, ramparts and towers, 11 Roman miles round, seals the town in."
+      },
+      {
+        "t": 1.2,
+        "text": "Knowing a huge relief army is coming, Caesar builds a second ring, 14 miles round, facing outward. His army is now besieger and besieged."
+      },
+      {
+        "t": 1.7,
+        "text": "Food runs short. The Gauls send the town's women and children out; Caesar will not let them through, and they are left between the walls."
+      },
+      {
+        "t": 2.1,
+        "text": "The relief army arrives from the west: 250,000 infantry and 8,000 cavalry, Caesar claims, almost certainly an exaggeration."
+      },
+      {"t": 2.5, "text": "A great cavalry battle on the plain. Caesar's German horsemen break the Gallic cavalry."},
+      {
+        "t": 3.1,
+        "text": "Attacks on the outer wall are thrown back. At night Vercassivellaunus leads 60,000 picked men round to the north, toward the camp below Mont Réa, where the walls are weakest."
+      },
+      {
+        "t": 4.4,
+        "text": "At noon they attack the camp from outside while Vercingetorix attacks from inside. Caesar sends Labienus with six cohorts to hold it."
+      },
+      {
+        "t": 5.0,
+        "text": "Caesar, recognisable by his scarlet cloak, leads cavalry out round the walls and falls on the attackers from behind. The relief army collapses."
+      },
+      {
+        "t": 5.7,
+        "text": "Next day Vercingetorix surrenders. Gaul is Rome's. Six years later he is paraded in Caesar's triumph and executed."
+      }
+    ],
+    "figures": {"rome": "legionary", "gauls": "gaul"}
   }
 }

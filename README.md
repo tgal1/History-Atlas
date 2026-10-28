@@ -64,7 +64,8 @@ history-atlas/
 │   │   ├── landMask.js        Clips territory outlines to the real coastline
 │   │   ├── cityLayer.js       Drawn city plans: styles, generated street blocks, dates, clicks
 │   │   ├── labelLayer.js      Story-specific place labels
-│   │   └── scenePlayer.js     Animated scenes: marching armies and battle formations
+│   │   ├── scenePlayer.js     Animated scenes: marching armies and battle formations
+│   │   └── unitIcons.js       Little figures for scene units: soldiers, riders, canoes, tanks
 │   ├── map3d/                 3D city view (MapLibre GL, loaded on demand)
 │   │   ├── city3d.js          Terrain, layers, time filter, clicks, Then/Today
 │   │   ├── models.js          Landmark recipes: temples, amphitheatres, baths, walls...
@@ -102,7 +103,8 @@ history-atlas/
 │   └── DATA_FORMAT.md         How to write a new story
 └── tools/
     ├── serve.py               No-cache local dev server
-    └── osm_footprints.py      Refreshes monument outlines from OpenStreetMap
+    ├── osm_footprints.py      Refreshes monument outlines from OpenStreetMap
+    └── route_scenes.py        Routes scene marches along roads (OSRM)
 ```
 
 The engine knows nothing about Ireland or Rome. Everything story-specific lives in `data/stories/<id>/`. A new story is a new folder plus its `status` set to `"ready"` in `catalog.json`. See [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md).
