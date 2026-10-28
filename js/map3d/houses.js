@@ -449,7 +449,7 @@ const ccw = (ring) => (area(ring) < 0 ? ring.slice().reverse() : ring);
 const round1 = (v) => Math.round(v * 10) / 10;
 
 // ---------- Vietnam (Saigon, Hue, Hanoi, 1968-75) ----------
-// tube      a tube house: a lot 3.5 to 6 m wide running back from the street,
+// tube      a tube house: a lot about 4 to 6 m wide running back from the street,
 //           two to four storeys, a flat roof with a stair room or a tiled roof
 // tube-old  an old shophouse of the Hanoi Old Quarter or Cholon: one or two
 //           storeys, a tiled front range, a light well, a tiled back range
