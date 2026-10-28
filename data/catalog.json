@@ -146,6 +146,51 @@
       "at": "1978-12-11",
       "when": "Shown in December 1978",
       "blurb": "The city of the revolution: the avenues of the great marches, Jaleh Square, the university, the bazaar, the palaces, Evin prison and the US embassy."
+    },
+    {
+      "id": "boston",
+      "name": "Boston",
+      "story": "american-revolution",
+      "at": "1775-06-10",
+      "when": "Shown in June 1775",
+      "blurb": "The town on its peninsula during the siege: Faneuil Hall, Old North's steeple, the Long Wharf, Griffin's Wharf of the Tea Party, and Bunker Hill across the river.",
+      "threeD": true
+    },
+    {
+      "id": "new-york",
+      "name": "New York",
+      "story": "american-revolution",
+      "at": "1776-08-01",
+      "when": "Shown in August 1776",
+      "blurb": "The port on the tip of Manhattan as the British fleet arrived: Fort George, Trinity Church, Broadway and the East River wharves, and the Great Fire that September.",
+      "threeD": true
+    },
+    {
+      "id": "philadelphia",
+      "name": "Philadelphia",
+      "story": "american-revolution",
+      "at": "1776-07-04",
+      "when": "Shown in July 1776",
+      "blurb": "The largest city in the colonies when independence was declared: the State House, Carpenters' Hall, Christ Church and Penn's grid along the Delaware.",
+      "threeD": true
+    },
+    {
+      "id": "charleston",
+      "name": "Charleston",
+      "story": "american-revolution",
+      "at": "1780-04-15",
+      "when": "Shown in April 1780",
+      "blurb": "Charles Town under British siege: the walled old town, the Exchange, St Michael's, the harbour wharves and the siege lines across the Neck.",
+      "threeD": true
+    },
+    {
+      "id": "yorktown",
+      "name": "Yorktown",
+      "story": "american-revolution",
+      "at": "1781-10-12",
+      "when": "Shown in October 1781",
+      "blurb": "The tobacco port where the war was decided: Cornwallis's defences, the allied siege lines closing in, Redoubts 9 and 10, and the Moore House.",
+      "threeD": true
     }
   ]
 }

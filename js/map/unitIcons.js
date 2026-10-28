@@ -147,6 +147,7 @@ const FIGURES = {
     <circle cx="15" cy="23" r="6" fill="none" stroke="#3a2f25" stroke-width="2"/>
     <path d="M15 17v12M9 23h12M10.8 18.8l8.4 8.4M19.2 18.8l-8.4 8.4" stroke="#3a2f25" stroke-width="0.9"/>
     <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.6, 2.2)}${kepi(5.4, 4.4, 0.85)}
+    <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
   // Napoleonic line infantry (fusilier): shako with plume and plate, coat with crossbelts, musket and bayonet.
   fusilier: `${legs(14)}<path d="M10.3 10.5h7.4l1.6 12.5H8.7z" fill="currentColor" ${INK}/>
     <path d="M11 11.2l6 8M17 11.2l-6 8" stroke="#f4f1e8" stroke-width="1.1"/>${head(14, 7.4)}

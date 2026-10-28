@@ -204,5 +204,5 @@
     "scene": "battlefield"
   },
   "music": "colonial",
-  "cities": ["boston"]
+  "cities": ["boston", "new-york", "philadelphia", "charleston", "yorktown"]
 }
