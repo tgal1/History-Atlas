@@ -50,6 +50,10 @@ const TYPES = {
   clapboard: { area: [280, 620], h: (r) => between(r, 5.4, 6.8), walls: ['#e6dfd0', '#d8cdb8', '#c9b89a', '#b9c2c4', '#d9c7a1'], roofs: SHINGLE, rt: 0.05, pitched: true },
   warehouse: { area: [300, 700], h: (r) => Math.floor(between(r, 3, 4.7)) * 3 + 0.6, walls: ['#8f4a35', '#9a5a44', '#7d5a45'], roofs: SLATE, rt: 0.05, pitched: true },
   rubble: { area: [150, 500], rubble: true },
+  // Moscow: stucco blocks of the old city, Stalin-era avenues, Khrushchev-era slabs.
+  stucco: { area: [700, 1800], h: (r) => Math.floor(between(r, 4, 6.9)) * 3.6 + 0.8, walls: ['#e3c98f', '#dfb98a', '#e8d3a8', '#d9a98f', '#c9cfb0', '#e6d9b8', '#d7c3a0', '#bcc7c4'], roofs: ['#6f7d6c', '#7d6a5a', '#8a8f8c', '#5f6e64'], rt: 1.2, court: { min: 900, k: 0.45, p: 0.7 } },
+  stalinist: { area: [2000, 4500], h: (r) => Math.floor(between(r, 8, 10.9)) * 3.4 + 1.5, walls: ['#d8c7a6', '#cbb89a', '#e0d2b6', '#c9a98a'], roofs: ['#8a8a84', '#7c7d78'], rt: 1.5, court: { min: 1800, k: 0.55, p: 0.85 } },
+  khrushchyovka: { area: [1800, 4000], h: () => 5 * 2.8 + 0.6, walls: ['#d9d6cf', '#cfcbc2', '#c9b9a3', '#e2ded4'], roofs: ['#7a7a76', '#85857f'], rt: 0.4, slab: true },
 };
 
 // Share of each type by setting. A fabric can override with "mix".
@@ -74,6 +78,11 @@ const STYLES = {
     hill: { calli: 0.74, noble: 0.12, garden: 0.08, hut: 0.06 },
     outer: { calli: 0.55, hut: 0.22, garden: 0.23 },
   },
+  moscow: {
+    centre: { stucco: 0.78, stalinist: 0.1, garden: 0.12 },
+    hill: { stucco: 0.78, stalinist: 0.1, garden: 0.12 },
+    outer: { khrushchyovka: 0.55, stalinist: 0.15, stucco: 0.15, garden: 0.15 },
+  },
 };
 
 export const HOUSE_INFO = {
@@ -89,12 +98,16 @@ export const HOUSE_INFO = {
   georgian: 'A Georgian brick house: two or three storeys, sash windows, a slate or shingle roof. The merchant class built these.',
   clapboard: 'A timber-framed house clad in painted clapboard, the commonest home in a colonial town.',
   warehouse: 'A brick warehouse by the waterfront, where cargoes of rum, molasses, cloth and tea were stored.',
+  stucco: 'A stuccoed apartment block of the late 1800s, four to six storeys round a courtyard. After 1917 most were split into communal flats, a family to a room.',
+  stalinist: 'A Stalin-era apartment block of the 1930s to 1950s: eight to ten storeys of stone-faced walls, high ceilings and big flats for the Soviet elite, lining the main avenues.',
+  khrushchyovka: 'A Khrushchyovka: a five-storey slab of concrete panels or brick, built in their thousands from the late 1950s to rehouse families from communal flats.',
 };
 export const HOUSE_LABEL = {
   insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
   'punic-house': 'Courtyard house', 'punic-tall': 'Tall house', workshop: 'Workshops',
   calli: 'Calli (family compound)', noble: "Noble's house", rubble: 'Ruins',
   georgian: 'Georgian brick house', clapboard: 'Clapboard house', warehouse: 'Warehouse',
+  stucco: 'Pre-revolutionary apartment block', stalinist: 'Stalin-era apartment block', khrushchyovka: 'Khrushchyovka (five-storey slab)',
 };
 
 export async function generateHouses(city, frame) {
@@ -201,6 +214,7 @@ function house(lot, type, [t0, t1], suburb, r, extras) {
     extras.parts.push(...g.parts);
     return null;
   }
+  if (T.slab) return slab(lot, type, [t0, t1], r, extras);
   const h = T.h(r, suburb);
   if (T.pitched) {
     // The house stands at one end of its lot, the yard behind it; a steep
@@ -286,6 +300,31 @@ function orchard(g, plot, r) {
       part(g, circle(q, between(r, 2, 2.8), 7), 0.8, between(r, 3.6, 4.8), '#7f915a');
     }
   }
+}
+
+// A Khrushchyovka: one five-storey slab set back in its lot, the rest a
+// yard of grass and trees.
+function slab(lot, type, [t0, t1], r, extras) {
+  const T = TYPES[type];
+  const box = obb(lot);
+  if (box.hl < 14 || box.hw < 8) return null;
+  const hl = Math.min(box.hl - 3, 48);
+  const hw = Math.min(box.hw - 2, 6);
+  extras.flats.push({ rings: [lot], c: C.garden, t0, t1 });
+  if (box.hw > 18) {
+    const g = { parts: [], flats: [] };
+    for (const s of [-0.6, 0, 0.6]) if (r() < 0.6) tree(g, at(box, s * hl, (r() < 0.5 ? -1 : 1) * (hw + (box.hw - hw) / 2)), r);
+    g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+    extras.parts.push(...g.parts);
+  }
+  return {
+    rings: [rectIn(box, -hl, hl, -hw, hw)],
+    h: round1(T.h(r)),
+    c: T.walls[Math.floor(r() * T.walls.length)],
+    roof: T.roofs[Math.floor(r() * T.roofs.length)],
+    rt: T.rt,
+    type, t0, t1,
+  };
 }
 
 // ---------- Layouts ----------

@@ -28,6 +28,7 @@ const STYLE = {
   punic: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   mexica: { wall: C.whitewash, hall: C.whitewashShade, roof: C.flatRoof, flatRoof: true },
   colonial: { wall: '#b9785a', hall: '#a8553d', roof: '#4f4a45', flatRoof: false },
+  moscow: { wall: '#e4cf9f', hall: '#ddc596', roof: '#6f7d6c', flatRoof: true },
 };
 
 const DEFAULT_MODEL = {
@@ -860,6 +861,259 @@ const RECIPES = {
       }
     }
   },
+
+  // ---------- Moscow ----------
+  // The Kremlin wall: brick, with swallowtail merlons along the top.
+  'kremlin-wall'(shape, m, out) {
+    const H = m.h ?? 12;
+    const colour = m.colour ?? MOSCOW.brick;
+    for (const line of shape.lines) {
+      for (const q of strips(line, m.w ?? 4.5)) part(out, q, 0, H, colour);
+      for (const q of alongPath(line, 3, 1.6, m.w ?? 4.5)) part(out, q, H, H + 2.2, colour);
+    }
+  },
+
+  // A Kremlin tower: a square brick shaft, a narrower stage, an open white
+  // octagon and a tall green tented roof. The five gate towers have carried
+  // ruby stars since 1937. "low": a short tower with the tent straight on the shaft.
+  'kremlin-tower'(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 40;
+    const brick = m.colour ?? MOSCOW.brick;
+    const s = Math.min(box.hl, box.hw);
+    const c = box.c;
+    const shaft = m.low ? 0.55 : 0.42;
+    part(out, rectIn(box, -box.hl, box.hl, -box.hw, box.hw), 0, H * shaft, brick);
+    part(out, rectIn(box, -box.hl - 0.5, box.hl + 0.5, -box.hw - 0.5, box.hw + 0.5), H * shaft, H * shaft + 1.2, brick);
+    let t0 = H * shaft + 1.2;
+    let r0 = s * 1.05;
+    if (!m.low) {
+      part(out, rectIn(box, -s * 0.72, s * 0.72, -s * 0.72, s * 0.72), t0, H * 0.56, brick);
+      part(out, circle(c, s * 0.6, 8, Math.PI / 8), H * 0.56, H * 0.64, MOSCOW.trim);
+      t0 = H * 0.64;
+      r0 = s * 0.62;
+    }
+    const top = m.star ? H - 4.5 : H - 1;
+    tent(out, c, r0, t0, top, m.roof ?? MOSCOW.tent);
+    part(out, circle(c, 0.25, 6), top, H - (m.star ? 3.6 : 0), MOSCOW.gold);
+    if (m.star) starBead(out, c, H - 3.6, 3.6, MOSCOW.ruby);
+  },
+
+  // An Orthodox cathedral: a whitewashed cube, a central drum and onion
+  // dome, and four (or eight) smaller domes round it. "colours" sets the
+  // side domes, "dome" the central one.
+  'onion-church'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 40;
+    const wall = m.colour ?? C.whitewash;
+    const { hl, hw } = box;
+    const wallH = m.wallH ?? H * 0.42;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, wallH, wall);
+    part(out, rectIn(box, -hl + 0.4, hl - 0.4, -hw + 0.4, hw - 0.4), wallH, wallH + 1.2, m.roof ?? MOSCOW.metal);
+    if (m.apses !== false) {
+      // Apses on the east end.
+      for (const t of [-hw * 0.55, 0, hw * 0.55]) part(out, circle(at(box, -hl, t), hw * 0.22, 12), 0, wallH * 0.8, wall);
+    }
+    const n = m.domes ?? 5;
+    const R = Math.min(hl, hw) * (n === 1 ? 0.4 : 0.22);
+    const b = wallH + 1.2;
+    const gold = m.dome ?? MOSCOW.gold;
+    const side = m.colours ?? [gold];
+    onionDome(out, at(box, m.offset ?? 0, 0), R, b, H - b, gold, wall);
+    const spots = n >= 5 ? [[1, 1], [1, -1], [-1, 1], [-1, -1]] : [];
+    if (n >= 9) spots.push([1, 0], [-1, 0], [0, 1], [0, -1]);
+    spots.forEach(([i, j], k) => onionDome(out, at(box, i * hl * 0.52, j * hw * 0.52), R * 0.78, b, (H - b) * 0.72, side[k % side.length], wall));
+  },
+
+  // The Ivan the Great Bell Tower: whitewashed octagons in three tiers of
+  // open belfries, a drum and a gilded dome, 81 m high.
+  'bell-tower'(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 81;
+    const c = box.c;
+    const R = Math.min(box.hl, box.hw);
+    const wall = m.colour ?? C.whitewash;
+    [[1, 0, 0.3], [0.86, 0.3, 0.48], [0.72, 0.48, 0.62], [0.58, 0.62, 0.72]].forEach(([k, b, h]) => {
+      part(out, circle(c, R * k, 8, Math.PI / 8), H * b, H * h - 0.8, wall);
+      part(out, circle(c, R * k + 0.4, 8, Math.PI / 8), H * h - 0.8, H * h, MOSCOW.trim);
+    });
+    onionDome(out, c, R * 0.42, H * 0.72, H * 0.28, m.dome ?? MOSCOW.gold, wall);
+  },
+
+  // St Basil's Cathedral: a central tented church ringed by eight chapels,
+  // each under its own patterned onion dome, on a brick gallery.
+  'st-basil'(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 47;
+    const c = box.c;
+    const R = Math.min(box.hl, box.hw);
+    const brick = m.colour ?? '#b0503a';
+    part(out, circle(c, R * 0.92, 16), 0, 7, brick);
+    const domes = ['#3f8a5a', '#d8b23a', '#b63a2e', '#3b6aa0', '#e3a033', '#4f8f4f', '#c4483c', '#2f7fb0'];
+    for (let i = 0; i < 8; i++) {
+      const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
+      const big = i % 2 === 0;
+      const q = [c[0] + R * (big ? 0.6 : 0.62) * Math.cos(a), c[1] + R * (big ? 0.6 : 0.62) * Math.sin(a)];
+      const r = R * (big ? 0.2 : 0.14);
+      const top = H * (big ? 0.72 : 0.56);
+      part(out, circle(q, r, 8, Math.PI / 8), 7, top * 0.55, brick);
+      onionDome(out, q, r * 0.9, top * 0.55, top * 0.45, domes[i], MOSCOW.trim);
+    }
+    part(out, circle(c, R * 0.26, 8, Math.PI / 8), 7, H * 0.5, brick);
+    part(out, circle(c, R * 0.22, 8, Math.PI / 8), H * 0.5, H * 0.56, MOSCOW.trim);
+    tent(out, c, R * 0.22, H * 0.56, H * 0.88, '#d9c27a');
+    onionDome(out, c, R * 0.07, H * 0.88, H * 0.12, MOSCOW.gold, MOSCOW.gold);
+  },
+
+  // Lenin's Mausoleum: stepped red and black granite with a colonnaded
+  // pavilion on top. Soviet leaders reviewed parades from its tribune.
+  'lenin-mausoleum'(shape, m, out) {
+    const box = obb(shape.points);
+    const H = m.h ?? 12;
+    const { hl, hw } = box;
+    const red = '#7a2e2a';
+    const dark = '#2e2a2c';
+    [[1, 1, 0, 0.38, red], [0.86, 0.8, 0.38, 0.5, dark], [0.72, 0.64, 0.5, 0.62, red], [0.58, 0.5, 0.62, 0.72, dark], [0.46, 0.4, 0.72, 0.8, red]]
+      .forEach(([a, b, h0, h1, col]) => part(out, rectIn(box, -hl * a, hl * a, -hw * b, hw * b), H * h0, H * h1, col));
+    const top = rectIn(box, -hl * 0.36, hl * 0.36, -hw * 0.3, hw * 0.3);
+    for (const q of alongPath(top, 2.2, 0.6, 0.6, { closed: true })) part(out, q, H * 0.8, H * 0.94, red);
+    part(out, rectIn(box, -hl * 0.38, hl * 0.38, -hw * 0.32, hw * 0.32), H * 0.94, H, red);
+  },
+
+  // A Stalin skyscraper (the Seven Sisters, 1947-57): wings stepping up to a
+  // central tower in setbacks, an octagonal lantern and a spire with a star.
+  // h is the height to the tip of the star; "spire" its share of that.
+  'stalin-tower'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 170;
+    const stone = m.colour ?? '#ddd2bd';
+    const trim = '#c9bba0';
+    const { hl, hw } = box;
+    const body = H * (1 - (m.spire ?? 0.2));
+    const wing = body * (m.wings ?? 0.32);
+    const s = m.core ?? Math.min(hl, hw);
+    part(out, rectIn(box, -hl, hl, -hw * 0.45, hw * 0.45), 0, wing * 0.72, stone);
+    part(out, rectIn(box, -hl * 0.55, hl * 0.55, -hw, hw), 0, wing, stone);
+    if (m.turrets) {
+      // Corner towers at the ends of the wings, each with its own small spire.
+      for (const sg of [-1, 1]) {
+        const q = at(box, sg * hl * 0.86, 0);
+        const tb = { c: q, u: box.u, v: box.v };
+        const r = hw * 0.32;
+        part(out, rectIn(tb, -r, r, -r, r), 0, wing * 1.15, stone);
+        part(out, circle(q, r * 0.55, 8, Math.PI / 8), wing * 1.15, wing * 1.3, trim);
+        tent(out, q, r * 0.4, wing * 1.3, wing * 1.6, MOSCOW.spire);
+      }
+    }
+    const tiers = [[0.62, wing, 0.66], [0.5, 0.66, 0.8], [0.4, 0.8, 0.9], [0.3, 0.9, 0.97]];
+    tiers.forEach(([k, b, h], i) => {
+      const lo = i === 0 ? b : body * b;
+      part(out, rectIn(box, -s * k, s * k, -s * k, s * k), lo, body * h - 1, stone);
+      part(out, rectIn(box, -s * k - 0.6, s * k + 0.6, -s * k - 0.6, s * k + 0.6), body * h - 1, body * h, trim);
+    });
+    part(out, circle(box.c, s * 0.22, 8, Math.PI / 8), body * 0.97, body, stone);
+    tent(out, box.c, s * 0.16, body, H - 7, MOSCOW.spire, 9);
+    starBead(out, box.c, H - 7, 7, MOSCOW.gold);
+  },
+
+  // The House of Soviets of the RSFSR (1981), the White House: a broad
+  // podium, a long white slab and a central tower under a clock.
+  'white-house'(shape, m, out, ctx) {
+    const box = face(obb(shape.points), shape, m, ctx);
+    const H = m.h ?? 102;
+    const white = m.colour ?? '#f1f0ea';
+    const { hl, hw } = box;
+    part(out, rectIn(box, -hl, hl, -hw, hw), 0, H * 0.1, '#e2dfd5');
+    part(out, rectIn(box, -hl * 0.9, hl * 0.9, -hw * 0.28, hw * 0.28), H * 0.1, H * 0.42, white);
+    part(out, rectIn(box, -hl * 0.3, hl * 0.3, -hw * 0.26, hw * 0.26), H * 0.42, H * 0.84, white);
+    part(out, rectIn(box, -hl * 0.2, hl * 0.2, -hw * 0.17, hw * 0.17), H * 0.84, H * 0.95, white);
+    part(out, rectIn(box, -hl * 0.12, hl * 0.12, -hw * 0.12, hw * 0.12), H * 0.95, H * 0.97, '#c9a64a');
+    part(out, circle(box.c, 0.3, 6), H * 0.97, H + 10, '#cfcfcf');
+    if (m.flag) part(out, rectIn({ c: at(box, 0, 2.4), u: box.u, v: box.v }, -0.15, 0.15, -2, 2), H + 6.5, H + 10, m.flag);
+  },
+
+  // A tank, as in Moscow in August 1991: hull, turret and gun, pointing
+  // along "facing" (compass degrees).
+  'soviet-tank'(shape, m, out) {
+    const f = bearingVec(m.facing ?? 0);
+    const box = { c: shape.centre, u: f, v: [-f[1], f[0]] };
+    const green = m.colour ?? '#4b5232';
+    part(out, rectIn(box, -3.5, 3.5, -1.8, 1.8), 0.3, 1.8, green);
+    part(out, circle(at(box, -0.4, 0), 1.35, 10), 1.8, 2.6, green);
+    part(out, rectIn(box, 0.8, 5.6, -0.12, 0.12), 2.1, 2.35, '#3a3f28');
+  },
+
+  // A statue on a tall pedestal (Iron Felix on Lubyanka Square).
+  'pedestal-statue'(shape, m, out) {
+    const c = shape.centre;
+    const H = m.h ?? 15;
+    const base = m.pedestal ?? H * 0.4;
+    part(out, circle(c, 3.2, 8, Math.PI / 8), 0, 0.8, '#5d5752');
+    part(out, circle(c, 2.4, 8, Math.PI / 8), 0.8, base, '#6a625b');
+    if (m.empty) return;
+    part(out, circle(c, 1.1, 10), base, H - 1.4, m.colour ?? '#3e3d38');
+    part(out, circle(c, 0.5, 8), H - 1.4, H, m.colour ?? '#3e3d38');
+  },
+
+  // A shopping arcade (GUM): three storeys round the block, with glass
+  // roofs over the passages that run its length.
+  'arcade-store'(shape, m, out) {
+    const H = m.h ?? 18;
+    const wall = m.colour ?? '#e2d8c6';
+    for (const poly of shape.polys) part(out, poly, 0, H, wall);
+    const box = obb(shape.main[0]);
+    const n = m.passages ?? 3;
+    const w = (box.hw * 2) / n;
+    for (let i = 0; i < n; i++) {
+      const t = -box.hw + (i + 0.5) * w;
+      gable(out, { c: at(box, 0, t), u: box.u, v: box.v }, -box.hl * 0.94, box.hl * 0.94, w * 0.2, H, 3.5, '#a9bcc0', 4);
+    }
+    if (m.towers) for (const sg of [-1, 1]) for (const tt of [-1, 1]) tent(out, at(box, sg * box.hl * 0.98, tt * box.hw * 0.2), 2.5, H, H + 9, MOSCOW.metal);
+  },
+
+  // Any building by its own outline (courtyards and all): walls of one colour
+  // under a flat or low roof. For the big blocks of the Soviet centre.
+  extrude(shape, m, out, ctx) {
+    const H = ctx.p.heightM ?? m.h ?? 20;
+    const wall = m.colour ?? ctx.S.wall;
+    const roof = m.roof ?? ctx.S.roof;
+    for (const poly of shape.polys) {
+      if (Math.abs(area(poly[0])) < 20) continue;
+      part(out, poly, 0, H - 0.8, wall);
+      part(out, poly, H - 0.8, H, roof);
+    }
+    if (m.dome) onionDome(out, shape.centre, m.dome, H, m.dome * 2.6, m.domeColour ?? MOSCOW.tent, wall);
+  },
+
+  // A drum and green dome with a flagpole on top: the Kremlin Senate, where
+  // the red flag flew until 25 December 1991. "flagOnly" draws just the pole
+  // and flag, so the flag can change with the date; "flag" is a colour or
+  // a list of stripes from the top.
+  'flag-dome'(shape, m, out) {
+    const c = shape.centre;
+    const R = m.r ?? 12;
+    const H = m.h ?? 34;
+    if (!m.flagOnly) {
+      part(out, circle(c, R, 24), 0, H * 0.62, '#e5cd87');
+      dome(out, c, R * 0.95, H * 0.62, R * 0.8, MOSCOW.tent, 6);
+      return;
+    }
+    const top = H * 0.62 + R * 0.8;
+    part(out, circle(c, 0.25, 6), top, top + 12, '#d8d4c8');
+    const stripes = Array.isArray(m.flag) ? m.flag : [m.flag ?? MOSCOW.ruby];
+    const fb = { c, u: [1, 0], v: [0, 1] };
+    const fh = 3;
+    stripes.forEach((col, i) => part(out, rectIn(fb, 0.3, 6.3, -0.12, 0.12), top + 11.6 - ((i + 1) * fh) / stripes.length, top + 11.6 - (i * fh) / stripes.length, col));
+  },
+
+  // An open-air pool in a round basin (the Moskva Pool, 1960-94).
+  'open-pool'(shape, m, out) {
+    const c = shape.centre;
+    const R = shape.radius;
+    part(out, [circle(c, R, 48), circle(c, R * 0.9, 48).reverse()], 0, 1.2, C.stone);
+    flat(out, circle(c, R * 0.9, 48), '#6fb2cf');
+    part(out, rectIn({ c: [c[0], c[1] - R * 1.05], u: [1, 0], v: [0, 1] }, -R * 0.5, R * 0.5, -6, 6), 0, 7, C.whitewash);
+  },
 };
 
 function isConvexish(ring) {
@@ -886,4 +1140,38 @@ export function tree(out, q, r) {
   } else {
     part(out, circle(q, between(r, 1.1, 1.6), 7), 0, between(r, 10, 15), C.cypress);
   }
+}
+
+// ---------- Moscow helpers ----------
+const MOSCOW = {
+  brick: '#a5402d', trim: '#ece6d8', tent: '#4f7a5a', gold: '#d4a93c', ruby: '#c4142b',
+  metal: '#6f7d6c', spire: '#cdb46e',
+};
+
+// An onion dome on its drum: the bulb swells wider than the drum, then
+// draws in to a point under a cross. h runs from the foot of the drum to the cross.
+function onionDome(out, c, r, base, h, colour, drum) {
+  const dh = h * 0.38;
+  part(out, circle(c, r, 12), base, base + dh, drum);
+  const bulb = h * 0.5;
+  const b = base + dh;
+  const profile = [[0, 0.1, 1.05], [0.1, 0.22, 1.25], [0.22, 0.36, 1.32], [0.36, 0.48, 1.24], [0.48, 0.6, 1.02], [0.6, 0.7, 0.76], [0.7, 0.8, 0.5], [0.8, 0.9, 0.28], [0.9, 1, 0.12]];
+  for (const [f0, f1, k] of profile) part(out, circle(c, r * k, 14), b + bulb * f0, b + bulb * f1, colour);
+  part(out, circle(c, Math.max(0.12, r * 0.06), 6), b + bulb, base + h, MOSCOW.gold);
+}
+
+// A tented (pyramid) roof as stacked octagons.
+function tent(out, c, r, b, top, colour, layers = 7) {
+  for (let k = 0; k < layers; k++) part(out, circle(c, r * (1 - k / layers) + 0.15, 8, Math.PI / 8), b + ((top - b) * k) / layers, b + ((top - b) * (k + 1)) / layers, colour);
+}
+
+// A five-pointed star on a spire, built as star-shaped layers that swell and
+// narrow, so it reads as a star from above and a jewel from the side.
+function starBead(out, c, b, h, colour) {
+  const star = (R) => Array.from({ length: 10 }, (_, i) => {
+    const a = Math.PI / 2 + (i * Math.PI) / 5;
+    const rr = i % 2 ? R * 0.42 : R;
+    return [c[0] + rr * Math.cos(a), c[1] + rr * Math.sin(a)];
+  });
+  [0.35, 0.75, 1, 0.75, 0.35].forEach((k, i) => part(out, star((h / 2) * k), b + (h * i) / 5, b + (h * (i + 1)) / 5, colour));
 }
