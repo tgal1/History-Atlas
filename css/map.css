@@ -238,4 +238,8 @@ body.in-scene .legend { display: none; }
 @media (max-width: 760px) {
   .legend { display: none; }
   .scene-bar { left: 8px; right: 8px; width: auto; min-width: 0; transform: none; }
+  /* Below the title panel rather than over it. */
+  .city-tools { top: 106px; left: 50%; }
+  .then-now { top: 152px; left: 50%; }
+  .hint3d { display: none; }
 }
