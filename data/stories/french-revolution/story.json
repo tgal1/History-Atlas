@@ -1,0 +1,226 @@
+{
+  "id": "french-revolution",
+  "title": "The French Revolution and Napoleon",
+  "subtitle": "From the Bastille to Waterloo, 1789–1815",
+  "range": {
+    "start": "1789-01-01",
+    "end": "1815-12-31"
+  },
+  "overview": {
+    "bounds": [[38.5, -9.5], [57.5, 28.0]]
+  },
+  "minZoom": 3,
+  "basemap": "esri-relief",
+  "landMask": {
+    "bbox": [-12, 22, 45, 66]
+  },
+  "cities": ["paris"],
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "Liberty, the Terror and the Emperor",
+    "body": [
+      "In 1789 France was the richest and most populous kingdom in Europe, with about 28 million people. It was also bankrupt. Nobles and clergy paid little tax, peasants paid feudal dues, and the king ruled without a parliament.",
+      "When Louis XVI called the Estates-General to raise money, the deputies of the common people made themselves a National Assembly. Within four years France had abolished feudalism, declared the rights of man, executed its king and gone to war with most of Europe. The Terror followed, then a weak Directory, then a young general's coup.",
+      "Napoleon Bonaparte made himself First Consul, then Emperor. His armies carried the Revolution's laws across Europe from Spain to Poland and redrew its map, until Spain, Russia and a final coalition brought him down at Leipzig and Waterloo."
+    ],
+    "tips": [
+      "Press play for a guided tour. The map flies to each event and back out.",
+      "Watch the shading: dark blue is France, teal its sister republics, light blue its client states, lilac its allies and red the coalitions at war with it. Scrub from 1792 to 1812 to see France's power spread, then collapse in 1813–1814.",
+      "Austerlitz and the retreat from Moscow have animated close-ups. Look for the Watch it unfold button.",
+      "Zoom into Paris to explore the city of the Revolution: the Bastille, the Tuileries, the Place de la Révolution and the new customs wall."
+    ]
+  },
+  "categories": {
+    "politics": {
+      "label": "Assemblies, laws and coups",
+      "color": "#8b5fd1"
+    },
+    "uprising": {
+      "label": "Crowds and risings",
+      "color": "#c98a12"
+    },
+    "terror": {
+      "label": "Terror and executions",
+      "color": "#8e2a3a"
+    },
+    "battle": {
+      "label": "Battle or siege",
+      "color": "#e8603c"
+    },
+    "naval": {
+      "label": "War at sea",
+      "color": "#2f86d6"
+    },
+    "campaign": {
+      "label": "Campaigns and marches",
+      "color": "#2f9e6f"
+    },
+    "treaty": {
+      "label": "Treaties and the new Europe",
+      "color": "#b8963a"
+    }
+  },
+  "factions": {
+    "france": {
+      "label": "France (kingdom, then republic, then empire)",
+      "short": "France",
+      "color": "#2350a8",
+      "style": { "fillOpacity": 0.36 }
+    },
+    "rebels": {
+      "label": "Royalist and federalist risings against the Republic",
+      "short": "Rebels",
+      "color": "#d8c25a"
+    },
+    "sister": {
+      "label": "Sister republics set up by France",
+      "short": "Sister republics",
+      "color": "#3fb3c4",
+      "style": { "fillOpacity": 0.26 }
+    },
+    "client": {
+      "label": "Napoleonic client states and the Confederation of the Rhine",
+      "short": "Client states",
+      "color": "#6fa7d8",
+      "style": { "fillOpacity": 0.22 }
+    },
+    "ally": {
+      "label": "Allied to France by treaty",
+      "short": "French ally",
+      "color": "#9a86c9",
+      "style": { "fillOpacity": 0.24 }
+    },
+    "coalition": {
+      "label": "At war with France: the coalitions",
+      "short": "Allies",
+      "color": "#c8372d",
+      "style": { "fillOpacity": 0.22 }
+    },
+    "britain": {
+      "label": "Britain, France's constant enemy from 1793",
+      "short": "Britain",
+      "color": "#9b1d2c",
+      "style": { "fillOpacity": 0.26 }
+    },
+    "bourbon": {
+      "label": "Restored Bourbon monarchy (1814–1815)",
+      "short": "Bourbons",
+      "color": "#e9e3c9",
+      "style": { "fillOpacity": 0.32 }
+    },
+    "neutral": {
+      "label": "At peace with France",
+      "short": "At peace",
+      "color": "#9a958a",
+      "style": { "fillOpacity": 0.16 }
+    }
+  },
+  "eras": [
+    {
+      "start": "1789-01-01",
+      "end": "1792-08-10",
+      "title": "Revolution",
+      "text": "The Estates-General becomes a National Assembly. Paris takes the Bastille, feudalism is abolished and the rights of man declared. The king accepts a constitution, tries to flee, and France goes to war with Austria and Prussia."
+    },
+    {
+      "start": "1792-08-10",
+      "end": "1795-10-26",
+      "title": "Republic and Terror",
+      "text": "The monarchy falls and the king is executed. Invaded on every border and at war with itself in the Vendée, the Republic arms the whole nation and turns to the Terror, until Robespierre himself goes to the guillotine."
+    },
+    {
+      "start": "1795-10-26",
+      "end": "1804-05-18",
+      "title": "Directory and Consulate",
+      "text": "A five-man Directory rules a war-weary country. Its generals win: Bonaparte conquers northern Italy and invades Egypt. In 1799 he seizes power as First Consul, makes peace with Europe and the Pope, and writes the Civil Code."
+    },
+    {
+      "start": "1804-05-18",
+      "end": "1812-06-24",
+      "title": "Empire",
+      "text": "Napoleon crowns himself emperor. Trafalgar leaves Britain master of the sea, but on land he beats Austria, Prussia and Russia in turn and rules or controls most of Europe. In Spain a people's war begins that he cannot win."
+    },
+    {
+      "start": "1812-06-24",
+      "end": "1815-12-31",
+      "title": "Fall",
+      "text": "The invasion of Russia destroys the Grande Armée. All Europe turns on Napoleon: Leipzig, the fall of Paris, exile to Elba. He returns for a hundred days and is beaten for good at Waterloo."
+    }
+  ],
+  "mapLabels": [
+    { "text": "Paris", "at": [48.86, 2.35], "minZoom": 5, "maxZoom": 11 },
+    { "text": "London", "at": [51.51, -0.13], "minZoom": 5 },
+    { "text": "Vienna", "at": [48.21, 16.37], "minZoom": 5 },
+    { "text": "Berlin", "at": [52.52, 13.4], "minZoom": 5 },
+    { "text": "Madrid", "at": [40.42, -3.7], "minZoom": 5 },
+    { "text": "Lisbon", "at": [38.72, -9.14], "minZoom": 5 },
+    { "text": "Rome", "at": [41.9, 12.5], "minZoom": 5 },
+    { "text": "Naples", "at": [40.85, 14.27], "minZoom": 6 },
+    { "text": "Milan", "at": [45.46, 9.19], "minZoom": 6 },
+    { "text": "Venice", "at": [45.44, 12.33], "minZoom": 6 },
+    { "text": "Amsterdam", "at": [52.37, 4.9], "minZoom": 6 },
+    { "text": "Brussels", "at": [50.85, 4.35], "minZoom": 6 },
+    { "text": "Warsaw", "at": [52.23, 21.01], "minZoom": 5 },
+    { "text": "Moscow", "at": [55.75, 37.62], "minZoom": 4 },
+    { "text": "St Petersburg", "at": [59.94, 30.31], "minZoom": 5 },
+    { "text": "Vilna", "at": [54.69, 25.28], "minZoom": 6 },
+    { "text": "Smolensk", "at": [54.78, 32.05], "minZoom": 6 },
+    { "text": "Constantinople", "at": [41.01, 28.98], "minZoom": 5 },
+    { "text": "Cairo", "at": [30.04, 31.24], "minZoom": 5 },
+    { "text": "Lyon", "at": [45.76, 4.84], "minZoom": 6 },
+    { "text": "Marseille", "at": [43.3, 5.37], "minZoom": 6 },
+    { "text": "Toulon", "at": [43.12, 5.93], "minZoom": 7 },
+    { "text": "Brest", "at": [48.39, -4.49], "minZoom": 6 },
+    { "text": "Bordeaux", "at": [44.84, -0.58], "minZoom": 6 },
+    { "text": "Nantes", "at": [47.22, -1.55], "minZoom": 7 },
+    { "text": "Strasbourg", "at": [48.58, 7.75], "minZoom": 6 },
+    { "text": "Cádiz", "at": [36.53, -6.29], "minZoom": 6 },
+    { "text": "Dresden", "at": [51.05, 13.74], "minZoom": 6 },
+    { "text": "Munich", "at": [48.14, 11.58], "minZoom": 6 },
+    { "text": "Hamburg", "at": [53.55, 9.99], "minZoom": 6 },
+    { "text": "Atlantic Ocean", "at": [46.0, -12.0], "maxZoom": 5 },
+    { "text": "Mediterranean Sea", "at": [37.6, 6.5], "maxZoom": 6 },
+    { "text": "North Sea", "at": [56.0, 3.0], "maxZoom": 6 },
+    { "text": "Baltic Sea", "at": [56.6, 18.6], "maxZoom": 6 }
+  ],
+  "ask": {
+    "persona": "a clear, careful historian of the French Revolution and the Napoleonic wars who explains them to a curious listener from many sides: revolutionaries and royalists, peasants and Parisians, Napoleon's soldiers and the peoples they conquered. You say when a famous story is more legend than record",
+    "defaultQuestions": [
+      "Why did this happen?",
+      "How did the rest of Europe see it?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Liberty, Equality, Fraternity: Exploring the French Revolution (George Mason University)",
+      "url": "https://revolution.chnm.org/"
+    },
+    {
+      "label": "Fondation Napoléon",
+      "url": "https://www.napoleon.org/en/"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/French_Revolution"
+    }
+  ],
+  "ambience": {
+    "default": "countryside",
+    "byCategory": {
+      "politics": "quiet",
+      "uprising": "protest",
+      "terror": "sombre",
+      "battle": "battle",
+      "naval": "naval",
+      "campaign": "march",
+      "treaty": "quiet"
+    },
+    "scene": "battlefield"
+  },
+  "music": "napoleonic"
+}

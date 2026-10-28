@@ -1,0 +1,5947 @@
+{
+ "type": "FeatureCollection",
+ "city": {
+  "id": "paris",
+  "ambience": "city",
+  "name": "Paris",
+  "center": [
+   48.8575,
+   2.345
+  ],
+  "zoom": 14,
+  "radiusKm": 5,
+  "wiki": "Paris in the 18th century",
+  "summary": [
+   "Europe's second city, with about 600,000 people packed inside a new customs wall. Kings had ruled from Versailles for a century, but in 1789 Paris took the Revolution into its own hands: the Bastille, the march on Versailles, the fall of the monarchy and the Terror were all its work.",
+   "Move the timeline to see the city change: the Bastille torn down, squares renamed, the guillotine moving from place to place, then Napoleon's bridges, arches and columns going up until 1815."
+  ],
+  "note": "Surviving streets, river banks, islands and buildings follow modern maps (OpenStreetMap). The Farmers-General wall follows the boulevards on metro lines 2 and 6, which were laid out on its line. Lost buildings such as the Bastille, the Tuileries, the Manège and the Temple tower are placed on their known sites; the Île Louviers and the 1789 river banks are approximate. House blocks are schematic: the real street plan was far more irregular.",
+  "osmCredit": "River, island and building outlines (c) OpenStreetMap contributors, ODbL",
+  "gallery": [
+   {
+    "file": "Paris Verniquet 1789 color.jpg",
+    "caption": "Edme Verniquet's plan of Paris, surveyed 1783–91"
+   },
+   {
+    "file": "Turgot map of Paris - Norman B. Leventhal Map Center.jpg",
+    "caption": "The Turgot map, a bird's-eye view of Paris in 1739"
+   },
+   {
+    "file": "Prise de la Bastille.jpg",
+    "caption": "The storming of the Bastille, 14 July 1789, by Jean-Pierre Houël"
+   },
+   {
+    "file": "Jacques-Louis David - The Coronation of Napoleon (1805-1807).jpg",
+    "caption": "Napoleon crowns Josephine in Notre-Dame, 2 December 1804, by Jacques-Louis David"
+   }
+  ]
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "seine",
+    "kind": "river",
+    "name": "Seine",
+    "widthM": 165,
+    "minZoom": 10,
+    "labelAt": [
+     2.3712,
+     48.8412
+    ],
+    "wiki": "Seine",
+    "description": [
+     "Paris grew up around the islands in the Seine. In 1789 the river was still the main road into the city. Barges brought firewood, wine, grain, hay and building stone to ports along the banks.",
+     "Water carriers sold its water by the bucket, and washerwomen worked from moored laundry boats. Stone quays lined only parts of the banks; elsewhere the shore was mud and sand."
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.39637,
+      48.82155
+     ],
+     [
+      2.38764,
+      48.82754
+     ],
+     [
+      2.37752,
+      48.83583
+     ],
+     [
+      2.3729,
+      48.84003
+     ],
+     [
+      2.3614,
+      48.84847
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "seine-islands",
+    "kind": "river",
+    "name": "Seine",
+    "widthM": 115,
+    "showLabel": false,
+    "wiki": "Seine"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3614,
+      48.84847
+     ],
+     [
+      2.35676,
+      48.85028
+     ],
+     [
+      2.35386,
+      48.85119
+     ],
+     [
+      2.35319,
+      48.85175
+     ],
+     [
+      2.35223,
+      48.85468
+     ],
+     [
+      2.35059,
+      48.85546
+     ],
+     [
+      2.3468,
+      48.85673
+     ],
+     [
+      2.34009,
+      48.85813
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "seine-west",
+    "kind": "river",
+    "name": "Seine",
+    "widthM": 150,
+    "showLabel": false,
+    "wiki": "Seine"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.34009,
+      48.85813
+     ],
+     [
+      2.33847,
+      48.85824
+     ],
+     [
+      2.32992,
+      48.86011
+     ],
+     [
+      2.32478,
+      48.86188
+     ],
+     [
+      2.31899,
+      48.86354
+     ],
+     [
+      2.31728,
+      48.86376
+     ],
+     [
+      2.31041,
+      48.86375
+     ],
+     [
+      2.2995,
+      48.86334
+     ],
+     [
+      2.2957,
+      48.86219
+     ],
+     [
+      2.29176,
+      48.86001
+     ],
+     [
+      2.28874,
+      48.85721
+     ],
+     [
+      2.28834,
+      48.85547
+     ],
+     [
+      2.27974,
+      48.84954
+     ],
+     [
+      2.27734,
+      48.84834
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "petit-bras",
+    "kind": "river",
+    "name": "Petit bras",
+    "widthM": 42,
+    "labelZoom": 17,
+    "showLabel": false
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.35386,
+      48.85119
+     ],
+     [
+      2.3528,
+      48.8513
+     ],
+     [
+      2.3504,
+      48.85192
+     ],
+     [
+      2.34846,
+      48.85264
+     ],
+     [
+      2.34722,
+      48.85322
+     ],
+     [
+      2.34403,
+      48.85429
+     ],
+     [
+      2.34284,
+      48.85495
+     ],
+     [
+      2.34084,
+      48.85657
+     ],
+     [
+      2.33859,
+      48.85783
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bras-marie",
+    "kind": "river",
+    "name": "Bras Marie",
+    "widthM": 80,
+    "labelZoom": 17,
+    "showLabel": false
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3614,
+      48.84847
+     ],
+     [
+      2.36095,
+      48.84931
+     ],
+     [
+      2.36061,
+      48.85028
+     ],
+     [
+      2.36053,
+      48.85105
+     ],
+     [
+      2.36027,
+      48.85159
+     ],
+     [
+      2.35981,
+      48.85187
+     ],
+     [
+      2.35388,
+      48.85396
+     ],
+     [
+      2.35223,
+      48.85468
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bras-grammont",
+    "kind": "river",
+    "name": "Bras de Grammont",
+    "widthM": 32,
+    "labelZoom": 17,
+    "to": "1843",
+    "description": "A narrow arm of the Seine between the Île Louviers and the Arsenal. It was filled in in 1843; Boulevard Morland follows its line."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3612,
+      48.8518
+     ],
+     [
+      2.3624,
+      48.8511
+     ],
+     [
+      2.3633,
+      48.8504
+     ],
+     [
+      2.3641,
+      48.8497
+     ],
+     [
+      2.3647,
+      48.8489
+     ],
+     [
+      2.3651,
+      48.8481
+     ],
+     [
+      2.3657,
+      48.8475
+     ],
+     [
+      2.3667,
+      48.8465
+     ],
+     [
+      2.3677,
+      48.8457
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ile-de-la-cite",
+    "kind": "island",
+    "name": "Île de la Cité",
+    "wiki": "Île de la Cité",
+    "labelZoom": 15,
+    "labelAt": [
+     2.3452,
+     48.8553
+    ],
+    "fabric": {
+     "w": 22,
+     "h": 28,
+     "gap": 6,
+     "angle": -25,
+     "base": "#e7dbbf",
+     "fill": "#e2cea4",
+     "stroke": "#b3956a"
+    },
+    "description": [
+     "The oldest part of Paris: Notre-Dame, the Hôtel-Dieu hospital and the medieval royal palace, by now the law courts and the Conciergerie prison.",
+     "Its narrow streets were packed with tall old houses, churches and workshops. Most of them were cleared in the 1860s."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.35263,
+       48.85161
+      ],
+      [
+       2.35242,
+       48.85212
+      ],
+      [
+       2.35222,
+       48.85325
+      ],
+      [
+       2.35189,
+       48.854
+      ],
+      [
+       2.3513,
+       48.85461
+      ],
+      [
+       2.35047,
+       48.85509
+      ],
+      [
+       2.34964,
+       48.85543
+      ],
+      [
+       2.34817,
+       48.85577
+      ],
+      [
+       2.34544,
+       48.85663
+      ],
+      [
+       2.34169,
+       48.8573
+      ],
+      [
+       2.34122,
+       48.85729
+      ],
+      [
+       2.33931,
+       48.85778
+      ],
+      [
+       2.34093,
+       48.85686
+      ],
+      [
+       2.34303,
+       48.85507
+      ],
+      [
+       2.34383,
+       48.85467
+      ],
+      [
+       2.34973,
+       48.8523
+      ],
+      [
+       2.35263,
+       48.85161
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ile-saint-louis",
+    "kind": "island",
+    "name": "Île Saint-Louis",
+    "wiki": "Île Saint-Louis",
+    "labelZoom": 15,
+    "fabric": {
+     "w": 26,
+     "h": 32,
+     "gap": 7,
+     "angle": -22,
+     "base": "#e7dbbf",
+     "fill": "#e2cea4",
+     "stroke": "#b3956a"
+    },
+    "description": "Laid out in the 1600s as a quiet grid of stone mansions for magistrates and financiers. In 1792 it was renamed the Île de la Fraternité."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.35303,
+       48.85377
+      ],
+      [
+       2.35296,
+       48.85366
+      ],
+      [
+       2.3532,
+       48.85267
+      ],
+      [
+       2.35354,
+       48.85222
+      ],
+      [
+       2.3535,
+       48.8521
+      ],
+      [
+       2.35391,
+       48.8516
+      ],
+      [
+       2.35526,
+       48.85123
+      ],
+      [
+       2.3554,
+       48.85126
+      ],
+      [
+       2.35917,
+       48.84998
+      ],
+      [
+       2.36037,
+       48.84944
+      ],
+      [
+       2.3601,
+       48.85027
+      ],
+      [
+       2.36021,
+       48.85108
+      ],
+      [
+       2.35981,
+       48.85151
+      ],
+      [
+       2.35869,
+       48.852
+      ],
+      [
+       2.354,
+       48.85356
+      ],
+      [
+       2.35319,
+       48.85379
+      ],
+      [
+       2.35303,
+       48.85377
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ile-louviers",
+    "kind": "island",
+    "name": "Île Louviers",
+    "wiki": "Île Louviers",
+    "labelZoom": 16,
+    "to": "1843",
+    "description": "An uninhabited island used as a yard for firewood and timber brought down the river. Joined to the right bank in 1843."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3612,
+       48.8512
+      ],
+      [
+       2.3619,
+       48.8508
+      ],
+      [
+       2.3629,
+       48.8501
+      ],
+      [
+       2.3637,
+       48.8494
+      ],
+      [
+       2.3643,
+       48.8487
+      ],
+      [
+       2.3647,
+       48.848
+      ],
+      [
+       2.3653,
+       48.8473
+      ],
+      [
+       2.3662,
+       48.8467
+      ],
+      [
+       2.3654,
+       48.8465
+      ],
+      [
+       2.3645,
+       48.847
+      ],
+      [
+       2.3633,
+       48.8478
+      ],
+      [
+       2.3622,
+       48.8487
+      ],
+      [
+       2.3615,
+       48.8496
+      ],
+      [
+       2.3612,
+       48.8505
+      ],
+      [
+       2.3612,
+       48.8512
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bassin-villette",
+    "kind": "canal",
+    "name": "Bassin de la Villette",
+    "widthM": 70,
+    "wiki": "Bassin de la Villette",
+    "labelZoom": 15,
+    "description": "Napoleon ordered a canal to bring drinking water from the river Ourcq, about 100 km away, to the fountains of Paris. This basin outside the wall was filled on 2 December 1808. The canal was finished in 1822.",
+    "from": "1808-12-02"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3703,
+      48.884
+     ],
+     [
+      2.3752,
+      48.8863
+     ],
+     [
+      2.3794,
+      48.8881
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "wall-fermiers-generaux",
+    "kind": "wall",
+    "name": "Wall of the Farmers-General",
+    "widthM": 8,
+    "wiki": "Wall of the Fermiers généraux",
+    "labelZoom": 14,
+    "labelAt": [
+     2.3405,
+     48.8828
+    ],
+    "description": [
+     "A customs wall, not a defence. The Ferme générale, the private company that collected the king's indirect taxes, built it from 1784 so that duty could be charged on everything entering Paris: wine, meat, firewood, building stone.",
+     "It ran about 24 km, with some 60 tollhouses (barrières) designed by Claude-Nicolas Ledoux. Parisians hated it: \"Le mur murant Paris rend Paris murmurant\" (the wall walling Paris keeps Paris grumbling). Crowds burned many of the tollhouses on 12 and 13 July 1789.",
+     "The duties were abolished in 1791 and brought back in 1798. The wall stood until 1860, when Paris expanded to its present limits."
+    ],
+    "from": "1785"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3986,
+      48.8478
+     ],
+     [
+      2.39914,
+      48.84928
+     ],
+     [
+      2.39838,
+      48.85134
+     ],
+     [
+      2.39699,
+      48.85321
+     ],
+     [
+      2.39435,
+      48.85652
+     ],
+     [
+      2.39215,
+      48.85768
+     ],
+     [
+      2.38965,
+      48.85853
+     ],
+     [
+      2.38731,
+      48.86309
+     ],
+     [
+      2.38361,
+      48.86633
+     ],
+     [
+      2.38308,
+      48.86715
+     ],
+     [
+      2.37802,
+      48.87099
+     ],
+     [
+      2.37063,
+      48.87779
+     ],
+     [
+      2.37029,
+      48.87857
+     ],
+     [
+      2.3702,
+      48.88262
+     ],
+     [
+      2.36883,
+      48.8839
+     ],
+     [
+      2.36813,
+      48.88415
+     ],
+     [
+      2.36415,
+      48.8844
+     ],
+     [
+      2.35918,
+      48.88443
+     ],
+     [
+      2.35012,
+      48.8838
+     ],
+     [
+      2.34707,
+      48.88345
+     ],
+     [
+      2.33966,
+      48.88207
+     ],
+     [
+      2.33709,
+      48.88246
+     ],
+     [
+      2.33206,
+      48.88392
+     ],
+     [
+      2.32949,
+      48.88444
+     ],
+     [
+      2.32779,
+      48.8836
+     ],
+     [
+      2.32624,
+      48.88323
+     ],
+     [
+      2.31705,
+      48.88138
+     ],
+     [
+      2.3093,
+      48.88042
+     ],
+     [
+      2.29876,
+      48.87819
+     ],
+     [
+      2.2979,
+      48.87769
+     ],
+     [
+      2.295,
+      48.8738
+     ],
+     [
+      2.28696,
+      48.86265
+     ],
+     [
+      2.2865,
+      48.86128
+     ],
+     [
+      2.2879,
+      48.8579
+     ],
+     [
+      2.2902,
+      48.8553
+     ],
+     [
+      2.29244,
+      48.85083
+     ],
+     [
+      2.31055,
+      48.84531
+     ],
+     [
+      2.31442,
+      48.84082
+     ],
+     [
+      2.31555,
+      48.84067
+     ],
+     [
+      2.32051,
+      48.8421
+     ],
+     [
+      2.32222,
+      48.8421
+     ],
+     [
+      2.33034,
+      48.83932
+     ],
+     [
+      2.3322,
+      48.83485
+     ],
+     [
+      2.33334,
+      48.83399
+     ],
+     [
+      2.34938,
+      48.82954
+     ],
+     [
+      2.35361,
+      48.83077
+     ],
+     [
+      2.35613,
+      48.83083
+     ],
+     [
+      2.36957,
+      48.83543
+     ],
+     [
+      2.3737,
+      48.8375
+     ],
+     [
+      2.3792,
+      48.84032
+     ],
+     [
+      2.38019,
+      48.84034
+     ],
+     [
+      2.38837,
+      48.83893
+     ],
+     [
+      2.40004,
+      48.83973
+     ],
+     [
+      2.40048,
+      48.84013
+     ],
+     [
+      2.40211,
+      48.84478
+     ],
+     [
+      2.4007,
+      48.8462
+     ],
+     [
+      2.3986,
+      48.8478
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "grands-boulevards",
+    "kind": "road",
+    "name": "Grands Boulevards",
+    "widthM": 34,
+    "wiki": "Boulevards of Paris",
+    "labelZoom": 15,
+    "labelAt": [
+     2.344,
+     48.8715
+    ],
+    "description": "Louis XIV pulled down the old walls of the right bank from the 1670s and replaced them with a broad promenade planted with trees. By 1789 the boulevards were the place to stroll, lined with theatres, cafés, puppet shows and street performers."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.32617,
+      48.86958
+     ],
+     [
+      2.34018,
+      48.87197
+     ],
+     [
+      2.34834,
+      48.8706
+     ],
+     [
+      2.35624,
+      48.86887
+     ],
+     [
+      2.36218,
+      48.86801
+     ],
+     [
+      2.3636,
+      48.86713
+     ],
+     [
+      2.36488,
+      48.86634
+     ],
+     [
+      2.36676,
+      48.86311
+     ],
+     [
+      2.36892,
+      48.8541
+     ],
+     [
+      2.36961,
+      48.85339
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "boulevards-du-midi",
+    "kind": "road",
+    "name": "Boulevards du Midi",
+    "widthM": 28,
+    "wiki": "Boulevards of Paris",
+    "labelZoom": 15,
+    "labelAt": [
+     2.328,
+     48.843
+    ],
+    "description": "A second ring of tree-lined boulevards on the left bank, laid out from the 1760s through fields, market gardens and convent grounds."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.315,
+      48.8572
+     ],
+     [
+      2.3156,
+      48.852
+     ],
+     [
+      2.3163,
+      48.8475
+     ],
+     [
+      2.3213,
+      48.845
+     ],
+     [
+      2.3285,
+      48.8428
+     ],
+     [
+      2.334,
+      48.8406
+     ],
+     [
+      2.3372,
+      48.8398
+     ],
+     [
+      2.344,
+      48.8389
+     ],
+     [
+      2.3512,
+      48.8371
+     ],
+     [
+      2.3555,
+      48.8382
+     ],
+     [
+      2.3594,
+      48.8394
+     ],
+     [
+      2.3612,
+      48.8411
+     ],
+     [
+      2.3637,
+      48.8432
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "champs-elysees",
+    "kind": "road",
+    "name": "Champs-Élysées",
+    "widthM": 36,
+    "wiki": "Champs-Élysées",
+    "labelZoom": 15,
+    "description": "A tree-lined avenue running west from Place Louis XV into open country, with gardens and very few houses. On 25 June 1791 the royal family was brought back this way from Varennes through silent crowds. In March 1814 the allied armies marched down it, and Cossacks camped beneath its trees."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3196,
+      48.8661
+     ],
+     [
+      2.31,
+      48.8695
+     ],
+     [
+      2.302,
+      48.872
+     ],
+     [
+      2.295,
+      48.8738
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rue-saint-honore",
+    "kind": "road",
+    "name": "Rue Saint-Honoré",
+    "widthM": 11,
+    "wiki": "Rue Saint-Honoré",
+    "labelZoom": 16,
+    "description": "The long shopping street north of the Tuileries. The Jacobin Club met on it. From 1793 the carts of the condemned rolled along it from the Conciergerie to the guillotine on the Place de la Révolution."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3462,
+      48.8607
+     ],
+     [
+      2.342,
+      48.8613
+     ],
+     [
+      2.339,
+      48.862
+     ],
+     [
+      2.3365,
+      48.8626
+     ],
+     [
+      2.3326,
+      48.8646
+     ],
+     [
+      2.329,
+      48.8662
+     ],
+     [
+      2.326,
+      48.8673
+     ],
+     [
+      2.3233,
+      48.8683
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rue-saint-antoine",
+    "kind": "road",
+    "name": "Rue Saint-Antoine",
+    "widthM": 13,
+    "labelZoom": 16,
+    "wiki": "Faubourg Saint-Antoine",
+    "description": "The old road east from the Hôtel de Ville to the Bastille gate. On 14 July 1789 armed crowds marched along it to the fortress."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.356,
+      48.8556
+     ],
+     [
+      2.361,
+      48.8552
+     ],
+     [
+      2.365,
+      48.8545
+     ],
+     [
+      2.3684,
+      48.8537
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rue-faubourg-saint-antoine",
+    "kind": "road",
+    "name": "Rue du Faubourg Saint-Antoine",
+    "widthM": 13,
+    "labelZoom": 16,
+    "wiki": "Faubourg Saint-Antoine",
+    "description": "The main street of the faubourg, running from the Bastille to the Barrière du Trône, lined with furniture workshops and wine shops."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.37,
+      48.853
+     ],
+     [
+      2.378,
+      48.8516
+     ],
+     [
+      2.386,
+      48.8501
+     ],
+     [
+      2.3943,
+      48.8486
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rue-saint-denis",
+    "kind": "road",
+    "name": "Rue Saint-Denis",
+    "widthM": 11,
+    "wiki": "Rue Saint-Denis (Paris)",
+    "labelZoom": 16,
+    "description": "The old royal road north from the Châtelet to the Porte Saint-Denis, crowded with shops and markets."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.3477,
+      48.8581
+     ],
+     [
+      2.3489,
+      48.8611
+     ],
+     [
+      2.3505,
+      48.865
+     ],
+     [
+      2.3524,
+      48.8694
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bastille",
+    "kind": "fort",
+    "name": "Bastille",
+    "wiki": "Bastille",
+    "to": "1789-07-14",
+    "images": [
+     {
+      "file": "Prise de la Bastille.jpg",
+      "caption": "The storming of the Bastille, 14 July 1789, by Jean-Pierre Houël"
+     }
+    ],
+    "description": [
+     "A 14th-century fortress with eight towers guarding the Porte Saint-Antoine, used as a state prison. The king could hold people here without trial on a lettre de cachet.",
+     "On 14 July 1789 a crowd came for the gunpowder stored inside. After hours of fighting, and with mutinous French Guards bringing up cannon, the governor de Launay surrendered. About 100 attackers were killed. Only seven prisoners were inside."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.36877,
+       48.85346
+      ],
+      [
+       2.36829,
+       48.85337
+      ],
+      [
+       2.36853,
+       48.85278
+      ],
+      [
+       2.36901,
+       48.85287
+      ],
+      [
+       2.36877,
+       48.85346
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bastille-ruins",
+    "kind": "ruins",
+    "name": "Ruins of the Bastille",
+    "wiki": "Storming of the Bastille",
+    "to": "1791",
+    "images": [
+     {
+      "file": "The Bastille in the first days of its demolition, by Hubert Robert.jpg",
+      "caption": "The Bastille in the first days of its demolition, by Hubert Robert"
+     }
+    ],
+    "description": "Demolition began the day after the fall. The contractor Pierre-François Palloy employed hundreds of workers and sold the stones as souvenirs, some carved into little models of the fortress. Other stones went into the new Pont Louis XVI (Pont de la Concorde).",
+    "from": "1789-07-14"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.36888,
+       48.85359
+      ],
+      [
+       2.36809,
+       48.85345
+      ],
+      [
+       2.36842,
+       48.85265
+      ],
+      [
+       2.36921,
+       48.85279
+      ],
+      [
+       2.36888,
+       48.85359
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-bastille",
+    "kind": "plaza",
+    "name": "Place de la Bastille",
+    "wiki": "Place de la Bastille",
+    "description": "The cleared site became an open square. For the festival of 10 August 1793 a Fountain of Regeneration stood here: an Egyptian-style goddess with water flowing from her breasts.",
+    "from": "1791"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.36953,
+       48.85386
+      ],
+      [
+       2.37021,
+       48.85342
+      ],
+      [
+       2.37021,
+       48.85278
+      ],
+      [
+       2.36953,
+       48.85234
+      ],
+      [
+       2.36857,
+       48.85234
+      ],
+      [
+       2.36789,
+       48.85278
+      ],
+      [
+       2.36789,
+       48.85342
+      ],
+      [
+       2.36857,
+       48.85386
+      ],
+      [
+       2.36953,
+       48.85386
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "elephant-bastille",
+    "kind": "building",
+    "name": "Elephant of the Bastille",
+    "radiusM": 14,
+    "to": "1846",
+    "wiki": "Elephant of the Bastille",
+    "labelZoom": 16,
+    "images": [
+     {
+      "file": "Elephant de la Bastille aquarelle de Jean Alavoine.jpg",
+      "caption": "Design for the elephant fountain by Jean-Antoine Alavoine"
+     }
+    ],
+    "description": "Napoleon planned a giant bronze elephant fountain here, to be cast from captured cannon. Only a full-size plaster model, about 24 metres high, was ever built. It slowly rotted and was taken down in 1846.",
+    "from": "1813"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3696,
+     48.85268
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "tuileries-palace",
+    "kind": "palace",
+    "name": "Tuileries Palace",
+    "wiki": "Tuileries Palace",
+    "to": "1871-05-23",
+    "labelZoom": 15,
+    "images": [
+     {
+      "file": "Jacques Bertaux - Prise du palais des Tuileries - 1793.jpg",
+      "caption": "The storming of the Tuileries, 10 August 1792, by Jacques Bertaux"
+     }
+    ],
+    "description": [
+     "The palace closing the west end of the Louvre. Louis XVI and his family were brought here from Versailles on 6 October 1789 and lived under watch. They slipped out on 20 June 1791 and were caught at Varennes.",
+     "On 10 August 1792 armed crowds and National Guards stormed the palace and killed most of the Swiss Guards defending it. The monarchy fell that day.",
+     "The Convention sat in its theatre from May 1793, and the Committee of Public Safety met here. Napoleon moved in as First Consul in February 1800 and ruled from here as Emperor. The palace burned in 1871."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33206,
+       48.86333
+      ],
+      [
+       2.33169,
+       48.86344
+      ],
+      [
+       2.33012,
+       48.86127
+      ],
+      [
+       2.33049,
+       48.86116
+      ],
+      [
+       2.33206,
+       48.86333
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "tuileries-garden",
+    "kind": "garden",
+    "name": "Tuileries Garden",
+    "wiki": "Tuileries Garden",
+    "labelZoom": 15,
+    "description": "Le Nôtre's formal garden beside the palace, open to the public. On 12 July 1789 royal cavalry charged a crowd at its western gate. The Festival of the Supreme Being began here on 8 June 1794, when Robespierre set fire to a figure of Atheism."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3216,
+       48.86392
+      ],
+      [
+       2.32165,
+       48.86377
+      ],
+      [
+       2.32996,
+       48.86107
+      ],
+      [
+       2.3301,
+       48.86127
+      ],
+      [
+       2.32999,
+       48.8613
+      ],
+      [
+       2.33002,
+       48.86136
+      ],
+      [
+       2.33064,
+       48.86222
+      ],
+      [
+       2.33053,
+       48.86225
+      ],
+      [
+       2.33081,
+       48.86262
+      ],
+      [
+       2.33093,
+       48.86259
+      ],
+      [
+       2.33177,
+       48.86374
+      ],
+      [
+       2.32415,
+       48.8662
+      ],
+      [
+       2.32409,
+       48.86613
+      ],
+      [
+       2.32367,
+       48.86627
+      ],
+      [
+       2.32332,
+       48.86616
+      ],
+      [
+       2.3216,
+       48.86392
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "salle-du-manege",
+    "kind": "building",
+    "name": "Salle du Manège",
+    "wiki": "Salle du Manège",
+    "to": "1804",
+    "labelZoom": 16,
+    "description": "A royal riding school on the edge of the Tuileries garden, turned into a debating hall. The National Assembly sat here from 9 November 1789, then the Legislative Assembly and the Convention until May 1793. Louis XVI was tried here in December 1792. The Council of Five Hundred used it from 1795 to 1798. Demolished in 1804 for the Rue de Rivoli."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.32673,
+       48.86559
+      ],
+      [
+       2.32661,
+       48.86543
+      ],
+      [
+       2.32781,
+       48.86505
+      ],
+      [
+       2.32793,
+       48.86521
+      ],
+      [
+       2.32673,
+       48.86559
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "louvre",
+    "kind": "palace",
+    "name": "Louvre",
+    "wiki": "Louvre Palace",
+    "labelZoom": 15,
+    "labelAt": [
+     2.3386,
+     48.8604
+    ],
+    "description": [
+     "The old royal palace, left to artists, academies and lodgers after Louis XIV moved to Versailles. On 10 August 1793 the Revolution opened it as a public museum, the Muséum central des arts.",
+     "Renamed Musée Napoléon in 1803, it filled with paintings and statues taken from Italy, Germany and the Low Countries. Most went back in 1815. Napoleon also began a north wing along the new Rue de Rivoli."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3304,
+       48.86098
+      ],
+      [
+       2.33718,
+       48.85948
+      ],
+      [
+       2.33924,
+       48.85938
+      ],
+      [
+       2.34001,
+       48.86087
+      ],
+      [
+       2.33775,
+       48.86131
+      ],
+      [
+       2.3373,
+       48.8602
+      ],
+      [
+       2.33075,
+       48.86133
+      ],
+      [
+       2.3304,
+       48.86098
+      ]
+     ],
+     [
+      [
+       2.3375,
+       48.86003
+      ],
+      [
+       2.33906,
+       48.85967
+      ],
+      [
+       2.33961,
+       48.8607
+      ],
+      [
+       2.33803,
+       48.86106
+      ],
+      [
+       2.3375,
+       48.86003
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "arc-carrousel",
+    "kind": "building",
+    "name": "Arc de Triomphe du Carrousel",
+    "wiki": "Arc de Triomphe du Carrousel",
+    "labelZoom": 16,
+    "description": "Built in 1806–08 as a ceremonial gateway to the Tuileries, celebrating the victories of 1805. On top stood the four bronze horses taken from St Mark's in Venice; they went back in 1815.",
+    "from": "1808"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33279,
+       48.86168
+      ],
+      [
+       2.33292,
+       48.86164
+      ],
+      [
+       2.33291,
+       48.86166
+      ],
+      [
+       2.33302,
+       48.86178
+      ],
+      [
+       2.3329,
+       48.86182
+      ],
+      [
+       2.33283,
+       48.86168
+      ],
+      [
+       2.33279,
+       48.86168
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-du-carrousel",
+    "kind": "plaza",
+    "name": "Place du Carrousel",
+    "wiki": "Place du Carrousel",
+    "labelZoom": 16,
+    "description": "The square in front of the Tuileries, hemmed in by old houses. The guillotine stood here from August 1792 to May 1793 for the first political executions."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3306,
+       48.86118
+      ],
+      [
+       2.33221,
+       48.8634
+      ],
+      [
+       2.33335,
+       48.86304
+      ],
+      [
+       2.33175,
+       48.86083
+      ],
+      [
+       2.3306,
+       48.86118
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-louis-xv",
+    "kind": "plaza",
+    "name": "Place Louis XV",
+    "wiki": "Place de la Concorde",
+    "to": "1792-08-11",
+    "labelZoom": 15,
+    "description": "An octagonal square laid out from 1755 around an equestrian statue of Louis XV, edged with dry moats. On 12 July 1789 a crowd here clashed with royal German cavalry, one of the sparks of the uprising."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.31885,
+       48.86472
+      ],
+      [
+       2.32155,
+       48.86381
+      ],
+      [
+       2.32163,
+       48.86399
+      ],
+      [
+       2.32353,
+       48.86642
+      ],
+      [
+       2.32077,
+       48.86717
+      ],
+      [
+       2.31931,
+       48.86519
+      ],
+      [
+       2.31885,
+       48.86472
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-de-la-revolution",
+    "kind": "plaza",
+    "name": "Place de la Révolution",
+    "wiki": "Place de la Concorde",
+    "to": "1795-10-26",
+    "labelZoom": 15,
+    "images": [
+     {
+      "file": "Execution of Louis XVI.jpg",
+      "caption": "The execution of Louis XVI, 21 January 1793"
+     }
+    ],
+    "description": [
+     "The king's statue was pulled down in August 1792 and the square renamed. Louis XVI was guillotined here on 21 January 1793.",
+     "From May 1793 to June 1794 the guillotine stood here permanently. Marie Antoinette, the Girondins and Danton died on it. It was brought back for Robespierre on 28 July 1794. More than 1,100 people were executed on this square."
+    ],
+    "from": "1792-08-11"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.31885,
+       48.86472
+      ],
+      [
+       2.32155,
+       48.86381
+      ],
+      [
+       2.32163,
+       48.86399
+      ],
+      [
+       2.32353,
+       48.86642
+      ],
+      [
+       2.32077,
+       48.86717
+      ],
+      [
+       2.31931,
+       48.86519
+      ],
+      [
+       2.31885,
+       48.86472
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-de-la-concorde",
+    "kind": "plaza",
+    "name": "Place de la Concorde",
+    "wiki": "Place de la Concorde",
+    "labelZoom": 15,
+    "description": "Renamed Concorde (harmony) in 1795 to draw a line under the Terror.",
+    "from": "1795-10-26"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.31885,
+       48.86472
+      ],
+      [
+       2.32155,
+       48.86381
+      ],
+      [
+       2.32163,
+       48.86399
+      ],
+      [
+       2.32353,
+       48.86642
+      ],
+      [
+       2.32077,
+       48.86717
+      ],
+      [
+       2.31931,
+       48.86519
+      ],
+      [
+       2.31885,
+       48.86472
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "hotel-de-ville",
+    "kind": "building",
+    "name": "Hôtel de Ville",
+    "wiki": "Hôtel de Ville, Paris",
+    "labelZoom": 15,
+    "description": "The city hall. After 14 July 1789 the Paris electors set up a new city government, the Commune, here, with the astronomer Bailly as mayor. On the night of 9 Thermidor (27–28 July 1794) Robespierre and his allies took refuge here and were arrested; he was shot in the jaw. Burned in 1871 and rebuilt larger."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.35253,
+       48.8567
+      ],
+      [
+       2.35197,
+       48.85685
+      ],
+      [
+       2.35157,
+       48.8562
+      ],
+      [
+       2.35213,
+       48.85605
+      ],
+      [
+       2.35253,
+       48.8567
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-de-greve",
+    "kind": "plaza",
+    "name": "Place de Grève",
+    "wiki": "Place de l'Hôtel-de-Ville – Esplanade de la Libération",
+    "labelZoom": 16,
+    "description": "The square sloping down to the river in front of the Hôtel de Ville: the city's traditional place of execution, and where unemployed workers gathered. The Bastille's governor de Launay was killed here on 14 July 1789. The guillotine was first used here, on a highway robber, on 25 April 1792."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3515,
+       48.85661
+      ],
+      [
+       2.35076,
+       48.85681
+      ],
+      [
+       2.3502,
+       48.85589
+      ],
+      [
+       2.35094,
+       48.85569
+      ],
+      [
+       2.3515,
+       48.85661
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "palais-royal",
+    "kind": "palace",
+    "name": "Palais-Royal",
+    "wiki": "Palais-Royal",
+    "labelZoom": 15,
+    "description": "Home of the Duke of Orléans, the king's cousin, who lined its garden with arcades of shops, cafés and gambling rooms. The police could not enter. On 12 July 1789 Camille Desmoulins jumped onto a table outside the Café de Foy and called Paris to arms. The duke, who called himself Philippe Égalité, was guillotined in November 1793."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33576,
+       48.86346
+      ],
+      [
+       2.33585,
+       48.86344
+      ],
+      [
+       2.33581,
+       48.86337
+      ],
+      [
+       2.33628,
+       48.86326
+      ],
+      [
+       2.33632,
+       48.86334
+      ],
+      [
+       2.33655,
+       48.86329
+      ],
+      [
+       2.33644,
+       48.86303
+      ],
+      [
+       2.33668,
+       48.86295
+      ],
+      [
+       2.33684,
+       48.86321
+      ],
+      [
+       2.33732,
+       48.8631
+      ],
+      [
+       2.33718,
+       48.86284
+      ],
+      [
+       2.33745,
+       48.86277
+      ],
+      [
+       2.33808,
+       48.86392
+      ],
+      [
+       2.33791,
+       48.86396
+      ],
+      [
+       2.33789,
+       48.86391
+      ],
+      [
+       2.33672,
+       48.86417
+      ],
+      [
+       2.33674,
+       48.86422
+      ],
+      [
+       2.33657,
+       48.86426
+      ],
+      [
+       2.33629,
+       48.86373
+      ],
+      [
+       2.33595,
+       48.86381
+      ],
+      [
+       2.33576,
+       48.86346
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "palais-royal-garden",
+    "kind": "garden",
+    "name": "Palais-Royal garden",
+    "showLabel": false
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33672,
+       48.86417
+      ],
+      [
+       2.33789,
+       48.86391
+      ],
+      [
+       2.33892,
+       48.86582
+      ],
+      [
+       2.33771,
+       48.86611
+      ],
+      [
+       2.33672,
+       48.86417
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "jacobins",
+    "kind": "building",
+    "name": "Jacobin convent (Jacobin Club)",
+    "wiki": "Jacobins",
+    "to": "1807",
+    "labelZoom": 16,
+    "description": "A Dominican convent whose library and church housed the Society of the Friends of the Constitution, the Jacobin Club, from late 1789. Under Robespierre it became the voice of the Mountain and the Terror. Closed in November 1794; the convent was pulled down under Napoleon for a market."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3321,
+       48.86721
+      ],
+      [
+       2.33123,
+       48.86748
+      ],
+      [
+       2.3306,
+       48.86659
+      ],
+      [
+       2.33147,
+       48.86632
+      ],
+      [
+       2.3321,
+       48.86721
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "saint-roch",
+    "kind": "temple",
+    "name": "Saint-Roch church",
+    "wiki": "Saint-Roch, Paris",
+    "labelZoom": 16,
+    "description": "On 13 Vendémiaire (5 October 1795) royalist rebels massed on these steps to march on the Convention. General Bonaparte broke them with cannon fire, the \"whiff of grapeshot\" that made his name."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33205,
+       48.86501
+      ],
+      [
+       2.33238,
+       48.86487
+      ],
+      [
+       2.33247,
+       48.86494
+      ],
+      [
+       2.3331,
+       48.86557
+      ],
+      [
+       2.33315,
+       48.86555
+      ],
+      [
+       2.33328,
+       48.86572
+      ],
+      [
+       2.33316,
+       48.86588
+      ],
+      [
+       2.33301,
+       48.86589
+      ],
+      [
+       2.33287,
+       48.86575
+      ],
+      [
+       2.33272,
+       48.86569
+      ],
+      [
+       2.33266,
+       48.86559
+      ],
+      [
+       2.33241,
+       48.8654
+      ],
+      [
+       2.33235,
+       48.86542
+      ],
+      [
+       2.33239,
+       48.86539
+      ],
+      [
+       2.33227,
+       48.86531
+      ],
+      [
+       2.33229,
+       48.86528
+      ],
+      [
+       2.33205,
+       48.86501
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-vendome",
+    "kind": "plaza",
+    "name": "Place Vendôme",
+    "wiki": "Place Vendôme",
+    "labelZoom": 16,
+    "description": "The grandest of the royal squares. Its statue of Louis XIV was pulled down in August 1792 and the square was renamed Place des Piques (Square of Pikes)."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.32832,
+       48.86737
+      ],
+      [
+       2.32837,
+       48.86719
+      ],
+      [
+       2.32946,
+       48.86671
+      ],
+      [
+       2.32974,
+       48.86675
+      ],
+      [
+       2.33056,
+       48.86757
+      ],
+      [
+       2.3305,
+       48.86776
+      ],
+      [
+       2.32942,
+       48.86823
+      ],
+      [
+       2.32937,
+       48.86823
+      ],
+      [
+       2.32914,
+       48.86819
+      ],
+      [
+       2.32832,
+       48.86737
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "vendome-column",
+    "kind": "building",
+    "name": "Vendôme Column",
+    "radiusM": 8,
+    "wiki": "Place Vendôme",
+    "labelZoom": 16,
+    "description": "A column modelled on Trajan's in Rome, its bronze spiral cast from cannon taken at Austerlitz, with Napoleon as a Roman emperor on top. Unveiled on 15 August 1810. The statue was taken down in 1814.",
+    "from": "1810-08-15"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.32945,
+     48.86751
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "madeleine",
+    "kind": "building",
+    "name": "La Madeleine (unfinished)",
+    "wiki": "La Madeleine, Paris",
+    "labelZoom": 16,
+    "description": "A church begun in 1764 and left half-built by the Revolution. In 1806 Napoleon chose to finish it as a Temple to the Glory of the Great Army. It was still a building site in 1815."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.32382,
+       48.86959
+      ],
+      [
+       2.32435,
+       48.86942
+      ],
+      [
+       2.32511,
+       48.87046
+      ],
+      [
+       2.32458,
+       48.87063
+      ],
+      [
+       2.32382,
+       48.86959
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "madeleine-cemetery",
+    "kind": "tomb",
+    "name": "Madeleine cemetery",
+    "radiusM": 40,
+    "to": "1815-01-21",
+    "wiki": "Chapelle expiatoire",
+    "labelZoom": 16,
+    "description": "A small parish cemetery. Louis XVI was buried here in quicklime after his execution, and later Marie Antoinette and hundreds of others guillotined on the Place de la Révolution. The royal remains were moved to Saint-Denis on 21 January 1815."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.32278,
+     48.87361
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "les-halles",
+    "kind": "market",
+    "name": "Les Halles",
+    "wiki": "Les Halles",
+    "labelZoom": 15,
+    "description": "The central food market, run by the market women, the dames de la Halle. On 5 October 1789 women from the markets and the faubourgs marched to Versailles to demand bread, and next day brought the royal family back to Paris."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3443,
+       48.8609
+      ],
+      [
+       2.3478,
+       48.8601
+      ],
+      [
+       2.3486,
+       48.8622
+      ],
+      [
+       2.3452,
+       48.863
+      ],
+      [
+       2.3443,
+       48.8609
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "halle-au-ble",
+    "kind": "market",
+    "name": "Halle au blé",
+    "radiusM": 36,
+    "wiki": "Bourse de commerce (Paris)",
+    "labelZoom": 16,
+    "description": "The round grain market, roofed with a great timber dome in 1783. Bread prices ruled Paris politics, and crowds watched its stocks closely. The dome burned in 1802 and was rebuilt in iron."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.34278,
+     48.86273
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "grand-chatelet",
+    "kind": "fort",
+    "name": "Grand Châtelet",
+    "radiusM": 34,
+    "to": "1810",
+    "wiki": "Grand Châtelet",
+    "labelZoom": 16,
+    "description": "A medieval fortress at the end of the Pont au Change, used as a court and prison. Its prisoners were massacred in September 1792. Demolished from 1802."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.34709,
+     48.85743
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "temple-tower",
+    "kind": "fort",
+    "name": "Temple tower",
+    "radiusM": 18,
+    "to": "1808",
+    "wiki": "Square du Temple – Elie-Wiesel",
+    "labelZoom": 16,
+    "description": "The keep of the old Knights Templar headquarters. Louis XVI and his family were imprisoned here from 13 August 1792. The king left it for his execution. His young son, \"Louis XVII\", died here in June 1795. Napoleon had the tower pulled down in 1808 to stop royalist pilgrimages."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.36139,
+     48.86417
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "conciergerie",
+    "kind": "building",
+    "name": "Palais de Justice and Conciergerie",
+    "wiki": "Conciergerie",
+    "labelZoom": 16,
+    "description": "The medieval royal palace, home of the Parlement of Paris until 1790. From March 1793 the Revolutionary Tribunal sat here and sent more than 2,500 people to the guillotine. Its prison, the Conciergerie, held them until the carts came. Marie Antoinette spent her last weeks here in 1793."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3437,
+       48.8567
+      ],
+      [
+       2.3462,
+       48.8563
+      ],
+      [
+       2.3449,
+       48.8544
+      ],
+      [
+       2.3434,
+       48.8551
+      ],
+      [
+       2.3437,
+       48.8567
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "notre-dame",
+    "kind": "temple",
+    "name": "Notre-Dame",
+    "wiki": "Notre-Dame de Paris",
+    "labelZoom": 15,
+    "images": [
+     {
+      "file": "Jacques-Louis David - The Coronation of Napoleon (1805-1807).jpg",
+      "caption": "The coronation of Napoleon in Notre-Dame, 2 December 1804, by Jacques-Louis David"
+     }
+    ],
+    "description": "On 10 November 1793 the cathedral hosted a Festival of Reason and became a Temple of Reason. Statues were smashed, among them the kings of Judah on the front, taken for kings of France. Catholic worship returned under the Concordat in 1802. Napoleon crowned himself Emperor here on 2 December 1804."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.34896,
+       48.8531
+      ],
+      [
+       2.349,
+       48.85308
+      ],
+      [
+       2.34898,
+       48.85305
+      ],
+      [
+       2.34905,
+       48.85307
+      ],
+      [
+       2.34906,
+       48.85303
+      ],
+      [
+       2.34911,
+       48.85304
+      ],
+      [
+       2.34915,
+       48.853
+      ],
+      [
+       2.34917,
+       48.85303
+      ],
+      [
+       2.34922,
+       48.85302
+      ],
+      [
+       2.3492,
+       48.85298
+      ],
+      [
+       2.35001,
+       48.85273
+      ],
+      [
+       2.34998,
+       48.85269
+      ],
+      [
+       2.3499,
+       48.85271
+      ],
+      [
+       2.34981,
+       48.85259
+      ],
+      [
+       2.3499,
+       48.85256
+      ],
+      [
+       2.34992,
+       48.85252
+      ],
+      [
+       2.34995,
+       48.85255
+      ],
+      [
+       2.35001,
+       48.85253
+      ],
+      [
+       2.34996,
+       48.85246
+      ],
+      [
+       2.35008,
+       48.85242
+      ],
+      [
+       2.35013,
+       48.85249
+      ],
+      [
+       2.3502,
+       48.85247
+      ],
+      [
+       2.35026,
+       48.85255
+      ],
+      [
+       2.35018,
+       48.85258
+      ],
+      [
+       2.35023,
+       48.85264
+      ],
+      [
+       2.3502,
+       48.85267
+      ],
+      [
+       2.35036,
+       48.85262
+      ],
+      [
+       2.35054,
+       48.85262
+      ],
+      [
+       2.35063,
+       48.85265
+      ],
+      [
+       2.35077,
+       48.85278
+      ],
+      [
+       2.35078,
+       48.8529
+      ],
+      [
+       2.35065,
+       48.85303
+      ],
+      [
+       2.34948,
+       48.85338
+      ],
+      [
+       2.34946,
+       48.85335
+      ],
+      [
+       2.34942,
+       48.85336
+      ],
+      [
+       2.34944,
+       48.8534
+      ],
+      [
+       2.34939,
+       48.85338
+      ],
+      [
+       2.34935,
+       48.85343
+      ],
+      [
+       2.34931,
+       48.8534
+      ],
+      [
+       2.34928,
+       48.85345
+      ],
+      [
+       2.34921,
+       48.85343
+      ],
+      [
+       2.34896,
+       48.8531
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-dauphine",
+    "kind": "plaza",
+    "name": "Place Dauphine",
+    "wiki": "Place Dauphine",
+    "showLabel": false
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.34196,
+       48.85676
+      ],
+      [
+       2.34257,
+       48.85624
+      ],
+      [
+       2.34275,
+       48.85617
+      ],
+      [
+       2.34307,
+       48.85658
+      ],
+      [
+       2.34288,
+       48.85664
+      ],
+      [
+       2.342,
+       48.85679
+      ],
+      [
+       2.34196,
+       48.85676
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "sainte-genevieve",
+    "kind": "temple",
+    "name": "Church of Sainte-Geneviève",
+    "wiki": "Panthéon",
+    "to": "1791-04-04",
+    "labelZoom": 15,
+    "description": "Soufflot's huge new domed church for the city's patron saint, nearly finished in 1789."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.34527,
+       48.84618
+      ],
+      [
+       2.34547,
+       48.84614
+      ],
+      [
+       2.34548,
+       48.84617
+      ],
+      [
+       2.3458,
+       48.84609
+      ],
+      [
+       2.34583,
+       48.84606
+      ],
+      [
+       2.34573,
+       48.84591
+      ],
+      [
+       2.3461,
+       48.8458
+      ],
+      [
+       2.34611,
+       48.84582
+      ],
+      [
+       2.34622,
+       48.8458
+      ],
+      [
+       2.34629,
+       48.84596
+      ],
+      [
+       2.34634,
+       48.84598
+      ],
+      [
+       2.34651,
+       48.84594
+      ],
+      [
+       2.34647,
+       48.84587
+      ],
+      [
+       2.3466,
+       48.84585
+      ],
+      [
+       2.34664,
+       48.84593
+      ],
+      [
+       2.34674,
+       48.84591
+      ],
+      [
+       2.34688,
+       48.84618
+      ],
+      [
+       2.34678,
+       48.84621
+      ],
+      [
+       2.34682,
+       48.84628
+      ],
+      [
+       2.34669,
+       48.84631
+      ],
+      [
+       2.34666,
+       48.84625
+      ],
+      [
+       2.34649,
+       48.84628
+      ],
+      [
+       2.34647,
+       48.84632
+      ],
+      [
+       2.34656,
+       48.84647
+      ],
+      [
+       2.34644,
+       48.8465
+      ],
+      [
+       2.34646,
+       48.84652
+      ],
+      [
+       2.34607,
+       48.84658
+      ],
+      [
+       2.346,
+       48.84642
+      ],
+      [
+       2.34596,
+       48.8464
+      ],
+      [
+       2.34564,
+       48.84646
+      ],
+      [
+       2.34565,
+       48.8465
+      ],
+      [
+       2.34545,
+       48.84654
+      ],
+      [
+       2.34527,
+       48.84618
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pantheon",
+    "kind": "temple",
+    "name": "Panthéon",
+    "wiki": "Panthéon",
+    "labelZoom": 15,
+    "description": "In April 1791 the Assembly turned the new church into a tomb for the great men of the nation. Mirabeau was buried first, Voltaire followed in July 1791 and Rousseau in 1794. Mirabeau and Marat were later taken out again. Napoleon gave the church back to worship in 1806 but kept the crypt for burials.",
+    "from": "1791-04-04"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.34527,
+       48.84618
+      ],
+      [
+       2.34547,
+       48.84614
+      ],
+      [
+       2.34548,
+       48.84617
+      ],
+      [
+       2.3458,
+       48.84609
+      ],
+      [
+       2.34583,
+       48.84606
+      ],
+      [
+       2.34573,
+       48.84591
+      ],
+      [
+       2.3461,
+       48.8458
+      ],
+      [
+       2.34611,
+       48.84582
+      ],
+      [
+       2.34622,
+       48.8458
+      ],
+      [
+       2.34629,
+       48.84596
+      ],
+      [
+       2.34634,
+       48.84598
+      ],
+      [
+       2.34651,
+       48.84594
+      ],
+      [
+       2.34647,
+       48.84587
+      ],
+      [
+       2.3466,
+       48.84585
+      ],
+      [
+       2.34664,
+       48.84593
+      ],
+      [
+       2.34674,
+       48.84591
+      ],
+      [
+       2.34688,
+       48.84618
+      ],
+      [
+       2.34678,
+       48.84621
+      ],
+      [
+       2.34682,
+       48.84628
+      ],
+      [
+       2.34669,
+       48.84631
+      ],
+      [
+       2.34666,
+       48.84625
+      ],
+      [
+       2.34649,
+       48.84628
+      ],
+      [
+       2.34647,
+       48.84632
+      ],
+      [
+       2.34656,
+       48.84647
+      ],
+      [
+       2.34644,
+       48.8465
+      ],
+      [
+       2.34646,
+       48.84652
+      ],
+      [
+       2.34607,
+       48.84658
+      ],
+      [
+       2.346,
+       48.84642
+      ],
+      [
+       2.34596,
+       48.8464
+      ],
+      [
+       2.34564,
+       48.84646
+      ],
+      [
+       2.34565,
+       48.8465
+      ],
+      [
+       2.34545,
+       48.84654
+      ],
+      [
+       2.34527,
+       48.84618
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "luxembourg-palace",
+    "kind": "palace",
+    "name": "Luxembourg Palace",
+    "wiki": "Luxembourg Palace",
+    "labelZoom": 15,
+    "description": "Built for Marie de' Medici. During the Terror it was a prison; Danton and Desmoulins were held here. The five Directors governed France from here from 1795 to 1799, and Bonaparte lived here as First Consul until February 1800. Then the Senate met here."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33633,
+       48.84911
+      ],
+      [
+       2.3368,
+       48.8491
+      ],
+      [
+       2.33677,
+       48.84863
+      ],
+      [
+       2.3367,
+       48.84863
+      ],
+      [
+       2.33669,
+       48.84845
+      ],
+      [
+       2.33675,
+       48.84844
+      ],
+      [
+       2.33674,
+       48.84836
+      ],
+      [
+       2.33668,
+       48.84836
+      ],
+      [
+       2.33667,
+       48.84818
+      ],
+      [
+       2.33673,
+       48.84818
+      ],
+      [
+       2.33673,
+       48.84808
+      ],
+      [
+       2.33667,
+       48.84808
+      ],
+      [
+       2.33666,
+       48.8479
+      ],
+      [
+       2.33693,
+       48.84789
+      ],
+      [
+       2.33694,
+       48.848
+      ],
+      [
+       2.33719,
+       48.84799
+      ],
+      [
+       2.33721,
+       48.84796
+      ],
+      [
+       2.33733,
+       48.84795
+      ],
+      [
+       2.33735,
+       48.84799
+      ],
+      [
+       2.3376,
+       48.84798
+      ],
+      [
+       2.3376,
+       48.84787
+      ],
+      [
+       2.33788,
+       48.84787
+      ],
+      [
+       2.33789,
+       48.84806
+      ],
+      [
+       2.33782,
+       48.84806
+      ],
+      [
+       2.33783,
+       48.84815
+      ],
+      [
+       2.33789,
+       48.84815
+      ],
+      [
+       2.3379,
+       48.84833
+      ],
+      [
+       2.33784,
+       48.84833
+      ],
+      [
+       2.33785,
+       48.84842
+      ],
+      [
+       2.33791,
+       48.84842
+      ],
+      [
+       2.33792,
+       48.8486
+      ],
+      [
+       2.33785,
+       48.8486
+      ],
+      [
+       2.33788,
+       48.84907
+      ],
+      [
+       2.33794,
+       48.84907
+      ],
+      [
+       2.33795,
+       48.84921
+      ],
+      [
+       2.33775,
+       48.84921
+      ],
+      [
+       2.33773,
+       48.84915
+      ],
+      [
+       2.33744,
+       48.84916
+      ],
+      [
+       2.3374,
+       48.84918
+      ],
+      [
+       2.33695,
+       48.84917
+      ],
+      [
+       2.33694,
+       48.84924
+      ],
+      [
+       2.33634,
+       48.84922
+      ],
+      [
+       2.33633,
+       48.84911
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "luxembourg-garden",
+    "kind": "garden",
+    "name": "Luxembourg Garden",
+    "wiki": "Jardin du Luxembourg",
+    "labelZoom": 15
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.33246,
+       48.84495
+      ],
+      [
+       2.33296,
+       48.84447
+      ],
+      [
+       2.33657,
+       48.84439
+      ],
+      [
+       2.33671,
+       48.84449
+      ],
+      [
+       2.33737,
+       48.84448
+      ],
+      [
+       2.33751,
+       48.84436
+      ],
+      [
+       2.33764,
+       48.84436
+      ],
+      [
+       2.33773,
+       48.84534
+      ],
+      [
+       2.33847,
+       48.84578
+      ],
+      [
+       2.3386,
+       48.84577
+      ],
+      [
+       2.33863,
+       48.84596
+      ],
+      [
+       2.33879,
+       48.84607
+      ],
+      [
+       2.33897,
+       48.84608
+      ],
+      [
+       2.33982,
+       48.84588
+      ],
+      [
+       2.34023,
+       48.84664
+      ],
+      [
+       2.34025,
+       48.8471
+      ],
+      [
+       2.34005,
+       48.84747
+      ],
+      [
+       2.33901,
+       48.84868
+      ],
+      [
+       2.33872,
+       48.84891
+      ],
+      [
+       2.33834,
+       48.84907
+      ],
+      [
+       2.33828,
+       48.84806
+      ],
+      [
+       2.33812,
+       48.84788
+      ],
+      [
+       2.33792,
+       48.84781
+      ],
+      [
+       2.3366,
+       48.84785
+      ],
+      [
+       2.3364,
+       48.84793
+      ],
+      [
+       2.33618,
+       48.84833
+      ],
+      [
+       2.33628,
+       48.84873
+      ],
+      [
+       2.33624,
+       48.84892
+      ],
+      [
+       2.33573,
+       48.84891
+      ],
+      [
+       2.33576,
+       48.84865
+      ],
+      [
+       2.3349,
+       48.84866
+      ],
+      [
+       2.33484,
+       48.8487
+      ],
+      [
+       2.33492,
+       48.84906
+      ],
+      [
+       2.33293,
+       48.84868
+      ],
+      [
+       2.3329,
+       48.84834
+      ],
+      [
+       2.33267,
+       48.84831
+      ],
+      [
+       2.33246,
+       48.84495
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "cordeliers",
+    "kind": "building",
+    "name": "Cordeliers convent (Cordeliers Club)",
+    "wiki": "Cordeliers",
+    "labelZoom": 16,
+    "description": "A Franciscan convent in the Latin Quarter. The Cordeliers Club of Danton, Marat and Desmoulins met here from 1790; it was more radical than the Jacobins and took in working people. After his murder in July 1793 Marat's heart was kept here."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.34189,
+       48.85106
+      ],
+      [
+       2.34094,
+       48.85112
+      ],
+      [
+       2.34081,
+       48.85014
+      ],
+      [
+       2.34176,
+       48.85008
+      ],
+      [
+       2.34189,
+       48.85106
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "abbaye-prison",
+    "kind": "building",
+    "name": "Abbaye prison",
+    "radiusM": 18,
+    "wiki": "September Massacres",
+    "labelZoom": 16,
+    "description": "The prison of the abbey of Saint-Germain-des-Prés. On 2 September 1792, with Prussian armies marching on Paris, crowds began killing prisoners here. In five days the September Massacres spread to the other prisons and more than 1,100 people died."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3351,
+     48.8531
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "carmes",
+    "kind": "temple",
+    "name": "Carmes convent",
+    "radiusM": 24,
+    "wiki": "Saint-Joseph-des-Carmes",
+    "labelZoom": 16,
+    "description": "A Carmelite convent used as a prison for priests who had refused the oath to the constitution. On 2 September 1792 about 115 of them were killed in its garden."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3303,
+     48.8485
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "quatre-nations",
+    "kind": "building",
+    "name": "Collège des Quatre-Nations",
+    "wiki": "Institut de France",
+    "labelZoom": 16,
+    "description": "Cardinal Mazarin's college, closed in 1793 and used as a prison. From 1805 the Institut de France, the republic's academy of scholars and scientists, met under its dome."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3362,
+       48.85761
+      ],
+      [
+       2.33653,
+       48.85754
+      ],
+      [
+       2.33657,
+       48.85721
+      ],
+      [
+       2.33708,
+       48.85707
+      ],
+      [
+       2.33757,
+       48.85589
+      ],
+      [
+       2.33787,
+       48.85595
+      ],
+      [
+       2.33784,
+       48.85601
+      ],
+      [
+       2.33766,
+       48.85597
+      ],
+      [
+       2.33732,
+       48.85689
+      ],
+      [
+       2.33765,
+       48.85695
+      ],
+      [
+       2.33791,
+       48.85631
+      ],
+      [
+       2.33801,
+       48.85633
+      ],
+      [
+       2.33782,
+       48.85681
+      ],
+      [
+       2.33782,
+       48.85698
+      ],
+      [
+       2.33775,
+       48.85697
+      ],
+      [
+       2.33774,
+       48.85701
+      ],
+      [
+       2.33797,
+       48.85742
+      ],
+      [
+       2.33771,
+       48.85748
+      ],
+      [
+       2.33764,
+       48.85734
+      ],
+      [
+       2.3375,
+       48.85737
+      ],
+      [
+       2.33737,
+       48.8573
+      ],
+      [
+       2.33717,
+       48.85729
+      ],
+      [
+       2.33711,
+       48.85731
+      ],
+      [
+       2.33711,
+       48.85737
+      ],
+      [
+       2.33694,
+       48.85741
+      ],
+      [
+       2.33688,
+       48.85736
+      ],
+      [
+       2.33673,
+       48.85741
+      ],
+      [
+       2.33662,
+       48.85757
+      ],
+      [
+       2.33648,
+       48.8576
+      ],
+      [
+       2.33655,
+       48.85774
+      ],
+      [
+       2.3363,
+       48.8578
+      ],
+      [
+       2.3362,
+       48.85761
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "palais-bourbon",
+    "kind": "palace",
+    "name": "Palais Bourbon",
+    "wiki": "Palais Bourbon",
+    "labelZoom": 15,
+    "description": "Town house of the Prince de Condé, confiscated when he emigrated. The Council of Five Hundred met here from 1798, then Napoleon's Legislative Body. Napoleon gave it a new columned front facing the Concorde bridge."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.31714,
+       48.86092
+      ],
+      [
+       2.31821,
+       48.86084
+      ],
+      [
+       2.31823,
+       48.86087
+      ],
+      [
+       2.31872,
+       48.86081
+      ],
+      [
+       2.31936,
+       48.86188
+      ],
+      [
+       2.31914,
+       48.86196
+      ],
+      [
+       2.31922,
+       48.86201
+      ],
+      [
+       2.31911,
+       48.86208
+      ],
+      [
+       2.31897,
+       48.8621
+      ],
+      [
+       2.31908,
+       48.86224
+      ],
+      [
+       2.31856,
+       48.8624
+      ],
+      [
+       2.31841,
+       48.86219
+      ],
+      [
+       2.31814,
+       48.86228
+      ],
+      [
+       2.31807,
+       48.86218
+      ],
+      [
+       2.31771,
+       48.86221
+      ],
+      [
+       2.31767,
+       48.86204
+      ],
+      [
+       2.31811,
+       48.86199
+      ],
+      [
+       2.31817,
+       48.86208
+      ],
+      [
+       2.31825,
+       48.86207
+      ],
+      [
+       2.31815,
+       48.86163
+      ],
+      [
+       2.31758,
+       48.86166
+      ],
+      [
+       2.31759,
+       48.86171
+      ],
+      [
+       2.31741,
+       48.86173
+      ],
+      [
+       2.31732,
+       48.8617
+      ],
+      [
+       2.31731,
+       48.86166
+      ],
+      [
+       2.31748,
+       48.86164
+      ],
+      [
+       2.31745,
+       48.86153
+      ],
+      [
+       2.31728,
+       48.86155
+      ],
+      [
+       2.3172,
+       48.86119
+      ],
+      [
+       2.31736,
+       48.86117
+      ],
+      [
+       2.31732,
+       48.86102
+      ],
+      [
+       2.31716,
+       48.86103
+      ],
+      [
+       2.31714,
+       48.86092
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "invalides",
+    "kind": "building",
+    "name": "Les Invalides",
+    "wiki": "Les Invalides",
+    "labelZoom": 15,
+    "description": "Louis XIV's home for old and wounded soldiers. On the morning of 14 July 1789 a crowd broke in and took about 30,000 muskets and some cannon, then went to the Bastille for powder. Napoleon handed out the first Legion of Honour medals in its church on 15 July 1804."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.31063,
+       48.85491
+      ],
+      [
+       2.31197,
+       48.85485
+      ],
+      [
+       2.31204,
+       48.85544
+      ],
+      [
+       2.31215,
+       48.85543
+      ],
+      [
+       2.31219,
+       48.85586
+      ],
+      [
+       2.31233,
+       48.85585
+      ],
+      [
+       2.31234,
+       48.85592
+      ],
+      [
+       2.31244,
+       48.8559
+      ],
+      [
+       2.31247,
+       48.85596
+      ],
+      [
+       2.31264,
+       48.85595
+      ],
+      [
+       2.31281,
+       48.85595
+      ],
+      [
+       2.31281,
+       48.8559
+      ],
+      [
+       2.31294,
+       48.85589
+      ],
+      [
+       2.31293,
+       48.85582
+      ],
+      [
+       2.31306,
+       48.85581
+      ],
+      [
+       2.31302,
+       48.85539
+      ],
+      [
+       2.31313,
+       48.85538
+      ],
+      [
+       2.31306,
+       48.8548
+      ],
+      [
+       2.31435,
+       48.85473
+      ],
+      [
+       2.31448,
+       48.85586
+      ],
+      [
+       2.31401,
+       48.85588
+      ],
+      [
+       2.31397,
+       48.85596
+      ],
+      [
+       2.31414,
+       48.85704
+      ],
+      [
+       2.313,
+       48.85705
+      ],
+      [
+       2.31291,
+       48.85711
+      ],
+      [
+       2.31265,
+       48.85712
+      ],
+      [
+       2.31255,
+       48.85707
+      ],
+      [
+       2.3114,
+       48.85717
+      ],
+      [
+       2.31134,
+       48.85609
+      ],
+      [
+       2.31127,
+       48.85601
+      ],
+      [
+       2.31075,
+       48.85599
+      ],
+      [
+       2.31063,
+       48.85491
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "invalides-dome",
+    "kind": "temple",
+    "name": "Dôme des Invalides",
+    "wiki": "Les Invalides",
+    "labelZoom": 16,
+    "description": "The royal chapel under its gilded dome. Under the Revolution it was renamed the Temple of Mars and hung with captured flags. In 1800 Napoleon had the body of Marshal Turenne placed here."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3119,
+       48.85405
+      ],
+      [
+       2.31201,
+       48.85404
+      ],
+      [
+       2.31197,
+       48.85415
+      ],
+      [
+       2.3129,
+       48.8541
+      ],
+      [
+       2.31283,
+       48.854
+      ],
+      [
+       2.31298,
+       48.85399
+      ],
+      [
+       2.31306,
+       48.85477
+      ],
+      [
+       2.3128,
+       48.85479
+      ],
+      [
+       2.31254,
+       48.85474
+      ],
+      [
+       2.31241,
+       48.85474
+      ],
+      [
+       2.31222,
+       48.85482
+      ],
+      [
+       2.31198,
+       48.85483
+      ],
+      [
+       2.3119,
+       48.85405
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "esplanade-invalides",
+    "kind": "garden",
+    "name": "Esplanade des Invalides",
+    "showLabel": false
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3117,
+       48.8575
+      ],
+      [
+       2.315,
+       48.8575
+      ],
+      [
+       2.3152,
+       48.8622
+      ],
+      [
+       2.3113,
+       48.8622
+      ],
+      [
+       2.3117,
+       48.8575
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ecole-militaire",
+    "kind": "building",
+    "name": "École Militaire",
+    "wiki": "École Militaire",
+    "labelZoom": 15,
+    "description": "The royal military academy, built from 1751 for sons of poor noble families. The young Napoleone Buonaparte studied here in 1784–85 and left as an artillery lieutenant."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3014,
+       48.85119
+      ],
+      [
+       2.30387,
+       48.84961
+      ],
+      [
+       2.30831,
+       48.85264
+      ],
+      [
+       2.30618,
+       48.85401
+      ],
+      [
+       2.30576,
+       48.85403
+      ],
+      [
+       2.30567,
+       48.85409
+      ],
+      [
+       2.3043,
+       48.85316
+      ],
+      [
+       2.30417,
+       48.85324
+      ],
+      [
+       2.30332,
+       48.85271
+      ],
+      [
+       2.30238,
+       48.85203
+      ],
+      [
+       2.30251,
+       48.85194
+      ],
+      [
+       2.3014,
+       48.85119
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "champ-de-mars",
+    "kind": "garden",
+    "name": "Champ de Mars",
+    "wiki": "Champ de Mars",
+    "labelZoom": 14,
+    "fill": "#e8dcae",
+    "images": [
+     {
+      "file": "Fête de la Fédération 1790, Musée de la Révolution française - Vizille.jpg",
+      "caption": "The Festival of the Federation, 14 July 1790"
+     },
+     {
+      "file": "Fusillade du Champ de Mars (1791, 17 juillet).jpg",
+      "caption": "The Champ de Mars massacre, 17 July 1791"
+     },
+     {
+      "file": "Fête de l'Etre suprême 2.jpg",
+      "caption": "The Festival of the Supreme Being, 8 June 1794"
+     }
+    ],
+    "description": [
+     "The parade ground of the military school. For the Festival of the Federation on 14 July 1790, Parisians of every class dug it into a vast arena. About 300,000 people watched Lafayette and the king swear loyalty to the nation and the law.",
+     "On 17 July 1791 National Guards under Lafayette fired on a crowd signing a petition against the king, killing perhaps 50.",
+     "Robespierre's Festival of the Supreme Being ended here on 8 June 1794 at a man-made mountain. Napoleon gave his regiments their eagle standards here on 5 December 1804, and held the Champ de Mai assembly here on 1 June 1815."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.29187,
+       48.85771
+      ],
+      [
+       2.29339,
+       48.85674
+      ],
+      [
+       2.29385,
+       48.85705
+      ],
+      [
+       2.29582,
+       48.85579
+      ],
+      [
+       2.29557,
+       48.85479
+      ],
+      [
+       2.29609,
+       48.85443
+      ],
+      [
+       2.29752,
+       48.85465
+      ],
+      [
+       2.3013,
+       48.85225
+      ],
+      [
+       2.30174,
+       48.85254
+      ],
+      [
+       2.30208,
+       48.85232
+      ],
+      [
+       2.30225,
+       48.85234
+      ],
+      [
+       2.30224,
+       48.85246
+      ],
+      [
+       2.30305,
+       48.85304
+      ],
+      [
+       2.30364,
+       48.85342
+      ],
+      [
+       2.30372,
+       48.85336
+      ],
+      [
+       2.30378,
+       48.8534
+      ],
+      [
+       2.30333,
+       48.85369
+      ],
+      [
+       2.30379,
+       48.85394
+      ],
+      [
+       2.29982,
+       48.8565
+      ],
+      [
+       2.30009,
+       48.85741
+      ],
+      [
+       2.2998,
+       48.85759
+      ],
+      [
+       2.29845,
+       48.85737
+      ],
+      [
+       2.29637,
+       48.85869
+      ],
+      [
+       2.29687,
+       48.85902
+      ],
+      [
+       2.29528,
+       48.86008
+      ],
+      [
+       2.29187,
+       48.85771
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "jardin-des-plantes",
+    "kind": "garden",
+    "name": "Jardin des Plantes",
+    "wiki": "Jardin des Plantes",
+    "labelZoom": 15,
+    "description": "The royal botanic garden, Buffon's Jardin du Roi. In June 1793 the Convention made it the National Museum of Natural History. Animals from the royal menagerie at Versailles arrived in 1794 and became Paris's first public zoo."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3551,
+       48.84374
+      ],
+      [
+       2.35602,
+       48.84137
+      ],
+      [
+       2.35611,
+       48.84133
+      ],
+      [
+       2.35644,
+       48.84134
+      ],
+      [
+       2.36396,
+       48.84328
+      ],
+      [
+       2.36428,
+       48.84372
+      ],
+      [
+       2.36398,
+       48.84394
+      ],
+      [
+       2.36381,
+       48.8442
+      ],
+      [
+       2.36377,
+       48.84444
+      ],
+      [
+       2.36386,
+       48.84474
+      ],
+      [
+       2.36126,
+       48.8465
+      ],
+      [
+       2.36119,
+       48.84649
+      ],
+      [
+       2.36088,
+       48.84675
+      ],
+      [
+       2.35712,
+       48.8448
+      ],
+      [
+       2.3554,
+       48.84396
+      ],
+      [
+       2.35515,
+       48.84383
+      ],
+      [
+       2.3551,
+       48.84374
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "salpetriere",
+    "kind": "building",
+    "name": "La Salpêtrière",
+    "wiki": "Pitié-Salpêtrière Hospital",
+    "labelZoom": 15,
+    "description": "A vast hospice for poor, old and insane women, with a women's prison. The September Massacres reached it on 3 and 4 September 1792. From 1795 the doctor Philippe Pinel ran it and pioneered gentler treatment of the mentally ill."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.36435,
+       48.84036
+      ],
+      [
+       2.36025,
+       48.84036
+      ],
+      [
+       2.36025,
+       48.83694
+      ],
+      [
+       2.36435,
+       48.83694
+      ],
+      [
+       2.36435,
+       48.84036
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "place-du-trone",
+    "kind": "plaza",
+    "name": "Place du Trône-Renversé",
+    "wiki": "Place de la Nation",
+    "labelZoom": 15,
+    "description": "Named the Place du Trône after the throne set up here for Louis XIV's entry in 1660, and renamed the Square of the Overturned Throne in 1792. In June and July 1794, at the height of the Terror, the guillotine stood here and killed about 1,300 people."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.39418,
+       48.84833
+      ],
+      [
+       2.39426,
+       48.84805
+      ],
+      [
+       2.39443,
+       48.8478
+      ],
+      [
+       2.39478,
+       48.84752
+      ],
+      [
+       2.39511,
+       48.84737
+      ],
+      [
+       2.39554,
+       48.84727
+      ],
+      [
+       2.39588,
+       48.84724
+      ],
+      [
+       2.39653,
+       48.84732
+      ],
+      [
+       2.39699,
+       48.84749
+      ],
+      [
+       2.39745,
+       48.84786
+      ],
+      [
+       2.39761,
+       48.84862
+      ],
+      [
+       2.39731,
+       48.84906
+      ],
+      [
+       2.39694,
+       48.8493
+      ],
+      [
+       2.39641,
+       48.84948
+      ],
+      [
+       2.3959,
+       48.84953
+      ],
+      [
+       2.39545,
+       48.84949
+      ],
+      [
+       2.39483,
+       48.84928
+      ],
+      [
+       2.39446,
+       48.84901
+      ],
+      [
+       2.39432,
+       48.84883
+      ],
+      [
+       2.39418,
+       48.84833
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "picpus",
+    "kind": "tomb",
+    "name": "Picpus burial pits",
+    "radiusM": 50,
+    "wiki": "Picpus Cemetery",
+    "labelZoom": 16,
+    "description": "The bodies of the 1,306 people guillotined at the Barrière du Trône in June and July 1794 were thrown into two pits in the garden of a confiscated convent here, just outside the wall.",
+    "from": "1794-06-13"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.4005,
+     48.84405
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "barriere-du-trone",
+    "kind": "building",
+    "name": "Barrière du Trône",
+    "radiusM": 20,
+    "wiki": "Place de la Nation",
+    "labelZoom": 16,
+    "description": "Ledoux's tollgate on the road to Vincennes: two pavilions and two tall columns. Both still stand.",
+    "from": "1785"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.39855,
+     48.84775
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rotonde-villette",
+    "kind": "building",
+    "name": "Rotonde de la Villette",
+    "radiusM": 22,
+    "wiki": "Wall of the Fermiers généraux",
+    "labelZoom": 15,
+    "description": "The grandest of Ledoux's tollhouses, a rotunda over the roads to Flanders and Germany. It still stands on the Place de Stalingrad.",
+    "from": "1785"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.36955,
+     48.88346
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "barriere-enfer",
+    "kind": "building",
+    "name": "Barrière d'Enfer",
+    "radiusM": 22,
+    "wiki": "Barrière d'Enfer",
+    "labelZoom": 16,
+    "description": "Two Ledoux pavilions on the road south to Orléans. One is now the entrance to the Catacombs, where bones from the overflowing city cemeteries were moved from 1786.",
+    "from": "1785"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.33212,
+     48.83394
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rotonde-monceau",
+    "kind": "building",
+    "name": "Rotonde de Monceau",
+    "radiusM": 12,
+    "wiki": "Parc Monceau",
+    "labelZoom": 16,
+    "description": "Ledoux's little round tollhouse at the gate of the Duke of Orléans' park. It still stands at the park's northern entrance.",
+    "from": "1785"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3092,
+     48.8805
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "parc-monceau",
+    "kind": "garden",
+    "name": "Parc Monceau",
+    "wiki": "Parc Monceau",
+    "labelZoom": 15,
+    "description": "The Duke of Orléans' pleasure garden, laid out from 1778 with follies, fake ruins and a Dutch windmill. Confiscated in the Revolution. On 22 October 1797 André-Jacques Garnerin made the first parachute jump from a balloon over it."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.30563,
+       48.87952
+      ],
+      [
+       2.30623,
+       48.87872
+      ],
+      [
+       2.30616,
+       48.87855
+      ],
+      [
+       2.30635,
+       48.87836
+      ],
+      [
+       2.30661,
+       48.8784
+      ],
+      [
+       2.30712,
+       48.87819
+      ],
+      [
+       2.30956,
+       48.87829
+      ],
+      [
+       2.30977,
+       48.87816
+      ],
+      [
+       2.31002,
+       48.87822
+      ],
+      [
+       2.31006,
+       48.87841
+      ],
+      [
+       2.31199,
+       48.87933
+      ],
+      [
+       2.31199,
+       48.87952
+      ],
+      [
+       2.31215,
+       48.87961
+      ],
+      [
+       2.31201,
+       48.87984
+      ],
+      [
+       2.31185,
+       48.87994
+      ],
+      [
+       2.31167,
+       48.88058
+      ],
+      [
+       2.30917,
+       48.88027
+      ],
+      [
+       2.30906,
+       48.88031
+      ],
+      [
+       2.309,
+       48.88024
+      ],
+      [
+       2.30563,
+       48.87952
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "montmartre",
+    "kind": "hill",
+    "name": "Montmartre",
+    "radiusM": 300,
+    "wiki": "Montmartre",
+    "labelZoom": 13,
+    "description": "A village on a hill outside the wall, with windmills, vineyards and gypsum quarries, the source of \"plaster of Paris\". Its abbey was closed and the last abbess guillotined in 1794. From 1794 Chappe's optical telegraph had a station here. On 30 March 1814 the last fighting for Paris took place on its slopes."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3425,
+     48.8868
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "chaillot",
+    "kind": "label",
+    "name": "Chaillot",
+    "wiki": "Chaillot",
+    "labelZoom": 14,
+    "description": "A village on the slope west of the city, inside the new wall. Napoleon planned a vast palace here for his son, the King of Rome; only the foundations were laid."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.2935,
+     48.8664
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "arc-de-triomphe",
+    "kind": "ruins",
+    "name": "Arc de Triomphe (building site)",
+    "wiki": "Arc de Triomphe",
+    "labelZoom": 15,
+    "description": "In 1806 Napoleon ordered a triumphal arch for his armies at the Étoile, the star of roads at the top of the Champs-Élysées. The foundations alone took two years. For his entry with his new wife Marie-Louise in April 1810, a full-size mock-up of wood and painted canvas was put up. When he fell in 1814 the arch was far from finished. It was completed in 1836.",
+    "from": "1806-08-15"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.2955,
+       48.8738
+      ],
+      [
+       2.2948,
+       48.8733
+      ],
+      [
+       2.2953,
+       48.8729
+      ],
+      [
+       2.296,
+       48.8734
+      ],
+      [
+       2.2955,
+       48.8738
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-antoine",
+    "kind": "label",
+    "name": "Faubourg Saint-Antoine",
+    "labelZoom": 14,
+    "description": "The furniture makers' district east of the Bastille, home of the sans-culottes. In April 1789 the Réveillon riots here, over a wallpaper maker's remarks about wages, left many dead. Its people stormed the Bastille and marched in every great revolutionary day.",
+    "wiki": "Faubourg Saint-Antoine"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.381,
+     48.853
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-marcel",
+    "kind": "label",
+    "name": "Faubourg Saint-Marcel",
+    "labelZoom": 14,
+    "description": "A poor district of tanners, dyers and the Gobelins tapestry works along the polluted Bièvre stream. With the Faubourg Saint-Antoine it supplied the crowds that stormed the Tuileries in August 1792."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.35,
+     48.8365
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-germain",
+    "kind": "label",
+    "name": "Faubourg Saint-Germain",
+    "labelZoom": 14,
+    "description": "Aristocratic town houses (hôtels) behind courtyards and gardens. Many owners emigrated after 1789 and their houses were confiscated; under Napoleon several became ministries and embassies.",
+    "wiki": "Faubourg Saint-Germain"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3215,
+     48.856
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-honore",
+    "kind": "label",
+    "name": "Faubourg Saint-Honoré",
+    "labelZoom": 14,
+    "description": "The rich western suburb of bankers' mansions and gardens. The Élysée, then a private palace, stood here; Napoleon signed his second abdication in it on 22 June 1815.",
+    "wiki": "Rue du Faubourg Saint-Honoré"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3135,
+     48.8728
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-du-temple",
+    "kind": "label",
+    "name": "Faubourg du Temple",
+    "labelZoom": 14,
+    "description": "Workshops, taverns and market gardens along the road climbing to Belleville."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3725,
+     48.8695
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "marais",
+    "kind": "label",
+    "name": "Le Marais",
+    "labelZoom": 14,
+    "description": "The aristocratic quarter of the 1600s, already out of fashion by 1789. Many of its town houses were confiscated and turned into workshops and warehouses.",
+    "wiki": "The Marais"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.36,
+     48.859
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "latin-quarter",
+    "kind": "label",
+    "name": "Latin Quarter",
+    "labelZoom": 14,
+    "description": "The university quarter: colleges, printers and booksellers. The university was abolished in 1793.",
+    "wiki": "Latin Quarter, Paris"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3445,
+     48.849
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-neuf",
+    "kind": "bridge",
+    "name": "Pont Neuf",
+    "wiki": "Pont Neuf",
+    "labelZoom": 15,
+    "description": "The oldest standing bridge, finished in 1607 and the first built without houses. Its wide pavements made it the busiest crossing in Paris. The bronze Henri IV at its centre was melted down in 1792.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.34055,
+      48.85622
+     ],
+     [
+      2.34238,
+      48.85838
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-au-change",
+    "kind": "bridge",
+    "name": "Pont au Change",
+    "wiki": "Pont au Change",
+    "labelZoom": 16,
+    "description": "Named for the money changers who once worked on it. Its houses were pulled down in the late 1780s.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.34651,
+      48.85627
+     ],
+     [
+      2.34714,
+      48.85712
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-notre-dame",
+    "kind": "bridge",
+    "name": "Pont Notre-Dame",
+    "wiki": "Pont Notre-Dame",
+    "labelZoom": 16,
+    "description": "Rebuilt in 1500 with a famous row of matching houses, cleared in 1786.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.34838,
+      48.85571
+     ],
+     [
+      2.34883,
+      48.85665
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "petit-pont",
+    "kind": "bridge",
+    "name": "Petit-Pont",
+    "wiki": "Petit Pont",
+    "labelZoom": 16,
+    "description": "The shortest bridge, across the narrow southern arm from Notre-Dame to the Rue Saint-Jacques.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.34705,
+      48.85352
+     ],
+     [
+      2.34686,
+      48.8531
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-saint-michel",
+    "kind": "bridge",
+    "name": "Pont Saint-Michel",
+    "wiki": "Pont Saint-Michel",
+    "labelZoom": 16,
+    "description": "Still lined with houses in 1789; they were cleared under Napoleon.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.34429,
+      48.85389
+     ],
+     [
+      2.34494,
+      48.85424
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-marie",
+    "kind": "bridge",
+    "name": "Pont Marie",
+    "wiki": "Pont Marie",
+    "labelZoom": 16,
+    "description": "Built in the 1630s to join the Île Saint-Louis to the right bank.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.35711,
+      48.8525
+     ],
+     [
+      2.35772,
+      48.85323
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-tournelle",
+    "kind": "bridge",
+    "name": "Pont de la Tournelle",
+    "wiki": "Pont de la Tournelle",
+    "labelZoom": 16,
+    "description": "Joins the Île Saint-Louis to the left bank.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.35504,
+      48.85016
+     ],
+     [
+      2.35587,
+      48.85108
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-rouge",
+    "kind": "bridge",
+    "name": "Pont Rouge",
+    "wiki": "Pont Saint-Louis",
+    "labelZoom": 16,
+    "description": "A wooden footbridge, painted red, between the Cité and the Île Saint-Louis. It was rebuilt several times.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.35231,
+      48.85267
+     ],
+     [
+      2.35323,
+      48.85287
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-royal",
+    "kind": "bridge",
+    "name": "Pont Royal",
+    "wiki": "Pont Royal",
+    "labelZoom": 15,
+    "description": "A stone bridge of the 1680s from the Tuileries to the Faubourg Saint-Germain. Renamed Pont National in 1792.",
+    "widthM": 12
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.32962,
+      48.85957
+     ],
+     [
+      2.33021,
+      48.86069
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-de-la-concorde",
+    "kind": "bridge",
+    "name": "Pont de la Concorde",
+    "wiki": "Pont de la Concorde (Paris)",
+    "labelZoom": 15,
+    "description": "Begun in 1787 as the Pont Louis XVI and finished in 1791, partly with stone from the Bastille, so that Parisians would tread on the old fortress. Renamed Pont de la Révolution in 1792 and Pont de la Concorde in 1795.",
+    "widthM": 12,
+    "from": "1791"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.31902,
+      48.86278
+     ],
+     [
+      2.32016,
+      48.86397
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-des-arts",
+    "kind": "bridge",
+    "name": "Pont des Arts",
+    "wiki": "Pont des Arts",
+    "labelZoom": 16,
+    "description": "The first iron bridge in Paris, a footbridge from the Louvre to the Collège des Quatre-Nations, built in 1802–04. Crossing it cost a toll.",
+    "widthM": 12,
+    "from": "1804"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.33725,
+      48.85781
+     ],
+     [
+      2.3379,
+      48.8591
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-austerlitz",
+    "kind": "bridge",
+    "name": "Pont d'Austerlitz",
+    "wiki": "Pont d'Austerlitz",
+    "labelZoom": 16,
+    "description": "An iron toll bridge from the Jardin des Plantes to the Arsenal, begun in 1801 and named after Napoleon's victory of 1805.",
+    "widthM": 12,
+    "from": "1807"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.36517,
+      48.84437
+     ],
+     [
+      2.36714,
+      48.84549
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "pont-iena",
+    "kind": "bridge",
+    "name": "Pont d'Iéna",
+    "wiki": "Pont d'Iéna",
+    "labelZoom": 16,
+    "description": "Ordered in 1807 to join the Champ de Mars to Chaillot, and named after the victory at Jena over the Prussians. Finished in 1814. When the Prussians reached Paris in 1815, Blücher tried to blow it up.",
+    "widthM": 12,
+    "from": "1814"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      2.29139,
+      48.86036
+     ],
+     [
+      2.29278,
+      48.85927
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "city-right-bank",
+    "kind": "houses",
+    "name": "Houses and streets",
+    "showLabel": false,
+    "fabric": {
+     "w": 38,
+     "h": 46,
+     "gap": 9,
+     "angle": -18
+    },
+    "description": [
+     "About 600,000 people lived in Paris in 1789. Most were packed into the old centre, in houses of five or six storeys: shops and workshops at street level, better-off families on the first floors, the poor in the attics.",
+     "Streets were narrow, often unpaved, with a gutter down the middle and few pavements. Gardens and fields began only towards the new wall."
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.32617,
+       48.86958
+      ],
+      [
+       2.34018,
+       48.87197
+      ],
+      [
+       2.34834,
+       48.8706
+      ],
+      [
+       2.35624,
+       48.86887
+      ],
+      [
+       2.36218,
+       48.86801
+      ],
+      [
+       2.3636,
+       48.86713
+      ],
+      [
+       2.36488,
+       48.86634
+      ],
+      [
+       2.36676,
+       48.86311
+      ],
+      [
+       2.36892,
+       48.8541
+      ],
+      [
+       2.36961,
+       48.85339
+      ],
+      [
+       2.368,
+       48.8505
+      ],
+      [
+       2.3668,
+       48.847
+      ],
+      [
+       2.3636,
+       48.8466
+      ],
+      [
+       2.35676,
+       48.85028
+      ],
+      [
+       2.35386,
+       48.85119
+      ],
+      [
+       2.35319,
+       48.85175
+      ],
+      [
+       2.35223,
+       48.85468
+      ],
+      [
+       2.35059,
+       48.85546
+      ],
+      [
+       2.3468,
+       48.85673
+      ],
+      [
+       2.34009,
+       48.85813
+      ],
+      [
+       2.33847,
+       48.85824
+      ],
+      [
+       2.32992,
+       48.86011
+      ],
+      [
+       2.32478,
+       48.86188
+      ],
+      [
+       2.3212,
+       48.8634
+      ],
+      [
+       2.3225,
+       48.8672
+      ],
+      [
+       2.32617,
+       48.86958
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "city-left-bank",
+    "kind": "houses",
+    "name": "Houses and streets",
+    "showLabel": false,
+    "fabric": {
+     "w": 36,
+     "h": 44,
+     "gap": 9,
+     "angle": -8
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.329,
+       48.8603
+      ],
+      [
+       2.32992,
+       48.86011
+      ],
+      [
+       2.33847,
+       48.85824
+      ],
+      [
+       2.34009,
+       48.85813
+      ],
+      [
+       2.3468,
+       48.85673
+      ],
+      [
+       2.35059,
+       48.85546
+      ],
+      [
+       2.35223,
+       48.85468
+      ],
+      [
+       2.35319,
+       48.85175
+      ],
+      [
+       2.35386,
+       48.85119
+      ],
+      [
+       2.35676,
+       48.85028
+      ],
+      [
+       2.36,
+       48.8487
+      ],
+      [
+       2.3565,
+       48.8472
+      ],
+      [
+       2.3548,
+       48.844
+      ],
+      [
+       2.354,
+       48.841
+      ],
+      [
+       2.3505,
+       48.84
+      ],
+      [
+       2.3445,
+       48.8392
+      ],
+      [
+       2.3372,
+       48.8398
+      ],
+      [
+       2.3335,
+       48.8425
+      ],
+      [
+       2.3305,
+       48.8455
+      ],
+      [
+       2.3285,
+       48.85
+      ],
+      [
+       2.3285,
+       48.854
+      ],
+      [
+       2.329,
+       48.8575
+      ],
+      [
+       2.329,
+       48.8603
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-germain-houses",
+    "kind": "houses",
+    "name": "Town houses and gardens",
+    "showLabel": false,
+    "fabric": {
+     "w": 48,
+     "h": 58,
+     "gap": 26,
+     "angle": -5
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3155,
+       48.863
+      ],
+      [
+       2.31728,
+       48.86376
+      ],
+      [
+       2.31899,
+       48.86354
+      ],
+      [
+       2.32478,
+       48.86188
+      ],
+      [
+       2.329,
+       48.8603
+      ],
+      [
+       2.329,
+       48.8575
+      ],
+      [
+       2.3285,
+       48.854
+      ],
+      [
+       2.3285,
+       48.85
+      ],
+      [
+       2.324,
+       48.8478
+      ],
+      [
+       2.3166,
+       48.8488
+      ],
+      [
+       2.316,
+       48.854
+      ],
+      [
+       2.3156,
+       48.858
+      ],
+      [
+       2.3155,
+       48.863
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourgs-north",
+    "kind": "houses",
+    "name": "Northern faubourgs",
+    "showLabel": false,
+    "fabric": {
+     "w": 44,
+     "h": 56,
+     "gap": 17,
+     "angle": -8
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.32617,
+       48.86958
+      ],
+      [
+       2.34018,
+       48.87197
+      ],
+      [
+       2.34834,
+       48.8706
+      ],
+      [
+       2.35624,
+       48.86887
+      ],
+      [
+       2.36218,
+       48.86801
+      ],
+      [
+       2.3636,
+       48.86713
+      ],
+      [
+       2.368,
+       48.8695
+      ],
+      [
+       2.372,
+       48.8715
+      ],
+      [
+       2.37,
+       48.8745
+      ],
+      [
+       2.362,
+       48.8762
+      ],
+      [
+       2.358,
+       48.8792
+      ],
+      [
+       2.35,
+       48.8798
+      ],
+      [
+       2.342,
+       48.8792
+      ],
+      [
+       2.335,
+       48.8782
+      ],
+      [
+       2.328,
+       48.8757
+      ],
+      [
+       2.3235,
+       48.8725
+      ],
+      [
+       2.32617,
+       48.86958
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-honore-houses",
+    "kind": "houses",
+    "name": "Town houses and gardens",
+    "showLabel": false,
+    "fabric": {
+     "w": 50,
+     "h": 64,
+     "gap": 26,
+     "angle": -20
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.32617,
+       48.86958
+      ],
+      [
+       2.3225,
+       48.8672
+      ],
+      [
+       2.3195,
+       48.8682
+      ],
+      [
+       2.312,
+       48.8708
+      ],
+      [
+       2.306,
+       48.873
+      ],
+      [
+       2.3048,
+       48.875
+      ],
+      [
+       2.311,
+       48.8753
+      ],
+      [
+       2.3185,
+       48.8741
+      ],
+      [
+       2.3235,
+       48.8725
+      ],
+      [
+       2.32617,
+       48.86958
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-antoine-houses",
+    "kind": "houses",
+    "name": "Faubourg Saint-Antoine",
+    "showLabel": false,
+    "fabric": {
+     "w": 40,
+     "h": 50,
+     "gap": 12,
+     "angle": -10
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.36961,
+       48.85339
+      ],
+      [
+       2.3712,
+       48.8565
+      ],
+      [
+       2.376,
+       48.8578
+      ],
+      [
+       2.383,
+       48.8566
+      ],
+      [
+       2.39,
+       48.8537
+      ],
+      [
+       2.3945,
+       48.8507
+      ],
+      [
+       2.3935,
+       48.8478
+      ],
+      [
+       2.388,
+       48.8471
+      ],
+      [
+       2.381,
+       48.8476
+      ],
+      [
+       2.375,
+       48.8488
+      ],
+      [
+       2.37,
+       48.8505
+      ],
+      [
+       2.36961,
+       48.85339
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "popincourt-houses",
+    "kind": "houses",
+    "name": "Popincourt",
+    "showLabel": false,
+    "fabric": {
+     "w": 46,
+     "h": 60,
+     "gap": 30,
+     "angle": -10
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3636,
+       48.86713
+      ],
+      [
+       2.368,
+       48.8695
+      ],
+      [
+       2.372,
+       48.8715
+      ],
+      [
+       2.378,
+       48.8682
+      ],
+      [
+       2.38,
+       48.8622
+      ],
+      [
+       2.376,
+       48.8578
+      ],
+      [
+       2.3712,
+       48.8565
+      ],
+      [
+       2.36961,
+       48.85339
+      ],
+      [
+       2.36892,
+       48.8541
+      ],
+      [
+       2.36676,
+       48.86311
+      ],
+      [
+       2.36488,
+       48.86634
+      ],
+      [
+       2.3636,
+       48.86713
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "faubourg-saint-marcel-houses",
+    "kind": "houses",
+    "name": "Faubourg Saint-Marcel",
+    "showLabel": false,
+    "fabric": {
+     "w": 40,
+     "h": 50,
+     "gap": 16,
+     "angle": 10
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3372,
+       48.8398
+      ],
+      [
+       2.3445,
+       48.8392
+      ],
+      [
+       2.3505,
+       48.84
+      ],
+      [
+       2.354,
+       48.841
+      ],
+      [
+       2.3578,
+       48.8396
+      ],
+      [
+       2.3586,
+       48.837
+      ],
+      [
+       2.3555,
+       48.8346
+      ],
+      [
+       2.35,
+       48.834
+      ],
+      [
+       2.344,
+       48.8355
+      ],
+      [
+       2.3392,
+       48.837
+      ],
+      [
+       2.3362,
+       48.8385
+      ],
+      [
+       2.3372,
+       48.8398
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "chaillot-houses",
+    "kind": "houses",
+    "name": "Chaillot village",
+    "showLabel": false,
+    "fabric": {
+     "w": 40,
+     "h": 50,
+     "gap": 22,
+     "angle": -30
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.2918,
+       48.864
+      ],
+      [
+       2.299,
+       48.8648
+      ],
+      [
+       2.3012,
+       48.8672
+      ],
+      [
+       2.2962,
+       48.8692
+      ],
+      [
+       2.2915,
+       48.8672
+      ],
+      [
+       2.2918,
+       48.864
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "gros-caillou-houses",
+    "kind": "houses",
+    "name": "Gros-Caillou",
+    "showLabel": false,
+    "fabric": {
+     "w": 40,
+     "h": 50,
+     "gap": 22,
+     "angle": 45
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.3018,
+       48.86
+      ],
+      [
+       2.3075,
+       48.8618
+      ],
+      [
+       2.3105,
+       48.8596
+      ],
+      [
+       2.3092,
+       48.8565
+      ],
+      [
+       2.3058,
+       48.8556
+      ],
+      [
+       2.3018,
+       48.86
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

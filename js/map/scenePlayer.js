@@ -20,8 +20,8 @@ import { figureSvg, figureFor, columnSvg } from './unitIcons.js';
 const FIG = 22; // figure size in pixels
 
 // What each kind of figure sounds like on the move (anything else marches on foot).
-const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cw-cavalry': 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft' };
-const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'], 'army-cw': ['feet', 'hooves'] };
+const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cw-cavalry': 'hooves', cuirassier: 'hooves', hussar: 'hooves', cossack: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft' };
+const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'], 'army-cw': ['feet', 'hooves'], 'army-napoleonic': ['feet', 'hooves'] };
 
 export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera }) {
   let scene = null;
@@ -204,7 +204,7 @@ export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera
   function era() {
     const types = new Set([...units.map((u) => u.type), ...tracks.map((tr) => tr.track.type ?? figureFor(tr.track, scene))]);
     if (['soldier', 'tank', 'para'].some((x) => types.has(x))) return 'modern';
-    if (['line-infantry', 'rifleman', 'dragoon', 'cannon', 'army-musket', 'union', 'confederate', 'cw-cavalry', 'cw-gun', 'army-cw'].some((x) => types.has(x))) return 'musket';
+    if (['line-infantry', 'rifleman', 'dragoon', 'cannon', 'army-musket', 'union', 'confederate', 'cw-cavalry', 'cw-gun', 'army-cw', 'fusilier', 'cuirassier', 'hussar', 'cossack', 'field-gun', 'army-napoleonic'].some((x) => types.has(x))) return 'musket';
     if (['conquistador', 'conquistadors', 'mexica', 'canoe'].some((x) => types.has(x))) return 'conquest';
     if (types.size && [...types].every((x) => x === 'marcher' || x === 'marchers')) return 'civil';
     return 'ancient';
