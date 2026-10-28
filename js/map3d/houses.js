@@ -78,6 +78,10 @@ const TYPES = {
   plattenbau: { area: [900, 2400], h: (r) => (r() < 0.75 ? 6 : 11) * 3.2, walls: ['#e2dfd6', '#d8d5cb', '#ebe7dc', '#d2cfc4', '#dfd8c9'], roofs: ['#a9a59d', '#b3afa6'], rt: 0.6 },
   postwar: { area: [600, 1600], h: (r) => Math.floor(between(r, 3, 7)) * 3.2, walls: ['#ece8de', '#e2ddd0', '#d8d1c2', '#e8dfcb'], roofs: ['#9a958c', '#a29d93'], rt: 0.6 },
   gap: { area: [250, 900], rubble: true },
+  // Moscow: stucco blocks of the old city, Stalin-era avenues, Khrushchev-era slabs.
+  stucco: { area: [700, 1800], h: (r) => Math.floor(between(r, 4, 6.9)) * 3.6 + 0.8, walls: ['#e3c98f', '#dfb98a', '#e8d3a8', '#d9a98f', '#c9cfb0', '#e6d9b8', '#d7c3a0', '#bcc7c4'], roofs: ['#6f7d6c', '#7d6a5a', '#8a8f8c', '#5f6e64'], rt: 1.2, court: { min: 900, k: 0.45, p: 0.7 } },
+  stalinist: { area: [2000, 4500], h: (r) => Math.floor(between(r, 8, 10.9)) * 3.4 + 1.5, walls: ['#d8c7a6', '#cbb89a', '#e0d2b6', '#c9a98a'], roofs: ['#8a8a84', '#7c7d78'], rt: 1.5, court: { min: 1800, k: 0.55, p: 0.85 } },
+  khrushchyovka: { area: [1800, 4000], h: () => 5 * 2.8 + 0.6, walls: ['#d9d6cf', '#cfcbc2', '#c9b9a3', '#e2ded4'], roofs: ['#7a7a76', '#85857f'], rt: 0.4, slab: true },
 };
 
 // Share of each type by setting. A fabric can override with "mix".
@@ -117,6 +121,11 @@ const STYLES = {
     hill: { mietskaserne: 0.72, postwar: 0.1, gap: 0.1, garden: 0.08 },
     outer: { mietskaserne: 0.5, postwar: 0.2, gap: 0.1, garden: 0.2 },
   },
+  moscow: {
+    centre: { stucco: 0.78, stalinist: 0.1, garden: 0.12 },
+    hill: { stucco: 0.78, stalinist: 0.1, garden: 0.12 },
+    outer: { khrushchyovka: 0.55, stalinist: 0.15, stucco: 0.15, garden: 0.15 },
+  },
 };
 
 export const HOUSE_INFO = {
@@ -145,6 +154,9 @@ export const HOUSE_INFO = {
   plattenbau: 'A Plattenbau: flats assembled from factory-made concrete panels. East Berlin rebuilt its bombed centre with them from the 1960s, up to the 25-storey towers of Leipziger Strasse.',
   postwar: 'A building of the 1950s to 1980s, put up on a plot cleared after the war.',
   gap: 'A bomb site. In the 1950s and 60s many plots in central Berlin were still rubble or cleared ground.',
+  stucco: 'A stuccoed apartment block of the late 1800s, four to six storeys round a courtyard. After 1917 most were split into communal flats, a family to a room.',
+  stalinist: 'A Stalin-era apartment block of the 1930s to 1950s: eight to ten storeys of stone-faced walls, high ceilings and big flats for the Soviet elite, lining the main avenues.',
+  khrushchyovka: 'A Khrushchyovka: a five-storey slab of concrete panels or brick, built in their thousands from the late 1950s to rehouse families from communal flats.',
 };
 export const HOUSE_LABEL = {
   insula: 'Insula (apartment block)', taberna: 'Shops and workshops', domus: 'Domus (town house)',
@@ -155,6 +167,7 @@ export const HOUSE_LABEL = {
   'tehran-house': 'Courtyard house', 'tehran-flats': 'Block of flats', 'tehran-shops': 'Shops', 'tehran-office': 'Office block', bazaar: 'Bazaar',
   altbau: 'Pre-war building', mietskaserne: 'Mietskaserne (tenement)', plattenbau: 'Plattenbau (panel block)',
   postwar: 'Post-war building', gap: 'Bomb site',
+  stucco: 'Pre-revolutionary apartment block', stalinist: 'Stalin-era apartment block', khrushchyovka: 'Khrushchyovka (five-storey slab)',
 };
 
 export async function generateHouses(city, frame) {
@@ -264,6 +277,7 @@ function house(lot, type, [t0, t1], suburb, r, extras) {
     return null;
   }
   if (T.mansard) return mansardHouse(lot, type, [t0, t1], suburb, r, extras);
+  if (T.slab) return slab(lot, type, [t0, t1], r, extras);
   const h = T.h(r, suburb);
   if (T.pitched) {
     // The house stands at one end of its lot, the yard behind it; a steep
@@ -436,6 +450,31 @@ function footprintHouses(f, frame, index, houses, extras) {
       extras.parts.push({ rings: [rectIn({ c: q, u: box.u, v: box.v }, -l, l, -l * 0.6, l * 0.6)], b: 0, h: between(r, 0.6, 2.2), c: C.rubble, t0: gapFrom, t1: ruins });
     }
   });
+}
+
+// A Khrushchyovka: one five-storey slab set back in its lot, the rest a
+// yard of grass and trees.
+function slab(lot, type, [t0, t1], r, extras) {
+  const T = TYPES[type];
+  const box = obb(lot);
+  if (box.hl < 14 || box.hw < 8) return null;
+  const hl = Math.min(box.hl - 3, 48);
+  const hw = Math.min(box.hw - 2, 6);
+  extras.flats.push({ rings: [lot], c: C.garden, t0, t1 });
+  if (box.hw > 18) {
+    const g = { parts: [], flats: [] };
+    for (const s of [-0.6, 0, 0.6]) if (r() < 0.6) tree(g, at(box, s * hl, (r() < 0.5 ? -1 : 1) * (hw + (box.hw - hw) / 2)), r);
+    g.parts.forEach((q) => Object.assign(q, { t0, t1 }));
+    extras.parts.push(...g.parts);
+  }
+  return {
+    rings: [rectIn(box, -hl, hl, -hw, hw)],
+    h: round1(T.h(r)),
+    c: T.walls[Math.floor(r() * T.walls.length)],
+    roof: T.roofs[Math.floor(r() * T.roofs.length)],
+    rt: T.rt,
+    type, t0, t1,
+  };
 }
 
 // ---------- Layouts ----------
