@@ -1,0 +1,243 @@
+{
+  "id": "crusades",
+  "title": "The Crusades",
+  "subtitle": "Holy war in the Near East and Europe, 1095–1291",
+  "range": {
+    "start": "1095-01-01",
+    "end": "1291-12-31"
+  },
+  "overview": {
+    "bounds": [[28.5, 18.0], [43.5, 45.0]]
+  },
+  "minZoom": 4,
+  "basemap": "esri-relief",
+  "landMask": {
+    "bbox": [-12, 20, 52, 62]
+  },
+  "cities": ["jerusalem"],
+  "files": {
+    "events": "events.json",
+    "territories": "territories.geojson",
+    "scenes": "scenes.json"
+  },
+  "intro": {
+    "title": "Two hundred years of holy war",
+    "body": [
+      "In 1071 the Seljuk Turks crushed a Byzantine army at Manzikert and swept across Anatolia. By 1095 the Byzantine emperor Alexios I had lost most of Asia Minor and asked the Pope for soldiers. Pope Urban II asked for much more: an armed pilgrimage to free Jerusalem, with the forgiveness of sins for all who went.",
+      "Tens of thousands answered. In 1099 they took Jerusalem in a massacre, and for nearly two centuries Latin Christians ruled a strip of coast from Edessa to the Red Sea. Muslims called them the Franks. To the Byzantines they were dangerous allies who in 1204 sacked Constantinople itself. Jewish communities in the Rhineland were murdered by crusaders before the armies even left Europe.",
+      "The Muslim world was divided in 1095. Zengi, Nur ad-Din and Saladin united Syria and Egypt and turned holy war back on the Franks. After Hattin in 1187 Jerusalem returned to Muslim rule. The Mamluks of Egypt, who stopped the Mongols in 1260, took the last crusader city, Acre, in 1291."
+    ],
+    "tips": [
+      "Press play for a guided tour. The map flies to each event and back out.",
+      "Watch the red crusader states grow along the coast after 1099, shrink after 1187 and vanish by 1291. Scrub to 1204 to see the Latin Empire replace Byzantium in Constantinople.",
+      "Zoom into Jerusalem for a plan of the walled city. Scrub from 1099 to 1187 to see the Dome of the Rock become the Templum Domini and al-Aqsa the Templars' headquarters.",
+      "The First Crusade's march and the Battle of Hattin have animated close-ups. Look for the Watch it unfold button."
+    ]
+  },
+  "categories": {
+    "politics": {
+      "label": "Rulers, treaties and communities",
+      "color": "#8b5fd1"
+    },
+    "campaign": {
+      "label": "Marches and campaigns",
+      "color": "#2f9e6f"
+    },
+    "battle": {
+      "label": "Battle",
+      "color": "#e8603c"
+    },
+    "siege": {
+      "label": "Siege or capture of a city",
+      "color": "#b5651d"
+    },
+    "massacre": {
+      "label": "Massacre and persecution",
+      "color": "#8f2d3c"
+    },
+    "europe": {
+      "label": "Crusades within Europe",
+      "color": "#3f7fbf"
+    }
+  },
+  "factions": {
+    "crusader": {
+      "label": "Crusader states (the Latin East)",
+      "short": "Crusaders",
+      "color": "#c8372d"
+    },
+    "byzantine": {
+      "label": "Byzantine Empire and the Greek successor states",
+      "short": "Byzantines",
+      "color": "#7a5ab8"
+    },
+    "latin": {
+      "label": "Latin Empire and Frankish Greece (after 1204)",
+      "short": "Latins",
+      "color": "#e07a9a"
+    },
+    "seljuk": {
+      "label": "Seljuk Turks and Turkish emirs",
+      "short": "Seljuks",
+      "color": "#2f8f76"
+    },
+    "fatimid": {
+      "label": "Fatimid Caliphate (Cairo)",
+      "short": "Fatimids",
+      "color": "#5c9e3a"
+    },
+    "zengid": {
+      "label": "Zengids (Zengi and Nur ad-Din)",
+      "short": "Zengids",
+      "color": "#b5651d"
+    },
+    "ayyubid": {
+      "label": "Ayyubids (Saladin and his heirs)",
+      "short": "Ayyubids",
+      "color": "#d8a31e"
+    },
+    "mamluk": {
+      "label": "Mamluk Sultanate (from 1250)",
+      "short": "Mamluks",
+      "color": "#a8456b"
+    },
+    "armenian": {
+      "label": "Armenian Cilicia",
+      "short": "Armenians",
+      "color": "#4a6fd0"
+    },
+    "abbasid": {
+      "label": "Abbasid caliphate (Baghdad)",
+      "short": "Abbasids",
+      "color": "#6f9a9a"
+    },
+    "bulgarian": {
+      "label": "Bulgaria (independent again from 1185)",
+      "short": "Bulgaria",
+      "color": "#8a8f6a"
+    },
+    "mongol": {
+      "label": "Mongols (the Ilkhanate)",
+      "short": "Mongols",
+      "color": "#5d5f73"
+    }
+  },
+  "eras": [
+    {
+      "start": "1095-01-01",
+      "end": "1099-08-13",
+      "title": "The First Crusade",
+      "text": "The Pope calls for an armed pilgrimage. Crusaders murder Rhineland Jews, cross Anatolia with Byzantine help, take Antioch after an eight-month siege and storm Jerusalem in July 1099."
+    },
+    {
+      "start": "1099-08-13",
+      "end": "1144-12-24",
+      "title": "The crusader states",
+      "text": "Four Latin states hold the coast: the County of Edessa, the Principality of Antioch, the County of Tripoli and the Kingdom of Jerusalem. Italian fleets help take the ports. Military orders, the Templars and Hospitallers, are founded."
+    },
+    {
+      "start": "1144-12-24",
+      "end": "1149-06-01",
+      "title": "The Second Crusade",
+      "text": "Zengi takes Edessa. The kings of France and Germany march east, lose most of their armies in Anatolia and give up a siege of Damascus after four days."
+    },
+    {
+      "start": "1149-06-01",
+      "end": "1187-07-04",
+      "title": "Nur ad-Din and Saladin",
+      "text": "Nur ad-Din unites Muslim Syria and preaches jihad. His officer Saladin ends the Fatimid caliphate in Egypt, then takes Damascus and Aleppo, closing a ring round the Kingdom of Jerusalem."
+    },
+    {
+      "start": "1187-07-04",
+      "end": "1193-03-04",
+      "title": "Hattin and the Third Crusade",
+      "text": "Saladin destroys the Frankish army at Hattin and takes Jerusalem. Richard the Lionheart and Philip of France retake Acre and much of the coast, but not Jerusalem."
+    },
+    {
+      "start": "1193-03-04",
+      "end": "1205-01-01",
+      "title": "The Fourth Crusade",
+      "text": "A crusade bound for Egypt runs out of money, sacks the Christian city of Zara for Venice, then storms Constantinople and puts a Latin emperor on the Byzantine throne."
+    },
+    {
+      "start": "1205-01-01",
+      "end": "1229-02-18",
+      "title": "Crusades everywhere",
+      "text": "Popes turn the crusade against heretics in southern France and pagans in the Baltic. The Fifth Crusade takes Damietta in Egypt, then loses it to the Nile flood."
+    },
+    {
+      "start": "1229-02-18",
+      "end": "1254-04-25",
+      "title": "Frederick II and Louis IX",
+      "text": "The excommunicated Emperor Frederick II gets Jerusalem back by treaty. It is lost for good in 1244. Louis IX of France invades Egypt and is captured, and his captors' slave soldiers, the Mamluks, seize power."
+    },
+    {
+      "start": "1254-04-25",
+      "end": "1291-12-31",
+      "title": "Mongols, Mamluks and the fall of Acre",
+      "text": "The Mongols destroy Baghdad and are stopped at Ain Jalut. Sultan Baybars takes the crusader castles one by one. In 1291 Acre falls and the Latin East is gone."
+    }
+  ],
+  "mapLabels": [
+    { "text": "Constantinople", "at": [41.01, 28.98], "minZoom": 5 },
+    { "text": "Nicaea", "at": [40.43, 29.72], "minZoom": 6 },
+    { "text": "Konya", "at": [37.87, 32.49], "minZoom": 6 },
+    { "text": "Antioch", "at": [36.2, 36.16], "minZoom": 6 },
+    { "text": "Edessa", "at": [37.16, 38.79], "minZoom": 6 },
+    { "text": "Aleppo", "at": [36.2, 37.16], "minZoom": 7 },
+    { "text": "Tripoli", "at": [34.44, 35.84], "minZoom": 7 },
+    { "text": "Damascus", "at": [33.51, 36.29], "minZoom": 6 },
+    { "text": "Acre", "at": [32.92, 35.07], "minZoom": 7 },
+    { "text": "Tyre", "at": [33.27, 35.2], "minZoom": 8 },
+    { "text": "Jerusalem", "at": [31.78, 35.23], "minZoom": 6, "maxZoom": 12 },
+    { "text": "Ascalon", "at": [31.66, 34.55], "minZoom": 8 },
+    { "text": "Cairo", "at": [30.05, 31.25], "minZoom": 6 },
+    { "text": "Damietta", "at": [31.42, 31.81], "minZoom": 7 },
+    { "text": "Alexandria", "at": [31.2, 29.92], "minZoom": 7 },
+    { "text": "Mosul", "at": [36.34, 43.13], "minZoom": 6 },
+    { "text": "Baghdad", "at": [33.31, 44.36], "minZoom": 6 },
+    { "text": "Venice", "at": [45.44, 12.33], "minZoom": 6 },
+    { "text": "Rome", "at": [41.9, 12.49], "minZoom": 6 },
+    { "text": "Anatolia", "at": [39.0, 33.0], "maxZoom": 6 },
+    { "text": "Syria", "at": [35.0, 38.5], "maxZoom": 6 },
+    { "text": "Egypt", "at": [28.8, 30.5], "maxZoom": 6 },
+    { "text": "Mediterranean Sea", "at": [34.0, 25.5], "maxZoom": 6 },
+    { "text": "Black Sea", "at": [43.0, 34.5], "maxZoom": 6 },
+    { "text": "Sinai", "at": [29.6, 33.8], "minZoom": 6, "maxZoom": 7 }
+  ],
+  "ask": {
+    "persona": "a careful historian of the crusades who gives Latin, Byzantine, Muslim and Jewish perspectives fair weight, uses contemporary sources from all sides, and says when numbers or famous stories are uncertain",
+    "defaultQuestions": [
+      "Why did this happen?",
+      "How did the other side see it?",
+      "What happened next?"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Fordham Medieval Sourcebook: the Crusades",
+      "url": "https://sourcebooks.fordham.edu/sbook1k.asp"
+    },
+    {
+      "label": "Encyclopaedia Britannica: Crusades",
+      "url": "https://www.britannica.com/event/Crusades"
+    },
+    {
+      "label": "Wikipedia (images and further reading)",
+      "url": "https://en.wikipedia.org/wiki/Crusades"
+    }
+  ],
+  "ambience": {
+    "default": "mediterranean",
+    "byCategory": {
+      "politics": "quiet",
+      "campaign": "march",
+      "battle": "battle",
+      "siege": "siege",
+      "massacre": "sombre",
+      "europe": "countryside"
+    },
+    "scene": "battlefield"
+  },
+  "music": "crusades"
+}

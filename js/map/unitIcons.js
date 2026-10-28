@@ -159,6 +159,32 @@ const FIGURES = {
     <path d="M4.5 22l-0.8 7M6.5 22l0.8 7" fill="none" ${INK}/><path d="M2.8 13h5l0.8 9H2z" fill="currentColor" ${INK}/>${head(5.4, 10.6, 2.2)}
     <path d="M3.6 8.6l0.3-3.4h3l0.3 3.4z" fill="#22201c"/>
     <path d="M9 7L4 25" stroke="#5b3b22" stroke-width="1.2"/>`,
+  // Crusader knight: barded horse, flat-topped great helm, couched lance, shield with a cross.
+  knight: `<path d="M8 22l-1.5 7M11 23l0.5 6M19 23l-1 6M22 22l2 7" fill="none" ${INK}/>
+    <path d="M5 17c0-3 3-5 8-5h7l4-5 4 2-2 3-3 2c0 4-2 8-7 8h-6c-3 0-5-2-5-5z" fill="#6e4f36" ${INK}/>
+    <path d="M5 17l-3 5" fill="none" ${INK}/><path d="M5.5 15.5h15.5l-0.5 6.5H7z" fill="#e9e4d6" ${INK}/>
+    <path d="M12 12l1-5h5l1 5z" fill="currentColor" ${INK}/><path d="M15.5 7.6v3.8M13.9 9.1h3.2" stroke="#f4f1e8" stroke-width="1"/>
+    <rect x="13.3" y="1.4" width="4.6" height="5.2" rx="0.6" fill="#b9bcc1" ${INK}/><path d="M15.4 3.8h2.4" stroke="#1d1a16" stroke-width="0.8"/>
+    <path d="M6 9L31 2" fill="none" ${INK}/>
+    <path d="M8.6 8.5h5v4c0 2-1.5 3.4-2.5 4.1-1-0.7-2.5-2.1-2.5-4.1z" fill="#f4f1e8" ${INK}/><path d="M11.1 9.2v6.4M9.1 11.6h4" stroke="currentColor" stroke-width="1.4"/>`,
+  // Man-at-arms: nasal helm, mail, spear and a kite shield with a cross.
+  'man-at-arms': `${legs(14)}<path d="M8 27L25 2" fill="none" ${INK}/>
+    <path d="M10.5 10.5h7l1.2 11h-9.4z" fill="#9a9da3" ${INK}/><path d="M11 12h6l0.8 7.5h-7.6z" fill="currentColor"/>${head(14, 7.2)}
+    <path d="M11.3 6.6a2.7 3.3 0 0 1 5.4 0z" fill="#b9bcc1" ${INK}/><path d="M15.7 6.4v2.2" stroke="#1d1a16" stroke-width="0.9"/>
+    <path d="M17.5 9.5h6.5c0 5-1.2 9.5-3.25 13.5C18.7 19 17.5 14.5 17.5 9.5z" fill="#f4f1e8" ${INK}/><path d="M20.75 10.3v10.5M18.2 13.4h5.1" stroke="currentColor" stroke-width="1.6"/>`,
+  // Turkish horse archer: light horse, pointed helmet, composite bow drawn.
+  'horse-archer': `<path d="M9 22l-1 7M12 23v6M19 23l-1 6M22 22l1.5 7" fill="none" ${INK}/>
+    <path d="M6 18c0-3 3-5 7-5h6l4-5 3.5 2-2 3-2.5 2c0 3.5-2 7-6 7h-5c-3 0-5-1.5-5-4z" fill="#a0784f" ${INK}/>
+    <path d="M9.5 13.5l-2.5 5" stroke="#5b3b22" stroke-width="2.2"/>
+    <path d="M13 13l0.5-5h4l0.5 5z" fill="currentColor" ${INK}/>${head(15.5, 5.6, 2.3)}
+    <path d="M13.3 4.6L15.5 0.6 17.7 4.6z" fill="#b9bcc1" ${INK}/>
+    <path d="M22 1.5c3 2.2 3 9 0 11.2" fill="none" stroke="#5b3b22" stroke-width="1.5"/><path d="M22 1.5L17.6 7.1 22 12.7" fill="none" stroke="#e9e4d6" stroke-width="0.6"/>
+    <path d="M17.6 7.1H27" stroke="#3a2f25" stroke-width="0.8"/>`,
+  // Ayyubid foot soldier: turban wound round a spiked helmet, round shield, spear.
+  ayyubid: `${legs(14)}<path d="M9 27L24 2" fill="none" ${INK}/>${tunic(14)}${head(14, 7.2)}
+    <path d="M11.2 6.4c0-3.2 5.6-3.2 5.6 0z" fill="#b9bcc1" ${INK}/><path d="M11 6c1.8 1 4.2 1 6 0" fill="none" stroke="#f4f1e8" stroke-width="1.7"/>
+    <path d="M14 3.2V1.4" stroke="#1d1a16" stroke-width="1.2"/>
+    <circle cx="20" cy="15" r="5.3" fill="currentColor" ${INK}/><circle cx="20" cy="15" r="2.8" fill="none" stroke="#f4e3b0" stroke-width="1"/><circle cx="20" cy="15" r="1" fill="#f4e3b0"/>`,
   // A fortified camp: tents behind a palisade.
   camp: `<path d="M4 20l6-9 6 9zM14 20l6-9 6 9z" fill="#e9e1cc" ${INK}/>
     <path d="M2 22h28v4H2z" fill="currentColor" ${INK}/>${[5, 10, 15, 20, 25].map((x) => `<path d="M${x} 22v-3" stroke="#5b3b22" stroke-width="1.4"/>`).join('')}`,
@@ -178,6 +204,8 @@ export function figureFor(item, scene) {
   if (/panzer|armou?r|tank/.test(l)) return 'tank';
   if (/airborne|parachut/.test(l)) return 'para';
   if (/elephant/.test(l)) return 'elephant';
+  if (/horse archer/.test(l)) return 'horse-archer';
+  if (/knight/.test(l)) return 'knight';
   if (/numidian|light horse/.test(l)) return 'light-cavalry';
   if (/cavalry|horse/.test(l)) return 'cavalry';
   if (/\bcamp\b/.test(l)) return 'camp';
@@ -192,6 +220,7 @@ export function columnSvg(type, size) {
   if (type === 'army') return `${figureSvg('cavalry', size)}${figureSvg('legionary', size)}${figureSvg('legionary', size)}`;
   if (type === 'conquistadors') return `${figureSvg('cavalry', size)}${figureSvg('conquistador', size)}${figureSvg('mexica', size)}`;
   if (type === 'army-napoleonic') return `${figureSvg('cuirassier', size)}${figureSvg('fusilier', size)}${figureSvg('field-gun', size)}`;
+  if (type === 'crusaders') return `${figureSvg('knight', size)}${figureSvg('man-at-arms', size)}${figureSvg('man-at-arms', size)}`;
   if (type === 'army-musket') return `${figureSvg('dragoon', size)}${figureSvg('line-infantry', size)}${figureSvg('cannon', size)}`;
   if (type === 'army-cw') return `${figureSvg('cw-cavalry', size)}${figureSvg('union', size)}${figureSvg('cw-gun', size)}`;
   return `${figureSvg(type, size)}${figureSvg(type, size)}${figureSvg(type, size)}`;

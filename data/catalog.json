@@ -56,6 +56,13 @@
       "subtitle": "1789–1815",
       "blurb": "The Bastille, the Terror and the guillotine, then Napoleon's empire from Madrid to Moscow, and its fall at Waterloo.",
       "status": "ready"
+    },
+    {
+      "id": "crusades",
+      "title": "The Crusades",
+      "subtitle": "1095–1291",
+      "blurb": "From Clermont to the fall of Acre: the crusader states, Saladin and Hattin, the sack of Constantinople, and the Mamluks who ended it all.",
+      "status": "ready"
     }
   ],
   "cities": [
@@ -93,6 +100,14 @@
       "at": "1793-01-21",
       "when": "Shown in January 1793",
       "blurb": "The city of the Revolution: the Bastille, the Tuileries, the guillotine on the Place de la Révolution and the new customs wall."
+    },
+    {
+      "id": "jerusalem",
+      "name": "Jerusalem",
+      "story": "crusades",
+      "at": "1150",
+      "when": "Shown in 1150",
+      "blurb": "The walled city under crusader rule: the Holy Sepulchre, the Dome of the Rock as the Templum Domini, the Templars on the Temple Mount, and the sieges of 1099 and 1187."
     }
   ]
 }

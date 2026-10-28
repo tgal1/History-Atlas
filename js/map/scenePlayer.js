@@ -20,8 +20,8 @@ import { figureSvg, figureFor, columnSvg } from './unitIcons.js';
 const FIG = 22; // figure size in pixels
 
 // What each kind of figure sounds like on the move (anything else marches on foot).
-const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cw-cavalry': 'hooves', cuirassier: 'hooves', hussar: 'hooves', cossack: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft' };
-const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'], 'army-cw': ['feet', 'hooves'], 'army-napoleonic': ['feet', 'hooves'] };
+const SOUND_OF = { cavalry: 'hooves', 'light-cavalry': 'hooves', elephant: 'hooves', dragoon: 'hooves', 'cw-cavalry': 'hooves', cuirassier: 'hooves', hussar: 'hooves', cossack: 'hooves', canoe: 'paddles', ship: 'oars', tank: 'engines', para: 'aircraft', knight: 'hooves', 'horse-archer': 'hooves' };
+const MIXED = { army: ['feet', 'hooves'], 'army-elephants': ['feet', 'hooves'], conquistadors: ['feet', 'hooves'], 'army-musket': ['feet', 'hooves'], 'army-cw': ['feet', 'hooves'], 'army-napoleonic': ['feet', 'hooves'], crusaders: ['feet', 'hooves'] };
 
 export function createScenePlayer(map, { factions = {}, onFrame, onEnd, onCamera }) {
   let scene = null;
