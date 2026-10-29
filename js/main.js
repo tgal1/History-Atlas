@@ -19,6 +19,7 @@ import { createSceneBar } from './ui/sceneBar.js';
 import { createLegend } from './ui/legend.js';
 import { createMenu } from './ui/menu.js';
 import { createAudioPanel } from './ui/audioPanel.js';
+import { createSheet } from './ui/sheet.js';
 import { createSoundtrack } from './audio/soundtrack.js';
 import { createBattleSounds } from './audio/battle.js';
 
@@ -55,8 +56,12 @@ async function boot() {
     overlayPadding: () => {
       const mapBox = $('#map').getBoundingClientRect();
       const hud = $('.hud').getBoundingClientRect();
-      // When the title box spans most of the map (phones, tablets), keep clear below it instead of beside it.
-      if (hud.width > mapBox.width * 0.55) return { topLeft: [10, hud.bottom - mapBox.top + 10] };
+      // When the title box spans most of the map (phones, tablets), keep clear below it instead of
+      // beside it, and above the bottom sheet, which lies over the map there.
+      if (hud.width > mapBox.width * 0.55) {
+        const sheetBox = $('#panel').getBoundingClientRect();
+        return { topLeft: [10, hud.bottom - mapBox.top + 10], bottomRight: [10, Math.max(10, mapBox.bottom - sheetBox.top + 10)] };
+      }
       const left = Math.max(hud.right, $('#legend').getBoundingClientRect().right);
       return { topLeft: [left - mapBox.left + 10, 20], bottomRight: [20, 20] };
     },
@@ -424,10 +429,34 @@ async function boot() {
   $('#speed').addEventListener('change', (e) => store.set({ speed: e.target.value }));
 
   // ---------- Panel ----------
+  // A side column on wide screens; on phones a bottom sheet (see ui/sheet.js).
+  const sheet = createSheet($('#panel'), { onChange: () => setTimeout(measureLayout, 320) });
   function showPanel() {
     document.body.classList.remove('panel-closed');
+    sheet.open();
   }
-  $('#panel-close').addEventListener('click', () => document.body.classList.toggle('panel-closed'));
+  $('#panel-close').addEventListener('click', () => {
+    if (sheet.isPhone()) sheet.toggle();
+    else document.body.classList.toggle('panel-closed');
+  });
+
+  // Phones: the chapter text folds behind its title, and the timeline's
+  // secondary options behind a "more" button.
+  const era = $('.hud-era');
+  const toggleEra = () => era.setAttribute('aria-expanded', String(era.getAttribute('aria-expanded') !== 'true'));
+  era.addEventListener('click', toggleEra);
+  era.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleEra(); } });
+  $('#btn-more').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = $('.timeline').classList.toggle('more-open');
+    $('#btn-more').setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.tl-options, #btn-more, #sound-panel')) {
+      $('.timeline').classList.remove('more-open');
+      $('#btn-more').setAttribute('aria-expanded', 'false');
+    }
+  });
   // The map resizes when the panel opens or closes; let Leaflet catch up.
   $('#map').addEventListener('transitionend', () => view.map.invalidateSize({ pan: false }));
   $('#btn-intro').addEventListener('click', () => { stopTour(); panel.renderIntro(); showPanel(); });

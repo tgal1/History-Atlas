@@ -295,17 +295,24 @@ body.in-scene .legend { display: none; }
 @media (max-width: 820px) {
   .legend { width: auto; align-self: flex-start; padding: 6px 10px; }
   .legend:not(.collapsed) { max-width: 240px; }
-  .scene-bar { left: 8px; right: 8px; bottom: calc(var(--tl-h) + 46vh + 8px); }
-  body.panel-closed .scene-bar { right: 8px; bottom: calc(var(--tl-h) + 54px); }
-  .map-top { right: var(--gap); align-items: center; }
-  /* The title box spans the width, so the zoom buttons go below it. */
-  .leaflet-top.leaflet-right, .city3d .maplibregl-ctrl-top-right { top: calc(var(--hud-h) + var(--gap)); }
+  .legend-toggle { min-height: 32px; min-width: 44px; }
+  /* Scene controls sit just above the sheet, wherever it is. */
+  .scene-bar, body.panel-closed .scene-bar {
+    left: 8px; right: 8px; width: auto; transform: none;
+    bottom: calc(var(--tl-h) + var(--sheet-h, 128px) + 8px);
+    transition: bottom 0.3s ease;
+  }
+  .map-top { top: calc(max(var(--gap), env(safe-area-inset-top)) + var(--hud-h) + var(--gap)); right: var(--gap); align-items: center; }
+  body.panel-closed .map-top { right: var(--gap); }
+  /* The title bar spans the width, so the zoom buttons go below it. */
+  .leaflet-top.leaflet-right, .city3d .maplibregl-ctrl-top-right { top: calc(var(--hud-h) + var(--gap) + env(safe-area-inset-top)); }
+  .leaflet-bar a { width: 36px; height: 36px; line-height: 36px; }
   /* "Building…" sits under the city buttons, not on them. */
   .status3d { top: calc(var(--hud-h) + var(--tools-h, 0px) + var(--gap) * 3); transform: translateX(-50%); white-space: nowrap; }
   .city-tools { justify-content: center; }
-  .city-chip { padding: 6px 12px; font-size: 13px; }
+  .city-chip { padding: 8px 14px; font-size: 13px; min-height: 40px; }
   .then-now input { width: 120px; }
   .hint3d { display: none; }
-  .city3d { inset: 0 0 calc(var(--tl-h) + 46vh) 0; }
-  body.panel-closed .city3d { bottom: calc(var(--tl-h) + 46px); }
+  /* The 3D city fills the screen too; the sheet lies over it. */
+  .city3d, body.panel-closed .city3d { inset: 0 0 var(--tl-h) 0; }
 }

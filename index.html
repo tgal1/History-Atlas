@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>History Atlas</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,11 +28,12 @@
     <header class="hud">
       <div class="hud-top">
         <span class="brand">History Atlas</span>
-        <button id="btn-menu" class="menu-btn" aria-haspopup="dialog">&#9776; Stories &amp; cities</button>
+        <button id="btn-menu" class="menu-btn" aria-haspopup="dialog" aria-label="Stories and cities">&#9776;<span> Stories &amp; cities</span></button>
       </div>
       <h1 id="story-title"></h1>
       <p id="story-subtitle" class="hud-sub"></p>
-      <div class="hud-era">
+      <!-- On phones the chapter folds to one line; tap it to read the rest. -->
+      <div class="hud-era" role="button" tabindex="0" aria-expanded="false">
         <span class="eyebrow">Chapter</span>
         <strong id="era-title"></strong>
         <p id="era-text"></p>
@@ -57,6 +58,8 @@
 
   <!-- Event card, intro and city guide -->
   <aside id="panel" class="panel">
+    <!-- Phones: drag or tap to move the sheet between peek, half and full. -->
+    <div class="sheet-grip" aria-hidden="true"><span></span></div>
     <div class="panel-tabs" role="tablist">
       <button role="tab" data-tab="event" aria-selected="true">Story</button>
       <button id="btn-intro" class="tab-link" title="Back to the introduction">Intro</button>
@@ -77,6 +80,8 @@
       <div class="tl-date-wrap">
         <span id="tl-date" class="tl-date"></span>
       </div>
+      <!-- Phones: the options below fold into a pop-up behind this button. -->
+      <button id="btn-more" class="icon-btn tl-more" aria-label="More options" aria-expanded="false">&#8943;</button>
       <div class="tl-options">
         <button id="btn-sound" class="sound-btn" aria-haspopup="dialog" aria-expanded="false" title="Narration, sounds and music">
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>

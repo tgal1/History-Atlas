@@ -137,27 +137,35 @@ body.panel-closed .sound-panel { right: 16px; }
   .tl-date { font-size: 19px; }
 }
 
+.tl-more { display: none; }
+
+/* Phones: back, play, forward and the date at full touch size (44px, as
+   Apple and Google advise); sound, "stop at events" and speed fold into a
+   pop-up behind the ⋯ button. The home bar keeps its own strip. */
 @media (max-width: 820px) {
-  .timeline { padding: 8px 10px 6px; }
-  .tl-controls { gap: 6px; }
-  .tl-options { gap: 8px; }
-  .tl-date { font-size: 17px; }
-  .tl-date-wrap { min-width: 0; margin-left: 2px; }
-  .play-btn { width: 38px; height: 38px; }
-  .tl-controls .icon-btn { width: 30px; height: 30px; }
-  #speed { padding: 5px 4px; }
-  /* The date gives way rather than running under the buttons. */
-  .tl-date-wrap { flex: 1 1 auto; overflow: hidden; }
-  .tl-options { flex: none; }
-}
-@media (max-width: 400px) {
-  .tl-controls { gap: 4px; }
-  .tl-options { gap: 4px; }
-  .tl-date { font-size: 15px; }
-  #speed { font-size: 12px; padding: 4px 2px; }
-  .sound-btn { padding: 6px 9px; }
-  .tl-options .toggle { display: none; }
+  .timeline { padding: 8px 12px calc(6px + env(safe-area-inset-bottom)); gap: 6px; }
+  .tl-controls { gap: 8px; position: relative; }
+  .play-btn { width: 46px; height: 46px; flex: none; }
+  .tl-controls .icon-btn { width: 44px; height: 44px; flex: none; font-size: 12px; }
+  .tl-date-wrap { flex: 1 1 auto; min-width: 0; margin-left: 2px; overflow: hidden; }
+  .tl-date { font-size: 18px; }
   .tl-era span { display: none; }
-  .sound-btn span { display: none; }
-  .sound-panel { left: 16px; right: 16px; width: auto; }
+  .tl-more { display: inline-grid; font-size: 20px; letter-spacing: 0; }
+  .tl-options {
+    display: none;
+    position: absolute; right: 0; bottom: calc(100% + 10px);
+    flex-direction: column; align-items: stretch; gap: 10px;
+    min-width: 210px; padding: 12px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .timeline.more-open .tl-options { display: flex; }
+  .tl-options > * { min-height: 44px; }
+  .tl-options .sound-btn { justify-content: center; }
+  .tl-options .toggle { padding: 0 4px; }
+  .sound-panel { left: 12px; right: 12px; width: auto; bottom: calc(var(--tl-h) + 8px); max-height: calc(100dvh - var(--tl-h) - 80px); overflow-y: auto; }
+}
+@media (max-width: 360px) {
+  .tl-controls { gap: 6px; }
+  .tl-date { font-size: 16px; }
 }

@@ -197,20 +197,52 @@ a.menu-item:hover { border-color: var(--accent); background: var(--surface-3); }
   .hud-sub, .hud-era p { display: none; }
 }
 
-/* ---------- Phones: panel becomes a bottom sheet ---------- */
+/* ---------- Phones and portrait tablets ----------
+   The map fills the screen; the story panel is a bottom sheet laid over it
+   (ui/sheet.js publishes its height as --sheet-h); the title is one line with
+   the chapter folded behind it. Heights follow the visible screen (dvh) and
+   keep clear of the notch and the home bar (safe-area insets). */
 @media (max-width: 820px) {
-  :root { --panel-w: 0px; --tl-h: 112px; --gap: 8px; --hud-w: calc(100vw - 16px); }
-  /* The map is only the strip above the sheet; the column ends where it does,
-     less a line for the map credits along the bottom. */
-  .left-rail { bottom: calc(var(--tl-h) + 46vh + var(--gap) + 28px); }
-  body.panel-closed .left-rail { bottom: calc(var(--tl-h) + 46px + var(--gap) + 28px); }
-  .hud { padding: 8px 12px; }
-  .hud-top { margin-bottom: 2px; }
-  .hud h1 { font-size: 19px; }
-  .hud-era, .hud-sub { display: none; }
+  :root {
+    --panel-w: 0px; --gap: 8px;
+    --tl-h: calc(104px + env(safe-area-inset-bottom));
+    --hud-w: calc(100vw - 16px - env(safe-area-inset-left) - env(safe-area-inset-right));
+  }
+  #map { inset: 0 0 var(--tl-h) 0; }
+  body.panel-closed #map { right: 0; }
+  .left-rail {
+    top: max(var(--gap), env(safe-area-inset-top));
+    left: max(var(--gap), env(safe-area-inset-left));
+    /* Just above the sheet, less a line for the map credits. */
+    bottom: calc(var(--tl-h) + var(--sheet-h, 128px) + var(--gap) + 22px);
+    transition: bottom 0.3s ease;
+  }
+  /* One line: title and menu button, the chapter folded underneath. */
+  .hud {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 10px;
+    padding: 8px 10px 8px 14px; max-height: none;
+  }
+  .hud-top { display: contents; }
+  .hud-top .brand, .hud-sub { display: none; }
+  .menu-btn { grid-column: 2; grid-row: 1; min-height: 40px; padding: 6px 12px; font-size: 13px; }
+  .hud h1 { grid-column: 1; grid-row: 1; font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hud-era {
+    grid-column: 1 / -1; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    margin-top: 6px; padding-top: 6px; cursor: pointer;
+  }
+  .hud-era strong { font-size: 14px; margin: 0; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hud-era::after { content: '\25BE'; color: var(--muted); font-size: 12px; }
+  .hud-era[aria-expanded="true"]::after { content: '\25B4'; }
+  .hud-era p { display: none; flex-basis: 100%; }
+  .hud-era[aria-expanded="true"] strong { white-space: normal; }
+  .hud-era[aria-expanded="true"] p { display: block; -webkit-line-clamp: unset; }
   .menu { padding: 10px; }
   .menu-head { padding: 14px 16px 6px; }
   .menu-head h2 { font-size: 24px; }
   .menu-body { padding: 14px 16px 18px; }
   .menu-grid { grid-template-columns: 1fr; }
+  .menu-card { max-height: calc(100dvh - 20px); }
+}
+@media (max-width: 400px) {
+  .menu-btn span { display: none; } /* just the ☰ */
 }
