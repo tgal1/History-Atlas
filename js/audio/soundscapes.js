@@ -1,13 +1,76 @@
-// Soundscapes: every sound is synthesised in the browser, nothing is
-// downloaded. Each layer (wind, surf, insects, birds, crowds, clashing
-// blades, artillery...) is a small generator; a preset mixes several of them.
-// Switching preset crossfades the old mix out and the new one in.
+// Soundscapes are field recordings (audio/ambience, sources in SOURCES.md
+// there). A preset loops one or more long beds (birdsong, surf, a crowd) and
+// drops short one-shots on top at random times and positions (a cow, a bell,
+// a sword clash). Switching preset crossfades the old mix out and the new one
+// in. If the recordings can't be loaded, a synthesised version plays instead:
+// each of its layers (wind, surf, insects, crowds...) is a small generator.
 
 import { audioContext, buses, noise, filter, gain, osc, panner, lfo, envelope, every, rand, pickOne } from './engine.js';
 
-// ---------- Presets ----------
+// ---------- Recorded presets ----------
+// beds: [file in audio/ambience/beds, level]
+// spots: [one-shot in audio/ambience/spots, level, [min, max] seconds between them]
+// loudness: relative to the other presets (indoors is meant to be quiet)
+const RECORDED = {
+  countryside: {
+    beds: [['fields', 1], ['wind', 0.3]],
+    spots: [['cow', 0.35, [14, 35]], ['crows', 0.3, [18, 40]], ['rooster', 0.2, [45, 100]], ['neigh', 0.2, [40, 90]], ['dog', 0.15, [50, 110]]],
+  },
+  mediterranean: { beds: [['beach', 1], ['cicadas', 0.12]], spots: [['gull', 0.3, [12, 30]]] },
+  highlands: { beds: [['mountain', 1], ['wind', 0.5]], spots: [['crows', 0.3, [15, 35]], ['goatbells', 0.35, [25, 60]]] },
+  jungle: { beds: [['jungle', 1]], spots: [['piha', 0.25, [20, 50]]] },
+  lake: { beds: [['pond', 1], ['lapping', 0.5]], spots: [['splash', 0.3, [10, 30]], ['oars', 0.3, [25, 60]]] },
+  sea: { beds: [['surf', 1], ['wind', 0.35]], spots: [['gull', 0.25, [15, 35]]] },
+  harbour: {
+    beds: [['lapping', 1], ['walla', 0.35], ['ship', 0.3]],
+    spots: [['gull', 0.35, [6, 16]], ['rope', 0.35, [5, 14]], ['hammer', 0.2, [20, 45]], ['saw', 0.15, [35, 70]], ['hooves', 0.2, [30, 60]]],
+  },
+  city: {
+    beds: [['walla', 1]],
+    spots: [['hooves', 0.35, [12, 30]], ['carriage', 0.35, [30, 60]], ['anvil', 0.2, [25, 55]], ['hammer', 0.2, [20, 45]],
+      ['donkey', 0.2, [45, 100]], ['dog', 0.15, [40, 90]], ['rooster', 0.12, [60, 140]]],
+  },
+  'lake-city': {
+    beds: [['walla', 0.7], ['pond', 0.6], ['lapping', 0.4]],
+    spots: [['oars', 0.4, [10, 25]], ['splash', 0.25, [12, 30]], ['dog', 0.12, [50, 110]]],
+  },
+  market: {
+    beds: [['market', 1], ['walla', 0.4]],
+    spots: [['anvil', 0.2, [20, 45]], ['donkey', 0.25, [30, 70]], ['rooster', 0.15, [40, 90]], ['hooves', 0.25, [15, 35]]],
+  },
+  battle: { beds: [['mob', 1]], spots: [['swords', 0.5, [0.6, 2.5]], ['warcry', 0.45, [6, 15]], ['gallop', 0.35, [10, 25]], ['neigh', 0.3, [12, 30]]] },
+  // Backgrounds for animated battles: the units on screen add hooves, feet and the clash.
+  battlefield: { beds: [['mob', 0.4], ['wind', 0.7]], spots: [['warcry', 0.25, [12, 30]], ['crows', 0.2, [25, 50]]] },
+  'battlefield-aztec': { beds: [['mob', 0.4], ['pond', 0.5]], spots: [['warcry', 0.25, [12, 30]]] },
+  'conquest-battle': {
+    beds: [['mob', 1]],
+    spots: [['swords', 0.45, [0.8, 3]], ['warcry', 0.45, [6, 15]], ['boom', 0.45, [10, 25]], ['neigh', 0.3, [15, 35]]],
+  },
+  naval: { beds: [['ship', 1], ['surf', 0.5], ['mob', 0.35]], spots: [['rope', 0.4, [4, 10]], ['swords', 0.3, [2, 6]], ['warcry', 0.3, [10, 25]]] },
+  siege: { beds: [['fire', 0.8], ['mob', 0.5]], spots: [['boom', 0.4, [10, 25]], ['warcry', 0.3, [10, 25]], ['crows', 0.25, [20, 45]]] },
+  march: { beds: [['footsteps', 1], ['wind', 0.5]], spots: [['hooves', 0.3, [15, 35]], ['neigh', 0.25, [25, 55]], ['crows', 0.2, [25, 50]]] },
+  war: { beds: [['gunfire', 1], ['shelling', 0.6], ['wind', 0.3]], spots: [['boom', 0.5, [6, 15]], ['rifle', 0.25, [5, 14]], ['plane', 0.35, [35, 80]]] },
+  'air-raid': { beds: [['shelling', 0.8], ['fire', 0.4]], spots: [['siren', 0.5, [45, 70]], ['plane', 0.5, [8, 20]], ['boom', 0.5, [4, 10]]] },
+  town: {
+    beds: [['walla', 0.5], ['birds', 0.7]],
+    spots: [['bell', 0.25, [45, 100]], ['hooves', 0.25, [20, 45]], ['dog', 0.15, [40, 90]], ['rooster', 0.12, [60, 140]]],
+  },
+  quiet: { beds: [['room', 0.6], ['window', 0.8]], spots: [], loudness: 0.5 },
+  urban: { beds: [['street', 1]], spots: [['dog', 0.12, [60, 120]]] },
+  'tense-urban': { beds: [['street', 0.7]], spots: [['heli', 0.45, [20, 45]], ['siren-2tone', 0.25, [40, 90]], ['dog', 0.2, [30, 70]]] },
+  protest: { beds: [['rally', 1], ['street', 0.3]], spots: [['heli', 0.3, [40, 80]]] },
+};
+
+// How many takes of each one-shot there are (spots/<name>-1.mp3, -2...).
+const SPOT_CLIPS = {
+  cow: 4, rooster: 1, neigh: 3, hooves: 3, gallop: 3, carriage: 1, dog: 2, donkey: 1, crows: 5, bell: 2, anvil: 3, hammer: 1, saw: 1,
+  rope: 3, gull: 4, splash: 1, oars: 3, piha: 1, goatbells: 3, boom: 1, rifle: 2, plane: 3, heli: 2, 'siren-2tone': 1, siren: 1,
+  swords: 8, warcry: 3,
+};
+
+// ---------- Synthesised presets (used if the recordings fail to load) ----------
 // [layer, level, options]
-const PRESETS = {
+const SYNTH = {
   silence: [],
   countryside: [['wind', 0.15], ['birds', 0.55, { kind: 'temperate', every: [2, 6] }], ['crickets', 0.1]],
   // A calm Mediterranean shore: small waves on sand, the odd gull.
@@ -55,7 +118,7 @@ export function createSoundscapes() {
     get name() { return current?.name ?? null; },
     set(name) {
       if (!audioContext() || current?.name === name) return;
-      if (!PRESETS[name]) { console.warn(`[audio] unknown soundscape "${name}"`); name = 'silence'; }
+      if (!SYNTH[name]) { console.warn(`[audio] unknown soundscape "${name}"`); name = 'silence'; }
       current?.stop();
       current = startGroup(name);
     },
@@ -66,30 +129,47 @@ export function createSoundscapes() {
 // Every soundscape is held near the same loudness, so moving from a quiet
 // shore to a battle never jumps out of the speakers.
 const TARGET_RMS = 0.022;
+// Beds play at this loudness (mixed to mono, as the meter hears them).
+const BED_RMS = 0.035;
+const BED_PAD = 0.25;
+// One-shots are cut so their loudest half second is 0.1; this sets them against the beds.
+const SPOT_GAIN = 0.5;
+const DIR = 'audio/ambience/';
 
 function startGroup(name) {
   const ctx = audioContext();
+  const recorded = RECORDED[name];
+  const target = TARGET_RMS * (recorded?.loudness ?? 1);
   const out = gain(0);
   const level = gain(1);
   out.connect(level).connect(buses.ambience);
+  // The meter hears the beds before the fade-in, so neither the fade nor a
+  // one-shot (a cannon, a bell) pumps the level.
+  const beds = gain(1);
+  beds.connect(out);
   const meter = ctx.createAnalyser();
   meter.fftSize = 2048;
-  out.connect(meter);
+  beds.connect(meter);
   const samples = new Float32Array(meter.fftSize);
   let energy = 0;
   let measured = 0;
+  let playing = false;
+  // How far and how fast the meter may move the level. Synthesised mixes start
+  // blind and need the full range; recorded beds are already near the target,
+  // so the meter only trims, slowly, and a lull between explosions doesn't pump it.
+  let range = [0.12, 2.5];
+  let keep = 0.85;
   const levelTimer = setInterval(() => {
+    if (!playing) return;
     meter.getFloatTimeDomainData(samples);
     let sum = 0;
     for (const v of samples) sum += v * v;
-    // Slow running average, so single clangs don't pump the level.
-    energy = measured ? energy * 0.85 + (sum / samples.length) * 0.15 : sum / samples.length;
+    // Running average, so single clangs don't pump the level.
+    energy = measured ? energy * keep + (sum / samples.length) * (1 - keep) : sum / samples.length;
     measured++;
     const rms = Math.sqrt(energy);
-    if (measured > 2 && rms > 1e-4) level.gain.setTargetAtTime(Math.max(0.12, Math.min(2.5, TARGET_RMS / rms)), ctx.currentTime, 1.2);
+    if (measured > 2 && rms > 1e-4) level.gain.setTargetAtTime(Math.max(range[0], Math.min(range[1], target / rms)), ctx.currentTime, 1.2);
   }, 250);
-  // Start quiet and let the meter bring it up, rather than blasting first.
-  level.gain.value = 0.3;
   const L = {
     dead: false,
     sources: [],
@@ -97,12 +177,39 @@ function startGroup(name) {
     add(node) { this.sources.push(node); return node; },
     every(min, max, fn) { this.cancels.push(every(min, max, fn, () => this.dead)); },
   };
-  for (const [layer, level, opts = {}] of PRESETS[name]) {
-    const dest = gain(level);
-    dest.connect(out);
-    LAYERS[layer](L, dest, opts);
-  }
-  out.gain.setTargetAtTime(1, ctx.currentTime, 0.8);
+  const begin = (startLevel) => {
+    if (L.dead) return;
+    level.gain.value = startLevel;
+    playing = true;
+    out.gain.setTargetAtTime(1, ctx.currentTime, 0.8);
+  };
+  const synthesise = () => {
+    for (const [layer, lv, opts = {}] of SYNTH[name]) {
+      const dest = gain(lv);
+      dest.connect(beds);
+      LAYERS[layer](L, dest, opts);
+    }
+    // Start quiet and let the meter bring it up, rather than blasting first.
+    begin(0.3);
+  };
+  if (recorded) {
+    Promise.all(recorded.beds.map(([file]) => load(`beds/${file}.mp3`)))
+      .then((decoded) => {
+        if (L.dead) return;
+        let power = 0;
+        decoded.forEach((buffer, i) => { power += playBed(L, buffer, recorded.beds[i][1], beds) ** 2; });
+        for (const spot of recorded.spots) playSpots(L, spot, out);
+        // The beds' loudness is known, so start at the right level instead of waiting for the meter.
+        const start = Math.max(0.12, Math.min(2.5, target / Math.sqrt(power)));
+        range = [start / 2, start * 2];
+        keep = 0.93;
+        begin(start);
+      })
+      .catch((err) => {
+        console.warn(`[audio] recordings for "${name}" did not load, so it is synthesised`, err);
+        if (!L.dead) synthesise();
+      });
+  } else synthesise();
   return {
     name,
     stop() {
@@ -117,6 +224,60 @@ function startGroup(name) {
       }, 3500);
     },
   };
+}
+
+// ---------- Recordings ----------
+const buffers = new Map();
+function load(file) {
+  if (!buffers.has(file)) {
+    buffers.set(file, fetch(DIR + file)
+      .then((r) => { if (!r.ok) throw new Error(`${r.status} ${file}`); return r.arrayBuffer(); })
+      .then((data) => new Promise((ok, fail) => audioContext().decodeAudioData(data, ok, fail)))
+      .catch((err) => { buffers.delete(file); throw err; }));
+  }
+  return buffers.get(file);
+}
+
+// Loops a bed from a random point. Returns how loud it plays.
+function playBed(L, buffer, vol, dest) {
+  const ctx = audioContext();
+  // Loudness as the meter hears it: the channels mixed to mono.
+  const left = buffer.getChannelData(0);
+  const right = buffer.getChannelData(buffer.numberOfChannels - 1);
+  let sum = 0;
+  let n = 0;
+  for (let i = 0; i < left.length; i += 7, n++) sum += ((left[i] + right[i]) / 2) ** 2;
+  const rms = Math.sqrt(sum / Math.max(1, n)) || BED_RMS;
+  const src = L.add(ctx.createBufferSource());
+  src.buffer = buffer;
+  src.loop = true;
+  // Each bed is a whole number of seconds with a quarter second of its own
+  // wrap-around at either end, so the loop is seamless whether or not the
+  // browser trims the MP3 encoder's padding.
+  src.loopStart = BED_PAD;
+  src.loopEnd = BED_PAD + Math.round(buffer.duration - 2 * BED_PAD);
+  src.connect(gain(vol * Math.min(4, BED_RMS / rms))).connect(dest);
+  src.start(ctx.currentTime, src.loopStart + Math.random() * (src.loopEnd - src.loopStart));
+  return vol * BED_RMS;
+}
+
+// One-shots at random times, each a random take, placed somewhere left to right.
+function playSpots(L, [name, vol, [min, max]], dest) {
+  const ctx = audioContext();
+  L.every(min, max, () => {
+    load(`spots/${name}-${1 + Math.floor(Math.random() * SPOT_CLIPS[name])}.mp3`).then((buffer) => {
+      if (L.dead) return;
+      const src = ctx.createBufferSource();
+      src.buffer = buffer;
+      src.playbackRate.value = rand(0.94, 1.06);
+      const g = gain(SPOT_GAIN * vol * rand(0.55, 1));
+      const p = panner(rand(-0.75, 0.75));
+      src.connect(g).connect(p).connect(dest);
+      reverbSend(g, 0.12);
+      src.onended = () => { g.disconnect(); p.disconnect(); };
+      src.start();
+    }).catch(() => { /* a missing one-shot just stays silent */ });
+  });
 }
 
 // ---------- Helpers ----------
@@ -657,5 +818,5 @@ const SONGS = {
 };
 
 export function presetNames() {
-  return Object.keys(PRESETS);
+  return Object.keys(SYNTH);
 }

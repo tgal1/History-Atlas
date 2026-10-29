@@ -25,7 +25,7 @@ export function createSoundtrack() {
   function apply() {
     if (!audioContext()) return;
     setLevel('master', settings.sound ? 1 : 0, 0.3);
-    // Make-up gain: the synthesised layers are mixed quietly so a busy scene never clips.
+    // Make-up gain: soundscapes are levelled quietly so a busy scene never clips.
     setLevel('ambience', settings.ambience * 2.2);
     setLevel('music', settings.music * 1.4);
     scapes.set(wantScene ?? 'silence');

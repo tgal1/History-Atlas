@@ -29,7 +29,7 @@ export function createAudioPanel(button, panel, soundtrack) {
     </label>
     <p class="fine sp-music"></p>
     <button class="btn ghost sp-test" type="button">Test the voice</button>
-    <p class="fine">Studio voices are recorded with Kokoro; other voices come from your browser. Soundscapes are generated as you listen; music credits are shown above.</p>`;
+    <p class="fine">Studio voices are recorded with Kokoro; other voices come from your browser. Soundscapes are field recordings from BigSoundBank and Freesound (CC0); music credits are shown above.</p>`;
 
   const $ = (sel) => panel.querySelector(sel);
   const voiceSelect = $('[data-k="voice"]');
