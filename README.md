@@ -74,7 +74,7 @@ history-atlas/
 │   │   ├── labelLayer.js      Story-specific place labels
 │   │   ├── scenePlayer.js     Animated scenes: marching armies and battle formations
 │   │   └── unitIcons.js       Little figures for scene units: soldiers, riders, canoes, tanks
-│   ├── audio/                 Narration, synthesised soundscapes and music (Web Speech + Web Audio)
+│   ├── audio/                 Narration, recorded soundscapes and music (Web Speech + Web Audio)
 │   ├── map3d/                 3D city view (MapLibre GL, loaded on demand)
 │   │   ├── city3d.js          Terrain, layers, time filter, clicks, Then/Today
 │   │   ├── models.js          Landmark recipes: temples, amphitheatres, baths, walls...
@@ -141,7 +141,7 @@ The engine knows nothing about Ireland or Rome. Everything story-specific lives 
 | AWS Terrain Tiles (Terrarium) | Elevation for the 3D hills | No |
 | OpenStreetMap (via `tools/osm_footprints.py`, offline) | Real outlines of surviving monuments, ODbL, credited on the map | No |
 
-Narration uses the browser's built-in voices and soundscapes are synthesised with the Web Audio API. Music is by Kevin MacLeod (incompetech.com), licensed under Creative Commons Attribution 4.0 ("Teller of the Tales", "Anguish", "Ancient Rite", "Return of the Mummy", "Night of the Owl", "Thunderhead", "Moorland", "Errigal", "Decline", "Fife and Drum", "Americana", "Crossing the Divide", "Long Road Ahead", "Taps", "Egmont Overture Finale", "Hero Down", "Death of Kings", "Ibn Al-Noor", "Lord of the Land", "Crusade", "Crypto", "Lightless Dawn", "Oppressive Gloom", "Mystery Bazaar", "Hidden Wonders", "Night Vigil"), plus two Chopin polonaise recordings, a 1907 recording of La Marseillaise and two 1915 wartime songs from Wikimedia Commons (public domain, and CC0). Studio narration is recorded with Kokoro (Apache 2.0) by `tools/render_narration.py`. Nothing needs an API key, so the folder can be hosted as-is on any static host (Cloudflare Pages, GitHub Pages, Netlify). Check Esri's terms of use before a public launch.
+Narration uses the browser's built-in voices. Soundscapes are field recordings from [BigSoundBank](https://bigsoundbank.com) (Joseph Sardin), with a few gaps (rainforest, a wooden ship, crowds, sword clashes, distant guns) filled from [Freesound](https://freesound.org); all are CC0 (public domain), listed in `audio/ambience/SOURCES.md` and cut into loops by `tools/build_ambience.py`. The battle sounds that follow the animation are synthesised with the Web Audio API. Music is by Kevin MacLeod (incompetech.com), licensed under Creative Commons Attribution 4.0 ("Teller of the Tales", "Anguish", "Ancient Rite", "Return of the Mummy", "Night of the Owl", "Thunderhead", "Moorland", "Errigal", "Decline", "Fife and Drum", "Americana", "Crossing the Divide", "Long Road Ahead", "Taps", "Egmont Overture Finale", "Hero Down", "Death of Kings", "Ibn Al-Noor", "Lord of the Land", "Crusade", "Crypto", "Lightless Dawn", "Oppressive Gloom", "Mystery Bazaar", "Hidden Wonders", "Night Vigil"), plus two Chopin polonaise recordings, a 1907 recording of La Marseillaise and two 1915 wartime songs from Wikimedia Commons (public domain, and CC0). Studio narration is recorded with Kokoro (Apache 2.0) by `tools/render_narration.py`. Nothing needs an API key, so the folder can be hosted as-is on any static host (Cloudflare Pages, GitHub Pages, Netlify). Check Esri's terms of use before a public launch.
 
 ## Performance
 
