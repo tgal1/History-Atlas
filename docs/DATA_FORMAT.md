@@ -30,6 +30,7 @@ A date given only to the year or month is shown at that precision ("218 BC", "Oc
 | `overview.center`, `overview.zoom` | Fallback home view if `bounds` is absent. `center` is `[lat, lng]` |
 | `minZoom` | Stops users zooming out too far |
 | `basemap` | `esri-dark` (slate, modern labels), `osm`, or `esri-relief` (parchment relief, no modern labels: use for ancient history) |
+| `timeScale` | Optional: give stretches of the timeline their own width, so a few crowded weeks get room. `[{ "end": "1981", "share": 1 }, { "end": "1993-02-28", "share": 1 }, { "end": "1993-04-20", "share": 4 }, { "share": 2 }]`: each segment runs from the previous `end` (the story's start for the first) and the last runs to the story's end; `share` is its relative width. The axis labels each stretch as finely as fits, and the tour plays each stretch in proportion to its width |
 | `clockPrecision` | `"year"` makes the timeline clock count in years. Use it for ancient stories |
 | `calendar.ad` | `true` labels AD years ("AD 117"). Use it when a story crosses from BC into AD |
 | `landMask.bbox` | `[west, south, east, north]`. Turns on coastline clipping for territories marked `clip: "land"` |

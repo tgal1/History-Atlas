@@ -3,10 +3,12 @@
 // Everything is positioned in percentages so it reflows on resize for free.
 
 import { clamp, formatDate, formatEventDate, parseDate, yearLabel } from '../core/time.js';
+import { createTimeScale } from '../core/timeScale.js';
 
 export function createTimeline(el, { story, events, onScrub, onSelect }) {
   const { t0, t1 } = story.range;
-  const pct = (t) => ((t - t0) / (t1 - t0)) * 100;
+  const scale = createTimeScale(story.range, story.timeScale);
+  const pct = (t) => scale.x(t) * 100;
 
   el.innerHTML = `
     <div class="tl-eras"></div>
@@ -52,6 +54,7 @@ export function createTimeline(el, { story, events, onScrub, onSelect }) {
 
   // Year axis: label spacing adapts to the track width.
   function drawAxis() {
+    if (!scale.even) return drawUnevenAxis();
     const span = t1 - t0;
     // Short stories (a few years) get month labels, with the year on January.
     if (span <= 4) {
@@ -80,6 +83,38 @@ export function createTimeline(el, { story, events, onScrub, onSelect }) {
     }
     $('.tl-axis').innerHTML = axis.join('');
   }
+
+  // A timeline with stretched segments: label each stretch as finely as its
+  // width allows (months where a month is wide, round years where decades are
+  // squeezed), keeping labels apart. Round years win over odd ones, months
+  // come between.
+  function drawUnevenAxis() {
+    const W = el.clientWidth;
+    const gap = 46;
+    const cands = [];
+    for (let y = Math.ceil(t0); y <= t1; y++) {
+      const spoken = y <= 0 ? 1 - y : y;
+      const rank = spoken % 100 === 0 ? 6 : spoken % 50 === 0 ? 5 : spoken % 10 === 0 ? 4 : spoken % 5 === 0 ? 3 : 1;
+      cands.push({ t: y, html: yearLabel(y), cls: 'year', rank });
+    }
+    for (let y = Math.floor(t0); y <= t1; y++) {
+      for (let m = 1; m < 12; m++) {
+        const t = parseDate(`${y}-${String(m + 1).padStart(2, '0')}-01`) - 0.5 / 365;
+        if (t <= t0 || t >= t1) continue;
+        const monthW = (scale.x(t + 1 / 12) - scale.x(t)) * W;
+        // Wider months win over narrow ones next to them.
+        if (monthW >= gap) cands.push({ t, html: formatDate(t + 1 / 365, 'month').split(' ')[0], cls: '', rank: 2 + Math.min(0.9, monthW / 500) });
+      }
+    }
+    cands.sort((a, b) => b.rank - a.rank || a.t - b.t);
+    const placed = [];
+    for (const c of cands) {
+      const px = scale.x(c.t) * W;
+      if (px < 14 || px > W - 14) continue;
+      if (placed.every((p) => Math.abs(p.px - px) >= gap)) placed.push({ ...c, px });
+    }
+    $('.tl-axis').innerHTML = placed.map((p) => `<span class="${p.cls}" style="left:${pct(p.t)}%">${p.html}</span>`).join('');
+  }
   drawAxis();
   new ResizeObserver(drawAxis).observe(el);
 
@@ -95,7 +130,7 @@ export function createTimeline(el, { story, events, onScrub, onSelect }) {
   // Dragging the playhead / clicking the track
   const timeAt = (clientX) => {
     const r = el.getBoundingClientRect();
-    return t0 + clamp((clientX - r.left) / r.width, 0, 1) * (t1 - t0);
+    return scale.t((clientX - r.left) / r.width);
   };
   let dragging = false;
   el.addEventListener('pointerdown', (e) => {

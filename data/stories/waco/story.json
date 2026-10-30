@@ -1,0 +1,62 @@
+{
+  "id": "waco",
+  "title": "The Waco siege",
+  "subtitle": "Mount Carmel, Texas, 1935–2000",
+  "range": { "start": "1935-01-01", "end": "2000-12-31" },
+  "timeScale": [
+    { "end": "1981-01-01", "share": 1.2 },
+    { "end": "1992-05-01", "share": 1.3 },
+    { "end": "1993-02-28", "share": 1.1 },
+    { "end": "1993-04-20", "share": 4.4 },
+    { "share": 2 }
+  ],
+  "overview": { "bounds": [[29.2, -99.2], [33.2, -94.8]] },
+  "minZoom": 3,
+  "basemap": "esri-dark",
+  "files": { "events": "events.json", "scenes": "scenes.json" },
+  "cities": ["mount-carmel"],
+  "intro": {
+    "title": "Before you press play",
+    "body": [
+      "In 1935 a breakaway group of Seventh-day Adventists, the Davidians, settled outside Waco, Texas, to wait for the end of the world. In 1957 they moved to a farm near Elk, 13 miles north-east of the city, which they called New Mount Carmel. A splinter of the group, the Branch Davidians, held on to it.",
+      "In 1981 a young Bible student named Vernon Howell arrived. By 1990 he led the community and had taken the name David Koresh. He taught that he was the one chosen to open the Seven Seals of the Book of Revelation, took several of his followers' wives and daughters as his own, and stockpiled guns.",
+      "On 28 February 1993 agents of the Bureau of Alcohol, Tobacco and Firearms (ATF) tried to serve a search warrant on Mount Carmel. A gunfight killed four agents and six Branch Davidians. The FBI then surrounded the building for 51 days. On 19 April it pumped in tear gas; around noon the building caught fire and 76 people inside died, more than 20 of them children.",
+      "Who fired first on 28 February, and how the fire started, were argued over for years. A special counsel concluded in 2000 that the Branch Davidians set the fires and that government agents did not fire on them that day, while criticising the FBI for hiding its use of pyrotechnic tear gas rounds. This story follows the evidence as those inquiries found it."
+    ],
+    "tips": [
+      "The timeline is stretched: the 51 days of the siege take up nearly half its width.",
+      "Zoom into Mount Carmel, or press Explore the city on an event there, for a plan of the building and how the site changed.",
+      "Deaths are marked in red. Children are counted among them."
+    ]
+  },
+  "categories": {
+    "faith": { "label": "Branch Davidians", "color": "#c9a86b" },
+    "law": { "label": "Investigation and courts", "color": "#6f9fd8" },
+    "siege": { "label": "The siege", "color": "#f0a04b" },
+    "violence": { "label": "Deaths", "color": "#ff5a5a" },
+    "politics": { "label": "Government and aftermath", "color": "#b48cff" }
+  },
+  "factions": {
+    "davidians": { "label": "Branch Davidians", "color": "#c9a86b" },
+    "atf": { "label": "ATF", "color": "#6f9fd8" },
+    "fbi": { "label": "FBI", "color": "#5a7fb0" },
+    "guard": { "label": "Texas National Guard", "color": "#8aa35a" }
+  },
+  "eras": [
+    { "start": "1935-01-01", "end": "1981-01-01", "title": "The Davidians", "text": "Victor Houteff's breakaway Adventists settle near Waco to wait for the end of the world. After his death the group splits; Ben and Lois Roden's Branch Davidians keep New Mount Carmel." },
+    { "start": "1981-01-01", "end": "1992-05-01", "title": "Vernon Howell becomes David Koresh", "text": "A young Bible student wins over the Branch Davidians, fights George Roden for the land and takes the name David Koresh." },
+    { "start": "1992-05-01", "end": "1993-02-28", "title": "The ATF investigation", "text": "Reports of grenades and gunfire bring the ATF to Mount Carmel. Agents watch from a house across the road and plan a raid." },
+    { "start": "1993-02-28", "end": "1993-04-20", "title": "The 51-day siege", "text": "A raid ends in a gunfight. The FBI surrounds the building, negotiates for seven weeks, then moves in with tear gas. Fire destroys Mount Carmel." },
+    { "start": "1993-04-20", "end": "2000-12-31", "title": "Aftermath", "text": "Trials, hearings and inquiries argue over what happened. Waco becomes a rallying cry for the anti-government movement; on its second anniversary a bomb destroys a federal building in Oklahoma City." }
+  ],
+  "sources": [
+    { "label": "Frontline: Waco, the Inside Story (PBS), chronology", "url": "https://www.pbs.org/wgbh/pages/frontline/waco/timeline.html" },
+    { "label": "Frontline: Waco, the Inside Story (PBS)", "url": "https://www.pbs.org/wgbh/pages/frontline/waco/" },
+    { "label": "Wikipedia: Waco siege (images and further reading)", "url": "https://en.wikipedia.org/wiki/Waco_siege" }
+  ],
+  "ambience": {
+    "default": "countryside",
+    "byCategory": { "faith": "countryside", "law": "quiet", "siege": "countryside", "violence": "sombre", "politics": "quiet" },
+    "scene": "countryside"
+  }
+}

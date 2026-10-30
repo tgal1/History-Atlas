@@ -20,6 +20,7 @@ import { createLegend } from './ui/legend.js';
 import { createMenu } from './ui/menu.js';
 import { createAudioPanel } from './ui/audioPanel.js';
 import { createSheet } from './ui/sheet.js';
+import { createTimeScale } from './core/timeScale.js';
 import { createSoundtrack } from './audio/soundtrack.js';
 import { createBattleSounds } from './audio/battle.js';
 
@@ -185,9 +186,11 @@ async function boot() {
   // ---------- Tour ----------
   let tour = null; // AbortController for the current stop
 
+  const timeScale = createTimeScale(story.range, story.timeScale);
   const player = createPlayer({
     store, events, range: story.range,
-    rate: () => SPEEDS[store.get().speed].yearsPerSec,
+    // A story with a stretched timeline plays each stretch at its own pace.
+    rate: (t) => SPEEDS[store.get().speed].yearsPerSec * timeScale.density(t),
     onEventReached: tourStop,
   });
 

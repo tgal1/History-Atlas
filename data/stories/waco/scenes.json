@@ -1,0 +1,98 @@
+{
+  "atf-raid": {
+    "title": "The ATF raid, morning of 28 February 1993",
+    "note": "Minutes after 9 am. Routes and times are approximate, after the Treasury review and the Frontline chronology. The gunfight itself is not animated.",
+    "duration": 60,
+    "unitLabel": "Minute",
+    "playSeconds": 30,
+    "view": {"bounds": [[31.585, -97.1], [31.645, -96.975]]},
+    "cameras": [
+      {"t": 0, "bounds": [[31.585, -97.1], [31.645, -96.975]]},
+      {"t": 40, "bounds": [[31.585, -97.1], [31.645, -96.975]]},
+      {"t": 47, "bounds": [[31.5905, -97.0], [31.601, -96.978]]}
+    ],
+    "figures": {"default": "truck"},
+    "tracks": [
+      {
+        "id": "convoy",
+        "label": "ATF convoy",
+        "side": "atf",
+        "type": "truck",
+        "keyframes": [
+          {"t": 0, "at": [31.599, -97.092]},
+          {"t": 25, "at": [31.599, -97.092]},
+          {
+            "t": 45,
+            "at": [31.595, -96.9884],
+            "route": "road",
+            "via": [
+              [31.59632, -97.08655], [31.56635, -97.06516], [31.56223, -97.03108], [31.57881, -96.99267], [31.58791, -96.98624]
+            ],
+            "viaSource": "osrm"
+          },
+          {"t": 60, "at": [31.5953, -96.9884]}
+        ]
+      },
+      {
+        "id": "helicopters",
+        "label": "National Guard helicopters",
+        "side": "guard",
+        "type": "helicopter",
+        "keyframes": [
+          {"t": 0, "at": [31.6378, -97.0741]},
+          {"t": 33, "at": [31.6378, -97.0741]},
+          {"t": 45, "at": [31.6015, -96.996], "route": "straight"},
+          {"t": 60, "at": [31.603, -96.993]}
+        ]
+      },
+      {
+        "id": "rodriguez",
+        "label": "Agent Rodriguez",
+        "side": "atf",
+        "type": "marcher",
+        "keyframes": [
+          {"t": 0, "at": [31.5958, -96.9881]},
+          {"t": 4, "at": [31.5958, -96.9881]},
+          {"t": 9, "at": [31.5925, -96.9872], "route": "straight"},
+          {"t": 60, "at": [31.5925, -96.9872]}
+        ]
+      }
+    ],
+    "markers": [
+      {"t": 0, "at": [31.599, -97.092], "label": "Bellmead Civic Center (staging)", "color": "#9fb3c8"},
+      {"t": 0, "at": [31.6378, -97.0741], "label": "TSTC airfield", "color": "#9fb3c8"},
+      {"t": 0, "at": [31.5925, -96.9872], "label": "Undercover house", "color": "#9fb3c8"},
+      {"t": 0, "at": [31.5958, -96.9881], "label": "Mount Carmel", "color": "#c9a86b"},
+      {
+        "t": 45,
+        "at": [31.5958, -96.9881],
+        "label": "Shooting starts, about 9.45 am",
+        "color": "#ff5a5a",
+        "pulse": true
+      }
+    ],
+    "captions": [
+      {
+        "t": 0,
+        "text": "Sunday 28 February. About 76 ATF agents gather at the Bellmead Civic Center, east of Waco, for a raid code-named Showtime."
+      },
+      {
+        "t": 4,
+        "text": "Inside Mount Carmel, Koresh tells the undercover agent Robert Rodriguez that the ATF are coming. Rodriguez leaves and warns his commanders that surprise is lost."
+      },
+      {"t": 25, "text": "The raid goes ahead. The convoy sets off, two cattle trailers hiding the agents."},
+      {
+        "t": 33,
+        "text": "Three Texas National Guard helicopters lift off from the TSTC airfield to come in from behind as a diversion."
+      },
+      {
+        "t": 45,
+        "text": "About 9.45 am the trailers pull up at the front door. Shooting starts almost at once; who fired first was never settled."
+      },
+      {
+        "t": 50,
+        "text": "Agents climb ladders onto the roof towards the armoury. The gunfight lasts about two hours, until a sheriff's lieutenant negotiates a ceasefire by phone."
+      }
+    ]
+  }
+}

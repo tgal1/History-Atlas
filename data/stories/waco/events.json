@@ -1,0 +1,603 @@
+[
+ {
+  "id": "first-mount-carmel",
+  "date": "1935",
+  "title": "The Davidians settle near Waco",
+  "place": "Mount Carmel Center, west of Waco",
+  "coords": [
+   31.543,
+   -97.2085
+  ],
+  "zoom": 13,
+  "category": "faith",
+  "summary": "Victor Houteff, a Bulgarian-born Seventh-day Adventist expelled for his Shepherd's Rod teachings, buys land on a hill west of Waco and founds a community he calls Mount Carmel Center. His followers, the Davidians, farm, print his tracts and wait for Christ's return.",
+  "significance": "Waco's Mount Carmel Drive runs through the site today.",
+  "wiki": "Victor Houteff",
+  "circa": true
+ },
+ {
+  "id": "houteff-dies",
+  "date": "1955",
+  "title": "Houteff dies and the movement splits",
+  "place": "Mount Carmel Center, west of Waco",
+  "coords": [
+   31.543,
+   -97.2085
+  ],
+  "zoom": 13,
+  "category": "faith",
+  "summary": "Victor Houteff dies and his widow Florence takes over. The same year Benjamin Roden announces a new message of his own; his followers become the Branch Davidians, a branch from the Davidian tree.",
+  "significance": "The split created the group that would hold Mount Carmel in 1993.",
+  "wiki": "Branch Davidians"
+ },
+ {
+  "id": "new-mount-carmel",
+  "date": "1957",
+  "title": "New Mount Carmel",
+  "place": "Near Elk, 13 miles north-east of Waco",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 14,
+  "category": "faith",
+  "summary": "With Waco growing round the old site, Florence Houteff sells it and buys 941 acres of farmland near the village of Elk. The Davidians move there and call it New Mount Carmel.",
+  "wiki": "Mount Carmel Center"
+ },
+ {
+  "id": "prophecy-1959",
+  "date": "1959-04-22",
+  "title": "The end of the world fails to arrive",
+  "place": "New Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 15,
+  "category": "faith",
+  "summary": "Florence Houteff has predicted that God's kingdom will be set up in Palestine around 22 April 1959. Hundreds of believers sell their homes and gather at New Mount Carmel. Nothing happens, and most of them drift away.",
+  "significance": "Benjamin Roden's Branch Davidians picked up many of the disappointed.",
+  "wiki": "Branch Davidians"
+ },
+ {
+  "id": "rodens-take-over",
+  "date": "1962",
+  "title": "The Rodens keep Mount Carmel",
+  "place": "New Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 15,
+  "category": "faith",
+  "summary": "Florence Houteff dissolves her Davidian association and sells most of the land. Benjamin Roden's Branch Davidians take over the remaining 77 acres, and in 1973 the Roden family buys them outright.",
+  "wiki": "Branch Davidians"
+ },
+ {
+  "id": "lois-roden",
+  "date": "1978",
+  "title": "Lois Roden becomes the prophet",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 15,
+  "category": "faith",
+  "summary": "Benjamin Roden dies and his widow Lois leads the Branch Davidians. She teaches, among other things, that the Holy Spirit is female, and publishes a magazine, SHEkinah.",
+  "wiki": "Lois Roden"
+ },
+ {
+  "id": "howell-arrives",
+  "date": "1981",
+  "title": "Vernon Howell arrives",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 15,
+  "category": "faith",
+  "summary": "Vernon Wayne Howell, a 21-year-old from Texas who had been expelled from his Adventist church in Tyler, comes to Mount Carmel to do odd jobs. He studies under Lois Roden and soon claims a gift for explaining the Book of Revelation.",
+  "significance": "Lois Roden's son George saw him as a rival from the start.",
+  "wiki": "David Koresh"
+ },
+ {
+  "id": "split-1984",
+  "date": "1984",
+  "title": "Howell's followers leave for Palestine",
+  "place": "Palestine, Texas",
+  "coords": [
+   31.7621,
+   -95.6308
+  ],
+  "zoom": 11,
+  "category": "faith",
+  "summary": "George Roden accuses Howell of starting a fire that destroys Mount Carmel's administration building and printing press. Howell and his followers leave and live in buses and tents on land near Palestine, Texas.",
+  "significance": "The community was now split between Roden at Mount Carmel and Howell in the woods.",
+  "wiki": "David Koresh"
+ },
+ {
+  "id": "lois-dies",
+  "date": "1986-11",
+  "title": "Lois Roden dies",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 15,
+  "category": "faith",
+  "summary": "With Lois Roden dead, George Roden takes over Mount Carmel and renames it Rodenville. Howell's group, still in Palestine, claims to be the rightful Branch Davidians.",
+  "wiki": "Lois Roden"
+ },
+ {
+  "id": "shootout-1987",
+  "date": "1987-11-03",
+  "title": "Shootout at Mount Carmel",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "violence",
+  "summary": "George Roden has dug up the coffin of a long-dead member and challenged Howell to raise her from the dead. Howell and seven armed followers go to Mount Carmel to photograph the body as evidence, and a gunfight breaks out. Roden is slightly wounded.",
+  "significance": "Howell and the seven, the 'Rodenville Eight', were charged with attempted murder.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "rodenville-trial",
+  "date": "1988-04",
+  "title": "The Rodenville Eight are tried",
+  "place": "McLennan County Courthouse, Waco",
+  "coords": [
+   31.5552,
+   -97.134
+  ],
+  "zoom": 15,
+  "category": "law",
+  "summary": "A jury in Waco acquits seven of Howell's men and cannot agree on Howell himself, so the charges against him are dropped. George Roden, meanwhile, is jailed for contempt after threatening the court.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "howell-takes-mount-carmel",
+  "date": "1988",
+  "title": "Howell takes Mount Carmel",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "faith",
+  "summary": "With Roden in jail, Howell's group pays the back taxes owed on the land and moves back in. Over the next years they tear down the old houses and build one large timber building from the salvage: living quarters, a chapel, a gymnasium and a four-storey tower.",
+  "wiki": "Mount Carmel Center"
+ },
+ {
+  "id": "new-light",
+  "date": "1989-08-05",
+  "title": "The 'New Light'",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "faith",
+  "summary": "Howell records a teaching he calls the New Light: the men of the group must give up their wives, because all the women belong to him, and he is to father a new line of children. Former members later testified that girls in their early teens were among his 'wives'.",
+  "significance": "Some members left over it. The allegations of child abuse would later weigh in the government's decision to end the siege.",
+  "wiki": "David Koresh"
+ },
+ {
+  "id": "name-koresh",
+  "date": "1990-08-28",
+  "title": "Vernon Howell becomes David Koresh",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "faith",
+  "summary": "A California court grants Howell's petition to change his name to David Koresh: David for the king of Israel, Koresh for Cyrus, the Persian king the Bible calls God's anointed.",
+  "wiki": "David Koresh"
+ },
+ {
+  "id": "grenades",
+  "date": "1992-05",
+  "title": "Grenade cases in a parcel",
+  "place": "McLennan County",
+  "coords": [
+   31.59,
+   -97.05
+  ],
+  "zoom": 11,
+  "category": "law",
+  "summary": "A delivery driver reports that a parcel for Mount Carmel broke open, showing empty grenade casings. The county sheriff passes the report to the Bureau of Alcohol, Tobacco and Firearms (ATF).",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "atf-investigation",
+  "date": "1992-06-09",
+  "title": "The ATF opens a case",
+  "place": "ATF Houston office",
+  "coords": [
+   29.7604,
+   -95.3698
+  ],
+  "zoom": 10,
+  "category": "law",
+  "summary": "Agent Davy Aguilera opens an investigation into whether the Branch Davidians are illegally converting rifles to automatic fire and making explosive devices. The group buys and sells guns at shows, and owns hundreds.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "ruby-ridge",
+  "date": "1992-08-21",
+  "title": "Ruby Ridge",
+  "place": "Ruby Ridge, Idaho",
+  "coords": [
+   48.641,
+   -116.3375
+  ],
+  "zoom": 10,
+  "category": "violence",
+  "summary": "In northern Idaho, US marshals trying to arrest Randy Weaver on a weapons charge exchange fire with his family. Weaver's 14-year-old son Sammy and Deputy Marshal William Degan are killed; the next day an FBI sniper kills Weaver's wife Vicki. The standoff lasts eleven days.",
+  "significance": "Ruby Ridge and Waco became twin grievances for the anti-government militia movement.",
+  "wiki": "Ruby Ridge",
+  "deaths": 3
+ },
+ {
+  "id": "undercover-house",
+  "date": "1993-01",
+  "title": "Agents move in across the road",
+  "place": "Double EE Ranch Road, opposite Mount Carmel",
+  "coords": [
+   31.5925,
+   -96.9872
+  ],
+  "zoom": 16,
+  "category": "law",
+  "summary": "ATF agents rent a house facing Mount Carmel and pose as students. One of them, Robert Rodriguez, joins Koresh's Bible studies. Koresh soon suspects who they are.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "warrants",
+  "date": "1993-02-25",
+  "title": "Warrants issued",
+  "place": "Federal court, Waco",
+  "coords": [
+   31.5552,
+   -97.134
+  ],
+  "zoom": 15,
+  "category": "law",
+  "summary": "A magistrate signs warrants to search Mount Carmel for illegal weapons and to arrest Koresh. ATF teams rehearse a raid at Fort Hood, the Army base south-west of Waco.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "sinful-messiah",
+  "date": "1993-02-27",
+  "title": "'The Sinful Messiah'",
+  "place": "Waco Tribune-Herald, Waco",
+  "coords": [
+   31.553,
+   -97.137
+  ],
+  "zoom": 15,
+  "category": "law",
+  "summary": "The Waco Tribune-Herald begins a series on Koresh, reporting allegations of child abuse and stockpiled weapons. The ATF had asked the paper to wait. The raid, planned for 1 March, is brought forward a day.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "raid",
+  "date": "1993-02-28",
+  "title": "The ATF raid",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "violence",
+  "summary": "About 76 ATF agents arrive in two cattle trailers and other vehicles at about 9.45 am. Shooting breaks out almost at once; who fired first was never settled. Agents climb onto the roof and into the armoury. After about two hours a sheriff's lieutenant on the phone negotiates a ceasefire.",
+  "significance": "The undercover agent Rodriguez had warned his commanders that morning that Koresh knew they were coming. The raid went ahead.",
+  "wiki": "Waco siege",
+  "scene": "atf-raid",
+  "deaths": 10,
+  "stat": "4 ATF agents and 6 Branch Davidians killed (one shot hours later); about 16 agents wounded"
+ },
+ {
+  "id": "fbi-takes-charge",
+  "date": "1993-03-01",
+  "title": "The FBI takes charge",
+  "place": "FBI command post, Texas State Technical College",
+  "coords": [
+   31.6378,
+   -97.0741
+  ],
+  "zoom": 14,
+  "category": "siege",
+  "summary": "The FBI's Hostage Rescue Team surrounds Mount Carmel and armoured vehicles move up to the perimeter. Jeff Jamar runs the siege from a command post on the old Connally air base north of Waco; Byron Sage leads the negotiators. Ten children are sent out during the day.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "broadcast",
+  "date": "1993-03-02",
+  "title": "The broadcast and the broken promise",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "Koresh records an hour-long sermon and promises that everyone will come out once it is broadcast nationally. The Christian Broadcasting Network airs it at 1.30 pm. That evening Koresh says God has told him to wait.",
+  "significance": "The FBI's trust in Koresh's promises never recovered.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "children-out",
+  "date": "1993-03-05",
+  "title": "Twenty-one children out",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "Nine-year-old Heather Jones is the last child to leave, carrying a note from her mother that the adults would die once the children were gone. In the first five days 21 children have come out. More than 20 stay inside with their parents; Koresh says all of them are his descendants.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "pressure",
+  "date": "1993-03",
+  "title": "Lights, noise and the power cut",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "The FBI cuts the electricity, shines floodlights on the building all night and plays loud music, chants and recordings of jet engines and dying animals through loudspeakers. Armoured vehicles crush the Davidians' cars. Inside, they collect rainwater and eat army rations.",
+  "significance": "FBI behavioural experts warned that pressure could backfire and make an end in violence more likely.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "last-out",
+  "date": "1993-03-23",
+  "title": "The last to leave",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "By 23 March, 35 people have come out: 21 children and 14 adults, who are arrested. After that no one else leaves. Inside, 85 people remain with Koresh.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "scholars",
+  "date": "1993-04-01",
+  "title": "Two scholars try the radio",
+  "place": "Waco",
+  "coords": [
+   31.5493,
+   -97.1467
+  ],
+  "zoom": 12,
+  "category": "siege",
+  "summary": "Religion scholars Phillip Arnold and James Tabor discuss the Book of Revelation on a Dallas radio show Koresh listens to, offering a reading in which he can come out without betraying his faith. Koresh's lawyer Dick DeGuerin takes them a tape.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "passover",
+  "date": "1993-04-04",
+  "title": "After Passover",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "Koresh's lawyers meet him and come away saying the Davidians will leave once Passover is over. Passover passes. On 9 April Koresh writes that 'the heavens are calling you to judgment'.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "seven-seals",
+  "date": "1993-04-14",
+  "title": "The Seven Seals manuscript",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "Koresh says he will surrender once he has written out his teaching on the Seven Seals of Revelation. By 16 April he says the first seal is done. The FBI's experts doubt he means to leave.",
+  "significance": "One of the nine who escaped the fire carried the unfinished manuscript out on a computer disk.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "reno-approves",
+  "date": "1993-04-17",
+  "title": "Janet Reno approves the gas plan",
+  "place": "Department of Justice, Washington",
+  "coords": [
+   38.8935,
+   -77.0249
+  ],
+  "zoom": 15,
+  "category": "politics",
+  "summary": "Attorney General Janet Reno, in office five weeks, approves an FBI plan to force the Davidians out with CS tear gas, delivered over 48 hours or more. The next day President Clinton tells her it is her decision.",
+  "significance": "Reno later said her main fear was for the children, and that she took responsibility.",
+  "wiki": "Janet Reno"
+ },
+ {
+  "id": "flames-await",
+  "date": "1993-04-18",
+  "title": "'Flames Await'",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "Armoured vehicles clear Koresh's car and others from the front of the building. People inside hold children up at the windows; one sign reads 'Flames Await'.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "gas",
+  "date": "1993-04-19",
+  "title": "The tear gas assault",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "siege",
+  "summary": "At 5.59 am Byron Sage phones to warn that tear gas is coming and announces over loudspeakers that the people inside are under arrest. Combat engineering vehicles push booms through the walls and spray CS gas; Davidians open fire. Through the morning the vehicles break holes in the front and rear of the building.",
+  "significance": "The plan expected a slow build-up over two days. Within six hours the vehicles were tearing down walls.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "fire",
+  "date": "1993-04-19",
+  "title": "Fire",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "violence",
+  "summary": "Shortly after noon fires break out in at least three places at once, and a strong wind drives them through the timber building in minutes. Nine people escape. Koresh and 75 others die, among them more than 20 children; autopsies found that at least 20 had been shot, which the investigations attributed to people inside.",
+  "significance": "The special counsel later found that the Branch Davidians set the fires. Survivors have always denied it.",
+  "wiki": "Waco siege",
+  "deaths": 76,
+  "stat": "76 Branch Davidians died, more than 20 of them children; 9 escaped"
+ },
+ {
+  "id": "bulldozed",
+  "date": "1993-05",
+  "title": "The site is bulldozed",
+  "place": "Mount Carmel",
+  "coords": [
+   31.5958,
+   -96.9881
+  ],
+  "zoom": 16,
+  "category": "law",
+  "summary": "Two weeks after the fire, once evidence has been collected, the ruins are flattened. Only the concrete foundations, the vault and the construction pit remain.",
+  "significance": "Critics said the clearance destroyed evidence that might have settled what happened.",
+  "wiki": "Mount Carmel Center"
+ },
+ {
+  "id": "reports-1993",
+  "date": "1993-10",
+  "title": "Treasury and Justice reports",
+  "place": "Washington",
+  "coords": [
+   38.8935,
+   -77.0249
+  ],
+  "zoom": 13,
+  "category": "politics",
+  "summary": "A Treasury review finds that the ATF raid commanders knew they had lost surprise and went ahead anyway, then misled investigators. Two are removed (and later reinstated). The Justice Department's reports clear the FBI.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "trial-verdict",
+  "date": "1994-02-26",
+  "title": "The San Antonio verdict",
+  "place": "Federal courthouse, San Antonio",
+  "coords": [
+   29.4246,
+   -98.4951
+  ],
+  "zoom": 15,
+  "category": "law",
+  "summary": "Eleven Branch Davidians are tried for the deaths of the four agents. The jury acquits all of them of murder and conspiracy; several are convicted of voluntary manslaughter or weapons charges. The judge hands down sentences of up to 40 years.",
+  "significance": "In 2000 the Supreme Court ruled the longest sentences wrongly calculated, and they were cut.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "oklahoma-city",
+  "date": "1995-04-19",
+  "title": "The Oklahoma City bombing",
+  "place": "Alfred P. Murrah Federal Building, Oklahoma City",
+  "coords": [
+   35.4729,
+   -97.5171
+  ],
+  "zoom": 15,
+  "category": "violence",
+  "summary": "On the second anniversary of the Mount Carmel fire, Timothy McVeigh detonates a truck bomb outside a federal building in Oklahoma City, killing 168 people, 19 of them children. He had visited Waco during the siege and named it and Ruby Ridge as his reasons.",
+  "significance": "The deadliest act of domestic terrorism in American history, carried out in Waco's name.",
+  "wiki": "Oklahoma City bombing",
+  "deaths": 168
+ },
+ {
+  "id": "hearings",
+  "date": "1995-07",
+  "title": "Congress holds hearings",
+  "place": "Capitol, Washington",
+  "coords": [
+   38.8868,
+   -77.011
+  ],
+  "zoom": 15,
+  "category": "politics",
+  "summary": "Republican-led House committees hold ten days of hearings on Waco. Janet Reno defends her decision; survivors and agents testify. The final report blames Reno, the ATF and the FBI for poor judgement, but places the main blame on Koresh.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "pyrotechnic",
+  "date": "1999-08",
+  "title": "The pyrotechnic rounds",
+  "place": "Washington",
+  "coords": [
+   38.8935,
+   -77.0249
+  ],
+  "zoom": 13,
+  "category": "politics",
+  "summary": "Six years after insisting it fired nothing that could start a fire, the FBI admits that agents fired a few pyrotechnic tear gas rounds on the morning of 19 April, at a concrete pit about 75 feet from the building, hours before the fire. Reno appoints former senator John Danforth as special counsel.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "civil-verdict",
+  "date": "2000-07-14",
+  "title": "The wrongful-death suit",
+  "place": "Federal court, Waco",
+  "coords": [
+   31.5552,
+   -97.134
+  ],
+  "zoom": 15,
+  "category": "law",
+  "summary": "Survivors and relatives sue the government. An advisory jury in Waco finds that federal agents did not fire on the building on 19 April and are not responsible for the deaths; the judge enters judgment for the government.",
+  "wiki": "Waco siege"
+ },
+ {
+  "id": "danforth",
+  "date": "2000-11-08",
+  "title": "The Danforth report",
+  "place": "Washington",
+  "coords": [
+   38.8935,
+   -77.0249
+  ],
+  "zoom": 13,
+  "category": "politics",
+  "summary": "After a year's work and more than a thousand witnesses, Danforth concludes that government agents did not start the fire, did not shoot at the Davidians and did not use excessive force. He faults FBI officials for concealing the pyrotechnic rounds, which he says fuelled distrust for six years.",
+  "significance": "The government's last word on Waco. For many of the survivors and their supporters, it settled nothing.",
+  "wiki": "Waco siege"
+ }
+]

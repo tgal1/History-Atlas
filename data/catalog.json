@@ -84,6 +84,13 @@
       "subtitle": "1951–1981",
       "blurb": "Oil nationalised, a coup, the Shah's White Revolution, the marches of 1978, Khomeini's return, the hostage crisis and Iraq's invasion.",
       "status": "ready"
+    },
+    {
+      "id": "waco",
+      "title": "The Waco siege",
+      "subtitle": "1935–2000",
+      "blurb": "The Branch Davidians, David Koresh and Mount Carmel: the ATF raid, the 51-day FBI siege, the fire of 19 April 1993 and the arguments that followed.",
+      "status": "ready"
     }
   ],
   "cities": [
@@ -229,6 +236,15 @@
       "at": "1991-08-20",
       "when": "Shown in August 1991",
       "blurb": "The Soviet capital during the August coup: the Kremlin and Red Square, the Lubyanka, the White House barricades and Stalin's towers.",
+      "threeD": true
+    },
+    {
+      "id": "mount-carmel",
+      "name": "Mount Carmel",
+      "story": "waco",
+      "at": "1993-03-15",
+      "when": "Shown in March 1993",
+      "blurb": "The Branch Davidians' building near Waco during the siege: living quarters, chapel, gymnasium, the tower over the concrete vault, and the site after the fire.",
       "threeD": true
     }
   ]

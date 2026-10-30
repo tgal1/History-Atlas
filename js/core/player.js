@@ -2,7 +2,7 @@
 // hands control to onEventReached (fly in, show card, maybe play a scene),
 // and resumes when that promise settles.
 
-// rate() returns years of story time per second of real time.
+// rate(t) returns years of story time per second of real time at time t.
 export function createPlayer({ store, events, range, rate, onEventReached }) {
   let raf = null;
   let last = 0;
@@ -24,7 +24,7 @@ export function createPlayer({ store, events, range, rate, onEventReached }) {
     last = now;
 
     if (!holding) {
-      let t = s.t + dt * rate();
+      let t = s.t + dt * rate(s.t);
       const next = s.tourMode ? events[lastStop + 1] : null;
       if (next && next.t <= t) {
         lastStop += 1;
